@@ -1,14 +1,14 @@
 import React from 'react';
-import {Button, StyleSheet, Text, View} from 'react-native';
+import {Button as ButtonRN, StyleSheet, Text, View} from 'react-native';
 
 export interface Props {
   title: string;
 }
 
-const Button_Default: React.FC<Props> = ({title}) => {
+const Button: React.FC<Props> = ({title}) => {
   return (
     <View style={styles.container}>
-      <Button
+      <ButtonRN
         title={title}
         accessibilityLabel="button"
         color="blue"
@@ -25,4 +25,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Button_Default;
+export default Button;

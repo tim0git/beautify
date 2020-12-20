@@ -1,4 +1,4 @@
-import 'jest-enzyme';
+import './components/screens/Landing/node_modules/jest-enzyme';
 
 // setup file
 import {configure} from 'enzyme';

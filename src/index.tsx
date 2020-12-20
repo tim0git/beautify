@@ -8,7 +8,7 @@
 
 import React from 'react';
 
-import Landing_Page from './components/pages/Landing/Landing_Page';
+import Landing_Page from './components/screens/Landing/Landing_Screen';
 
 const App: () => React$Node = () => {
   return <Landing_Page />;

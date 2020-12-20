@@ -8,7 +8,7 @@ import {
   StatusBar,
   Dimensions,
 } from 'react-native';
-import Button_Default from '../../atoms/button/Button_Default';
+import Button_Default from '../../atoms/button/Button';
 
 export interface Props {}
 

@@ -3,7 +3,7 @@ import 'react-native';
 import 'jest-enzyme';
 import {shallow} from 'enzyme';
 
-import Landing_Page from './Landing_Page';
+import Landing_Page from './Landing_Screen';
 
 describe('<Landing_Page>', () => {
   describe('<Render>', () => {
