@@ -18,7 +18,9 @@
     "@types/jest": "^26.0.19",
     "@types/react-native": "^0.63.42",
     "react": "16.13.1",
-    "react-native": "0.63.4"
+    "react-native": "0.63.4",
+    "react-redux": "^7.2.2",
+    "redux": "^4.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
