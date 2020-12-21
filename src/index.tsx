@@ -10,9 +10,9 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import store from './state/Store';
 
-import Landing_Page from './components/screens/Landing/Landing_Screen';
+import Landing_Page from './containers/Landing_Container';
 
-const App: () => React$Node = () => {
+const App = (): React.ReactElement => {
   return (
     <Provider store={store}>
       <Landing_Page />
