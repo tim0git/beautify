@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -10,9 +10,15 @@ import {
 } from 'react-native';
 import Button_Default from '../../atoms/button/Button';
 
-export interface Props {}
+export interface Props {
+  subscribeFireBaseAuth: () => {};
+}
 
-const Landing_Page: React.FC<Props> = (props) => {
+const Landing_Page: React.FC<Props> = ({subscribeFireBaseAuth}) => {
+  useEffect(() => {
+    subscribeFireBaseAuth();
+  }, []);
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
