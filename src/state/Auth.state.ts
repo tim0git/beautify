@@ -67,9 +67,8 @@ export const subscribeFireBaseAuth = () => ({
  */
 export function* attemptSubscribe() {
   try {
-    const user = yield call(AuthService.subscriber);
-
-    yield put({type: SUBSCRIBE_SUCCESSFUL, user});
+    yield call(AuthService.subscriber());
+    yield put({type: SUBSCRIBE_SUCCESSFUL});
   } catch (error) {
     yield put({type: SUBSCRIBE_FAIL, error: error});
   }
