@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "539778711425",
+    "project_id": "beautify-dev",
+    "storage_bucket": "beautify-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:539778711425:android:885fe56f44d9f13ec4f280",
+        "android_client_info": {
+          "package_name": "com.beautify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "539778711425-92g9nshpimhnr6bdqlj3iu9aa8c6vt7u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.beautify",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "539778711425-ab04129dij7d4c5p84e370gspfrcqm82.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDepZpQiSDM53b_qGggJvMuZxBSI0g_Y4M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "539778711425-ab04129dij7d4c5p84e370gspfrcqm82.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
