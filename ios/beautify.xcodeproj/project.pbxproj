@@ -19,6 +19,8 @@
 		4B52F04A3A65A8917000AEFF /* libPods-beautify-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F290DBB8BA01339ACB78420 /* libPods-beautify-tvOSTests.a */; };
 		5F0B5751A24D2EC618D5E995 /* libPods-beautify-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 381EB7FE86B76C099A795EF2 /* libPods-beautify-tvOS.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		9086FC672591126C009A0A98 /* ios in Resources */ = {isa = PBXBuildFile; fileRef = 9086FC662591126C009A0A98 /* ios */; };
+		9086FC6D25911291009A0A98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9086FC6C25911291009A0A98 /* GoogleService-Info.plist */; };
 		AC7D3C97CBD2199203DFFFF2 /* libPods-beautify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DC3F9F53C9DA5B22B94F99 /* libPods-beautify.a */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,8 @@
 		4C1478B91EBC707DA894254D /* Pods-beautify-beautifyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beautify-beautifyTests.release.xcconfig"; path = "Target Support Files/Pods-beautify-beautifyTests/Pods-beautify-beautifyTests.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = beautify/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8F290DBB8BA01339ACB78420 /* libPods-beautify-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-beautify-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9086FC662591126C009A0A98 /* ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ios; sourceTree = "<group>"; };
+		9086FC6C25911291009A0A98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9836AD97E64EC67BA6BFE7E6 /* Pods-beautify-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beautify-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-beautify-tvOS/Pods-beautify-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		AC173DB38891C74812398FDD /* libPods-beautify-beautifyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-beautify-beautifyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF09954D2F18EBA89F41BBE1 /* Pods-beautify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beautify.release.xcconfig"; path = "Target Support Files/Pods-beautify/Pods-beautify.release.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				9086FC6C25911291009A0A98 /* GoogleService-Info.plist */,
+				9086FC662591126C009A0A98 /* ios */,
 				13B07FAE1A68108700A75B9A /* beautify */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* beautifyTests */,
@@ -194,7 +200,6 @@
 				19737C89736D4AB380932237 /* Pods-beautify-tvOSTests.debug.xcconfig */,
 				166C8F5619BE4D22E817AB66 /* Pods-beautify-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -340,6 +345,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9086FC672591126C009A0A98 /* ios in Resources */,
+				9086FC6D25911291009A0A98 /* GoogleService-Info.plist in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
