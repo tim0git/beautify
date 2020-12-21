@@ -1,18 +1,16 @@
 import auth from '@react-native-firebase/auth';
-export class Auth {
-  // Method
 
-  onAuthStateChanged(user) {
-    // dispatch action AUTH_STATE_CHANGE
-    // set state with user : user && initializing : false
-  }
-
-  subscriber() {
-    // dispatch action SUBSCRIBE_FIREBASE_AUTH
-    // set auth reducer to default values.
+class AuthService {
+  static subscriber() {
     return auth().onAuthStateChanged(this.onAuthStateChanged);
   }
+
+  static onAuthStateChanged(user) {
+    return user;
+  }
 }
+
+export default AuthService;
 
 // Firebase Auth
 
