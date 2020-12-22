@@ -125,8 +125,8 @@ export function* attemptSubscribe() {
   try {
     yield call(AuthService.subscriber);
     yield put({type: SUBSCRIBE_SUCCESS});
-  } catch (error) {
-    yield put({type: SUBSCRIBE_FAIL, error: error});
+  } catch ({code}) {
+    yield put({type: SUBSCRIBE_FAIL, error: code});
   }
 }
 

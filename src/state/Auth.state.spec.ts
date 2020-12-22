@@ -147,6 +147,7 @@ describe('<SAGAS>', () => {
       const ERROR_OBJECT = {
         name: 'ERROR_OBJECT_NAME',
         message: 'ERROR_OBJECT_MESSAGE',
+        code: 'ERROR_OBJECT_CODE',
       };
 
       return expectSaga(attemptSubscribe)
@@ -154,12 +155,12 @@ describe('<SAGAS>', () => {
         .provide([[matchers.call.fn(AuthService.subscriber), throwError(ERROR_OBJECT)]])
         .put({
           type: SUBSCRIBE_FAIL,
-          error: ERROR_OBJECT,
+          error: ERROR_OBJECT.code,
         })
         .hasFinalState({
           connected: false,
           loading: false,
-          errorCode: ERROR_OBJECT,
+          errorCode: ERROR_OBJECT.code,
           isLoggedIn: false,
         })
         .run();
@@ -183,7 +184,8 @@ describe('<SAGAS>', () => {
     it('Handles errors', () => {
       const ERROR_OBJECT = {
         name: 'ERROR_OBJECT_NAME',
-        message: 'ERROR_OBJECT_MESSAGE',
+        message: 'ERROR_OBJECT_NAME',
+        code: 'ERROR_OBJECT_CODE',
       };
 
       return expectSaga(attemptSignIn, 'MOCK_PHONE_NUMBER')
@@ -191,12 +193,12 @@ describe('<SAGAS>', () => {
         .provide([[matchers.call.fn(AuthService.signIn), throwError(ERROR_OBJECT)]])
         .put({
           type: SIGN_IN_FAIL,
-          error: ERROR_OBJECT,
+          error: ERROR_OBJECT.code,
         })
         .hasFinalState({
           connected: false,
           loading: false,
-          errorCode: ERROR_OBJECT,
+          errorCode: ERROR_OBJECT.code,
           isLoggedIn: false,
         })
         .run();
