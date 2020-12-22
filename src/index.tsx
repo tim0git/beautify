@@ -8,7 +8,7 @@
 
 import React from 'react';
 import {Provider} from 'react-redux';
-import store from './state/Store';
+import store from './state/Redux/Store';
 
 import Landing_Page from './containers/Landing_Container';
 

@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import {authentication} from './Auth.state';
+import {authentication} from '../Auth.state';
 
 const appReducer = combineReducers({authentication});
 
