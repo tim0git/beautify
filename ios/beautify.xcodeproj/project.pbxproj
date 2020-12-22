@@ -19,7 +19,7 @@
 		4B52F04A3A65A8917000AEFF /* libPods-beautify-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F290DBB8BA01339ACB78420 /* libPods-beautify-tvOSTests.a */; };
 		5F0B5751A24D2EC618D5E995 /* libPods-beautify-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 381EB7FE86B76C099A795EF2 /* libPods-beautify-tvOS.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		90001962259171C900411063 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90001961259171C900411063 /* GoogleService-Info.plist */; };
+		90FA638F259246BC00A130F4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90FA638E259246BC00A130F4 /* GoogleService-Info.plist */; };
 		AC7D3C97CBD2199203DFFFF2 /* libPods-beautify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DC3F9F53C9DA5B22B94F99 /* libPods-beautify.a */; };
 /* End PBXBuildFile section */
 
@@ -63,7 +63,8 @@
 		4C1478B91EBC707DA894254D /* Pods-beautify-beautifyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beautify-beautifyTests.release.xcconfig"; path = "Target Support Files/Pods-beautify-beautifyTests/Pods-beautify-beautifyTests.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = beautify/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8F290DBB8BA01339ACB78420 /* libPods-beautify-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-beautify-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		90001961259171C900411063 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		90FA638E259246BC00A130F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		90FA6394259246F100A130F4 /* beautify.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = beautify.entitlements; path = beautify/beautify.entitlements; sourceTree = "<group>"; };
 		9836AD97E64EC67BA6BFE7E6 /* Pods-beautify-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beautify-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-beautify-tvOS/Pods-beautify-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		AC173DB38891C74812398FDD /* libPods-beautify-beautifyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-beautify-beautifyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF09954D2F18EBA89F41BBE1 /* Pods-beautify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beautify.release.xcconfig"; path = "Target Support Files/Pods-beautify/Pods-beautify.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +128,7 @@
 		13B07FAE1A68108700A75B9A /* beautify */ = {
 			isa = PBXGroup;
 			children = (
+				90FA6394259246F100A130F4 /* beautify.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -161,7 +163,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				90001961259171C900411063 /* GoogleService-Info.plist */,
+				90FA638E259246BC00A130F4 /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* beautify */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* beautifyTests */,
@@ -297,6 +299,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 66ZBHGA9DL;
 						LastSwiftMigration = 1120;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -345,7 +348,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				90001962259171C900411063 /* GoogleService-Info.plist in Resources */,
+				90FA638F259246BC00A130F4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,8 +674,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = beautify/beautify.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 66ZBHGA9DL;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = beautify/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -695,8 +699,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = beautify/beautify.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 66ZBHGA9DL;
 				INFOPLIST_FILE = beautify/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
