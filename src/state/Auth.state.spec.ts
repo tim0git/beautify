@@ -25,7 +25,6 @@ describe('<Action Creators>', () => {
     loading: false,
     errorCode: null,
     isLoggedIn: false,
-    user: null,
   };
 
   const subscribedState = {
@@ -33,7 +32,6 @@ describe('<Action Creators>', () => {
     loading: false,
     errorCode: null,
     isLoggedIn: false,
-    user: {},
   };
 
   describe('Auth state - default', () => {
@@ -69,8 +67,7 @@ describe('<Action Creators>', () => {
 
   describe('Auth state - subscribeSuccess', () => {
     it('Return an object', () => {
-      const action = {user: {}};
-      const state = actionCreators.subscribeSuccess(initialState, action);
+      const state = actionCreators.subscribeSuccess(initialState);
       expect(state).toHaveProperty('connected', true);
       expect(state).toHaveProperty('loading', false);
       expect(state).toHaveProperty('errorCode', null);
@@ -101,8 +98,7 @@ describe('<Action Creators>', () => {
 
   describe('Auth state - signInSuccess', () => {
     it('Return an object', () => {
-      const action = {user: {}};
-      const state = actionCreators.signInSuccess(subscribedState, action);
+      const state = actionCreators.signInSuccess(subscribedState);
       expect(state).toHaveProperty('connected', true);
       expect(state).toHaveProperty('loading', false);
       expect(state).toHaveProperty('errorCode', null);
@@ -143,7 +139,6 @@ describe('<SAGAS>', () => {
           loading: false,
           errorCode: null,
           isLoggedIn: false,
-          user: undefined,
         })
         .run();
     });
@@ -166,7 +161,6 @@ describe('<SAGAS>', () => {
           loading: false,
           errorCode: ERROR_OBJECT,
           isLoggedIn: false,
-          user: null,
         })
         .run();
     });
@@ -182,7 +176,6 @@ describe('<SAGAS>', () => {
           loading: false,
           errorCode: null,
           isLoggedIn: true,
-          user: undefined,
         })
         .run();
     });
@@ -205,7 +198,6 @@ describe('<SAGAS>', () => {
           loading: false,
           errorCode: ERROR_OBJECT,
           isLoggedIn: false,
-          user: null,
         })
         .run();
     });

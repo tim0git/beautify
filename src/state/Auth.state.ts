@@ -26,7 +26,6 @@ const initialState = {
   loading: false,
   errorCode: null,
   isLoggedIn: false,
-  user: null,
 };
 
 export const authentication = (state = initialState, action) => {
@@ -68,12 +67,11 @@ export const actionCreators = {
       connected: false,
     };
   },
-  subscribeSuccess: (state, action) => {
+  subscribeSuccess: (state) => {
     return {
       ...state,
       loading: false,
       connected: true,
-      user: action.user,
     };
   },
   subscribeFail: (state, action) => {
@@ -82,7 +80,6 @@ export const actionCreators = {
       loading: false,
       connected: false,
       errorCode: action.error,
-      user: null,
     };
   },
   signIn: (state) => {
@@ -92,12 +89,11 @@ export const actionCreators = {
       loading: true,
     };
   },
-  signInSuccess: (state, action) => {
+  signInSuccess: (state) => {
     return {
       ...state,
       loading: false,
       isLoggedIn: true,
-      user: action.user,
     };
   },
   signInFail: (state, action) => {
@@ -138,9 +134,13 @@ export function* attemptSignIn(action) {
   try {
     const user = yield call(AuthService.signIn, action.phoneNumber);
 
-    if (user) yield put({type: SIGN_IN_SUCCESS});
+    if (user) {
+      yield put({type: SIGN_IN_SUCCESS});
+    }
 
-    if (!user) yield put({type: SIGN_IN_FAIL, error: 'SIGN_IN_ERROR'});
+    if (!user) {
+      yield put({type: SIGN_IN_FAIL, error: 'SIGN_IN_ERROR'});
+    }
   } catch (error) {
     yield put({type: SIGN_IN_FAIL, error: error});
   }
