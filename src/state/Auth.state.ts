@@ -57,13 +57,15 @@ export const authentication = (state = initialState, action) => {
     case SIGN_IN: {
       return {
         ...initialState,
+        isLoggedIn: false,
         loading: true,
       };
     }
     case SIGN_IN_SUCCESS: {
       return {
         ...initialState,
-        loading: true,
+        loading: false,
+        isLoggedIn: true,
         user: action.user,
       };
     }
@@ -71,6 +73,7 @@ export const authentication = (state = initialState, action) => {
       return {
         ...initialState,
         loading: false,
+        isLoggedIn: false,
         error: action.error,
       };
     }
