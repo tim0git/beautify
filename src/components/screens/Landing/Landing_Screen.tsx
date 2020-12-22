@@ -11,10 +11,11 @@ import {
 import Button_Default from '../../atoms/button/Button';
 
 export interface Props {
-  subscribeFireBaseAuth: () => {};
+  subscribeFireBaseAuth: () => void;
+  signIn: () => {};
 }
 
-const Landing_Page: React.FC<Props> = ({subscribeFireBaseAuth}) => {
+const Landing_Page: React.FC<Props> = ({subscribeFireBaseAuth, signIn}) => {
   useEffect(() => {
     subscribeFireBaseAuth();
   }, []);
@@ -25,7 +26,7 @@ const Landing_Page: React.FC<Props> = ({subscribeFireBaseAuth}) => {
       <SafeAreaView>
         <View style={styles.container}>
           <Text testID="Landing_Page-Page_Title">beautify</Text>
-          <Button_Default title="Lets Begin" />
+          <Button_Default title="Lets Begin" onPress={signIn} />
         </View>
       </SafeAreaView>
     </>
