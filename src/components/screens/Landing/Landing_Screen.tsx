@@ -1,24 +1,16 @@
 import React, {useEffect} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  Dimensions,
-} from 'react-native';
+import {SafeAreaView, StyleSheet, View, Text, StatusBar, Dimensions} from 'react-native';
 import Button_Default from '../../atoms/button/Button';
 
 export interface Props {
   subscribeFireBaseAuth: () => void;
-  signIn: () => {};
+  signIn: (phoneNumber: string) => void;
 }
 
 const Landing_Page: React.FC<Props> = ({subscribeFireBaseAuth, signIn}) => {
   useEffect(() => {
     subscribeFireBaseAuth();
-  }, []);
+  }, [subscribeFireBaseAuth]);
 
   return (
     <>
@@ -29,7 +21,7 @@ const Landing_Page: React.FC<Props> = ({subscribeFireBaseAuth, signIn}) => {
           <Button_Default
             title="Lets Begin"
             onPress={() => {
-              signIn('447902762616');
+              signIn('MOCK_PHONE_NUMBER');
             }}
           />
         </View>
