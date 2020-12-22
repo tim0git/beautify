@@ -34,7 +34,7 @@ export const authentication = (state = initialState, action) => {
       return actionCreators.subscribeFireBaseAuth(state);
     }
     case SUBSCRIBE_SUCCESS: {
-      return actionCreators.subscribeSuccess(state, action);
+      return actionCreators.subscribeSuccess(state);
     }
     case SUBSCRIBE_FAIL: {
       return actionCreators.subscribeFail(state, action);
@@ -43,7 +43,7 @@ export const authentication = (state = initialState, action) => {
       return actionCreators.signIn(state);
     }
     case SIGN_IN_SUCCESS: {
-      return actionCreators.signInSuccess(state, action);
+      return actionCreators.signInSuccess(state);
     }
     case SIGN_IN_FAIL: {
       return actionCreators.signInFail(state, action);
@@ -135,14 +135,14 @@ export function* attemptSignIn(action) {
     const user = yield call(AuthService.signIn, action.phoneNumber);
 
     if (user) {
-      yield put({type: SIGN_IN_SUCCESS});
+      yield put({type: SIGN_IN_SUCCESS, user});
     }
 
     if (!user) {
-      yield put({type: SIGN_IN_FAIL, error: 'SIGN_IN_ERROR'});
+      yield put({type: SIGN_IN_FAIL, error: 'internal/no_user'});
     }
-  } catch (error) {
-    yield put({type: SIGN_IN_FAIL, error: error});
+  } catch ({code}) {
+    yield put({type: SIGN_IN_FAIL, error: code});
   }
 }
 
