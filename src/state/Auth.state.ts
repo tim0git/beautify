@@ -32,54 +32,82 @@ const initialState = {
 export const authentication = (state = initialState, action) => {
   switch (action.type) {
     case SUBSCRIBE_FIREBASE_AUTH: {
-      return {
-        ...initialState,
-        loading: true,
-        connected: false,
-      };
+      return actionCreators.subscribeFireBaseAuth(state);
     }
     case SUBSCRIBE_SUCCESS: {
-      return {
-        ...initialState,
-        loading: false,
-        connected: true,
-        user: action.user,
-      };
+      return actionCreators.subscribeSuccess(state, action);
     }
     case SUBSCRIBE_FAIL: {
-      return {
-        ...initialState,
-        loading: false,
-        connected: false,
-        user: action.error,
-      };
+      return actionCreators.subscribeFail(state, action);
     }
     case SIGN_IN: {
-      return {
-        ...initialState,
-        isLoggedIn: false,
-        loading: true,
-      };
+      return actionCreators.signIn(state);
     }
     case SIGN_IN_SUCCESS: {
-      return {
-        ...initialState,
-        loading: false,
-        isLoggedIn: true,
-        user: action.user,
-      };
+      return actionCreators.signInSuccess(state, action);
     }
     case SIGN_IN_FAIL: {
-      return {
-        ...initialState,
-        loading: false,
-        isLoggedIn: false,
-        error: action.error,
-      };
+      return actionCreators.signInFail(state, action);
     }
     default:
-      return state;
+      return actionCreators.default(state);
   }
+};
+
+/**
+ * ActionCreators
+ */
+export const actionCreators = {
+  default: (state) => {
+    return state;
+  },
+  subscribeFireBaseAuth: (state) => {
+    return {
+      ...state,
+      loading: true,
+      connected: false,
+    };
+  },
+  subscribeSuccess: (state, action) => {
+    return {
+      ...state,
+      loading: false,
+      connected: true,
+      user: action.user,
+    };
+  },
+  subscribeFail: (state, action) => {
+    return {
+      ...state,
+      loading: false,
+      connected: false,
+      errorCode: action.error,
+      user: null,
+    };
+  },
+  signIn: (state) => {
+    return {
+      ...state,
+      isLoggedIn: false,
+      loading: true,
+    };
+  },
+  signInSuccess: (state, action) => {
+    return {
+      ...state,
+      loading: false,
+      isLoggedIn: true,
+      user: action.user,
+    };
+  },
+  signInFail: (state, action) => {
+    return {
+      ...state,
+      loading: false,
+      isLoggedIn: false,
+      errorCode: action.error,
+    };
+  },
 };
 
 /**
@@ -99,19 +127,22 @@ export const signIn = (phoneNumber) => ({
  */
 export function* attemptSubscribe() {
   try {
-    yield call(AuthService.subscriber());
+    yield call(AuthService.subscriber);
     yield put({type: SUBSCRIBE_SUCCESS});
   } catch (error) {
-    yield put({type: SUBSCRIBE_FAIL, error: 'ERROR_CONNECT_FIREBASE_AUTH'});
+    yield put({type: SUBSCRIBE_FAIL, error: error});
   }
 }
 
 export function* attemptSignIn(action) {
   try {
     const user = yield call(AuthService.signIn, action.phoneNumber);
+
     if (user) yield put({type: SIGN_IN_SUCCESS});
+
+    if (!user) yield put({type: SIGN_IN_FAIL, error: 'SIGN_IN_ERROR'});
   } catch (error) {
-    yield put({type: SIGN_IN_FAIL, error: 'ERROR_SIGN_IN'});
+    yield put({type: SIGN_IN_FAIL, error: error});
   }
 }
 
