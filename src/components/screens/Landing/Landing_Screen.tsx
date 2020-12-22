@@ -26,7 +26,12 @@ const Landing_Page: React.FC<Props> = ({subscribeFireBaseAuth, signIn}) => {
       <SafeAreaView>
         <View style={styles.container}>
           <Text testID="Landing_Page-Page_Title">beautify</Text>
-          <Button_Default title="Lets Begin" onPress={signIn} />
+          <Button_Default
+            title="Lets Begin"
+            onPress={() => {
+              signIn('447902762616');
+            }}
+          />
         </View>
       </SafeAreaView>
     </>

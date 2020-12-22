@@ -9,7 +9,7 @@ class AuthService {
     return user;
   }
 
-  static signIn(phoneNumber) {
+  static signIn(phoneNumber: string) {
     return auth().signInWithPhoneNumber(phoneNumber);
   }
 }

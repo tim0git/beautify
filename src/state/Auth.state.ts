@@ -11,7 +11,7 @@ import AuthService from '../services/Auth';
  * Actions
  */
 export const SUBSCRIBE_FIREBASE_AUTH = 'SUBSCRIBE_FIREBASE_AUTH';
-export const SUBSCRIBE_SUCCESSFUL = 'SUBSCRIBE_SUCCESSFUL';
+export const SUBSCRIBE_SUCCESS = 'SUBSCRIBE_SUCCESS';
 export const SUBSCRIBE_FAIL = 'SUBSCRIBE_FAIL';
 
 export const SIGN_IN = 'SIGN_IN';
@@ -38,7 +38,7 @@ export const authentication = (state = initialState, action) => {
         connected: false,
       };
     }
-    case SUBSCRIBE_SUCCESSFUL: {
+    case SUBSCRIBE_SUCCESS: {
       return {
         ...initialState,
         loading: false,
@@ -97,7 +97,7 @@ export const signIn = (phoneNumber) => ({
 export function* attemptSubscribe() {
   try {
     yield call(AuthService.subscriber());
-    yield put({type: SUBSCRIBE_SUCCESSFUL});
+    yield put({type: SUBSCRIBE_SUCCESS});
   } catch (error) {
     yield put({type: SUBSCRIBE_FAIL, error: 'ERROR_CONNECT_FIREBASE_AUTH'});
   }
