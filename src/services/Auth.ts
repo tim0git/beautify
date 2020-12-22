@@ -8,6 +8,10 @@ class AuthService {
   static onAuthStateChanged(user) {
     return user;
   }
+
+  static signIn(phoneNumber) {
+    return auth().signInWithPhoneNumber(phoneNumber);
+  }
 }
 
 export default AuthService;

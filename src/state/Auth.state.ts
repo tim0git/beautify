@@ -14,12 +14,16 @@ export const SUBSCRIBE_FIREBASE_AUTH = 'SUBSCRIBE_FIREBASE_AUTH';
 export const SUBSCRIBE_SUCCESSFUL = 'SUBSCRIBE_SUCCESSFUL';
 export const SUBSCRIBE_FAIL = 'SUBSCRIBE_FAIL';
 
+export const SIGN_IN = 'SIGN_IN';
+export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS';
+export const SIGN_IN_FAIL = 'SIGN_IN_FAIL';
+
 /**
  * Reducer
  */
 const initialState = {
-  initialising: false,
-  loading: true,
+  connected: false,
+  loading: false,
   errorCode: null,
   isLoggedIn: false,
   user: null,
@@ -31,14 +35,14 @@ export const authentication = (state = initialState, action) => {
       return {
         ...initialState,
         loading: true,
-        initialising: true,
+        connected: false,
       };
     }
     case SUBSCRIBE_SUCCESSFUL: {
       return {
         ...initialState,
         loading: false,
-        initialising: false,
+        connected: true,
         user: action.user,
       };
     }
@@ -46,8 +50,28 @@ export const authentication = (state = initialState, action) => {
       return {
         ...initialState,
         loading: false,
-        initialising: true,
+        connected: false,
         user: action.error,
+      };
+    }
+    case SIGN_IN: {
+      return {
+        ...initialState,
+        loading: true,
+      };
+    }
+    case SIGN_IN_SUCCESS: {
+      return {
+        ...initialState,
+        loading: true,
+        user: action.user,
+      };
+    }
+    case SIGN_IN_FAIL: {
+      return {
+        ...initialState,
+        loading: false,
+        error: action.error,
       };
     }
     default:
@@ -62,6 +86,11 @@ export const subscribeFireBaseAuth = () => ({
   type: SUBSCRIBE_FIREBASE_AUTH,
 });
 
+export const signIn = (phoneNumber) => ({
+  type: SIGN_IN,
+  phoneNumber,
+});
+
 /**
  * Sagas
  */
@@ -70,10 +99,20 @@ export function* attemptSubscribe() {
     yield call(AuthService.subscriber());
     yield put({type: SUBSCRIBE_SUCCESSFUL});
   } catch (error) {
-    yield put({type: SUBSCRIBE_FAIL, error: error});
+    yield put({type: SUBSCRIBE_FAIL, error: 'ERROR_CONNECT_FIREBASE_AUTH'});
+  }
+}
+
+export function* attemptSignIn(action) {
+  try {
+    const user = yield call(AuthService.signIn, action.phoneNumber);
+    if (user) yield put({type: SIGN_IN_SUCCESS});
+  } catch (error) {
+    yield put({type: SIGN_IN_FAIL, error: 'ERROR_SIGN_IN'});
   }
 }
 
 export function* authSaga() {
   yield takeLatest(SUBSCRIBE_FIREBASE_AUTH, attemptSubscribe);
+  yield takeLatest(SIGN_IN, attemptSignIn);
 }
