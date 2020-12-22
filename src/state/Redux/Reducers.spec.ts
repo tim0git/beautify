@@ -8,7 +8,10 @@ describe('<Reducers>', () => {
         {authentication: {connected: false, loading: true, errorCode: null, isLoggedIn: false}},
         {type: 'SUBSCRIBE_SUCCESS'},
       );
-      expect(state).toEqual({authentication: {connected: true, loading: false, errorCode: null, isLoggedIn: false}});
+      expect(state).toEqual({
+        authentication: {connected: true, loading: false, errorCode: null, isLoggedIn: false},
+        user: {},
+      });
     });
   });
   describe('<signIn>', () => {
@@ -21,7 +24,10 @@ describe('<Reducers>', () => {
           user: {}, // TEST USER OBJECT
         },
       );
-      expect(state).toEqual({authentication: {connected: true, loading: false, errorCode: null, isLoggedIn: true}});
+      expect(state).toEqual({
+        authentication: {connected: true, loading: false, errorCode: null, isLoggedIn: true},
+        user: {user: {}},
+      });
     });
   });
 });
