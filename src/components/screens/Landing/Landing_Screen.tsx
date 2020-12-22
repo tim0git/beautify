@@ -21,7 +21,7 @@ const Landing_Page: React.FC<Props> = ({subscribeFireBaseAuth, signIn}) => {
           <Button_Default
             title="Lets Begin"
             onPress={() => {
-              signIn('MOCK_PHONE_NUMBER');
+              signIn('CHANGE_ME_FOR_A_VALID_NUMBER');
             }}
           />
         </View>
