@@ -1,5 +1,6 @@
 import React from 'react';
-import {Button as ButtonRN, StyleSheet, Text, View} from 'react-native';
+import {Button as ButtonRN, View} from 'react-native';
+import {ThemeProvider} from '../../../services/ThemeProvider';
 
 export interface Props {
   title: string;
@@ -7,23 +8,13 @@ export interface Props {
 }
 
 const Button: React.FC<Props> = ({title, onPress}) => {
+  const {styles} = ThemeProvider('Button');
+
   return (
     <View style={styles.container}>
-      <ButtonRN
-        title={title}
-        accessibilityLabel="button"
-        color="blue"
-        onPress={onPress}
-      />
+      <ButtonRN title={title} accessibilityLabel="button" color="blue" onPress={onPress} />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    alignSelf: 'center',
-  },
-});
 
 export default Button;
