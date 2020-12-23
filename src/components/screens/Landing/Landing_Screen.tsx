@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
-import {SafeAreaView, StyleSheet, View, Text, StatusBar, Dimensions} from 'react-native';
-import Button_Default from '../../atoms/button/Button';
+import {SafeAreaView, View, Text, StatusBar} from 'react-native';
+import {ThemeProvider} from '../../../services/ThemeProvider';
+import Button from '../../atoms/Button/Button';
 
 export interface Props {
   subscribeFireBaseAuth: () => void;
@@ -8,6 +9,8 @@ export interface Props {
 }
 
 const Landing_Page: React.FC<Props> = ({subscribeFireBaseAuth, signIn}) => {
+  const {styles} = ThemeProvider('Landing');
+
   useEffect(() => {
     subscribeFireBaseAuth();
   }, [subscribeFireBaseAuth]);
@@ -18,10 +21,10 @@ const Landing_Page: React.FC<Props> = ({subscribeFireBaseAuth, signIn}) => {
       <SafeAreaView>
         <View style={styles.container}>
           <Text testID="Landing_Page-Page_Title">beautify</Text>
-          <Button_Default
+          <Button
             title="Lets Begin"
             onPress={() => {
-              signIn('CHANGE_ME_FOR_A_VALID_NUMBER');
+              signIn('+447902762616');
             }}
           />
         </View>
@@ -29,15 +32,5 @@ const Landing_Page: React.FC<Props> = ({subscribeFireBaseAuth, signIn}) => {
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'center',
-  },
-});
 
 export default Landing_Page;
