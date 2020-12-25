@@ -1,3 +1,5 @@
-export default () => ({
-  currentUser: {idToken: 'mocked-id-token'},
-});
+const firebase = {
+  apps: [{beautify: 'TEST'}],
+};
+
+export default firebase;
