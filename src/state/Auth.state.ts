@@ -3,18 +3,18 @@
  * @description Sets out the actions, reducder and saga of authenticating a user
  */
 
-import {call, put, takeLatest} from 'redux-saga/effects';
+import {call, fork, put, take, takeEvery, takeLatest} from 'redux-saga/effects';
 
-import AuthService from '../services/Auth';
+import rsf from './Redux/Redux-Saga-Firebase';
 
 /**
  * Actions
  */
-export const SUBSCRIBE_FIREBASE_AUTH = 'SUBSCRIBE_FIREBASE_AUTH';
-export const SUBSCRIBE_SUCCESS = 'SUBSCRIBE_SUCCESS';
-export const SUBSCRIBE_FAIL = 'SUBSCRIBE_FAIL';
+export const SYNC_USER = 'SYNC_USER';
 
 export const SIGN_IN = 'SIGN_IN';
+export const REQUEST_CODE = 'REQUEST_CODE';
+export const SUBMIT_CODE = 'SUBMIT_CODE';
 export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS';
 export const SIGN_IN_FAIL = 'SIGN_IN_FAIL';
 
@@ -22,7 +22,6 @@ export const SIGN_IN_FAIL = 'SIGN_IN_FAIL';
  * Reducer
  */
 const initialState = {
-  connected: false,
   loading: false,
   errorCode: null,
   isLoggedIn: false,
@@ -30,14 +29,8 @@ const initialState = {
 
 export const authentication = (state = initialState, action) => {
   switch (action.type) {
-    case SUBSCRIBE_FIREBASE_AUTH: {
-      return actionCreators.subscribeFireBaseAuth(state);
-    }
-    case SUBSCRIBE_SUCCESS: {
-      return actionCreators.subscribeSuccess(state);
-    }
-    case SUBSCRIBE_FAIL: {
-      return actionCreators.subscribeFail(state, action);
+    case SYNC_USER: {
+      return actionCreators.syncUser(state, action);
     }
     case SIGN_IN: {
       return actionCreators.signIn(state);
@@ -60,26 +53,11 @@ export const actionCreators = {
   default: (state) => {
     return state;
   },
-  subscribeFireBaseAuth: (state) => {
-    return {
-      ...state,
-      loading: true,
-      connected: false,
-    };
-  },
-  subscribeSuccess: (state) => {
+  syncUser: (state, action) => {
     return {
       ...state,
       loading: false,
-      connected: true,
-    };
-  },
-  subscribeFail: (state, action) => {
-    return {
-      ...state,
-      loading: false,
-      connected: false,
-      errorCode: action.error,
+      isLoggedIn: !!action.user,
     };
   },
   signIn: (state) => {
@@ -101,7 +79,7 @@ export const actionCreators = {
       ...state,
       loading: false,
       isLoggedIn: false,
-      errorCode: action.error,
+      errorCode: action.errorCode,
     };
   },
 };
@@ -109,44 +87,60 @@ export const actionCreators = {
 /**
  * Dispatch
  */
-export const subscribeFireBaseAuth = () => ({
-  type: SUBSCRIBE_FIREBASE_AUTH,
+export const syncUser = (user) => ({
+  type: SYNC_USER,
+  user,
 });
 
-export const signIn = (phoneNumber) => ({
+export const loginIn = (phoneNumber) => ({
   type: SIGN_IN,
   phoneNumber,
 });
 
+export const submitCode = (verificationCode) => ({
+  type: SUBMIT_CODE,
+  verificationCode,
+});
+
+export const loginSuccess = () => ({
+  type: SIGN_IN_SUCCESS,
+});
+
+export const loginFailure = (errorCode) => ({
+  type: SIGN_IN_FAIL,
+  errorCode,
+});
 /**
  * Sagas
  */
-export function* attemptSubscribe() {
-  try {
-    yield call(AuthService.subscriber);
-    yield put({type: SUBSCRIBE_SUCCESS});
-  } catch ({code}) {
-    yield put({type: SUBSCRIBE_FAIL, error: code});
+function* syncUserSaga() {
+  const channel = yield call(rsf.auth.channel);
+
+  while (true) {
+    const {user} = yield take(channel);
+
+    if (user) yield put(syncUser(user));
+    else yield put(syncUser(null));
   }
 }
 
-export function* attemptSignIn(action) {
+function* loginSaga(action) {
   try {
-    const user = yield call(AuthService.signIn, action.phoneNumber);
+    const confirmationResult = yield call(rsf.auth.signInWithPhoneNumber, action.phoneNumber, null);
 
-    if (user) {
-      yield put({type: SIGN_IN_SUCCESS, user});
-    }
+    yield put({type: SUBMIT_CODE});
 
-    if (!user) {
-      yield put({type: SIGN_IN_FAIL, error: 'internal/no_user'});
-    }
-  } catch ({code}) {
-    yield put({type: SIGN_IN_FAIL, error: code});
+    const {verificationCode} = yield take(SUBMIT_CODE);
+
+    yield call([confirmationResult, confirmationResult.confirm], verificationCode);
+
+    yield put(loginSuccess());
+  } catch (error) {
+    yield put(loginFailure(error.code));
   }
 }
 
 export function* authSaga() {
-  yield takeLatest(SUBSCRIBE_FIREBASE_AUTH, attemptSubscribe);
-  yield takeLatest(SIGN_IN, attemptSignIn);
+  yield fork(syncUserSaga);
+  yield takeEvery(SIGN_IN, loginSaga);
 }
