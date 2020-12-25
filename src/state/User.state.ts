@@ -3,7 +3,7 @@
  * @description Sets out the actions, reducer and saga of the user
  */
 
-import {SIGN_IN_SUCCESS, SIGN_IN_FAIL} from './Auth.state';
+import {SYNC_USER, LOGIN_FAIL} from './Auth.state';
 
 /**
  * Reducer
@@ -12,11 +12,11 @@ const initialState = {};
 
 export const user = (state = initialState, action) => {
   switch (action.type) {
-    case SIGN_IN_FAIL: {
+    case LOGIN_FAIL: {
       return actionCreators.clearCurrentUser();
     }
-    case SIGN_IN_SUCCESS: {
-      return actionCreators.storeUser(state, action);
+    case SYNC_USER: {
+      return actionCreators.syncUser(state, action);
     }
     default:
       return actionCreators.default(state);
@@ -35,7 +35,7 @@ export const actionCreators = {
       user: null,
     };
   },
-  storeUser: (state, action) => {
+  syncUser: (state, action) => {
     return {
       ...state,
       user: action.user,
