@@ -1,19 +1,15 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {SafeAreaView, View, Text, StatusBar} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
 import Button from '../../atoms/Button/Button';
 
 export interface Props {
-  subscribeFireBaseAuth: () => void;
-  signIn: (phoneNumber: string) => void;
+  loginIn: (phoneNumber: string) => void;
+  submitCode: (verificationCode: string) => void;
 }
 
-const Landing_Page: React.FC<Props> = ({subscribeFireBaseAuth, signIn}) => {
+const Landing_Page: React.FC<Props> = ({loginIn, submitCode}) => {
   const {styles} = ThemeProvider('Landing');
-
-  useEffect(() => {
-    subscribeFireBaseAuth();
-  }, [subscribeFireBaseAuth]);
 
   return (
     <>
@@ -22,9 +18,15 @@ const Landing_Page: React.FC<Props> = ({subscribeFireBaseAuth, signIn}) => {
         <View style={styles.container}>
           <Text testID="Landing_Page-Page_Title">beautify</Text>
           <Button
-            title="Lets Begin"
+            title="Submit Number"
             onPress={() => {
-              signIn('+447902762616');
+              loginIn('+447902762616');
+            }}
+          />
+          <Button
+            title="Submit code"
+            onPress={() => {
+              submitCode('654321');
             }}
           />
         </View>

@@ -1,15 +1,15 @@
 import {connect} from 'react-redux';
 import {bindActionCreators, Dispatch} from 'redux';
 import Landing_Screen from '../components/screens/Landing/Landing_Screen';
-import {subscribeFireBaseAuth, signIn} from '../state/Auth.state';
+import {loginIn, submitCode} from '../state/Auth.state';
 
 const mapStateToProps = () => ({});
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
     {
-      subscribeFireBaseAuth: subscribeFireBaseAuth,
-      signIn: signIn,
+      loginIn: loginIn,
+      submitCode: submitCode,
     },
     dispatch,
   );
