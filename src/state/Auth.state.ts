@@ -11,12 +11,11 @@ import rsf from './Redux/Redux-Saga-Firebase';
  * Actions
  */
 export const SYNC_USER = 'SYNC_USER';
-
-export const SIGN_IN = 'SIGN_IN';
+export const LOGIN = 'LOGIN';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const REQUEST_CODE = 'REQUEST_CODE';
 export const SUBMIT_CODE = 'SUBMIT_CODE';
-export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS';
-export const SIGN_IN_FAIL = 'SIGN_IN_FAIL';
 
 /**
  * Reducer
@@ -32,14 +31,14 @@ export const authentication = (state = initialState, action) => {
     case SYNC_USER: {
       return actionCreators.syncUser(state, action);
     }
-    case SIGN_IN: {
-      return actionCreators.signIn(state);
+    case LOGIN: {
+      return actionCreators.loginIn(state);
     }
-    case SIGN_IN_SUCCESS: {
-      return actionCreators.signInSuccess(state);
+    case LOGIN_SUCCESS: {
+      return actionCreators.loginInSuccess(state);
     }
-    case SIGN_IN_FAIL: {
-      return actionCreators.signInFail(state, action);
+    case LOGIN_FAIL: {
+      return actionCreators.loginInFail(state, action);
     }
     default:
       return actionCreators.default(state);
@@ -60,21 +59,21 @@ export const actionCreators = {
       isLoggedIn: !!action.user,
     };
   },
-  signIn: (state) => {
+  loginIn: (state) => {
     return {
       ...state,
       isLoggedIn: false,
       loading: true,
     };
   },
-  signInSuccess: (state) => {
+  loginInSuccess: (state) => {
     return {
       ...state,
       loading: false,
       isLoggedIn: true,
     };
   },
-  signInFail: (state, action) => {
+  loginInFail: (state, action) => {
     return {
       ...state,
       loading: false,
@@ -93,7 +92,7 @@ export const syncUser = (user) => ({
 });
 
 export const loginIn = (phoneNumber) => ({
-  type: SIGN_IN,
+  type: LOGIN,
   phoneNumber,
 });
 
@@ -103,17 +102,17 @@ export const submitCode = (verificationCode) => ({
 });
 
 export const loginSuccess = () => ({
-  type: SIGN_IN_SUCCESS,
+  type: LOGIN_SUCCESS,
 });
 
 export const loginFailure = (errorCode) => ({
-  type: SIGN_IN_FAIL,
+  type: LOGIN_FAIL,
   errorCode,
 });
 /**
  * Sagas
  */
-function* syncUserSaga() {
+export function* syncUserSaga() {
   const channel = yield call(rsf.auth.channel);
 
   while (true) {
@@ -124,7 +123,7 @@ function* syncUserSaga() {
   }
 }
 
-function* loginSaga(action) {
+export function* loginSaga(action) {
   try {
     const confirmationResult = yield call(rsf.auth.signInWithPhoneNumber, action.phoneNumber, null);
 
@@ -142,5 +141,5 @@ function* loginSaga(action) {
 
 export function* authSaga() {
   yield fork(syncUserSaga);
-  yield takeEvery(SIGN_IN, loginSaga);
+  yield takeEvery(LOGIN, loginSaga);
 }
