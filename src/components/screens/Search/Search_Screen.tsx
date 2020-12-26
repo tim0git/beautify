@@ -6,10 +6,11 @@ export interface Props {}
 
 const Search_Screen: React.FC<Props> = ({}) => {
   const {styles} = ThemeProvider('Search');
+  const {barStyle} = ThemeProvider('global').styles;
 
   return (
     <>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar barStyle={barStyle} />
       <SafeAreaView>
         <View style={styles.container}>
           <Text>Search Screen</Text>

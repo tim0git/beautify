@@ -13,6 +13,9 @@ import * as Search from '../theme/components/screens/Search';
 import * as Inbox from '../theme/components/screens/Inbox';
 import * as Bookings from '../theme/components/screens/Bookings';
 import * as Profile from '../theme/components/screens/Profile';
+import * as global from '../theme/global';
+
+console.log(global);
 
 /**
  *  Test Import
@@ -28,6 +31,7 @@ const themes = {
   Inbox,
   Bookings,
   Profile,
+  global,
 };
 
 export const ThemeProvider = (component) => {
