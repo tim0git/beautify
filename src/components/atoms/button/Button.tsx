@@ -1,19 +1,29 @@
 import React from 'react';
-import {Button as ButtonRN, View} from 'react-native';
+import {TouchableWithoutFeedback, Text, View} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
 
 export interface Props {
   title: string;
+  type: string;
+  textAlign: string;
   onPress: () => void;
+  accessible: boolean;
+  accessibilityLabel: string;
+  accessibilityHint: string;
+  accessibilityRole: string;
+  disabled: boolean;
+  testID: string;
 }
 
-const Button: React.FC<Props> = ({title, onPress}) => {
+const Button: React.FC<Props> = ({title, type = 'default', textAlign = 'center', onPress}) => {
   const {styles} = ThemeProvider('Button');
 
   return (
-    <View style={styles.container}>
-      <ButtonRN title={title} accessibilityLabel="button" color="blue" onPress={onPress} />
-    </View>
+    <TouchableWithoutFeedback onPress={onPress}>
+      <View style={styles.type[type]}>
+        <Text style={styles.textAlign[textAlign]}>{title}</Text>
+      </View>
+    </TouchableWithoutFeedback>
   );
 };
 
