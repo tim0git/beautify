@@ -8,7 +8,9 @@ export const styles = {
     alignSelf: 'center',
   },
   searchBarButtonContainer: {
-    flex: 1 / 3,
+    flex: 1 / 4,
     justifyContent: 'flex-end',
+    alignSelf: 'stretch',
+    paddingHorizontal: 16,
   },
 };
