@@ -10,9 +10,7 @@ describe('<Landing_Page>', () => {
     test('should have a Page_Title', () => {
       const wrapper = shallow(<Landing_Page />);
 
-      const pageTitle = wrapper.findWhere(
-        (node) => node.prop('testID') === 'Landing_Page-Page_Title',
-      );
+      const pageTitle = wrapper.findWhere((node) => node.prop('testID') === 'Landing_Page-Page_Title');
 
       expect(pageTitle).toExist();
     });
