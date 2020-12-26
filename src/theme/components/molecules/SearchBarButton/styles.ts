@@ -21,7 +21,7 @@ export const styles = {
   textAlign: {
     center: {
       alignSelf: 'center',
-      fontSize: 18,
+      fontSize: 16,
       fontWeight: 'bold',
       color: '#696969',
     },
