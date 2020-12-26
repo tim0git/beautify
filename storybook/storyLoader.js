@@ -5,9 +5,13 @@
 
 function loadStories() {
   require('../src/components/screens/Landing/Landing_Screen.stories');
+  require('../src/components/screens/Search/Search_Screen.stories');
 }
 
-const stories = ['../src/components/pages/Landing/Landing_Page.stories'];
+const stories = [
+  '../src/components/pages/Landing/Landing_Page.stories',
+  '../src/components/screens/Search/Search_Screen.stories',
+];
 
 module.exports = {
   loadStories,
