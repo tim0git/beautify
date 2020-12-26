@@ -15,8 +15,6 @@ import * as Bookings from '../theme/components/screens/Bookings';
 import * as Profile from '../theme/components/screens/Profile';
 import * as global from '../theme/global';
 
-console.log(global);
-
 /**
  *  Test Import
  *
