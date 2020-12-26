@@ -54,7 +54,7 @@ export default function AppNavigationContainer() {
   return (
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="Search" component={SearchStackScreen} />
+        <Tab.Screen name="Search" component={Search_Container} />
         <Tab.Screen name="Bookings" component={BookingsStackScreen} />
         <Tab.Screen name="Inbox" component={MessagesStackScreen} />
         <Tab.Screen name="Profile" component={ProfileStackScreen} />
