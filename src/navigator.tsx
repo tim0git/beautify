@@ -7,6 +7,7 @@ import Search_Container from './containers/Search_Container';
 import Bookings_Container from './containers/Bookings_Container';
 import Inbox_Container from './containers/Inbox_Container';
 import Profile_Container from './containers/Profile_Container';
+import IconMCI from './components/atoms/Icon/IconMCI';
 
 const SearchStack = createStackNavigator();
 
@@ -53,7 +54,19 @@ const Tab = createBottomTabNavigator();
 
 function TabStack() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={({route}) => ({
+        tabBarIcon: ({color, size}) => {
+          const icons = {
+            Bookings: 'spa-outline',
+            Search: 'magnify',
+            Inbox: 'message-text-outline',
+            Profile: 'account-outline',
+          };
+
+          return <IconMCI name={icons[route.name]} color={color} size={size} />;
+        },
+      })}>
       <Tab.Screen name="Search" component={Search_Container} />
       <Tab.Screen name="Bookings" component={BookingsStackScreen} />
       <Tab.Screen name="Inbox" component={MessagesStackScreen} />
