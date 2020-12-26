@@ -5,7 +5,7 @@ import CenterView from '../../../../storybook/stories/CenterView';
 import SearchBarButton from './SearchBarButton';
 
 const defaultProps = {
-  title: 'TEST TITLE',
+  title: 'Search for a treatment or provider',
   type: 'default',
   onPress: () => {
     alert('Pressed!');
