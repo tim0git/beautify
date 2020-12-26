@@ -10,14 +10,10 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import store from './state/Redux/Store';
 
-import Landing_Page from './containers/Landing_Container';
+import AppNavigationContainer from './navigator';
 
 const App = (): React.ReactElement => {
-  return (
-    <Provider store={store}>
-      <Landing_Page />
-    </Provider>
-  );
+  return <Provider store={store}>{AppNavigationContainer()}</Provider>;
 };
 
 export default App;
