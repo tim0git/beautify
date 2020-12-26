@@ -9,6 +9,10 @@ import * as Button from '../theme/components/atoms/Button';
  *
  * */
 import * as Landing from '../theme/components/screens/Landing';
+import * as Search from '../theme/components/screens/Search';
+import * as Inbox from '../theme/components/screens/Inbox';
+import * as Bookings from '../theme/components/screens/Bookings';
+import * as Profile from '../theme/components/screens/Profile';
 
 /**
  *  Test Import
@@ -20,6 +24,10 @@ const themes = {
   TEST_COMPONENT,
   Button,
   Landing,
+  Search,
+  Inbox,
+  Bookings,
+  Profile,
 };
 
 export const ThemeProvider = (component) => {
