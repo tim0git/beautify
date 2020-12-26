@@ -3,6 +3,11 @@
  *
  * */
 import * as Button from '../theme/components/atoms/Button';
+/**
+ *  Molecules Import
+ *
+ * */
+import * as SearchBarButton from '../theme/components/molecules/SearchBarButton';
 
 /**
  *  Screens Import
@@ -30,6 +35,7 @@ const themes = {
   Bookings,
   Profile,
   global,
+  SearchBarButton,
 };
 
 export const ThemeProvider = (component) => {
