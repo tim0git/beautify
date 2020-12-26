@@ -1,8 +1,10 @@
-import {Dimensions} from 'react-native';
 export const styles = {
+  pageWrapper: {
+    flexGrow: 1,
+    backgroundColor: '#FFFFFF',
+  },
   container: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
+    flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
     alignSelf: 'center',

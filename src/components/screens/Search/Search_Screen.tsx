@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, View, Text, StatusBar, Button} from 'react-native';
+import {SafeAreaView, View, Text, StatusBar} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
 import SearchBarButton from '../../molecules/SearchBarButton/SearchBarButton';
 
@@ -16,7 +16,7 @@ const Search_Screen: React.FC<Props> = (props) => {
   return (
     <>
       <StatusBar barStyle={barStyle} />
-      <SafeAreaView>
+      <SafeAreaView style={styles.pageWrapper}>
         <View style={styles.container}>
           <View style={styles.searchBarButtonContainer}>
             <SearchBarButton
