@@ -1,24 +1,18 @@
 import 'react-native';
 import 'jest-enzyme';
 
-import {expectSaga} from 'redux-saga-test-plan';
-import * as matchers from 'redux-saga-test-plan/matchers';
-import {throwError} from 'redux-saga-test-plan/providers';
-
 import {
   actionCreators,
   loginIn,
+  loginFailure,
+  loginSuccess,
+  syncUser,
+  submitCode,
   LOGIN,
   LOGIN_FAIL,
-  authentication,
-  syncUserSaga,
-  syncUser,
-  SYNC_USER,
-  submitCode,
-  SUBMIT_CODE,
-  loginSuccess,
   LOGIN_SUCCESS,
-  loginFailure,
+  SYNC_USER,
+  SUBMIT_CODE,
 } from './Auth.state';
 
 describe('<Action Creators>', () => {

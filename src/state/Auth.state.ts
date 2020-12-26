@@ -3,7 +3,7 @@
  * @description Sets out the actions, reducder and saga of authenticating a user
  */
 
-import {call, fork, put, take, takeEvery, takeLatest} from 'redux-saga/effects';
+import {call, fork, put, take, takeEvery} from 'redux-saga/effects';
 
 import rsf from './Redux/Redux-Saga-Firebase';
 
