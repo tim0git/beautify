@@ -109,6 +109,7 @@ export const loginFailure = (errorCode) => ({
   type: LOGIN_FAIL,
   errorCode,
 });
+
 /**
  * Sagas
  */

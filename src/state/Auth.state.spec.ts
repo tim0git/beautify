@@ -5,7 +5,21 @@ import {expectSaga} from 'redux-saga-test-plan';
 import * as matchers from 'redux-saga-test-plan/matchers';
 import {throwError} from 'redux-saga-test-plan/providers';
 
-import {actionCreators, loginIn, LOGIN, authentication, LOGIN_FAIL, syncUserSaga} from './Auth.state';
+import {
+  actionCreators,
+  loginIn,
+  LOGIN,
+  LOGIN_FAIL,
+  authentication,
+  syncUserSaga,
+  syncUser,
+  SYNC_USER,
+  submitCode,
+  SUBMIT_CODE,
+  loginSuccess,
+  LOGIN_SUCCESS,
+  loginFailure,
+} from './Auth.state';
 
 describe('<Action Creators>', () => {
   const initialState = {
@@ -59,6 +73,17 @@ describe('<Action Creators>', () => {
 });
 
 describe('<Dispatch Actions>', () => {
+  describe('syncUser', () => {
+    it('should dispatch SYNC_USER with the user passed as argument', () => {
+      const user = 'MOCK_USER';
+      const dispatch = syncUser(user);
+      expect(dispatch).toEqual({
+        type: SYNC_USER,
+        user,
+      });
+    });
+  });
+
   describe('loginIn', () => {
     it('should dispatch LOGIN with the phoneNumber passed as argument', () => {
       const phoneNumber = 'MOCK_PHONE_NUMBER';
@@ -69,81 +94,35 @@ describe('<Dispatch Actions>', () => {
       });
     });
   });
+
+  describe('submitCode', () => {
+    it('should dispatch SUBMIT_CODE with the verificationCode passed as argument', () => {
+      const verificationCode = 'MOCK_CODE';
+      const dispatch = submitCode(verificationCode);
+      expect(dispatch).toEqual({
+        type: SUBMIT_CODE,
+        verificationCode,
+      });
+    });
+  });
+
+  describe('loginSuccess', () => {
+    it('should dispatch LOGIN_SUCCESS', () => {
+      const dispatch = loginSuccess();
+      expect(dispatch).toEqual({
+        type: LOGIN_SUCCESS,
+      });
+    });
+  });
+
+  describe('loginFailure', () => {
+    it('should dispatch LOGIN_FAIL with the errorCode passed as an augument', () => {
+      const errorCode = 'MOCK_CODE';
+      const dispatch = loginFailure(errorCode);
+      expect(dispatch).toEqual({
+        type: LOGIN_FAIL,
+        errorCode,
+      });
+    });
+  });
 });
-
-// describe('<SAGAS>', () => {
-//   describe('syncUserSaga', () => {
-//     it('Subscribes the app to Google Firebase', () => {
-//       return expectSaga(syncUserSaga)
-//         .withReducer(authentication)
-//         .hasFinalState({
-//           connected: true,
-//           loading: false,
-//           errorCode: null,
-//           isLoggedIn: false,
-//         })
-//         .run();
-//     });
-
-//     it('Handles errors', () => {
-//       const ERROR_OBJECT = {
-//         name: 'ERROR_OBJECT_NAME',
-//         message: 'ERROR_OBJECT_MESSAGE',
-//         code: 'ERROR_OBJECT_CODE',
-//       };
-
-//       return expectSaga(syncUserSaga)
-//         .withReducer(authentication)
-//         .provide([[matchers.call.fn(AuthService.subscriber), throwError(ERROR_OBJECT)]])
-//         .put({
-//           type: SUBSCRIBE_FAIL,
-//           error: ERROR_OBJECT.code,
-//         })
-//         .hasFinalState({
-//           connected: false,
-//           loading: false,
-//           errorCode: ERROR_OBJECT.code,
-//           isLoggedIn: false,
-//         })
-//         .run();
-//     });
-//   });
-
-//   describe('attemptloginIn', () => {
-//     const action = {phoneNumber: 'MOCK PHONE NUMBER'};
-//     it('signs a user in with phoneNumber', () => {
-//       return expectSaga(attemptloginIn, action)
-//         .withReducer(authentication)
-//         .hasFinalState({
-//           connected: false,
-//           loading: false,
-//           errorCode: null,
-//           isLoggedIn: true,
-//         })
-//         .run();
-//     });
-
-//     it('Handles errors', () => {
-//       const ERROR_OBJECT = {
-//         name: 'ERROR_OBJECT_NAME',
-//         message: 'ERROR_OBJECT_NAME',
-//         code: 'ERROR_OBJECT_CODE',
-//       };
-
-//       return expectSaga(attemptloginIn, 'MOCK_PHONE_NUMBER')
-//         .withReducer(authentication)
-//         .provide([[matchers.call.fn(AuthService.loginIn), throwError(ERROR_OBJECT)]])
-//         .put({
-//           type: LOGIN_FAIL,
-//           error: ERROR_OBJECT.code,
-//         })
-//         .hasFinalState({
-//           connected: false,
-//           loading: false,
-//           errorCode: ERROR_OBJECT.code,
-//           isLoggedIn: false,
-//         })
-//         .run();
-//     });
-//   });
-// });
