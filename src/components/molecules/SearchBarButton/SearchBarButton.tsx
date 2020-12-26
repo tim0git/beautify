@@ -22,7 +22,7 @@ const SearchBarButton: React.FC<Props> = ({title, type = 'default', textAlign = 
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={styles.type[type]}>
-        <IconMCI name={'magnify'} color={'#696969'} size={35} />
+        <IconMCI name={'magnify'} color={'#696969'} size={30} />
         <Text style={styles.textAlign[textAlign]}>{title}</Text>
       </View>
     </TouchableWithoutFeedback>
