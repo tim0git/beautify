@@ -3,6 +3,7 @@
  *
  * */
 import * as Button from '../theme/components/atoms/Button';
+
 /**
  *  Molecules Import
  *
@@ -18,6 +19,12 @@ import * as Home from '../theme/components/screens/Home';
 import * as Inbox from '../theme/components/screens/Inbox';
 import * as Bookings from '../theme/components/screens/Bookings';
 import * as Profile from '../theme/components/screens/Profile';
+import * as Search from '../theme/components/screens/Search';
+
+/**
+ *  Global Import
+ *
+ * */
 import * as global from '../theme/global';
 
 /**
@@ -34,6 +41,7 @@ const themes = {
   Inbox,
   Bookings,
   Profile,
+  Search,
   global,
   SearchBarButton,
 };

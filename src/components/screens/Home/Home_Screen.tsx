@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, View, Text, StatusBar} from 'react-native';
+import {SafeAreaView, View, StatusBar} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
 import SearchBarButton from '../../molecules/SearchBarButton/SearchBarButton';
 
