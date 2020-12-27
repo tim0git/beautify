@@ -19,6 +19,8 @@ export const styles = {
   textAlign: {
     center: {
       alignSelf: 'center',
+      color: 'grey',
+      fontWeight: '500',
     },
   },
 };
