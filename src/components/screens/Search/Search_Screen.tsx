@@ -1,6 +1,8 @@
 import React from 'react';
 import {View, StatusBar, SafeAreaView, Text} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
+import SubTitle from '../../atoms/SubTitle/SubTitle';
+import Title from '../../atoms/Title/Title';
 
 export interface Props {
   navigation: {
@@ -15,9 +17,7 @@ const Search_Screen: React.FC<Props> = ({}) => {
     <>
       <StatusBar barStyle={barStyle} />
       <SafeAreaView style={styles.pageWrapper}>
-        <View style={styles.container}>
-          <Text>Search Screen</Text>
-        </View>
+        <View style={styles.container}></View>
       </SafeAreaView>
     </>
   );

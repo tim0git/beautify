@@ -4,7 +4,6 @@ import {ThemeProvider} from '../../../services/ThemeProvider';
 
 export interface Props {
   title: string;
-  textAlign: string;
   accessible: boolean;
   accessibilityLabel: string;
   accessibilityHint: string;
@@ -12,12 +11,12 @@ export interface Props {
   testID: string;
 }
 
-const Title: React.FC<Props> = ({title, textAlign = 'center'}) => {
+const Title: React.FC<Props> = ({title}) => {
   const {styles} = ThemeProvider('Title');
 
   return (
     <View style={styles.container}>
-      <Text style={styles.textAlign[textAlign]}>{title}</Text>
+      <Text style={styles.text}>{title}</Text>
     </View>
   );
 };

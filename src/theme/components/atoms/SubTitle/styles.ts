@@ -1,10 +1,11 @@
-import {width, height} from '../../../global/styles';
+import {typography, colors} from '../../../global/styles';
 
 export const styles = {
-  container: {},
-  textAlign: {
-    center: {
-      alignSelf: 'center',
-    },
+  container: {
+    alignSelf: 'stretch',
+  },
+  text: {
+    ...typography.SubTitle,
+    color: colors.subTitle,
   },
 };

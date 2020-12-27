@@ -7,5 +7,5 @@ export const config = {
     accessibilityRole: 'search',
   },
   title: 'Start searching',
-  subtitle: 'Browse by catergory or by practitioner',
+  subTitle: 'Browse by catergory or by practitioner',
 };

@@ -1,12 +1,12 @@
 export const typography = {
   Title: {
-    color: 'grey',
+    alignSelf: 'center',
     fontWeight: 'bold',
     fontSize: 20,
   },
   SubTitle: {
-    color: 'grey',
+    alignSelf: 'center',
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 16,
   },
 };
