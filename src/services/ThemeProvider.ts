@@ -3,6 +3,8 @@
  *
  * */
 import * as Button from '../theme/components/atoms/Button';
+import * as Title from '../theme/components/atoms/Title';
+import * as SubTitle from '../theme/components/atoms/SubTitle';
 
 /**
  *  Molecules Import
@@ -44,6 +46,8 @@ const themes = {
   Search,
   global,
   SearchBarButton,
+  Title,
+  SubTitle,
 };
 
 export const ThemeProvider = (component) => {

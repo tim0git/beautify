@@ -6,4 +6,6 @@ export const config = {
     accessibilityHint: 'TEST A11Y HINT',
     accessibilityRole: 'search',
   },
+  title: 'Start searching',
+  subtitle: 'Browse by catergory or by practitioner',
 };
