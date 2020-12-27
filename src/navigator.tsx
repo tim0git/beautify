@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import Home_Container from './containers/Home_Container';
+import Search_Container from './containers/Search_Container';
 import Bookings_Container from './containers/Bookings_Container';
 import Inbox_Container from './containers/Inbox_Container';
 import Profile_Container from './containers/Profile_Container';
@@ -14,7 +15,7 @@ const SearchStack = createStackNavigator();
 function SearchStackScreen() {
   return (
     <SearchStack.Navigator headerMode="none">
-      <SearchStack.Screen name="Search_Landing" component={Bookings_Container} />
+      <SearchStack.Screen name="Search_Screen" component={Search_Container} />
     </SearchStack.Navigator>
   );
 }
