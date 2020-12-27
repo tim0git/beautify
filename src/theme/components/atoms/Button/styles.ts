@@ -1,15 +1,19 @@
-import {width, height} from '../../../global/styles';
+import {size} from '../../../global/styles';
 
 export const styles = {
   type: {
     default: {
-      alignItems: 'stretch',
+      alignSelf: 'stretch',
       justifyContent: 'center',
-      width: width * 0.8,
-      height: height * 0.05,
-      borderRadius: 10,
+      paddingVertical: size.padding.xxs,
+      borderRadius: 5,
       borderColor: 'black',
       borderWidth: 1,
+    },
+    NoBorder: {
+      alignSelf: 'stretch',
+      justifyContent: 'center',
+      paddingVertical: size.padding.xxs,
     },
   },
   textAlign: {

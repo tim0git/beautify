@@ -18,6 +18,12 @@ const defaultProps = {
   testID: 'TEST_ID',
 };
 
+const NoBorderProps = {
+  ...defaultProps,
+  type: 'NoBorder',
+};
+
 storiesOf('Buttons', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
-  .add('Button_Default', () => <Button {...defaultProps} />);
+  .add('Button_Default', () => <Button {...defaultProps} />)
+  .add('Button_NoBorder', () => <Button {...NoBorderProps} />);
