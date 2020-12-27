@@ -14,7 +14,7 @@ import * as SearchBarButton from '../theme/components/molecules/SearchBarButton'
  *
  * */
 import * as Landing from '../theme/components/screens/Landing';
-import * as Search from '../theme/components/screens/Search';
+import * as Home from '../theme/components/screens/Home';
 import * as Inbox from '../theme/components/screens/Inbox';
 import * as Bookings from '../theme/components/screens/Bookings';
 import * as Profile from '../theme/components/screens/Profile';
@@ -30,7 +30,7 @@ const themes = {
   TEST_COMPONENT,
   Button,
   Landing,
-  Search,
+  Home,
   Inbox,
   Bookings,
   Profile,

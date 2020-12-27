@@ -7,14 +7,14 @@ function loadStories() {
   require('../src/components/atoms/Button/Button.stories');
   require('../src/components/molecules/SearchBarButton/SearchBarButton.stories');
   require('../src/components/screens/Landing/Landing_Screen.stories');
-  require('../src/components/screens/Search/Search_Screen.stories');
+  require('../src/components/screens/Home/Home_Screen.stories');
 }
 
 const stories = [
   '../src/components/atoms/Button/Button.stories',
   '../src/components/molecules/SearchBarButton/SearchBarButton.stories',
   '../src/components/screens/Landing/Landing_Page.stories',
-  '../src/components/screens/Search/Search_Screen.stories',
+  '../src/components/screens/Home/Home_Screen.stories',
 ];
 
 module.exports = {

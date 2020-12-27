@@ -9,10 +9,10 @@ export interface Props {
   };
 }
 
-const Search_Screen: React.FC<Props> = (props) => {
-  const {styles} = ThemeProvider('Search');
+const Home_Screen: React.FC<Props> = (props) => {
+  const {styles, config} = ThemeProvider('Home');
   const {barStyle} = ThemeProvider('global').styles;
-
+  const {SearchBarButtonProps} = config;
   return (
     <>
       <StatusBar barStyle={barStyle} />
@@ -20,17 +20,11 @@ const Search_Screen: React.FC<Props> = (props) => {
         <View style={styles.container}>
           <View style={styles.searchBarButtonContainer}>
             <SearchBarButton
-              title="Search for a treatment or provider"
-              type="default"
-              textAlign="center"
-              accessible={true}
-              accessibilityLabel="TEST A11Y LABEL"
-              accessibilityHint="TEST A11Y HINT"
-              accessibilityRole="button"
+              {...SearchBarButtonProps}
               disabled={false}
-              testID="TEST_ID"
+              testID="Home-SearchBarButton"
               onPress={() => {
-                props.navigation.navigate('Test Path');
+                props.navigation.navigate('Search_Screen');
               }}
             />
           </View>
@@ -40,4 +34,4 @@ const Search_Screen: React.FC<Props> = (props) => {
   );
 };
 
-export default Search_Screen;
+export default Home_Screen;

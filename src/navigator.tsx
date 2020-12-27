@@ -3,7 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import Search_Container from './containers/Search_Container';
+import Home_Container from './containers/Home_Container';
 import Bookings_Container from './containers/Bookings_Container';
 import Inbox_Container from './containers/Inbox_Container';
 import Profile_Container from './containers/Profile_Container';
@@ -67,7 +67,7 @@ function TabStack() {
           return <IconMCI name={icons[route.name]} color={color} size={size} />;
         },
       })}>
-      <Tab.Screen name="Search" component={Search_Container} />
+      <Tab.Screen name="Search" component={Home_Container} />
       <Tab.Screen name="Bookings" component={BookingsStackScreen} />
       <Tab.Screen name="Inbox" component={MessagesStackScreen} />
       <Tab.Screen name="Profile" component={ProfileStackScreen} />
@@ -80,7 +80,7 @@ export default function AppNavigationContainer() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home" headerMode="none">
         <Stack.Screen name="Home" component={TabStack} />
-        <Stack.Screen name="Test Path" component={SearchStackScreen} />
+        <Stack.Screen name="Search_Screen" component={SearchStackScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
