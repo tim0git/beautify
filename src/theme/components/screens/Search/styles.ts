@@ -9,10 +9,4 @@ export const styles = {
     alignItems: 'center',
     alignSelf: 'center',
   },
-  searchBarButtonContainer: {
-    flex: 1 / 4,
-    justifyContent: 'flex-end',
-    alignSelf: 'stretch',
-    paddingHorizontal: 16,
-  },
 };

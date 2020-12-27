@@ -6,6 +6,22 @@ export const config = {
     accessibilityHint: 'TEST A11Y HINT',
     accessibilityRole: 'search',
   },
-  title: 'Start searching',
-  subTitle: 'Browse by catergory or by practitioner',
+  Screen_PlaceHolderProps: {
+    titleProps: {
+      title: 'Start searching',
+      accessible: true,
+      accessibilityLabel: 'TEST',
+      accessibilityHint: 'TEST',
+      accessibilityRole: 'text',
+      testID: 'TEST',
+    },
+    subTitleProps: {
+      subTitle: 'Browse by catergory or by practitioner',
+      accessible: true,
+      accessibilityLabel: 'TEST',
+      accessibilityHint: 'TEST',
+      accessibilityRole: 'text',
+      testID: 'TEST',
+    },
+  },
 };

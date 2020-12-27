@@ -11,6 +11,7 @@ import * as SubTitle from '../theme/components/atoms/SubTitle';
  *
  * */
 import * as SearchBarButton from '../theme/components/molecules/SearchBarButton';
+import * as Screen_PlaceHolder from '../theme/components/molecules/Screen_PlaceHolder';
 
 /**
  *  Screens Import
@@ -46,6 +47,7 @@ const themes = {
   Search,
   global,
   SearchBarButton,
+  Screen_PlaceHolder,
   Title,
   SubTitle,
 };
