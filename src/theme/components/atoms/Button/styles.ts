@@ -1,4 +1,4 @@
-import {size} from '../../../global/styles';
+import {size, typography, colors} from '../../../global/styles';
 
 export const styles = {
   type: {

@@ -1,10 +1,10 @@
 export const typography = {
-  Title: {
+  title: {
     alignSelf: 'center',
     fontWeight: 'bold',
     fontSize: 20,
   },
-  SubTitle: {
+  subtitle: {
     alignSelf: 'center',
     fontWeight: 'bold',
     fontSize: 16,

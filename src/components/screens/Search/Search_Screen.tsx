@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, StatusBar, SafeAreaView, Text} from 'react-native';
+import {View, StatusBar, SafeAreaView} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
 import Screen_PlaceHolder from '../../molecules/Screen_PlaceHolder/Screen_PlaceHolder';
 import Search_Bar from '../../molecules/Search_Bar/Search_Bar';

@@ -5,7 +5,7 @@ export const styles = {
     alignSelf: 'stretch',
   },
   text: {
-    ...typography.SubTitle,
-    color: colors.subTitle,
+    ...typography.subtitle,
+    color: colors.text.subtitle,
   },
 };

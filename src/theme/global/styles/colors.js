@@ -1,9 +1,15 @@
 const COLORS = {
   greyLight: '#C2C5CC',
   greyDark: '#545C71',
+  white: '#FFFFFF',
 };
 
 export const colors = {
-  Title: COLORS.greyLight,
-  SubTitle: COLORS.greyDark,
+  text: {
+    title: COLORS.greyLight,
+    subtitle: COLORS.greyDark,
+  },
+  background: {
+    primary: COLORS.white,
+  },
 };

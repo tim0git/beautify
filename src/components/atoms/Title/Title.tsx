@@ -1,5 +1,5 @@
 import React from 'react';
-import {TouchableWithoutFeedback, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
 
 export interface Props {
@@ -7,16 +7,22 @@ export interface Props {
   accessible: boolean;
   accessibilityLabel: string;
   accessibilityHint: string;
-  accessibilityRole: string;
   testID: string;
 }
 
-const Title: React.FC<Props> = ({title}) => {
+const Title: React.FC<Props> = ({title, testID, accessible, accessibilityLabel, accessibilityHint}) => {
   const {styles} = ThemeProvider('Title');
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{title}</Text>
+      <Text
+        testID={testID}
+        style={styles.text}
+        accessible={accessible}
+        accessibilityLabel={accessibilityLabel}
+        accessibilityHint={accessibilityHint}>
+        {title}
+      </Text>
     </View>
   );
 };

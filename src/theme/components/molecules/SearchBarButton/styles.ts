@@ -1,21 +1,15 @@
+import {size, colors, shadows} from '../../../global/styles';
+
 export const styles = {
   type: {
     default: {
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
-      paddingHorizontal: 25,
-      paddingVertical: 5,
-      backgroundColor: '#FFFFFF',
-      borderRadius: 8,
-      shadowColor: '#000',
-      shadowOffset: {
-        width: 0,
-        height: 1,
-      },
-      shadowOpacity: 0.2,
-      shadowRadius: 1.41,
-      elevation: 2,
+      paddingHorizontal: size.padding.lg,
+      paddingVertical: size.padding.xxs,
+      backgroundColor: colors.background.primary,
+      ...shadows.box.small,
     },
   },
   textAlign: {

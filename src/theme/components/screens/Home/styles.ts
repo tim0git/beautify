@@ -1,7 +1,8 @@
+import {colors, size} from '../../../global/styles';
 export const styles = {
   pageWrapper: {
     flexGrow: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.background.primary,
   },
   container: {
     flex: 1,
@@ -13,6 +14,6 @@ export const styles = {
     flex: 1 / 4,
     justifyContent: 'flex-end',
     alignSelf: 'stretch',
-    paddingHorizontal: 16,
+    paddingHorizontal: size.padding.md,
   },
 };
