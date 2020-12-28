@@ -26,7 +26,7 @@ describe('<Home_Screen>', () => {
 
       expect(SearchBarButtonProps).toHaveProperty('title');
       expect(SearchBarButtonProps).toHaveProperty('type');
-      expect(SearchBarButtonProps).toHaveProperty('textAlign');
+      expect(SearchBarButtonProps).toHaveProperty('iconLeft');
       expect(SearchBarButtonProps).toHaveProperty('accessible');
       expect(SearchBarButtonProps).toHaveProperty('accessibilityLabel');
       expect(SearchBarButtonProps).toHaveProperty('accessibilityHint');
