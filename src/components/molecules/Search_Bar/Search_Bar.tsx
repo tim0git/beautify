@@ -1,45 +1,49 @@
 import React from 'react';
+import {useState} from 'react';
 import {TextInput, View} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
 import Button from '../../atoms/Button/Button';
 import IconRN from '../../atoms/Icon/Icon';
 
 export interface Props {
-  value: string;
-  onChangeText: (text: string) => void;
-  onPress?: () => void;
-  keyboardType?: string;
+  onChange: (text: string) => string;
   testID: string;
 }
 
-const Search_Bar: React.FC<Props> = ({onPress, value, onChangeText, testID}) => {
-  const {styles} = ThemeProvider('Search_Bar');
+const Search_Bar: React.FC<Props> = ({onChange, testID}) => {
+  const [value, onChangeText] = useState('');
+
+  const {styles, config} = ThemeProvider('Search_Bar');
+
+  const {textInputProps, searchBarIconProps, cancelButtonProps} = config;
+
+  const handleChange = (text) => {
+    onChangeText(text);
+    onChange(text);
+  };
+
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID="Search_Bar">
       <View style={styles.searchBar}>
         <View style={styles.iconContainer}>
-          <IconRN name="Search" color="grey" size={30} />
+          <IconRN {...searchBarIconProps} testID="Search_Bar_Icon" />
         </View>
         <View style={styles.textInputContainer}>
           <TextInput
-            testID={testID || 'Search_Bar_Text_Input'}
+            {...textInputProps}
             style={styles.textInput}
-            onChangeText={(text) => onChangeText(text)}
             value={value}
-            keyboardType="default"
-            autoFocus={true}
+            onChangeText={(text) => handleChange(text)}
+            testID={testID || 'Search_Bar_Text_Input'}
           />
         </View>
       </View>
       <View style={styles.buttonContainer}>
         <Button
-          title="Cancel"
-          type="NoBorder"
-          onPress={onPress}
-          accessible
-          accessibilityLabel=""
-          accessibilityHint=""
-          disabled={false}
+          {...cancelButtonProps}
+          onPress={() => {
+            handleChange('');
+          }}
           testID="Search_Bar_Button"
         />
       </View>

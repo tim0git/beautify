@@ -1,16 +1,11 @@
-/* eslint-disable no-alert */
 import {storiesOf} from '@storybook/react-native';
 import React from 'react';
 import CenterView from '../../../../storybook/stories/CenterView';
 import Search_Bar from './Search_Bar';
 
 const defaultProps = {
-  placeHolder: 'place holder',
-  onChangeText: () => {},
-  onPress: () => {
-    alert('Pressed Cancel!');
-  },
-  keyboardType: 'default',
+  onChange: () => {},
+  testID: 'TEST_SEARCH_BAR_TEST_ID',
 };
 
 storiesOf('Search_Bar', module)
