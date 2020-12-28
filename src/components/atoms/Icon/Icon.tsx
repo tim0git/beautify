@@ -12,7 +12,7 @@ const IconRN: React.FC<Props> = ({name, color, size}) => {
 
   const iconName = config.iconMapper[name];
 
-  return <Icon name={iconName} color={color} size={size} />;
+  return <Icon name={iconName} color={color} size={size} testID={'Icon-Icon'} />;
 };
 
 export default IconRN;
