@@ -26,7 +26,9 @@ export const styles = {
     },
   },
   text: {
-    default: {},
+    default: {
+      alignSelf: 'center',
+    },
     NoBorder: {
       alignSelf: 'center',
       color: 'grey',

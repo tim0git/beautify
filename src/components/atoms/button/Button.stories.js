@@ -23,7 +23,14 @@ const NoBorderProps = {
   type: 'NoBorder',
 };
 
+const SearchBarProps = {
+  ...defaultProps,
+  type: 'SearchBar',
+  iconLeft: true,
+};
+
 storiesOf('Buttons', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Button_Default', () => <Button {...defaultProps} />)
-  .add('Button_NoBorder', () => <Button {...NoBorderProps} />);
+  .add('Button_NoBorder', () => <Button {...NoBorderProps} />)
+  .add('Button_SearchBar', () => <Button {...SearchBarProps} />);
