@@ -6,7 +6,7 @@ import {ThemeProvider} from '../../../services/ThemeProvider';
 export interface Props {
   title: string;
   type: string;
-  iconLeft: boolean;
+  iconLeft?: boolean;
   onPress: () => void;
   accessible: boolean;
   accessibilityLabel: string;
