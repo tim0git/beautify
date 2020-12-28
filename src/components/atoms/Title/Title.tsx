@@ -14,13 +14,14 @@ const Title: React.FC<Props> = ({title, testID, accessible, accessibilityLabel, 
   const {styles} = ThemeProvider('Title');
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID={testID || 'Title-Container'}>
       <Text
-        testID={testID}
+        testID={'Title-Text'}
         style={styles.text}
         accessible={accessible}
         accessibilityLabel={accessibilityLabel}
-        accessibilityHint={accessibilityHint}>
+        accessibilityHint={accessibilityHint}
+        accessibilityRole="text">
         {title}
       </Text>
     </View>
