@@ -59,10 +59,10 @@ function TabStack() {
       screenOptions={({route}) => ({
         tabBarIcon: ({color, size}) => {
           const icons = {
-            Bookings: 'spa-outline',
-            Search: 'magnify',
-            Inbox: 'message-text-outline',
-            Profile: 'account-outline',
+            Bookings: 'Bookings',
+            Search: 'Search',
+            Inbox: 'Inbox',
+            Profile: 'Profile',
           };
 
           return <IconRN name={icons[route.name]} color={color} size={size} />;
