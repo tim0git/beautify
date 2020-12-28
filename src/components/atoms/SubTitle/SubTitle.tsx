@@ -14,13 +14,14 @@ const SubTitle: React.FC<Props> = ({subTitle, testID, accessible, accessibilityL
   const {styles} = ThemeProvider('SubTitle');
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID={testID || 'SubTitle-Container'}>
       <Text
-        testID={testID}
+        testID={'SubTitle-Text'}
         style={styles.text}
         accessible={accessible}
         accessibilityLabel={accessibilityLabel}
-        accessibilityHint={accessibilityHint}>
+        accessibilityHint={accessibilityHint}
+        accessibilityRole="text">
         {subTitle}
       </Text>
     </View>
