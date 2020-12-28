@@ -6,7 +6,6 @@ export const styles = {
     alignSelf: 'stretch',
     alignItems: 'center',
     flexDirection: 'row',
-    // backgroundColor: 'grey',
   },
   searchBar: {
     flex: 1,
@@ -21,11 +20,9 @@ export const styles = {
     shadowRadius: 1.41,
     elevation: 2,
     flexDirection: 'row',
-    // backgroundColor: 'orange',
   },
   iconContainer: {
     padding: 4,
-    // backgroundColor: 'green',
   },
   textInputContainer: {
     flex: 1,
@@ -33,14 +30,15 @@ export const styles = {
     alignItems: 'flex-start',
     justifyContent: 'center',
     padding: 4,
-    // backgroundColor: 'red',
   },
-  textInput: {},
+  textInput: {
+    alignSelf: 'stretch',
+    flexGrow: 1,
+  },
   buttonContainer: {
     alignSelf: 'stretch',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 4,
-    // backgroundColor: 'blue',
+    paddingLeft: 12,
   },
 };

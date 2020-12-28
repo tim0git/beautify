@@ -5,13 +5,13 @@ import Button from '../../atoms/Button/Button';
 import IconMCI from '../../atoms/Icon/IconMCI';
 
 export interface Props {
-  placeHolder: string;
-  onChangeText: (text: string) => string;
-  onPress: () => void;
-  keyboardType: string;
+  value: string;
+  onChangeText: (text: string) => void;
+  onPress?: () => void;
+  keyboardType?: string;
 }
 
-const Search_Bar: React.FC<Props> = ({onPress, onChangeText}) => {
+const Search_Bar: React.FC<Props> = ({onPress, value, onChangeText}) => {
   const {styles, config} = ThemeProvider('Search_Bar');
   return (
     <View style={styles.container}>
@@ -20,7 +20,13 @@ const Search_Bar: React.FC<Props> = ({onPress, onChangeText}) => {
           <IconMCI name="magnify" color="grey" size={30} />
         </View>
         <View style={styles.textInputContainer}>
-          <TextInput style={styles.textInput} onChangeText={(text) => onChangeText(text)} value={'|'} />
+          <TextInput
+            style={styles.textInput}
+            onChangeText={(text) => onChangeText(text)}
+            value={value}
+            keyboardType="default"
+            autoFocus={true}
+          />
         </View>
       </View>
       <View style={styles.buttonContainer}>
