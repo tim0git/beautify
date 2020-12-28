@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, StatusBar, SafeAreaView} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
-import Screen_PlaceHolder from '../../molecules/Screen_PlaceHolder/Screen_PlaceHolder';
+import Screen_Instructions from '../../molecules/Screen_Instructions/Screen_Instructions';
 import Search_Bar from '../../molecules/Search_Bar/Search_Bar';
 export interface Props {
   navigation: {
@@ -11,7 +11,7 @@ export interface Props {
 const Search_Screen: React.FC<Props> = ({}) => {
   const {styles, config} = ThemeProvider('Search');
   const {barStyle} = ThemeProvider('global').styles;
-  const {Screen_PlaceHolderProps} = config;
+  const {Screen_InstructionsProps} = config;
 
   const [value, onChangeText] = useState('');
   return (
@@ -20,7 +20,7 @@ const Search_Screen: React.FC<Props> = ({}) => {
       <SafeAreaView style={styles.pageWrapper}>
         <View style={styles.container}>
           <Search_Bar value={value} onChangeText={onChangeText} testID="Search-SearchBar" />
-          <Screen_PlaceHolder {...Screen_PlaceHolderProps} testID="Search-ScreenPlaceHolder" />
+          <Screen_Instructions {...Screen_InstructionsProps} testID="Search-ScreenPlaceHolder" />
         </View>
       </SafeAreaView>
     </>

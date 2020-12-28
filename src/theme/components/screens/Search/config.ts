@@ -6,7 +6,7 @@ export const config = {
     accessibilityHint: 'TEST A11Y HINT',
     accessibilityRole: 'search',
   },
-  Screen_PlaceHolderProps: {
+  Screen_InstructionsProps: {
     titleProps: {
       title: 'Start searching',
       accessible: true,

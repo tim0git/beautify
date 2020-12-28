@@ -29,11 +29,11 @@ const atoms = {
  * */
 import * as Search_Bar from '../theme/components/molecules/Search_Bar';
 import * as SearchBarButton from '../theme/components/molecules/SearchBarButton';
-import * as Screen_PlaceHolder from '../theme/components/molecules/Screen_PlaceHolder';
+import * as Screen_Instructions from '../theme/components/molecules/Screen_Instructions';
 const molecules = {
   Search_Bar,
   SearchBarButton,
-  Screen_PlaceHolder,
+  Screen_Instructions,
 };
 
 /**

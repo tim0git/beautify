@@ -23,8 +23,8 @@ export interface Props {
   };
 }
 
-const Screen_PlaceHolder: React.FC<Props> = ({titleProps, subTitleProps}) => {
-  const {styles} = ThemeProvider('Screen_PlaceHolder');
+const Screen_Instructions: React.FC<Props> = ({titleProps, subTitleProps}) => {
+  const {styles} = ThemeProvider('Screen_Instructions');
 
   return (
     <View style={styles.headerContainer}>
@@ -38,4 +38,4 @@ const Screen_PlaceHolder: React.FC<Props> = ({titleProps, subTitleProps}) => {
   );
 };
 
-export default Screen_PlaceHolder;
+export default Screen_Instructions;
