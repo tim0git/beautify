@@ -16,10 +16,10 @@ export const styles = {
       paddingVertical: size.padding.xxs,
     },
     SearchBar: {
+      alignSelf: 'stretch',
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
-      paddingHorizontal: size.padding.lg,
       paddingVertical: size.padding.xxs,
       backgroundColor: colors.background.primary,
       ...shadows.box.small,

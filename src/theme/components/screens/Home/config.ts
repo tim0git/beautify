@@ -1,8 +1,8 @@
 export const config = {
   SearchBarButtonProps: {
     title: 'Search for a treatment or provider',
-    type: 'default',
-    textAlign: 'center',
+    type: 'SearchBar',
+    iconLeft: true,
     accessible: true,
     accessibilityLabel: 'TEST A11Y LABEL',
     accessibilityHint: 'TEST A11Y HINT',

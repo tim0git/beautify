@@ -26,6 +26,7 @@ const NoBorderProps = {
 const SearchBarProps = {
   ...defaultProps,
   type: 'SearchBar',
+  title: 'Search for a treatment or provider',
   iconLeft: true,
 };
 

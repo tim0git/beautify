@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView, View, StatusBar} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
-import SearchBarButton from '../../molecules/SearchBarButton/SearchBarButton';
+import Button from '../../atoms/Button/Button';
 
 export interface Props {
   navigation: {
@@ -19,7 +19,7 @@ const Home_Screen: React.FC<Props> = (props) => {
       <SafeAreaView style={styles.pageWrapper}>
         <View style={styles.container}>
           <View style={styles.searchBarButtonContainer}>
-            <SearchBarButton
+            <Button
               {...SearchBarButtonProps}
               disabled={false}
               testID="Home-SearchBarButton"
