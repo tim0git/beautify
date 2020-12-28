@@ -19,7 +19,9 @@ const Search_Bar: React.FC<Props> = ({onChange, testID}) => {
 
   const handleChange = (text) => {
     onChangeText(text);
-    onChange(text);
+    if (onChange) {
+      onChange(text);
+    }
   };
 
   return (
