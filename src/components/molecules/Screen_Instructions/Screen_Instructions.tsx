@@ -29,10 +29,10 @@ const Screen_Instructions: React.FC<Props> = ({titleProps, subTitleProps}) => {
   return (
     <View style={styles.headerContainer}>
       <View style={styles.titleContainer}>
-        <Title {...titleProps} testID="Search_Title" />
+        <Title {...titleProps} testID={titleProps.testID || 'Screen_Instructions_Title'} />
       </View>
       <View style={styles.subTitleContainer}>
-        <SubTitle {...subTitleProps} testID="Search_SubTitle" />
+        <SubTitle {...subTitleProps} testID={subTitleProps.testID || 'Screen_Instructions_SubTitle'} />
       </View>
     </View>
   );
