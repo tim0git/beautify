@@ -1,10 +1,27 @@
 /**
+ *  Test Import
+ *
+ * */
+import * as TEST_COMPONENT from '../../__mocks__/Theme/mock_theme';
+
+/**
+ *  Global Import
+ *
+ * */
+import * as global from '../theme/global';
+
+/**
  *  Atoms Import
  *
  * */
 import * as Button from '../theme/components/atoms/Button';
 import * as Title from '../theme/components/atoms/Title';
 import * as SubTitle from '../theme/components/atoms/SubTitle';
+const atoms = {
+  Button,
+  Title,
+  SubTitle,
+};
 
 /**
  *  Molecules Import
@@ -13,6 +30,11 @@ import * as SubTitle from '../theme/components/atoms/SubTitle';
 import * as Search_Bar from '../theme/components/molecules/Search_Bar';
 import * as SearchBarButton from '../theme/components/molecules/SearchBarButton';
 import * as Screen_PlaceHolder from '../theme/components/molecules/Screen_PlaceHolder';
+const molecules = {
+  Search_Bar,
+  SearchBarButton,
+  Screen_PlaceHolder,
+};
 
 /**
  *  Screens Import
@@ -24,34 +46,21 @@ import * as Inbox from '../theme/components/screens/Inbox';
 import * as Bookings from '../theme/components/screens/Bookings';
 import * as Profile from '../theme/components/screens/Profile';
 import * as Search from '../theme/components/screens/Search';
-
-/**
- *  Global Import
- *
- * */
-import * as global from '../theme/global';
-
-/**
- *  Test Import
- *
- * */
-import * as TEST_COMPONENT from '../../__mocks__/Theme/mock_theme';
-
-const themes = {
-  TEST_COMPONENT,
-  Button,
+const screens = {
   Landing,
   Home,
   Inbox,
   Bookings,
   Profile,
   Search,
+};
+
+const themes = {
+  TEST_COMPONENT,
   global,
-  Search_Bar,
-  SearchBarButton,
-  Screen_PlaceHolder,
-  Title,
-  SubTitle,
+  ...atoms,
+  ...molecules,
+  ...screens,
 };
 
 export const ThemeProvider = (component) => {
