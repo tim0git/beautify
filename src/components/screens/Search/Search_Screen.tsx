@@ -19,8 +19,8 @@ const Search_Screen: React.FC<Props> = ({}) => {
       <StatusBar barStyle={barStyle} />
       <SafeAreaView style={styles.pageWrapper}>
         <View style={styles.container}>
-          <Search_Bar value={value} onChangeText={onChangeText} />
-          <Screen_PlaceHolder {...Screen_PlaceHolderProps} />
+          <Search_Bar value={value} onChangeText={onChangeText} testID="Search-SearchBar" />
+          <Screen_PlaceHolder {...Screen_PlaceHolderProps} testID="Search-Screen-PlaceHolder" />
         </View>
       </SafeAreaView>
     </>
