@@ -5,7 +5,7 @@
 
 function loadStories() {
   require('../src/components/atoms/Button/Button.stories');
-  require('../src/components/atoms/Icon/IconMCI.stories');
+  require('../src/components/atoms/Icon/Icon.stories');
   require('../src/components/atoms/SubTitle/SubTitle.stories');
   require('../src/components/atoms/Title/Title.stories');
   require('../src/components/molecules/Screen_Instructions/Screen_Instructions.stories');
@@ -17,7 +17,7 @@ function loadStories() {
 
 const stories = [
   '../src/components/atoms/Button/Button.stories',
-  '../src/components/atoms/Icon/IconMCI.stories',
+  '../src/components/atoms/Icon/Icon.stories',
   '../src/components/atoms/SubTitle/SubTitle.stories',
   '../src/components/atoms/Title/Title.stories',
   '../src/components/molecules/Screen_Instructions/Screen_Instructions.stories',

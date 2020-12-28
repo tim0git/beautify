@@ -15,10 +15,12 @@ import * as global from '../theme/global';
  *
  * */
 import * as Button from '../theme/components/atoms/Button';
+import * as Icon from '../theme/components/atoms/Icon';
 import * as Title from '../theme/components/atoms/Title';
 import * as SubTitle from '../theme/components/atoms/SubTitle';
 const atoms = {
   Button,
+  Icon,
   Title,
   SubTitle,
 };

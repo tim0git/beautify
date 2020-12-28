@@ -2,7 +2,7 @@ import React from 'react';
 import {TextInput, View} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
 import Button from '../../atoms/Button/Button';
-import IconMCI from '../../atoms/Icon/IconMCI';
+import IconRN from '../../atoms/Icon/Icon';
 
 export interface Props {
   value: string;
@@ -13,12 +13,12 @@ export interface Props {
 }
 
 const Search_Bar: React.FC<Props> = ({onPress, value, onChangeText, testID}) => {
-  const {styles, config} = ThemeProvider('Search_Bar');
+  const {styles} = ThemeProvider('Search_Bar');
   return (
     <View style={styles.container}>
       <View style={styles.searchBar}>
         <View style={styles.iconContainer}>
-          <IconMCI name="magnify" color="grey" size={30} />
+          <IconRN name="Search" color="grey" size={30} />
         </View>
         <View style={styles.textInputContainer}>
           <TextInput
@@ -35,12 +35,10 @@ const Search_Bar: React.FC<Props> = ({onPress, value, onChangeText, testID}) => 
         <Button
           title="Cancel"
           type="NoBorder"
-          textAlign="center"
           onPress={onPress}
           accessible
           accessibilityLabel=""
           accessibilityHint=""
-          accessibilityRole="button"
           disabled={false}
           testID="Search_Bar_Button"
         />

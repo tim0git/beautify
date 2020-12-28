@@ -1,6 +1,6 @@
 export const config = {
   SearchBar: {
-    name: 'magnify',
+    name: 'Search',
     color: '#696969',
     size: 30,
   },

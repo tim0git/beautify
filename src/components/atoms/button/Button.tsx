@@ -1,6 +1,6 @@
 import React from 'react';
 import {TouchableWithoutFeedback, Text, View} from 'react-native';
-import IconMCI from '../../../components/atoms/Icon/IconMCI';
+import IconRN from '../Icon/Icon';
 import {ThemeProvider} from '../../../services/ThemeProvider';
 
 export interface Props {
@@ -43,7 +43,7 @@ const Button: React.FC<Props> = ({
       accessibilityHint={accessibilityHint}
       accessibilityRole={'button'}>
       <View style={styles.container[type]}>
-        {iconLeft && <IconMCI {...iconProps} testID="Button-IconLeft" />}
+        {iconLeft && <IconRN {...iconProps} testID="Button-IconLeft" />}
         <Text style={styles.text[type]} testID="Button-Text">
           {title}
         </Text>

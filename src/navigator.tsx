@@ -8,7 +8,7 @@ import Search_Container from './containers/Search_Container';
 import Bookings_Container from './containers/Bookings_Container';
 import Inbox_Container from './containers/Inbox_Container';
 import Profile_Container from './containers/Profile_Container';
-import IconMCI from './components/atoms/Icon/IconMCI';
+import IconRN from './components/atoms/Icon/Icon';
 
 const SearchStack = createStackNavigator();
 
@@ -65,7 +65,7 @@ function TabStack() {
             Profile: 'account-outline',
           };
 
-          return <IconMCI name={icons[route.name]} color={color} size={size} />;
+          return <IconRN name={icons[route.name]} color={color} size={size} />;
         },
       })}>
       <Tab.Screen name="Search" component={Home_Container} />
