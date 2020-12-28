@@ -1,5 +1,5 @@
 import React from 'react';
-import {TouchableWithoutFeedback, Text, View} from 'react-native';
+import {Pressable, Text, View} from 'react-native';
 import IconRN from '../Icon/Icon';
 import {ThemeProvider} from '../../../services/ThemeProvider';
 
@@ -35,7 +35,7 @@ const Button: React.FC<Props> = ({
   };
 
   return (
-    <TouchableWithoutFeedback
+    <Pressable
       onPress={handlePress}
       testID={testID || 'Button-Container'}
       accessible={accessible}
@@ -48,7 +48,7 @@ const Button: React.FC<Props> = ({
           {title}
         </Text>
       </View>
-    </TouchableWithoutFeedback>
+    </Pressable>
   );
 };
 
