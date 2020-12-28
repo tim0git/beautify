@@ -11,21 +11,42 @@ export interface Props {
   accessible: boolean;
   accessibilityLabel: string;
   accessibilityHint: string;
-  accessibilityRole: string;
   disabled: boolean;
   testID: string;
 }
 
-const Button: React.FC<Props> = ({title, type = 'default', iconLeft, onPress}) => {
+const Button: React.FC<Props> = ({
+  title,
+  testID,
+  type = 'default',
+  iconLeft,
+  onPress,
+  disabled,
+  accessible,
+  accessibilityLabel,
+  accessibilityHint,
+}) => {
   const {styles, config} = ThemeProvider('Button');
 
   const iconProps = config[type];
 
+  const handlePress = () => {
+    !disabled && onPress();
+  };
+
   return (
-    <TouchableWithoutFeedback onPress={onPress}>
+    <TouchableWithoutFeedback
+      onPress={handlePress}
+      testID={testID || 'Button-Container'}
+      accessible={accessible}
+      accessibilityLabel={accessibilityLabel}
+      accessibilityHint={accessibilityHint}
+      accessibilityRole={'button'}>
       <View style={styles.container[type]}>
-        {iconLeft && <IconMCI {...iconProps} />}
-        <Text style={styles.text[type]}>{title}</Text>
+        {iconLeft && <IconMCI {...iconProps} testID="Button-IconLeft" />}
+        <Text style={styles.text[type]} testID="Button-Text">
+          {title}
+        </Text>
       </View>
     </TouchableWithoutFeedback>
   );
