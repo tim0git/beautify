@@ -1,11 +1,12 @@
 import React from 'react';
 import {TouchableWithoutFeedback, Text, View} from 'react-native';
+import IconMCI from '../../../components/atoms/Icon/IconMCI';
 import {ThemeProvider} from '../../../services/ThemeProvider';
 
 export interface Props {
   title: string;
   type: string;
-  textAlign: string;
+  iconLeft: boolean;
   onPress: () => void;
   accessible: boolean;
   accessibilityLabel: string;
@@ -15,13 +16,16 @@ export interface Props {
   testID: string;
 }
 
-const Button: React.FC<Props> = ({title, type = 'default', textAlign = 'center', onPress}) => {
-  const {styles} = ThemeProvider('Button');
+const Button: React.FC<Props> = ({title, type = 'default', iconLeft, onPress}) => {
+  const {styles, config} = ThemeProvider('Button');
+
+  const iconProps = config[type];
 
   return (
     <TouchableWithoutFeedback onPress={onPress}>
-      <View style={styles.type[type]}>
-        <Text style={styles.textAlign[textAlign]}>{title}</Text>
+      <View style={styles.container[type]}>
+        {iconLeft && <IconMCI {...iconProps} />}
+        <Text style={styles.text[type]}>{title}</Text>
       </View>
     </TouchableWithoutFeedback>
   );

@@ -1,7 +1,7 @@
-import {size, typography, colors} from '../../../global/styles';
+import {size, typography, shadows, colors} from '../../../global/styles';
 
 export const styles = {
-  type: {
+  container: {
     default: {
       alignSelf: 'stretch',
       justifyContent: 'center',
@@ -15,12 +15,28 @@ export const styles = {
       justifyContent: 'center',
       paddingVertical: size.padding.xxs,
     },
+    SearchBar: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingHorizontal: size.padding.lg,
+      paddingVertical: size.padding.xxs,
+      backgroundColor: colors.background.primary,
+      ...shadows.box.small,
+    },
   },
-  textAlign: {
-    center: {
+  text: {
+    default: {},
+    NoBorder: {
       alignSelf: 'center',
       color: 'grey',
       fontWeight: '500',
+    },
+    SearchBar: {
+      alignSelf: 'center',
+      fontSize: 16,
+      fontWeight: 'bold',
+      color: '#696969',
     },
   },
 };
