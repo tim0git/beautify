@@ -16,5 +16,11 @@ describe('<Search_Screen>', () => {
 
       expect(SearchBar).toExist();
     });
+    test('should render a screen placeHolder', () => {
+      const wrapper = shallow(<Search_Screen {...defaultProps} />);
+      const SearchBar = wrapper.findWhere((node) => node.prop('testID') === 'Search-ScreenPlaceHolder');
+
+      expect(SearchBar).toExist();
+    });
   });
 });

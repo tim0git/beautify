@@ -9,9 +9,10 @@ export interface Props {
   onChangeText: (text: string) => void;
   onPress?: () => void;
   keyboardType?: string;
+  testID: string;
 }
 
-const Search_Bar: React.FC<Props> = ({onPress, value, onChangeText}) => {
+const Search_Bar: React.FC<Props> = ({onPress, value, onChangeText, testID}) => {
   const {styles, config} = ThemeProvider('Search_Bar');
   return (
     <View style={styles.container}>
@@ -21,6 +22,7 @@ const Search_Bar: React.FC<Props> = ({onPress, value, onChangeText}) => {
         </View>
         <View style={styles.textInputContainer}>
           <TextInput
+            testID={testID || 'Search_Bar_Text_Input'}
             style={styles.textInput}
             onChangeText={(text) => onChangeText(text)}
             value={value}
