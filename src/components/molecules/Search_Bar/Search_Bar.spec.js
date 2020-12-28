@@ -42,9 +42,9 @@ describe('<Search_Bar>', () => {
     test('should call onChange prop when a onChangeText event occours', () => {
       const wrapper = shallow(<Search_Bar {...defaultProps} />);
 
-      const SearchBar = wrapper.findWhere((node) => node.prop('testID') === 'Search_Bar_Text_Input');
+      const SearchBarTextInput = wrapper.findWhere((node) => node.prop('testID') === 'Search_Bar_Text_Input');
 
-      SearchBar.props().onChangeText();
+      SearchBarTextInput.props().onChangeText();
 
       expect(defaultProps.onChange).toHaveBeenCalledTimes(1);
     });
@@ -52,9 +52,9 @@ describe('<Search_Bar>', () => {
       const TEST_STRING = 'TEST_STRING';
       const wrapper = shallow(<Search_Bar {...defaultProps} />);
 
-      const SearchBar = wrapper.findWhere((node) => node.prop('testID') === 'Search_Bar_Text_Input');
+      const SearchBarTextInput = wrapper.findWhere((node) => node.prop('testID') === 'Search_Bar_Text_Input');
 
-      SearchBar.props().onChangeText(TEST_STRING);
+      SearchBarTextInput.props().onChangeText(TEST_STRING);
 
       expect(defaultProps.onChange).toHaveBeenCalledWith(TEST_STRING);
     });
@@ -74,11 +74,32 @@ describe('<Search_Bar>', () => {
 
       const TEST_STRING = 'TEST_STRING';
 
-      const SearchBar = wrapper.findWhere((node) => node.prop('testID') === 'Search_Bar_Text_Input');
+      const SearchBarTextInput = wrapper.findWhere((node) => node.prop('testID') === 'Search_Bar_Text_Input');
 
-      SearchBar.props().onChangeText(TEST_STRING);
+      SearchBarTextInput.props().onChangeText(TEST_STRING);
 
       expect(setState).toHaveBeenCalledWith(TEST_STRING);
+
+      jest.clearAllMocks();
+    });
+    test('should clear state when the Cancel button is pressed', () => {
+      /**
+       * Mock useState hook
+       */
+      const setState = jest.fn();
+      const useStateMock = (initState) => [initState, setState];
+      jest.spyOn(React, 'useState').mockImplementation(useStateMock);
+
+      /**
+       * Test
+       */
+      const wrapper = shallow(<Search_Bar {...defaultProps} />);
+
+      const CancelButton = wrapper.findWhere((node) => node.prop('testID') === 'Search_Bar_Button');
+
+      CancelButton.props().onPress();
+
+      expect(setState).toHaveBeenCalledWith('');
 
       jest.clearAllMocks();
     });
