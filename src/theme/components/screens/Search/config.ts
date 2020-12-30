@@ -1,4 +1,6 @@
 export const config = {
+  nextFetchPolicy: 'cache-and-network',
+  displayName: 'fetch category and practitioner data',
   SearchBarProps: {
     placeHolder: 'enter your search here...',
     accessible: true,
