@@ -2,7 +2,6 @@
 Create Hygen template for new components
 Test Auth saga's
 Install Detox & Mock API calls?
-Integrate GraphQl <Apollo Client>
 Create Pipeline and link to Apple & Play store accounts
 
 **Tech Debt**
