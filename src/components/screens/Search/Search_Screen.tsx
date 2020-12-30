@@ -4,7 +4,6 @@ import {ThemeProvider} from '../../../services/ThemeProvider';
 import Screen_Instructions from '../../molecules/Screen_Instructions/Screen_Instructions';
 import Search_Bar from '../../molecules/Search_Bar/Search_Bar';
 import {useQuery} from '@apollo/client';
-
 import {GET_LAUNCH_BY_ID} from '../../../services/graphQueryStore';
 export interface Props {
   navigation: {
