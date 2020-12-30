@@ -1,6 +1,9 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import {mount} from 'enzyme';
+import {MockedProvider} from '@apollo/client/testing';
 import Search_Screen from './Search_Screen';
+
+const mocks = [];
 
 const defaultProps = {
   navigation: {
@@ -11,13 +14,21 @@ const defaultProps = {
 describe('<Search_Screen>', () => {
   describe('<Render>', () => {
     test('should render a search bar', () => {
-      const wrapper = shallow(<Search_Screen {...defaultProps} />);
+      const wrapper = mount(
+        <MockedProvider>
+          <Search_Screen {...defaultProps} />
+        </MockedProvider>,
+      );
       const SearchBar = wrapper.findWhere((node) => node.prop('testID') === 'Search-SearchBar');
 
       expect(SearchBar).toExist();
     });
     test('should render a screen placeHolder', () => {
-      const wrapper = shallow(<Search_Screen {...defaultProps} />);
+      const wrapper = mount(
+        <MockedProvider mocks={mocks}>
+          <Search_Screen {...defaultProps} />
+        </MockedProvider>,
+      );
       const SearchBar = wrapper.findWhere((node) => node.prop('testID') === 'Search-ScreenPlaceHolder');
 
       expect(SearchBar).toExist();
