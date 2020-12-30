@@ -6,7 +6,7 @@ import Button from '../../atoms/Button/Button';
 import IconRN from '../../atoms/Icon/Icon';
 
 export interface Props {
-  onChange: (text: string) => string;
+  onChange: (text: string) => void;
   testID: string;
 }
 
