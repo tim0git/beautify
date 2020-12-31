@@ -1,5 +1,4 @@
 **ToDo**
-Create Hygen template for new components
 Test Auth saga's
 Install Detox & Mock API calls?
 Create Pipeline and link to Apple & Play store accounts
