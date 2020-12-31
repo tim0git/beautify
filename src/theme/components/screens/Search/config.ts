@@ -10,19 +10,13 @@ export const config = {
   },
   Screen_InstructionsProps: {
     titleProps: {
-      title: 'Start searching',
-      accessible: true,
-      accessibilityLabel: 'TEST',
-      accessibilityHint: 'TEST',
-      accessibilityRole: 'text',
+      content: 'Start searching',
+      type: 'Title',
       testID: 'TEST',
     },
     subTitleProps: {
-      subTitle: 'Browse by catergory or by practitioner',
-      accessible: true,
-      accessibilityLabel: 'TEST',
-      accessibilityHint: 'TEST',
-      accessibilityRole: 'text',
+      content: 'Browse by catergory or by practitioner',
+      type: 'SubTitle',
       testID: 'TEST',
     },
   },

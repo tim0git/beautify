@@ -1,4 +1,4 @@
-import {size, typography, shadows, colors} from '../../../global/styles';
+import {size, shadows, colors} from '../../../global/styles';
 
 export const styles = {
   wrapper: {
@@ -24,8 +24,8 @@ export const styles = {
       justifyContent: 'center',
       paddingVertical: size.padding.xxs,
       borderRadius: 3,
-      borderColor: 'black',
-      borderWidth: colors.border.black,
+      borderColor: colors.border.black,
+      borderWidth: 1,
     },
     NoBorder: {
       alignSelf: 'stretch',
