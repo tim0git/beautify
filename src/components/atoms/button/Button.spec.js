@@ -25,6 +25,12 @@ const disabledProps = {
   disabled: true,
 };
 
+const primaryProps = {
+  ...defaultProps,
+  type: 'Primary',
+  iconRight: true,
+};
+
 describe('<Button>', () => {
   describe('<Render> -default', () => {
     test('should render a touchable component', () => {
@@ -59,6 +65,21 @@ describe('<Button>', () => {
       const ButtonIconLeft = wrapper.findWhere((node) => node.prop('testID') === 'Button-IconLeft');
 
       expect(ButtonIconLeft).toExist();
+    });
+  });
+
+  describe('<Render> -Primary', () => {
+    test('should render a touchable component', () => {
+      const wrapper = shallow(<Button {...primaryProps} />);
+      const SearchBarButton = wrapper.findWhere((node) => node.prop('testID') === 'TEST_BUTTON_TEST_ID');
+
+      expect(SearchBarButton).toExist();
+    });
+    test('should render a icon Right component', () => {
+      const wrapper = shallow(<Button {...primaryProps} />);
+      const ButtonIconRight = wrapper.findWhere((node) => node.prop('testID') === 'Button-IconRight');
+
+      expect(ButtonIconRight).toExist();
     });
   });
   describe('<Methods>', () => {
