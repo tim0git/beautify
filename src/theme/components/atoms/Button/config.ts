@@ -10,4 +10,9 @@ export const config = {
     color: colors.text.primary,
     size: 30,
   },
+  Secondary: {
+    name: 'ArrowRight',
+    color: colors.text.secondary,
+    size: 27,
+  },
 };

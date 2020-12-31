@@ -37,9 +37,17 @@ const PrimaryProps = {
   iconRight: true,
 };
 
+const SecondaryProps = {
+  ...defaultProps,
+  type: 'Secondary',
+  title: 'Login here',
+  iconRight: true,
+};
+
 storiesOf('Buttons', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Button_Default', () => <Button {...defaultProps} />)
   .add('Button_NoBorder', () => <Button {...NoBorderProps} />)
   .add('Button_SearchBar', () => <Button {...SearchBarProps} />)
-  .add('Button_Primary', () => <Button {...PrimaryProps} />);
+  .add('Button_Primary', () => <Button {...PrimaryProps} />)
+  .add('Button_Secondary', () => <Button {...SecondaryProps} />);

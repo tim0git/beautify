@@ -14,6 +14,9 @@ export const styles = {
     Primary: {
       alignSelf: 'stretch',
     },
+    Secondary: {
+      alignSelf: 'center',
+    },
   },
   container: {
     default: {
@@ -49,6 +52,15 @@ export const styles = {
       borderRadius: 3,
       ...shadows.box.small,
     },
+    Secondary: {
+      alignSelf: 'stretch',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      paddingVertical: size.padding.md,
+      paddingHorizontal: size.padding.lg,
+      backgroundColor: colors.text.primary,
+    },
   },
   text: {
     default: {
@@ -66,10 +78,14 @@ export const styles = {
       color: colors.text.tertiary,
     },
     Primary: {
-      alignSelf: 'flex-start',
       fontSize: 22,
       fontWeight: '500',
       color: colors.text.primary,
+    },
+    Secondary: {
+      fontSize: 18,
+      fontWeight: '500',
+      color: colors.text.secondary,
     },
   },
 };
