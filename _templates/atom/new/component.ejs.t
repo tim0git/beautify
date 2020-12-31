@@ -1,0 +1,23 @@
+---
+to: src/components/atoms/<%=name%>/<%=name%>.tsx
+---
+/**
+ * @name <%=name%>
+ * @description {description}
+ * 
+ */
+import React from 'react';
+import { View, Text } from 'react-native';
+import {ThemeProvider} from '../../../services/ThemeProvider';
+
+export interface Props {}
+
+const <%=name%>: React.FC<Props> = ({ }) => {
+  return (
+     <View style={style.container} testID='<%=name%>'>
+        <Text><%=name%></Text>
+      </View>
+  );
+}
+
+export default <%=name%>;
