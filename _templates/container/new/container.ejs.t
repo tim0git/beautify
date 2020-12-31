@@ -5,30 +5,18 @@ to: src/containers/<%=name%>_Container.ts
  * @name <%=name%>
  * @description {description}
  */
-import React, { Component } from "react";
-import { 
-    View,
-    Text
-} from "react-native";
+import {connect} from 'react-redux';
+import {bindActionCreators, Dispatch} from 'redux';
+import <%=name%>_Screen from '../components/screens/Landing/<%=name%>_Screen';
 
-import { connect } from 'react-redux'
+const mapStateToProps = () => ({});
 
-class <%=name%> extends Component {
-    render() {
-        return (
-            <View>
-                <Text><%=name%></Text>
-            </View>
-        );
-    }
-}
+const mapDispatchToProps = (dispatch: Dispatch) =>
+  bindActionCreators(
+    {
+        // place imported actions here
+    },
+    dispatch,
+  );
 
-const mapStateToProps = () => {
-    return {}
-}
-
-const mapDispatchToProps = (dispatch) =>{
-    return {}
-}
-export default connect(mapStateToProps,mapDispatchToProps)(<%=name%>);
- 
+export default connect(mapStateToProps, mapDispatchToProps)(<%=name%>_Screen);
