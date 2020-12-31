@@ -1,5 +1,5 @@
 ---
-to: src/components/atom/<%=name%>/index.js
+to: src/components/atoms/<%=name%>/index.js
 ---
 export * from './<%=name%>'
 
