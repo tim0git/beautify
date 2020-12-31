@@ -1,5 +1,5 @@
 ---
-to: src/containers/<%=name%>.container.js
+to: src/containers/<%=name%>_Container.ts
 ---
 /**
  * @name <%=name%>
