@@ -20,7 +20,7 @@ export const styles = {
       alignSelf: 'stretch',
       justifyContent: 'center',
       paddingVertical: size.padding.xxs,
-      borderRadius: 5,
+      borderRadius: 3,
       borderColor: 'black',
       borderWidth: colors.border.black,
     },
