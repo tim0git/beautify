@@ -1,19 +1,10 @@
-/**
- *  Test Import
- *
- * */
+// Test Import
 import * as TEST_COMPONENT from '../../__mocks__/Theme/mock_theme';
 
-/**
- *  Global Import
- *
- * */
+// Global Import
 import * as global from '../theme/global';
 
-/**
- *  Atoms Import
- *
- * */
+// Atoms import
 import * as Button from '../theme/components/atoms/Button';
 import * as Icon from '../theme/components/atoms/Icon';
 import * as Title from '../theme/components/atoms/Title';
@@ -25,10 +16,7 @@ const atoms = {
   SubTitle,
 };
 
-/**
- *  Molecules Import
- *
- * */
+// Molecules Import
 import * as Search_Bar from '../theme/components/molecules/Search_Bar';
 import * as Screen_Instructions from '../theme/components/molecules/Screen_Instructions';
 const molecules = {
@@ -36,10 +24,7 @@ const molecules = {
   Screen_Instructions,
 };
 
-/**
- *  Screens Import
- *
- * */
+// Screens Import
 import * as Landing from '../theme/components/screens/Landing';
 import * as Home from '../theme/components/screens/Home';
 import * as Inbox from '../theme/components/screens/Inbox';

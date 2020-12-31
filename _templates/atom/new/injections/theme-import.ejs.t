@@ -1,7 +1,7 @@
-# ---
-# inject: true
-# to: src/theme/components/index.js
-# after: // import component
-# skip_if: <%=name%>
-# ---
-# import * as _<%=name%> from './<%=name%>'
+---
+inject: true
+to: src/services/ThemeProvider.ts
+after: // Atoms import
+skip_if: <%=name%>
+---
+import * as _<%=name%> from '../theme/components/atoms/<%=name%>'
