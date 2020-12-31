@@ -57,9 +57,6 @@ export const styles = {
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
-      paddingVertical: size.padding.md,
-      paddingHorizontal: size.padding.lg,
-      backgroundColor: colors.text.primary,
     },
   },
   text: {
