@@ -13,4 +13,5 @@ storiesOf('Icon', module)
   .add('Icon-Bookings', () => <IconRN {...defaultProps} name="Bookings" />)
   .add('Icon-Search', () => <IconRN {...defaultProps} name="Search" />)
   .add('Icon-Inbox', () => <IconRN {...defaultProps} name="Inbox" />)
-  .add('Icon-Profile', () => <IconRN {...defaultProps} name="Profile" />);
+  .add('Icon-Profile', () => <IconRN {...defaultProps} name="Profile" />)
+  .add('Icon-ArrowRight', () => <IconRN {...defaultProps} name="ArrowRight" />);
