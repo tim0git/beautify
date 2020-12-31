@@ -1,12 +1,13 @@
+import {size, colors} from '../../../global/styles';
 export const config = {
   SearchBar: {
     name: 'Search',
-    color: '#696969',
+    color: colors.text.tertiary,
     size: 30,
   },
   Primary: {
     name: 'ArrowRight',
-    color: '#19253f',
+    color: colors.text.primary,
     size: 30,
   },
 };

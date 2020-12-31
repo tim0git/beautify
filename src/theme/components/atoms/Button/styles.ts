@@ -22,7 +22,7 @@ export const styles = {
       paddingVertical: size.padding.xxs,
       borderRadius: 5,
       borderColor: 'black',
-      borderWidth: 1,
+      borderWidth: colors.border.black,
     },
     NoBorder: {
       alignSelf: 'stretch',
@@ -45,7 +45,7 @@ export const styles = {
       justifyContent: 'space-between',
       paddingVertical: size.padding.md,
       paddingHorizontal: size.padding.lg,
-      backgroundColor: colors.button.Primary,
+      backgroundColor: colors.button.primary,
       borderRadius: 3,
       ...shadows.box.small,
     },
@@ -63,13 +63,13 @@ export const styles = {
       alignSelf: 'center',
       fontSize: 16,
       fontWeight: 'bold',
-      color: '#696969',
+      color: colors.text.tertiary,
     },
     Primary: {
       alignSelf: 'flex-start',
       fontSize: 22,
       fontWeight: '500',
-      color: '#19253f',
+      color: colors.text.primary,
     },
   },
 };
