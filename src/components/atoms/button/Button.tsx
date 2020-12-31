@@ -7,6 +7,7 @@ export interface Props {
   title: string;
   type: string;
   iconLeft?: boolean;
+  iconRight?: boolean;
   onPress: () => void;
   accessible: boolean;
   accessibilityLabel: string;
@@ -20,6 +21,7 @@ const Button: React.FC<Props> = ({
   testID,
   type = 'default',
   iconLeft,
+  iconRight,
   onPress,
   disabled,
   accessible,
@@ -36,6 +38,7 @@ const Button: React.FC<Props> = ({
 
   return (
     <Pressable
+      style={styles.wrapper[type]}
       onPress={handlePress}
       testID={testID || 'Button-Container'}
       accessible={accessible}
@@ -47,6 +50,7 @@ const Button: React.FC<Props> = ({
         <Text style={styles.text[type]} testID="Button-Text">
           {title}
         </Text>
+        {iconRight && <IconRN {...iconProps} testID="Button-IconRight" />}
       </View>
     </Pressable>
   );

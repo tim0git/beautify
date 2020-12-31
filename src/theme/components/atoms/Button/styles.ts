@@ -1,6 +1,20 @@
 import {size, typography, shadows, colors} from '../../../global/styles';
 
 export const styles = {
+  wrapper: {
+    default: {
+      alignSelf: 'stretch',
+    },
+    NoBorder: {
+      alignSelf: 'stretch',
+    },
+    SearchBar: {
+      alignSelf: 'stretch',
+    },
+    Primary: {
+      alignSelf: 'stretch',
+    },
+  },
   container: {
     default: {
       alignSelf: 'stretch',
@@ -24,6 +38,17 @@ export const styles = {
       backgroundColor: colors.background.primary,
       ...shadows.box.small,
     },
+    Primary: {
+      alignSelf: 'stretch',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      paddingVertical: size.padding.md,
+      paddingHorizontal: size.padding.lg,
+      backgroundColor: colors.button.Primary,
+      borderRadius: 3,
+      ...shadows.box.small,
+    },
   },
   text: {
     default: {
@@ -39,6 +64,12 @@ export const styles = {
       fontSize: 16,
       fontWeight: 'bold',
       color: '#696969',
+    },
+    Primary: {
+      alignSelf: 'flex-start',
+      fontSize: 22,
+      fontWeight: '500',
+      color: '#19253f',
     },
   },
 };
