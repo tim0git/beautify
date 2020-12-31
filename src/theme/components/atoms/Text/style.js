@@ -8,6 +8,15 @@ export const style = {
     SubTitle: {
       alignSelf: 'stretch',
     },
+    Body: {
+      alignSelf: 'stretch',
+    },
+    Caption: {
+      alignSelf: 'stretch',
+    },
+    ScreenTitle: {
+      alignSelf: 'stretch',
+    },
   },
   text: {
     Title: {
@@ -17,6 +26,18 @@ export const style = {
     SubTitle: {
       ...typography.subtitle,
       color: colors.text.subtitle,
+    },
+    Body: {
+      ...typography.body,
+      color: colors.text.primary,
+    },
+    Caption: {
+      ...typography.caption,
+      color: colors.text.primary,
+    },
+    ScreenTitle: {
+      ...typography.screenTitle,
+      color: colors.text.primary,
     },
   },
 };
