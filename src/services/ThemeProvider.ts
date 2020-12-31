@@ -23,6 +23,11 @@ const molecules = {
   Screen_Instructions,
 };
 
+// Organisms Import
+const organisms = {
+  // placeholder
+};
+
 // Screens Import
 import * as Landing from '../theme/components/screens/Landing';
 import * as Home from '../theme/components/screens/Home';
@@ -44,6 +49,7 @@ const themes = {
   global,
   ...atoms,
   ...molecules,
+  ...organisms,
   ...screens,
 };
 
