@@ -17,7 +17,7 @@ const Text: React.FC<Props> = ({content, type, testID}) => {
   const {style} = ThemeProvider('Text');
   return (
     <View style={style.container[type]} testID={testID || 'Title-Container'}>
-      <TextRN testID={'Title-Text'} style={style.text[type]} accessibilityRole="text">
+      <TextRN testID={'Text-Text'} style={style.text[type]} accessibilityRole="text">
         {content}
       </TextRN>
     </View>
