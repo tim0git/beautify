@@ -4,7 +4,7 @@ import * as TEST_COMPONENT from '../../__mocks__/Theme/mock_theme';
 // Global Import
 import * as global from '../theme/global';
 
-// Atoms import
+//Atoms
 import * as Button from '../theme/components/atoms/Button';
 import * as Icon from '../theme/components/atoms/Icon';
 import * as Title from '../theme/components/atoms/Title';
