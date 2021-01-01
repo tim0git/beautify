@@ -9,14 +9,14 @@ export interface Props {
     type: string;
     testID: string;
   };
-  subTitleProps: {
+  bodyProps: {
     content: string;
     type: string;
     testID: string;
   };
 }
 
-const Screen_Instructions: React.FC<Props> = ({instructionProps, subTitleProps}) => {
+const Screen_Instructions: React.FC<Props> = ({instructionProps, bodyProps}) => {
   const {styles} = ThemeProvider('Screen_Instructions');
 
   return (
@@ -24,8 +24,8 @@ const Screen_Instructions: React.FC<Props> = ({instructionProps, subTitleProps})
       <View style={styles.instructionContainer}>
         <Text {...instructionProps} testID={instructionProps.testID || 'Screen_Instructions_Title'} />
       </View>
-      <View style={styles.subTitleContainer}>
-        <Text {...subTitleProps} testID={subTitleProps.testID || 'Screen_Instructions_SubTitle'} />
+      <View style={styles.bodyContainer}>
+        <Text {...bodyProps} testID={bodyProps.testID || 'Screen_Instructions_SubTitle'} />
       </View>
     </View>
   );

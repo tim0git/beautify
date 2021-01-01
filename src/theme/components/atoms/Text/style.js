@@ -2,10 +2,7 @@ import {typography, colors} from '../../../global/styles';
 
 export const style = {
   container: {
-    Title: {
-      alignSelf: 'stretch',
-    },
-    SubTitle: {
+    Instruction: {
       alignSelf: 'stretch',
     },
     Body: {
@@ -19,13 +16,9 @@ export const style = {
     },
   },
   text: {
-    Title: {
+    Instruction: {
       ...typography.instruction,
       color: colors.text.instruction,
-    },
-    SubTitle: {
-      ...typography.subtitle,
-      color: colors.text.subtitle,
     },
     Body: {
       ...typography.body,

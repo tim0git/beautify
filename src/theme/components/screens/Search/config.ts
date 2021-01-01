@@ -11,12 +11,12 @@ export const config = {
   Screen_InstructionsProps: {
     instructionProps: {
       content: 'Start searching',
-      type: 'Title',
+      type: 'Instruction',
       testID: 'TEST',
     },
-    subTitleProps: {
+    bodyProps: {
       content: 'Browse by catergory or by practitioner',
-      type: 'SubTitle',
+      type: 'Body',
       testID: 'TEST',
     },
   },

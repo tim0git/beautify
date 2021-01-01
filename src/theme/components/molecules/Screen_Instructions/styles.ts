@@ -8,7 +8,7 @@ export const styles = {
   instructionContainer: {
     marginBottom: size.margin.xxs,
   },
-  subTitleContainer: {
+  bodyContainer: {
     marginTop: size.margin.xxs,
   },
 };

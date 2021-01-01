@@ -11,8 +11,8 @@ const defaultProps = {
     accessibilityRole: 'text',
     testID: 'TEST_TITLE_TEST_ID',
   },
-  subTitleProps: {
-    subTitle: 'Browse by catergory or by practitioner',
+  bodyProps: {
+    body: 'Browse by catergory or by practitioner',
     accessible: true,
     accessibilityLabel: 'TEST',
     accessibilityHint: 'TEST',
@@ -41,11 +41,11 @@ describe('<Screen_Instructions>', () => {
 
       expect(ScreenInstructionsTitle.props()).toEqual(defaultProps.instructionProps);
     });
-    test('should pass subTitle props to SubTitle component', () => {
+    test('should pass body props to SubTitle component', () => {
       const wrapper = shallow(<Screen_Instructions {...defaultProps} />);
       const ScreenInstructionsSubTitle = wrapper.findWhere((node) => node.prop('testID') === 'TEST_SUB_TITLE_TEST_ID');
 
-      expect(ScreenInstructionsSubTitle.props()).toEqual(defaultProps.subTitleProps);
+      expect(ScreenInstructionsSubTitle.props()).toEqual(defaultProps.bodyProps);
     });
   });
 });

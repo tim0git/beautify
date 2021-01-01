@@ -9,12 +9,6 @@ const instructionProps = {
   testID: 'TEST_TITLE',
 };
 
-const subTitleProps = {
-  content: 'Browse by category or practitioner',
-  type: 'SubTitle',
-  testID: 'TEST_SUB_TITLE',
-};
-
 const bodyProps = {
   content: "Hey! It looks like you're new here. Once you've booked a treatment, all your info will be found here.",
   type: 'Body',
@@ -36,7 +30,6 @@ const screenTitleProps = {
 storiesOf('Text', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Text_Instruction', () => <Text {...instructionProps} />)
-  .add('Text_Sub_Title', () => <Text {...subTitleProps} />)
   .add('Text_Body', () => <Text {...bodyProps} />)
   .add('Text_Caption', () => <Text {...captionProps} />)
   .add('Text_Screen_Title', () => <Text {...screenTitleProps} />);

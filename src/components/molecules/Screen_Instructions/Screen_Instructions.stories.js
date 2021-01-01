@@ -6,12 +6,12 @@ import Screen_Instructions from './Screen_Instructions';
 const defaultProps = {
   instructionProps: {
     content: 'Start searching',
-    type: 'Title',
+    type: 'Instruction',
     testID: 'TEST',
   },
-  subTitleProps: {
+  bodyProps: {
     content: 'Browse by catergory or by practitioner',
-    type: 'SubTitle',
+    type: 'Body',
     testID: 'TEST',
   },
 };
