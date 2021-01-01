@@ -16,4 +16,11 @@ export const config = {
       testID: 'TEST_GUEST_WELCOME_BODY',
     },
   },
+  loginClusterProps: {
+    captionProps: {
+      content: 'If you already have an account and want to view your bookings',
+      type: 'Caption',
+      testID: 'Bookings_Screen_Guest_Welcome_Login_Cluster_Caption',
+    },
+  },
 };

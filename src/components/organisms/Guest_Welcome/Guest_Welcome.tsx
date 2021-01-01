@@ -22,17 +22,24 @@ export interface Props {
       testID: string;
     };
   };
+  loginClusterProps?: {
+    captionProps: {
+      content: string;
+      type: string;
+      testID: string;
+    };
+  };
   navigation: {
     navigate: (navigationAddress: string) => void;
   };
 }
 
-const Guest_Welcome: React.FC<Props> = ({screenInstructionsProps, navigation}) => {
+const Guest_Welcome: React.FC<Props> = ({screenInstructionsProps, navigation, loginClusterProps}) => {
   const {style} = ThemeProvider('Guest_Welcome');
   return (
     <View style={style.container} testID="Guest_Welcome">
       <Screen_Instructions {...screenInstructionsProps} />
-      <Login_Cluster navigation={navigation} />
+      <Login_Cluster navigation={navigation} {...loginClusterProps} />
     </View>
   );
 };

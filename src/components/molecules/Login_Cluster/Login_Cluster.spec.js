@@ -4,12 +4,23 @@ import 'jest-enzyme';
 import {shallow} from 'enzyme';
 import Login_Cluster from './Login_Cluster';
 import {ThemeProvider} from '../../../services/ThemeProvider';
+
 const {
   config: {treatmentButtonProps, captionProps, loginButtonProps, navigationProps},
 } = ThemeProvider('Login_Cluster');
+
 const defaultProps = {
   navigation: {
     navigate: jest.fn(),
+  },
+};
+
+const customCaptionProps = {
+  ...defaultProps,
+  captionProps: {
+    content: 'CUSTOM CAPTION',
+    type: 'Caption',
+    testID: 'TEST_CUSTOM_CAPTION_TEST_ID',
   },
 };
 
@@ -33,6 +44,13 @@ describe('<Login_Cluster />', () => {
       const wrapper = shallow(<Login_Cluster {...defaultProps} />);
 
       const Caption = wrapper.findWhere((node) => node.prop('testID') === captionProps.testID);
+
+      expect(Caption).toExist();
+    });
+    test('should render a Caption Text with custom captionProps if captionProps are passed', () => {
+      const wrapper = shallow(<Login_Cluster {...customCaptionProps} />);
+
+      const Caption = wrapper.findWhere((node) => node.prop('testID') === customCaptionProps.captionProps.testID);
 
       expect(Caption).toExist();
     });
@@ -89,6 +107,17 @@ describe('<Login_Cluster />', () => {
       expect(CaptionProps).toHaveProperty('content', captionProps.content);
       expect(CaptionProps).toHaveProperty('type', captionProps.type);
       expect(CaptionProps).toHaveProperty('testID', captionProps.testID);
+    });
+    test('should pass the following props to Caption Text if captionProps is passed into the component', () => {
+      const wrapper = shallow(<Login_Cluster {...customCaptionProps} />);
+
+      const CaptionText = wrapper.findWhere((node) => node.prop('testID') === customCaptionProps.captionProps.testID);
+
+      const CaptionProps = CaptionText.props();
+
+      expect(CaptionProps).toHaveProperty('content', customCaptionProps.captionProps.content);
+      expect(CaptionProps).toHaveProperty('type', customCaptionProps.captionProps.type);
+      expect(CaptionProps).toHaveProperty('testID', customCaptionProps.captionProps.testID);
     });
   });
   describe('<Methods>', () => {

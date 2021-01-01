@@ -13,7 +13,7 @@ export interface Props {
 const Bookings_Screen: React.FC<Props> = ({navigation}) => {
   const {styles, config} = ThemeProvider('Bookings');
 
-  const {screenHeaderProps, screenInstructionsProps} = config;
+  const {screenHeaderProps, screenInstructionsProps, loginClusterProps} = config;
 
   return (
     <>
@@ -22,7 +22,11 @@ const Bookings_Screen: React.FC<Props> = ({navigation}) => {
         <Screen_Header {...screenHeaderProps} />
         <View style={styles.container}>
           <View style={styles.guestWelcomeContainer}>
-            <Guest_Welcome screenInstructionsProps={screenInstructionsProps} navigation={navigation} />
+            <Guest_Welcome
+              screenInstructionsProps={screenInstructionsProps}
+              navigation={navigation}
+              loginClusterProps={loginClusterProps}
+            />
           </View>
         </View>
       </SafeAreaView>
