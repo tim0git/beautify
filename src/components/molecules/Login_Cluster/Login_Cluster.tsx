@@ -11,17 +11,17 @@ import {ThemeProvider} from '../../../services/ThemeProvider';
 
 export interface Props {
   navigation: {
-    navigate: (event: string) => void;
+    navigate: (navigationAddress: string) => void;
   };
 }
 
 const Login_Cluster: React.FC<Props> = ({navigation}) => {
   const {style, config} = ThemeProvider('Login_Cluster');
 
-  const {treatmentButtonProps, captionProps, loginButtonProps} = config;
+  const {treatmentButtonProps, captionProps, loginButtonProps, navigationProps} = config;
 
-  const handleOnPress = (event: string) => {
-    navigation.navigate(event);
+  const handleOnPress = (navigationAddress: string) => {
+    navigation.navigate(navigationAddress);
   };
 
   return (
@@ -30,7 +30,7 @@ const Login_Cluster: React.FC<Props> = ({navigation}) => {
         <Button
           {...treatmentButtonProps}
           onPress={() => {
-            handleOnPress('Search');
+            handleOnPress(navigationProps.treatment);
           }}
         />
       </View>
@@ -41,7 +41,7 @@ const Login_Cluster: React.FC<Props> = ({navigation}) => {
         <Button
           {...loginButtonProps}
           onPress={() => {
-            handleOnPress('Login');
+            handleOnPress(navigationProps.login);
           }}
         />
       </View>
