@@ -12,7 +12,7 @@ export const typography = {
   body: {
     alignSelf: 'center',
     fontWeight: '500',
-    fontSize: 20,
+    fontSize: 16,
     textAlign: 'center',
   },
   caption: {
