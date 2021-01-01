@@ -10,42 +10,15 @@ import Text from '../../atoms/Text/Text';
 import {ThemeProvider} from '../../../services/ThemeProvider';
 
 export interface Props {
-  treatmentButtonProps: {
-    title: string;
-    type: string;
-    iconLeft?: boolean;
-    iconRight?: boolean;
-    onPress: () => void;
-    accessible: boolean;
-    accessibilityLabel: string;
-    accessibilityHint: string;
-    disabled: boolean;
-    testID: string;
-  };
-  captionProps: {
-    content: string;
-    type: string;
-    testID: string;
-  };
-  loginButtonProps: {
-    title: string;
-    type: string;
-    iconLeft?: boolean;
-    iconRight?: boolean;
-    onPress: () => void;
-    accessible: boolean;
-    accessibilityLabel: string;
-    accessibilityHint: string;
-    disabled: boolean;
-    testID: string;
-  };
   navigation: {
     navigate: (event: string) => void;
   };
 }
 
-const Login_Cluster: React.FC<Props> = ({treatmentButtonProps, captionProps, loginButtonProps, navigation}) => {
-  const {style} = ThemeProvider('Login_Cluster');
+const Login_Cluster: React.FC<Props> = ({navigation}) => {
+  const {style, config} = ThemeProvider('Login_Cluster');
+
+  const {treatmentButtonProps, captionProps, loginButtonProps} = config;
 
   const handleOnPress = (event: string) => {
     navigation.navigate(event);
