@@ -1,13 +1,8 @@
 export const typography = {
-  title: {
+  instruction: {
     alignSelf: 'center',
     fontWeight: 'bold',
     fontSize: 20,
-  },
-  subtitle: {
-    alignSelf: 'center',
-    fontWeight: 'bold',
-    fontSize: 16,
   },
   body: {
     alignSelf: 'center',

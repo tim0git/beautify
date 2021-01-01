@@ -4,7 +4,7 @@ import CenterView from '../../../../storybook/stories/CenterView';
 import Screen_Instructions from './Screen_Instructions';
 
 const defaultProps = {
-  titleProps: {
+  instructionProps: {
     content: 'Start searching',
     type: 'Title',
     testID: 'TEST',

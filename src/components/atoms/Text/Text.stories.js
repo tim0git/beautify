@@ -3,7 +3,7 @@ import React from 'react';
 import CenterView from '../../../../storybook/stories/CenterView';
 import Text from './Text';
 
-const titleProps = {
+const instructionProps = {
   content: 'Start searching',
   type: 'Title',
   testID: 'TEST_TITLE',
@@ -35,7 +35,7 @@ const screenTitleProps = {
 
 storiesOf('Text', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
-  .add('Text_Title', () => <Text {...titleProps} />)
+  .add('Text_Instruction', () => <Text {...instructionProps} />)
   .add('Text_Sub_Title', () => <Text {...subTitleProps} />)
   .add('Text_Body', () => <Text {...bodyProps} />)
   .add('Text_Caption', () => <Text {...captionProps} />)

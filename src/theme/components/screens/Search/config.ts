@@ -9,7 +9,7 @@ export const config = {
     accessibilityRole: 'search',
   },
   Screen_InstructionsProps: {
-    titleProps: {
+    instructionProps: {
       content: 'Start searching',
       type: 'Title',
       testID: 'TEST',

@@ -20,8 +20,8 @@ export const style = {
   },
   text: {
     Title: {
-      ...typography.title,
-      color: colors.text.title,
+      ...typography.instruction,
+      color: colors.text.instruction,
     },
     SubTitle: {
       ...typography.subtitle,

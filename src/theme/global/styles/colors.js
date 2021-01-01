@@ -12,8 +12,7 @@ const COLORS = {
 
 export const colors = {
   text: {
-    title: COLORS.greyLight,
-    subtitle: COLORS.greyDark,
+    instruction: COLORS.greyLight,
     primary: COLORS.blueDark,
     secondary: COLORS.pinkLight,
     tertiary: COLORS.greyMedium,

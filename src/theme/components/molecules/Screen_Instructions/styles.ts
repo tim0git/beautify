@@ -5,7 +5,7 @@ export const styles = {
     alignSelf: 'stretch',
     paddingVertical: size.padding.xlg,
   },
-  titleContainer: {
+  instructionContainer: {
     marginBottom: size.margin.xxs,
   },
   subTitleContainer: {

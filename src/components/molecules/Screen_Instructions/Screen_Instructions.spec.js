@@ -3,8 +3,8 @@ import {shallow} from 'enzyme';
 import Screen_Instructions from './Screen_Instructions';
 
 const defaultProps = {
-  titleProps: {
-    title: 'Start searching',
+  instructionProps: {
+    instruction: 'Start searching',
     accessible: true,
     accessibilityLabel: 'TEST',
     accessibilityHint: 'TEST',
@@ -35,11 +35,11 @@ describe('<Screen_Instructions>', () => {
 
       expect(ScreenInstructionsSubTitle).toExist();
     });
-    test('should pass title props to Title component', () => {
+    test('should pass instruction props to Title component', () => {
       const wrapper = shallow(<Screen_Instructions {...defaultProps} />);
       const ScreenInstructionsTitle = wrapper.findWhere((node) => node.prop('testID') === 'TEST_TITLE_TEST_ID');
 
-      expect(ScreenInstructionsTitle.props()).toEqual(defaultProps.titleProps);
+      expect(ScreenInstructionsTitle.props()).toEqual(defaultProps.instructionProps);
     });
     test('should pass subTitle props to SubTitle component', () => {
       const wrapper = shallow(<Screen_Instructions {...defaultProps} />);

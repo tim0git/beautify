@@ -4,7 +4,7 @@ import {ThemeProvider} from '../../../services/ThemeProvider';
 import Text from '../../atoms/Text/Text';
 
 export interface Props {
-  titleProps: {
+  instructionProps: {
     content: string;
     type: string;
     testID: string;
@@ -16,13 +16,13 @@ export interface Props {
   };
 }
 
-const Screen_Instructions: React.FC<Props> = ({titleProps, subTitleProps}) => {
+const Screen_Instructions: React.FC<Props> = ({instructionProps, subTitleProps}) => {
   const {styles} = ThemeProvider('Screen_Instructions');
 
   return (
     <View style={styles.headerContainer}>
-      <View style={styles.titleContainer}>
-        <Text {...titleProps} testID={titleProps.testID || 'Screen_Instructions_Title'} />
+      <View style={styles.instructionContainer}>
+        <Text {...instructionProps} testID={instructionProps.testID || 'Screen_Instructions_Title'} />
       </View>
       <View style={styles.subTitleContainer}>
         <Text {...subTitleProps} testID={subTitleProps.testID || 'Screen_Instructions_SubTitle'} />
