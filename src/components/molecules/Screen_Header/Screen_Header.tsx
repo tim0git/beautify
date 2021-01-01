@@ -10,15 +10,16 @@ import Text from '../../atoms/Text/Text';
 
 export interface Props {
   screenTitle: string;
+  testID?: string;
 }
 
-const Screen_Header: React.FC<Props> = ({screenTitle}) => {
+const Screen_Header: React.FC<Props> = ({screenTitle, testID}) => {
   const {config, style} = ThemeProvider('Screen_Header');
 
-  const {ScreenHeaderTextProps} = config;
+  const {screenHeaderTextProps} = config;
   return (
-    <View style={style.container} testID="Screen_Header">
-      <Text content={screenTitle} {...ScreenHeaderTextProps} />
+    <View style={style.container} testID={testID || 'Screen_Header'}>
+      <Text content={screenTitle} {...screenHeaderTextProps} />
     </View>
   );
 };

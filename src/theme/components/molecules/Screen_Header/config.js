@@ -1,5 +1,5 @@
 export const config = {
-  ScreenHeaderTextProps: {
+  screenHeaderTextProps: {
     type: 'Title',
     testID: 'SCREEN_TITLE_TEXT',
   },
