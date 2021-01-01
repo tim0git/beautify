@@ -25,5 +25,6 @@ export const colors = {
   },
   border: {
     black: COLORS.black,
+    primary: COLORS.greyLight,
   },
 };
