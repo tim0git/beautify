@@ -6,7 +6,7 @@ export const styles = {
     paddingVertical: size.padding.xlg,
   },
   instructionContainer: {
-    marginBottom: size.margin.xxs,
+    marginBottom: size.margin.md,
   },
   bodyContainer: {
     marginTop: size.margin.xxs,

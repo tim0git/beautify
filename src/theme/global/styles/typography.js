@@ -6,13 +6,13 @@ export const typography = {
   },
   body: {
     alignSelf: 'center',
-    fontWeight: '500',
+    fontWeight: 'bold',
     fontSize: 16,
     textAlign: 'center',
   },
   caption: {
     alignSelf: 'center',
-    fontWeight: '500',
+    fontWeight: 'bold',
     fontSize: 16,
     textAlign: 'center',
   },

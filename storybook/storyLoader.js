@@ -11,6 +11,7 @@ function loadStories() {
   require('../src/components/molecules/Screen_Header/Screen_Header.stories');
   require('../src/components/molecules/Screen_Instructions/Screen_Instructions.stories');
   require('../src/components/molecules/Search_Bar/Search_Bar.stories');
+  require('../src/components/organisms/Guest_Welcome/Guest_Welcome.stories');
   require('../src/components/screens/Bookings/Bookings_Screen.stories');
   require('../src/components/screens/Home/Home_Screen.stories');
   require('../src/components/screens/Inbox/Inbox_Screen.stories');
@@ -27,6 +28,7 @@ const stories = [
   '../src/components/molecules/Screen_Header/Screen_Header.stories',
   '../src/components/molecules/Screen_Instructions/Screen_Instructions.stories',
   '../src/components/molecules/Search_Bar/Search_Bar.stories',
+  '../src/components/organisms/Guest_Welcome/Guest_Welcome.stories',
   '../src/components/screens/Bookings/Bookings_Screen.stories',
   '../src/components/screens/Home/Home_Screen.stories',
   '../src/components/screens/Inbox/Inbox_Screen.stories',
