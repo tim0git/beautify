@@ -21,12 +21,16 @@ const Screen_Instructions: React.FC<Props> = ({instructionProps, bodyProps}) => 
 
   return (
     <View style={styles.headerContainer}>
-      <View style={styles.instructionContainer}>
-        <Text {...instructionProps} testID={instructionProps.testID || 'Screen_Instructions_Title'} />
-      </View>
-      <View style={styles.bodyContainer}>
-        <Text {...bodyProps} testID={bodyProps.testID || 'Screen_Instructions_SubTitle'} />
-      </View>
+      {instructionProps && (
+        <View style={styles.instructionContainer}>
+          <Text {...instructionProps} testID={instructionProps.testID || 'Screen_Instructions_Title'} />
+        </View>
+      )}
+      {bodyProps && (
+        <View style={styles.bodyContainer}>
+          <Text {...bodyProps} testID={bodyProps.testID || 'Screen_Instructions_SubTitle'} />
+        </View>
+      )}
     </View>
   );
 };
