@@ -12,6 +12,9 @@ const defaultProps = {
 };
 
 describe('<Search_Screen>', () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
   describe('<Render>', () => {
     test('should render a search bar', () => {
       const wrapper = mount(
