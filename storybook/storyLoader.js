@@ -11,8 +11,11 @@ function loadStories() {
   require('../src/components/molecules/Screen_Header/Screen_Header.stories');
   require('../src/components/molecules/Screen_Instructions/Screen_Instructions.stories');
   require('../src/components/molecules/Search_Bar/Search_Bar.stories');
+  require('../src/components/screens/Bookings/Bookings_Screen.stories');
   require('../src/components/screens/Home/Home_Screen.stories');
+  require('../src/components/screens/Inbox/Inbox_Screen.stories');
   require('../src/components/screens/Landing/Landing_Screen.stories');
+  require('../src/components/screens/Profile/Profile_Screen.stories');
   require('../src/components/screens/Search/Search_Screen.stories');
 }
 
@@ -24,8 +27,11 @@ const stories = [
   '../src/components/molecules/Screen_Header/Screen_Header.stories',
   '../src/components/molecules/Screen_Instructions/Screen_Instructions.stories',
   '../src/components/molecules/Search_Bar/Search_Bar.stories',
+  '../src/components/screens/Bookings/Bookings_Screen.stories',
   '../src/components/screens/Home/Home_Screen.stories',
+  '../src/components/screens/Inbox/Inbox_Screen.stories',
   '../src/components/screens/Landing/Landing_Screen.stories',
+  '../src/components/screens/Profile/Profile_Screen.stories',
   '../src/components/screens/Search/Search_Screen.stories',
 ];
 
