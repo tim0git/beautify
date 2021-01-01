@@ -13,6 +13,7 @@ export const size = {
     lg: 18,
     xlg: 22,
     xxlg: 28,
+    xxxlg: 36,
   },
   margin: {
     xxs: 4,
@@ -22,5 +23,6 @@ export const size = {
     lg: 18,
     xlg: 22,
     xxlg: 28,
+    xxxlg: 36,
   },
 };
