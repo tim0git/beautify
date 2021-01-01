@@ -2,7 +2,7 @@ import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-
+import Landing_Container from './containers/Landing_Container';
 import Home_Container from './containers/Home_Container';
 import Search_Container from './containers/Search_Container';
 import Bookings_Container from './containers/Bookings_Container';
@@ -82,6 +82,7 @@ export default function AppNavigationContainer() {
       <Stack.Navigator initialRouteName="Home" headerMode="none">
         <Stack.Screen name="Home" component={TabStack} />
         <Stack.Screen name="Search_Screen" component={SearchStackScreen} />
+        <Stack.Screen name="Login_Screen" component={Landing_Container} />
       </Stack.Navigator>
     </NavigationContainer>
   );
