@@ -5,7 +5,7 @@ import Text from './Text';
 
 const instructionProps = {
   content: 'Start searching',
-  type: 'Title',
+  type: 'Instruction',
   testID: 'TEST_TITLE',
 };
 
@@ -21,9 +21,9 @@ const captionProps = {
   testID: 'TEST_CAPTION_TEXT',
 };
 
-const screenTitleProps = {
+const titleProps = {
   content: 'Profile & Settings',
-  type: 'ScreenTitle',
+  type: 'Title',
   testID: 'TEST_CAPTION_TEXT',
 };
 
@@ -32,4 +32,4 @@ storiesOf('Text', module)
   .add('Text_Instruction', () => <Text {...instructionProps} />)
   .add('Text_Body', () => <Text {...bodyProps} />)
   .add('Text_Caption', () => <Text {...captionProps} />)
-  .add('Text_Screen_Title', () => <Text {...screenTitleProps} />);
+  .add('Text_Title', () => <Text {...titleProps} />);

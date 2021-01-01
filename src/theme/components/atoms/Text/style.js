@@ -11,7 +11,7 @@ export const style = {
     Caption: {
       alignSelf: 'stretch',
     },
-    ScreenTitle: {
+    Title: {
       alignSelf: 'stretch',
     },
   },
@@ -28,8 +28,8 @@ export const style = {
       ...typography.caption,
       color: colors.text.primary,
     },
-    ScreenTitle: {
-      ...typography.screenTitle,
+    Title: {
+      ...typography.title,
       color: colors.text.primary,
     },
   },

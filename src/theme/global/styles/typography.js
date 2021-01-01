@@ -16,7 +16,7 @@ export const typography = {
     fontSize: 16,
     textAlign: 'center',
   },
-  screenTitle: {
+  title: {
     alignSelf: 'center',
     fontWeight: 'bold',
     fontSize: 20,
