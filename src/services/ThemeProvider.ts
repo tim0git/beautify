@@ -28,8 +28,9 @@ const molecules = {
 };
 
 // Organisms Import
+import * as Guest_Welcome from '../theme/components/organisms/Guest_Welcome';
 const organisms = {
-  // placeholder
+  Guest_Welcome,
 };
 
 // Screens Import
