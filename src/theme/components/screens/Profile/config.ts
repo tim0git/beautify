@@ -1,3 +1,6 @@
 export const config = {
-  test: 'TEST CONFIG',
+  screenHeaderProps: {
+    screenTitle: 'Profile & Settings',
+    testID: 'Profile_Screen_Screen_Header',
+  },
 };

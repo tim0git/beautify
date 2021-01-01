@@ -1,18 +1,21 @@
 import React from 'react';
-import {SafeAreaView, View, Text, StatusBar} from 'react-native';
+import {SafeAreaView, View, StatusBar} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
+import Screen_Header from '../../molecules/Screen_Header/Screen_Header';
 
 export interface Props {}
 
 const Inbox_Screen: React.FC<Props> = ({}) => {
-  const {styles} = ThemeProvider('Inbox');
+  const {styles, config} = ThemeProvider('Inbox');
+
+  const {screenHeaderProps} = config;
 
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <View style={styles.container}>
-          <Text>Inbox Screen</Text>
+          <Screen_Header {...screenHeaderProps} />
         </View>
       </SafeAreaView>
     </>
