@@ -1,4 +1,4 @@
-import {colors, size} from '../../../global/styles';
+import {colors} from '../../../global/styles';
 export const styles = {
   pageWrapper: {
     flexGrow: 1,

@@ -2,7 +2,6 @@ import {size} from '../../../global/styles';
 export const style = {
   container: {
     alignSelf: 'stretch',
-    paddingHorizontal: size.padding.xxlg,
   },
   treatmentButtonContainer: {
     paddingVertical: size.padding.sm,

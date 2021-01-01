@@ -28,7 +28,7 @@ export interface Props {
 }
 
 const Guest_Welcome: React.FC<Props> = ({screenInstructionsProps, navigation}) => {
-  const {config, dict, style} = ThemeProvider('Guest_Welcome');
+  const {style} = ThemeProvider('Guest_Welcome');
   return (
     <View style={style.container} testID="Guest_Welcome">
       <Screen_Instructions {...screenInstructionsProps} />
