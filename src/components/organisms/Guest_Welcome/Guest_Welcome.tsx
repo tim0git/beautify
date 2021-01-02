@@ -38,8 +38,12 @@ const Guest_Welcome: React.FC<Props> = ({screenInstructionsProps, navigation, lo
   const {style} = ThemeProvider('Guest_Welcome');
   return (
     <View style={style.container} testID="Guest_Welcome">
-      <Screen_Instructions {...screenInstructionsProps} />
-      <Login_Cluster navigation={navigation} {...loginClusterProps} />
+      <View style={style.screenInstructionsContainer}>
+        <Screen_Instructions {...screenInstructionsProps} />
+      </View>
+      <View style={style.loginClusterContainer}>
+        <Login_Cluster navigation={navigation} {...loginClusterProps} />
+      </View>
     </View>
   );
 };
