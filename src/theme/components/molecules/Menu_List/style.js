@@ -1,3 +1,6 @@
 export const style = {
-  container: {}
-}
+  container: {
+    alignSelf: 'stretch',
+    backgroundColor: '#FFFFFF',
+  },
+};

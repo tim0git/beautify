@@ -7,8 +7,9 @@ function loadStories() {
   require('../src/components/atoms/Button/Button.stories');
   require('../src/components/atoms/Icon/Icon.stories');
   require('../src/components/atoms/Text/Text.stories');
-  require('../src/components/molecules/Login_Cluster/Login_Cluster.stories');
   require('../src/components/molecules/Header/Header.stories');
+  require('../src/components/molecules/Login_Cluster/Login_Cluster.stories');
+  require('../src/components/molecules/Menu_List/Menu_List.stories');
   require('../src/components/molecules/Screen_Instructions/Screen_Instructions.stories');
   require('../src/components/molecules/Search_Bar/Search_Bar.stories');
   require('../src/components/organisms/Guest_Welcome/Guest_Welcome.stories');
@@ -26,6 +27,7 @@ const stories = [
   '../src/components/atoms/Text/Text.stories',
   '../src/components/molecules/Header/Header.stories',
   '../src/components/molecules/Login_Cluster/Login_Cluster.stories',
+  '../src/components/molecules/Menu_List/Menu_List.stories',
   '../src/components/molecules/Screen_Instructions/Screen_Instructions.stories',
   '../src/components/molecules/Search_Bar/Search_Bar.stories',
   '../src/components/organisms/Guest_Welcome/Guest_Welcome.stories',
