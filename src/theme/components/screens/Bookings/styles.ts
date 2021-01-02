@@ -7,11 +7,9 @@ export const styles = {
   },
   container: {
     flexGrow: 1,
-    paddingHorizontal: size.padding.sm,
   },
   guestWelcomeContainer: {
     flexGrow: 1,
     justifyContent: 'center',
-    paddingHorizontal: size.padding.md,
   },
 };

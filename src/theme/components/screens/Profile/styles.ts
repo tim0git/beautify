@@ -7,11 +7,10 @@ export const styles = {
   },
   container: {
     flexGrow: 1,
-    paddingHorizontal: size.padding.sm,
+    alignSelf: 'stretch',
   },
   guestWelcomeContainer: {
-    flexGrow: 1,
     justifyContent: 'flex-start',
-    paddingHorizontal: size.padding.md,
   },
+  menuListContainer: {},
 };
