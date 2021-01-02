@@ -1,4 +1,4 @@
-import {size, shadows, colors} from '../../../global/styles';
+import {size, shadows, colors, typography} from '../../../global/styles';
 
 export const styles = {
   wrapper: {
@@ -66,22 +66,18 @@ export const styles = {
     NoBorder: {
       alignSelf: 'center',
       color: 'grey',
-      fontWeight: '500',
+      ...typography.buttons.noBorder,
     },
     SearchBar: {
-      alignSelf: 'center',
-      fontSize: 16,
-      fontWeight: 'bold',
+      ...typography.buttons.searchBar,
       color: colors.text.tertiary,
     },
     Primary: {
-      fontSize: 22,
-      fontWeight: '500',
+      ...typography.buttons.primary,
       color: colors.text.primary,
     },
     Secondary: {
-      fontSize: 18,
-      fontWeight: '500',
+      ...typography.buttons.secondary,
       color: colors.text.secondary,
     },
   },
