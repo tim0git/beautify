@@ -6,7 +6,7 @@
 import React from 'react';
 import {View, FlatList} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
-import Header from '../Header/Header';
+import Header from '../../atoms/Header/Header';
 import Button from '../../atoms/Button/Button';
 
 export interface Props {

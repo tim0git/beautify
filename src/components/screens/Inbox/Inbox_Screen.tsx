@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView, View, StatusBar} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
-import Header from '../../molecules/Header/Header';
+import Header from '../../atoms/Header/Header';
 import Guest_Welcome from '../../organisms/Guest_Welcome/Guest_Welcome';
 
 export interface Props {
@@ -22,7 +22,11 @@ const Inbox_Screen: React.FC<Props> = ({navigation}) => {
         <Header {...screenHeaderProps} />
         <View style={styles.container}>
           <View style={styles.guestWelcomeContainer}>
-            <Guest_Welcome screenInstructionsProps={screenInstructionsProps} navigation={navigation} />
+            <Guest_Welcome
+              screenInstructionsProps={screenInstructionsProps}
+              navigation={navigation}
+              testID="Inbox_Screen_Guest_Welcome"
+            />
           </View>
         </View>
       </SafeAreaView>

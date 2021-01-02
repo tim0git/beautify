@@ -6,7 +6,7 @@
 import React from 'react';
 import {View} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
-import Text from '../../atoms/Text/Text';
+import Text from '../Text/Text';
 
 export interface Props {
   headerText: string;

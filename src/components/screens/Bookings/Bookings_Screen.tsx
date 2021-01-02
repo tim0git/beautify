@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView, View, StatusBar} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
-import Header from '../../molecules/Header/Header';
+import Header from '../../atoms/Header/Header';
 import Guest_Welcome from '../../organisms/Guest_Welcome/Guest_Welcome';
 
 export interface Props {
@@ -26,6 +26,7 @@ const Bookings_Screen: React.FC<Props> = ({navigation}) => {
               screenInstructionsProps={screenInstructionsProps}
               navigation={navigation}
               loginClusterProps={loginClusterProps}
+              testID="Bookings_Screen_Guest_Welcome"
             />
           </View>
         </View>
