@@ -25,7 +25,7 @@ const Profile_Screen: React.FC<Props> = ({navigation}) => {
             <Guest_Welcome screenInstructionsProps={screenInstructionsProps} navigation={navigation} />
           </View>
           <View style={styles.menuListContainer}>
-            <Menu_List />
+            <Menu_List navigation={navigation} />
           </View>
         </View>
       </SafeAreaView>

@@ -1,6 +1,6 @@
 export const PROFILE_MENU_BUTTONS = {
   About: 'About Beautify',
-  Help: 'Help Centre',
+  Help: 'Help Center',
   Legal: 'Legal Stuff',
   FutureBookings: 'Upcoming Bookings',
   PastBookings: 'Previous Bookings',

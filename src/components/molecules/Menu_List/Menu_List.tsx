@@ -9,39 +9,51 @@ import {ThemeProvider} from '../../../services/ThemeProvider';
 import Header from '../Header/Header';
 import Button from '../../atoms/Button/Button';
 
-export interface Props {}
+export interface Props {
+  navigation: {
+    navigate: (navigationAddress: string) => void;
+  };
+  // DATA: [object];
+}
 
 const DATA = [
   {
     id: 'About Beautify',
     title: 'About Beautify',
+    navigationAddress: 'About_Beautify',
   },
   {
-    id: 'Help Centre',
-    title: 'Help Centre',
+    id: 'Help Center',
+    title: 'Help Center',
+    navigationAddress: 'Help_Center',
   },
   {
     id: 'Legal Stuff',
     title: 'Legal Stuff',
+    navigationAddress: 'Legal',
   },
 ];
 
-const Menu_List: React.FC<Props> = ({}) => {
-  const {config, dict, style} = ThemeProvider('Menu_List');
+const Menu_List: React.FC<Props> = ({navigation}) => {
+  const {config, style} = ThemeProvider('Menu_List');
+
+  const {headerProps, buttonProps} = config;
+
+  const handleOnPress = (navigationAddress: string) => {
+    navigation.navigate(navigationAddress);
+  };
 
   const header = () => {
-    return <Header headerText="Hello World" type="Menu" />;
+    return <Header {...headerProps} headerText="Hello World" />;
   };
 
   const renderItem = ({item}) => {
     return (
       <Button
         {...item}
-        type="Menu"
-        iconLeft={true}
-        iconRight={true}
+        {...buttonProps}
         onPress={() => {
-          console.log('pressed');
+          handleOnPress(item.navigationAddress);
         }}
       />
     );
