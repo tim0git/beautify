@@ -49,7 +49,13 @@ const Menu_List: React.FC<Props> = ({}) => {
 
   return (
     <View style={style.container} testID="Menu_List">
-      <FlatList data={DATA} renderItem={renderItem} keyExtractor={(item) => item.id} ListHeaderComponent={header} />
+      <FlatList
+        data={DATA}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+        ListHeaderComponent={header}
+        scrollEnabled={false}
+      />
     </View>
   );
 };
