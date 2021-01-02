@@ -22,6 +22,6 @@ const defaultProps = {
   },
 };
 
-storiesOf('Guest_Welcome', module)
+storiesOf('Design System/Organism/Guest_Welcome', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Guest_Welcome_Default', () => <Guest_Welcome {...defaultProps} />);

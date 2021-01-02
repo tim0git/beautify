@@ -52,7 +52,7 @@ const MenuProps = {
   iconLeft: true,
 };
 
-storiesOf('Buttons', module)
+storiesOf('Design System/Atoms/Buttons', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Button_Default', () => <Button {...defaultProps} />)
   .add('Button_NoBorder', () => <Button {...NoBorderProps} />)

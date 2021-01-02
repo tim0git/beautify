@@ -8,7 +8,7 @@ const defaultProps = {
   color: 'black',
 };
 
-storiesOf('Icon', module)
+storiesOf('Design System/Atoms/Icon', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Icon-Bookings', () => <IconRN {...defaultProps} name="Bookings" />)
   .add('Icon-Search', () => <IconRN {...defaultProps} name="Search" />)

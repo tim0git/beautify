@@ -5,6 +5,6 @@ import Menu_List from './Menu_List';
 
 const defaultProps = {};
 
-storiesOf('Menu_List', module)
+storiesOf('Design System/Molecule/Menu_List', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Menu_List_Default', () => <Menu_List {...defaultProps} />);

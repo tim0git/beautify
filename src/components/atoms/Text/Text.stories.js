@@ -33,7 +33,7 @@ const menuTitleProps = {
   testID: 'TEST_CAPTION_TEXT',
 };
 
-storiesOf('Text', module)
+storiesOf('Design System/Atoms/Text', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Text_Instruction', () => <Text {...instructionProps} />)
   .add('Text_Body', () => <Text {...bodyProps} />)

@@ -12,6 +12,6 @@ const menuProps = {
   type: 'Menu',
 };
 
-storiesOf('Header', module)
+storiesOf('Design System/Atoms/Header', module)
   .add('Header', () => <Header {...screenProps} />)
   .add('Menu_Header', () => <Header {...menuProps} />);

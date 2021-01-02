@@ -8,6 +8,6 @@ const defaultProps = {
   testID: 'TEST_SEARCH_BAR_TEST_ID',
 };
 
-storiesOf('Search_Bar', module)
+storiesOf('Design System/Molecule/Search_Bar', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Search_Bar_Default', () => <Search_Bar {...defaultProps} />);

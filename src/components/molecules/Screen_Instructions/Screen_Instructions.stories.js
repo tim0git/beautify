@@ -16,6 +16,6 @@ const defaultProps = {
   },
 };
 
-storiesOf('Screen_Instructions', module)
+storiesOf('Design System/Molecule/Screen_Instructions', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Screen_Instructions_Default', () => <Screen_Instructions {...defaultProps} />);

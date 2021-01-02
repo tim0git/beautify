@@ -9,6 +9,6 @@ const defaultProps = {
   },
 };
 
-storiesOf('Login_Cluster', module)
+storiesOf('Design System/Molecule/Login_Cluster', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Login_Cluster_Default', () => <Login_Cluster {...defaultProps} />);
