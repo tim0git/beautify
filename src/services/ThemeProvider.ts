@@ -16,11 +16,13 @@ const atoms = {
 };
 
 // Molecules Import
+import * as Menu_List from '../theme/components/molecules/Menu_List'
 import * as Header from '../theme/components/molecules/Header';
 import * as Login_Cluster from '../theme/components/molecules/Login_Cluster';
 import * as Search_Bar from '../theme/components/molecules/Search_Bar';
 import * as Screen_Instructions from '../theme/components/molecules/Screen_Instructions';
 const molecules = {
+Menu_List,
   Header,
   Login_Cluster,
   Search_Bar,
