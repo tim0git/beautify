@@ -18,7 +18,7 @@ describe('<Search_Screen>', () => {
   describe('<Render>', () => {
     test('should render a search bar', () => {
       const wrapper = mount(
-        <MockedProvider>
+        <MockedProvider mocks={mocks}>
           <Search_Screen {...defaultProps} />
         </MockedProvider>,
       );
