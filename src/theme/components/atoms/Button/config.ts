@@ -1,4 +1,5 @@
 import {size, colors} from '../../../global/styles';
+import {PROFILE_MENU_BUTTONS} from '../../../global/config/Constants';
 export const config = {
   SearchBar: {
     name: 'Search',
@@ -19,5 +20,52 @@ export const config = {
     name: 'ArrowRight',
     color: colors.text.primary,
     size: 30,
+  },
+  MENULEFT: {
+    [PROFILE_MENU_BUTTONS.About]: {
+      name: 'Bookings',
+      color: colors.text.primary,
+      size: 30,
+    },
+    [PROFILE_MENU_BUTTONS.Help]: {
+      name: 'Help',
+      color: colors.text.primary,
+      size: 30,
+    },
+    [PROFILE_MENU_BUTTONS.Legal]: {
+      name: 'Legal',
+      color: colors.text.primary,
+      size: 30,
+    },
+    [PROFILE_MENU_BUTTONS.FutureBookings]: {
+      name: 'Calendar',
+      color: colors.text.primary,
+      size: 30,
+    },
+    [PROFILE_MENU_BUTTONS.PastBookings]: {
+      name: 'Calendar',
+      color: colors.text.primary,
+      size: 30,
+    },
+    [PROFILE_MENU_BUTTONS.Contact]: {
+      name: 'Profile',
+      color: colors.text.primary,
+      size: 30,
+    },
+    [PROFILE_MENU_BUTTONS.Payment]: {
+      name: 'CreditCard',
+      color: colors.text.primary,
+      size: 30,
+    },
+    [PROFILE_MENU_BUTTONS.Marketing]: {
+      name: 'Marketing',
+      color: colors.text.primary,
+      size: 30,
+    },
+    [PROFILE_MENU_BUTTONS.Notifications]: {
+      name: 'Bell',
+      color: colors.text.primary,
+      size: 30,
+    },
   },
 };

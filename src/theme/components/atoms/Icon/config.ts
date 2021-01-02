@@ -5,5 +5,11 @@ export const config = {
     Inbox: 'message-text-outline',
     Profile: 'account-outline',
     ArrowRight: 'arrow-right',
+    Help: 'help-circle-outline',
+    Legal: 'clipboard-text-outline',
+    Calendar: 'calendar-blank',
+    CreditCard: 'credit-card-outline',
+    Marketing: 'text-box-multiple-outline',
+    Bell: 'bell-outline',
   },
 };

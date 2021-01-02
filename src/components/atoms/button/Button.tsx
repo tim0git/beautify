@@ -36,6 +36,14 @@ const Button: React.FC<Props> = ({
     !disabled && onPress();
   };
 
+  const getLeftIconProps = () => {
+    if (type === 'Menu') {
+      return config.MENULEFT[title];
+    }
+
+    return iconProps;
+  };
+
   return (
     <Pressable
       style={styles.wrapper[type]}
@@ -46,7 +54,7 @@ const Button: React.FC<Props> = ({
       accessibilityHint={accessibilityHint}
       accessibilityRole={'button'}>
       <View style={styles.container[type]}>
-        {iconLeft && <IconRN {...iconProps} testID="Button-IconLeft" />}
+        {iconLeft && <IconRN {...getLeftIconProps()} testID="Button-IconLeft" />}
         <View style={styles.textContainer[type]}>
           <Text style={styles.text[type]} testID="Button-Text">
             {title}
