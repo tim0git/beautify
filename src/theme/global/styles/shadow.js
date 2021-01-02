@@ -11,5 +11,25 @@ export const shadows = {
       shadowRadius: 1.41,
       elevation: 2,
     },
+    medium: {
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 6,
+      },
+      shadowOpacity: 0.39,
+      shadowRadius: 8.3,
+      elevation: 13,
+    },
+    large: {
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 12,
+      },
+      shadowOpacity: 0.58,
+      shadowRadius: 16.0,
+      elevation: 24,
+    },
   },
 };

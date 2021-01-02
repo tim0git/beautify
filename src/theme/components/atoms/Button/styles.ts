@@ -23,7 +23,7 @@ export const styles = {
       alignSelf: 'stretch',
       justifyContent: 'center',
       paddingVertical: size.padding.xxs,
-      borderRadius: 3,
+      borderRadius: 5,
       borderColor: colors.border.black,
       borderWidth: 1,
     },
@@ -51,7 +51,7 @@ export const styles = {
       backgroundColor: colors.button.primary,
       borderColor: colors.button.primary,
       borderWidth: 1,
-      borderRadius: 3,
+      borderRadius: 5,
       ...shadows.box.small,
     },
     Secondary: {
