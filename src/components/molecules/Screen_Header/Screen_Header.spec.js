@@ -9,7 +9,7 @@ const {
 } = ThemeProvider('Screen_Header');
 
 const defaultProps = {
-  screenTitle: 'TEST_SCREEN_TITLE',
+  headerText: 'TEST_SCREEN_TITLE',
   testID: 'TEST_SCREEN_HEADER',
 };
 

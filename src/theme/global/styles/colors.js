@@ -4,6 +4,7 @@ const COLORS = {
   greyMedium: '#696969',
   greyDark: '#545C71',
   white: '#FFFFFF',
+  offWhite: '#fafafb',
   pinkDark: '#ff6bb3',
   pinkLight: '#ff78b9',
   purpleDark: '#796ef6',
@@ -19,6 +20,7 @@ export const colors = {
   },
   background: {
     primary: COLORS.white,
+    menuHeader: COLORS.offWhite,
   },
   button: {
     primary: COLORS.pinkDark,

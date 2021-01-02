@@ -1,6 +1,6 @@
 export const config = {
   screenHeaderProps: {
-    screenTitle: 'Profile & Settings',
+    headerText: 'Profile & Settings',
     testID: 'Profile_Screen_Screen_Header',
   },
   screenInstructionsProps: {

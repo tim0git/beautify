@@ -27,9 +27,16 @@ const titleProps = {
   testID: 'TEST_CAPTION_TEXT',
 };
 
+const menuTitleProps = {
+  content: 'General',
+  type: 'MenuTitle',
+  testID: 'TEST_CAPTION_TEXT',
+};
+
 storiesOf('Text', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Text_Instruction', () => <Text {...instructionProps} />)
   .add('Text_Body', () => <Text {...bodyProps} />)
   .add('Text_Caption', () => <Text {...captionProps} />)
-  .add('Text_Title', () => <Text {...titleProps} />);
+  .add('Text_Title', () => <Text {...titleProps} />)
+  .add('Text_MenuTitle', () => <Text {...menuTitleProps} />);

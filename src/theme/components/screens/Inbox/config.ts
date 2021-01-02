@@ -1,6 +1,6 @@
 export const config = {
   screenHeaderProps: {
-    screenTitle: 'Inbox',
+    headerText: 'Inbox',
     testID: 'Inbox_Screen_Screen_Header',
   },
   screenInstructionsProps: {

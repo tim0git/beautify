@@ -14,6 +14,9 @@ export const style = {
     Title: {
       alignSelf: 'stretch',
     },
+    MenuTitle: {
+      alignSelf: 'flex-start',
+    },
   },
   text: {
     Instruction: {
@@ -30,6 +33,10 @@ export const style = {
     },
     Title: {
       ...typography.title,
+      color: colors.text.primary,
+    },
+    MenuTitle: {
+      ...typography.menuTitle,
       color: colors.text.primary,
     },
   },

@@ -21,6 +21,12 @@ export const typography = {
     fontWeight: 'bold',
     fontSize: 18,
   },
+  menuTitle: {
+    alignSelf: 'center',
+    fontWeight: 'bold',
+    fontSize: 18,
+    paddingHorizontal: 24,
+  },
   buttons: {
     searchBar: {
       alignSelf: 'center',

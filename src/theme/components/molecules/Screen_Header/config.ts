@@ -1,6 +1,12 @@
 export const config = {
   screenHeaderTextProps: {
-    type: 'Title',
-    testID: 'SCREEN_TITLE_TEXT',
+    Screen: {
+      type: 'Title',
+      testID: 'SCREEN_TITLE_TEXT',
+    },
+    Menu: {
+      type: 'MenuTitle',
+      testID: 'MENU_TITLE_TEXT',
+    },
   },
 };
