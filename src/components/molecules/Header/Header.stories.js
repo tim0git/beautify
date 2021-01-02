@@ -1,6 +1,6 @@
 import {storiesOf} from '@storybook/react-native';
 import React from 'react';
-import Screen_Header from './Screen_Header';
+import Header from './Header';
 
 const screenProps = {
   headerText: 'Profile & Settings',
@@ -12,6 +12,6 @@ const menuProps = {
   type: 'Menu',
 };
 
-storiesOf('Screen_Header', module)
-  .add('Screen_Header', () => <Screen_Header {...screenProps} />)
-  .add('Menu_Header', () => <Screen_Header {...menuProps} />);
+storiesOf('Header', module)
+  .add('Header', () => <Header {...screenProps} />)
+  .add('Menu_Header', () => <Header {...menuProps} />);

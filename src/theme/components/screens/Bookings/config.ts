@@ -1,6 +1,7 @@
 export const config = {
   screenHeaderProps: {
     headerText: 'My Bookings',
+    type: 'Screen',
     testID: 'Bookings_Screen_Screen_Header',
   },
   screenInstructionsProps: {

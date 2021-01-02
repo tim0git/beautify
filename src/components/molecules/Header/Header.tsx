@@ -1,5 +1,5 @@
 /**
- * @name Screen_Header
+ * @name Header
  * @description {description}
  *
  */
@@ -14,15 +14,15 @@ export interface Props {
   testID?: string;
 }
 
-const Screen_Header: React.FC<Props> = ({headerText, testID, type}) => {
-  const {config, style} = ThemeProvider('Screen_Header');
+const Header: React.FC<Props> = ({headerText, testID, type}) => {
+  const {config, style} = ThemeProvider('Header');
 
   const {screenHeaderTextProps} = config;
   return (
-    <View style={style.container[type]} testID={testID || 'Screen_Header'}>
+    <View style={style.container[type]} testID={testID || 'Header'}>
       <Text content={headerText} {...screenHeaderTextProps[type]} />
     </View>
   );
 };
 
-export default Screen_Header;
+export default Header;
