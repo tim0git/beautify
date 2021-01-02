@@ -1,2 +1,1 @@
-export * from './Menu_List'
-
+export * from './Menu_List';

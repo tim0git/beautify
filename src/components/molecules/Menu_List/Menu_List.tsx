@@ -4,7 +4,7 @@
  *
  */
 import React from 'react';
-import {View, Text, FlatList} from 'react-native';
+import {View, FlatList} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
 import Header from '../Header/Header';
 import Button from '../../atoms/Button/Button';

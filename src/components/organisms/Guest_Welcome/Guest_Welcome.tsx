@@ -32,12 +32,13 @@ export interface Props {
   navigation: {
     navigate: (navigationAddress: string) => void;
   };
+  testID: string;
 }
 
-const Guest_Welcome: React.FC<Props> = ({screenInstructionsProps, navigation, loginClusterProps}) => {
+const Guest_Welcome: React.FC<Props> = ({screenInstructionsProps, navigation, loginClusterProps, testID}) => {
   const {style} = ThemeProvider('Guest_Welcome');
   return (
-    <View style={style.container} testID="Guest_Welcome">
+    <View style={style.container} testID={testID || 'Guest_Welcome'}>
       <View style={style.screenInstructionsContainer}>
         <Screen_Instructions {...screenInstructionsProps} />
       </View>

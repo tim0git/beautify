@@ -22,17 +22,17 @@ describe('<Profile_Screen>', () => {
           <Profile_Screen {...defaultProps} />
         </MockedProvider>,
       );
-      const ProfileBar = wrapper.findWhere((node) => node.prop('testID') === 'Profile-ProfileBar');
+      const ProfileBar = wrapper.findWhere((node) => node.prop('testID') === 'Profile_Screen');
 
       expect(ProfileBar).toExist();
     });
-    test('should render a screen placeHolder', () => {
+    test('should render a Guest_Welcome component', () => {
       const wrapper = mount(
         <MockedProvider mocks={mocks}>
           <Profile_Screen {...defaultProps} />
         </MockedProvider>,
       );
-      const ProfileBar = wrapper.findWhere((node) => node.prop('testID') === 'Profile-ScreenPlaceHolder');
+      const ProfileBar = wrapper.findWhere((node) => node.prop('testID') === 'Profile_Screen_Guest_Welcome');
 
       expect(ProfileBar).toExist();
     });

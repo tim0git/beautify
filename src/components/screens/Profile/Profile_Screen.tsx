@@ -18,11 +18,15 @@ const Profile_Screen: React.FC<Props> = ({navigation}) => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <SafeAreaView style={styles.pageWrapper}>
+      <SafeAreaView style={styles.pageWrapper} testID="Profile_Screen">
         <Header {...screenHeaderProps} />
         <View style={styles.container}>
           <View style={styles.guestWelcomeContainer}>
-            <Guest_Welcome screenInstructionsProps={screenInstructionsProps} navigation={navigation} />
+            <Guest_Welcome
+              screenInstructionsProps={screenInstructionsProps}
+              navigation={navigation}
+              testID="Profile_Screen_Guest_Welcome"
+            />
           </View>
           <View style={styles.menuListContainer}>
             <Menu_List navigation={navigation} />
