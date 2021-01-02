@@ -44,5 +44,9 @@ export const typography = {
       fontSize: 16,
       fontWeight: 'bold',
     },
+    menu: {
+      fontSize: 18,
+      fontWeight: '600',
+    },
   },
 };

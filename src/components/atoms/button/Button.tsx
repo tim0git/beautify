@@ -47,9 +47,11 @@ const Button: React.FC<Props> = ({
       accessibilityRole={'button'}>
       <View style={styles.container[type]}>
         {iconLeft && <IconRN {...iconProps} testID="Button-IconLeft" />}
-        <Text style={styles.text[type]} testID="Button-Text">
-          {title}
-        </Text>
+        <View style={styles.textContainer[type]}>
+          <Text style={styles.text[type]} testID="Button-Text">
+            {title}
+          </Text>
+        </View>
         {iconRight && <IconRN {...iconProps} testID="Button-IconRight" />}
       </View>
     </Pressable>

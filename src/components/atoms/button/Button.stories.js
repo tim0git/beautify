@@ -44,10 +44,19 @@ const SecondaryProps = {
   iconRight: true,
 };
 
+const MenuProps = {
+  ...defaultProps,
+  type: 'Menu',
+  title: 'About Beautify',
+  iconRight: true,
+  iconLeft: true,
+};
+
 storiesOf('Buttons', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Button_Default', () => <Button {...defaultProps} />)
   .add('Button_NoBorder', () => <Button {...NoBorderProps} />)
   .add('Button_SearchBar', () => <Button {...SearchBarProps} />)
   .add('Button_Primary', () => <Button {...PrimaryProps} />)
-  .add('Button_Secondary', () => <Button {...SecondaryProps} />);
+  .add('Button_Secondary', () => <Button {...SecondaryProps} />)
+  .add('Button_Menu', () => <Button {...MenuProps} />);

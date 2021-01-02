@@ -15,4 +15,9 @@ export const config = {
     color: colors.text.secondary,
     size: 27,
   },
+  Menu: {
+    name: 'ArrowRight',
+    color: colors.text.primary,
+    size: 30,
+  },
 };

@@ -17,6 +17,9 @@ export const styles = {
     Secondary: {
       alignSelf: 'center',
     },
+    Menu: {
+      alignSelf: 'stretch',
+    },
   },
   container: {
     default: {
@@ -60,6 +63,15 @@ export const styles = {
       alignItems: 'center',
       justifyContent: 'space-between',
     },
+    Menu: {
+      alignSelf: 'stretch',
+      flexDirection: 'row',
+      alignItems: 'center',
+      paddingVertical: size.padding.sm,
+      paddingHorizontal: size.padding.sm,
+      borderBottomColor: colors.border.primary,
+      borderBottomWidth: 1 / 2,
+    },
   },
   text: {
     default: {
@@ -81,6 +93,22 @@ export const styles = {
     Secondary: {
       ...typography.buttons.secondary,
       color: colors.text.secondary,
+    },
+    Menu: {
+      ...typography.buttons.menu,
+      color: colors.text.primary,
+    },
+  },
+  textContainer: {
+    default: {},
+    NoBorder: {},
+    SearchBar: {},
+    Primary: {},
+    Secondary: {},
+    Menu: {
+      flexGrow: 1,
+      justifyContent: 'flex-start',
+      paddingHorizontal: size.padding.md,
     },
   },
 };
