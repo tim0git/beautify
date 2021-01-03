@@ -40,10 +40,10 @@ const Guest_Welcome: React.FC<Props> = ({screenInstructionsProps, navigation, lo
   return (
     <View style={style.container} testID={testID || 'Guest_Welcome'}>
       <View style={style.screenInstructionsContainer}>
-        <Screen_Instructions {...screenInstructionsProps} />
+        <Screen_Instructions testID="Guest_Welcome_Screen_Instructions" {...screenInstructionsProps} />
       </View>
       <View style={style.loginClusterContainer}>
-        <Login_Cluster navigation={navigation} {...loginClusterProps} />
+        <Login_Cluster navigation={navigation} testID="Guest_Welcome_Login_Cluster" {...loginClusterProps} />
       </View>
     </View>
   );

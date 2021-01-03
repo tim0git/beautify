@@ -14,13 +14,14 @@ export interface Props {
     type: string;
     testID: string;
   };
+  testID: string;
 }
 
-const Screen_Instructions: React.FC<Props> = ({instructionProps, bodyProps}) => {
+const Screen_Instructions: React.FC<Props> = ({instructionProps, bodyProps, testID}) => {
   const {styles} = ThemeProvider('Screen_Instructions');
 
   return (
-    <View style={styles.headerContainer}>
+    <View style={styles.headerContainer} testID={testID || 'Screen_Instructions'}>
       {instructionProps && (
         <View style={styles.instructionContainer}>
           <Text {...instructionProps} testID={instructionProps.testID || 'Screen_Instructions_Title'} />

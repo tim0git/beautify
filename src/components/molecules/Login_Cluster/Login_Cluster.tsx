@@ -20,9 +20,10 @@ export interface Props {
     navigate: (navigationAddress: string) => void;
   };
   captionProps?: captionPropsType;
+  testID: string;
 }
 
-const Login_Cluster: React.FC<Props> = ({navigation, captionProps}) => {
+const Login_Cluster: React.FC<Props> = ({navigation, captionProps, testID}) => {
   const {style, config} = ThemeProvider('Login_Cluster');
 
   const {treatmentButtonProps, loginButtonProps, navigationProps} = config;
@@ -42,7 +43,7 @@ const Login_Cluster: React.FC<Props> = ({navigation, captionProps}) => {
   };
 
   return (
-    <View style={style.container} testID="Login_Cluster">
+    <View style={style.container} testID={testID || 'Login_Cluster'}>
       <View style={style.treatmentButtonContainer}>
         <Button
           {...treatmentButtonProps}
