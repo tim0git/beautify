@@ -27,6 +27,12 @@ export const typography = {
     fontSize: 18,
     paddingHorizontal: 16,
   },
+  splash: {
+    alignSelf: 'center',
+    fontWeight: 'bold',
+    fontSize: 30,
+  },
+
   buttons: {
     searchBar: {
       alignSelf: 'center',

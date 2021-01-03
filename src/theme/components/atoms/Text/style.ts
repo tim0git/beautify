@@ -17,6 +17,9 @@ export const style = {
     MenuTitle: {
       alignSelf: 'flex-start',
     },
+    Splash: {
+      alignSelf: 'stretch',
+    },
   },
   text: {
     Instruction: {
@@ -37,6 +40,10 @@ export const style = {
     },
     MenuTitle: {
       ...typography.menuTitle,
+      color: colors.text.primary,
+    },
+    Splash: {
+      ...typography.splash,
       color: colors.text.primary,
     },
   },
