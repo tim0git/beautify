@@ -10,9 +10,11 @@ import IconRN from '../../atoms/Icon/Icon';
 import Spinner from '../../atoms/Spinner/Spinner';
 import Text from '../../atoms/Text/Text';
 
-export interface Props {}
+export interface Props {
+  testID: string;
+}
 
-const Loading: React.FC<Props> = ({}) => {
+const Loading: React.FC<Props> = ({testID}) => {
   const {style} = ThemeProvider('Loading');
 
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -26,7 +28,7 @@ const Loading: React.FC<Props> = ({}) => {
   });
 
   return (
-    <View style={style.pageWrapper} testID="Loading">
+    <View style={style.pageWrapper} testID={testID || 'Loading'}>
       <Animated.View
         style={[
           style.container,

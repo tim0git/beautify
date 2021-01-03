@@ -30,7 +30,7 @@ const WebView_Screen: React.FC<Props> = ({route}) => {
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={style.pageWrapper} testID="WebView_Screen">
         <Header headerText={route.params.title} type="Screen" testID="WebView_Screen_Header" />
-        {loading && <Loading />}
+        {loading && <Loading testID="WebView_Screen_Loading" />}
         {error && <Text testID="WebView_Screen_Error">Error...</Text>}
         {!error && (
           <View style={style.container}>

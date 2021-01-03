@@ -147,7 +147,9 @@ describe('<Menu_List />', () => {
 
       aboutBeautifyButton.first().props().onPress();
 
-      expect(defaultProps.navigation.navigate).toHaveBeenCalledWith(defaultProps.DATA[0].navigationAddress);
+      expect(defaultProps.navigation.navigate).toHaveBeenCalledWith(defaultProps.DATA[0].navigationAddress, {
+        title: 'About Beautify',
+      });
     });
   });
 });
