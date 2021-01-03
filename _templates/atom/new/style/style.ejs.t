@@ -1,5 +1,5 @@
 ---
-to: src/theme/components/atoms/<%=name%>/style.js
+to: src/theme/components/atoms/<%=name%>/style.ts
 ---
 
 

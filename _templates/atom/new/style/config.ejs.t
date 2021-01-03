@@ -1,4 +1,4 @@
 ---
-to: src/theme/components/atoms/<%=name%>/config.js
+to: src/theme/components/atoms/<%=name%>/config.ts
 ---
 export const config = {}

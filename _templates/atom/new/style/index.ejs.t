@@ -1,5 +1,5 @@
 ---
-to: src/theme/components/atoms/<%=name%>/index.js
+to: src/theme/components/atoms/<%=name%>/index.ts
 ---
 export * from './config'
 export * from './style'

@@ -1,5 +1,5 @@
 ---
-to: src/theme/components/molecules/<%=name%>/style.js
+to: src/theme/components/molecules/<%=name%>/style.ts
 ---
 
 
