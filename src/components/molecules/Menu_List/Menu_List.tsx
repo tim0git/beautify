@@ -9,32 +9,25 @@ import {ThemeProvider} from '../../../services/ThemeProvider';
 import Header from '../../atoms/Header/Header';
 import Button from '../../atoms/Button/Button';
 
+type MenuButtonObject = {
+  id: string;
+  title: string;
+  navigationAddress: string;
+  testID: string;
+};
+
 export interface Props {
   navigation: {
     navigate: (navigationAddress: string) => void;
   };
-  // DATA: [object];
+  DATA: [MenuButtonObject];
+  headerTextProps: {
+    headerText: string;
+    testID: string;
+  };
 }
 
-const DATA = [
-  {
-    id: 'About Beautify',
-    title: 'About Beautify',
-    navigationAddress: 'About_Beautify',
-  },
-  {
-    id: 'Help Center',
-    title: 'Help Center',
-    navigationAddress: 'Help_Center',
-  },
-  {
-    id: 'Legal Stuff',
-    title: 'Legal Stuff',
-    navigationAddress: 'Legal',
-  },
-];
-
-const Menu_List: React.FC<Props> = ({navigation}) => {
+const Menu_List: React.FC<Props> = ({navigation, DATA, headerTextProps}) => {
   const {config, style} = ThemeProvider('Menu_List');
 
   const {headerProps, buttonProps} = config;
@@ -44,7 +37,7 @@ const Menu_List: React.FC<Props> = ({navigation}) => {
   };
 
   const header = () => {
-    return <Header {...headerProps} headerText="Hello World" />;
+    return <Header {...headerProps} {...headerTextProps} />;
   };
 
   const renderItem = ({item}) => {

@@ -58,7 +58,7 @@ describe('<Guest_Welcome />', () => {
       const wrapper = mount(<Guest_Welcome {...defaultProps} />);
       const ScreenInstructions = wrapper.findWhere((node) => node.prop('testID') === 'TEST_INSTRUCTION_TEST_ID');
 
-      const ScreenInstructionProps = ScreenInstructions.at(0).props();
+      const ScreenInstructionProps = ScreenInstructions.first().props();
 
       const {instructionProps} = defaultProps.screenInstructionsProps;
 
@@ -70,7 +70,7 @@ describe('<Guest_Welcome />', () => {
       const wrapper = mount(<Guest_Welcome {...defaultProps} />);
       const bodyComponent = wrapper.findWhere((node) => node.prop('testID') === 'TEST_BODY_TEST_ID');
 
-      const bodyComponentProps = bodyComponent.at(0).props();
+      const bodyComponentProps = bodyComponent.first().props();
 
       const {bodyProps} = defaultProps.screenInstructionsProps;
 
@@ -82,7 +82,7 @@ describe('<Guest_Welcome />', () => {
       const wrapper = mount(<Guest_Welcome {...defaultProps} />);
       const loginClusterComponent = wrapper.findWhere((node) => node.prop('testID') === 'TEST_CAPTION_TEST_ID');
 
-      const loginClusterComponentProps = loginClusterComponent.at(0).props();
+      const loginClusterComponentProps = loginClusterComponent.first().props();
 
       const {captionProps} = defaultProps.loginClusterProps;
 
@@ -95,7 +95,7 @@ describe('<Guest_Welcome />', () => {
       const wrapper = mount(<Guest_Welcome {...defaultProps} />);
       const loginClusterComponent = wrapper.findWhere((node) => node.prop('testID') === 'TEST_LOGIN_CLUSTER_TEST_ID');
 
-      const loginClusterComponentProps = loginClusterComponent.at(0).props();
+      const loginClusterComponentProps = loginClusterComponent.first().props();
 
       expect(loginClusterComponentProps).toHaveProperty('navigation', defaultProps.navigation);
     });
