@@ -23,6 +23,8 @@ export const PROFILE_MENU_NAVIGATION = {
 };
 
 export const WEB_VIEW_URLS = {
+  TEST_WEBVIEW_URL: 'https://httpstat.us/200',
+  TEST_ERROR_WEBVIEW_URL: 'https://httpstat.us/404',
   [PROFILE_MENU_BUTTONS.About]: 'https://apposing.co.uk/privacy-policy/',
   [PROFILE_MENU_BUTTONS.Help]: 'https://apposing.co.uk/privacy-policy/',
 };

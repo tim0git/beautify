@@ -14,6 +14,16 @@ const defaultProps = {
   },
 };
 
+const errorProps = {
+  ...defaultProps,
+  route: {
+    params: {
+      title: 'TEST_ERROR_WEBVIEW_URL',
+    },
+  },
+};
+
 storiesOf('Design System/Screens/WebView_Screen', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
-  .add('WebView_Screen_Default', () => <WebView_Screen {...defaultProps} />);
+  .add('WebView_Screen_Default', () => <WebView_Screen {...defaultProps} />)
+  .add('WebView_Screen_Error', () => <WebView_Screen {...errorProps} />);
