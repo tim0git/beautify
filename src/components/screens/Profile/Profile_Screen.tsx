@@ -12,6 +12,7 @@ export interface Props {
 
 const Profile_Screen: React.FC<Props> = ({navigation}) => {
   const {styles, config} = ThemeProvider('Profile');
+  const {PROFILE_GUEST_MENU} = ThemeProvider('global').config;
 
   const {screenHeaderProps, screenInstructionsProps} = config;
 
@@ -29,7 +30,12 @@ const Profile_Screen: React.FC<Props> = ({navigation}) => {
             />
           </View>
           <View style={styles.menuListContainer}>
-            <Menu_List navigation={navigation} />
+            <Menu_List
+              navigation={navigation}
+              DATA={PROFILE_GUEST_MENU.DATA}
+              headerText={PROFILE_GUEST_MENU.headerText}
+              testID="Search_Screen_Menu_List"
+            />
           </View>
         </View>
       </SafeAreaView>

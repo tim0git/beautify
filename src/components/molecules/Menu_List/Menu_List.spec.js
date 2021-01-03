@@ -8,10 +8,7 @@ const defaultProps = {
   navigation: {
     navigate: jest.fn(),
   },
-  headerTextProps: {
-    headerText: 'TEST_HEADER_TEXT',
-    testID: 'TEST_HEADER_TEXT_TEST_ID',
-  },
+  headerText: 'TEST_HEADER_TEXT',
   DATA: [
     {
       id: 'About Beautify',
@@ -44,7 +41,7 @@ describe('<Menu_List />', () => {
     });
     test('should render a Menu_List header component', () => {
       const wrapper = mount(<Menu_List {...defaultProps} />);
-      const headerText = wrapper.findWhere((node) => node.prop('testID') === 'TEST_HEADER_TEXT_TEST_ID');
+      const headerText = wrapper.findWhere((node) => node.prop('testID') === 'Menu_List_Header');
 
       expect(headerText).toExist();
     });
@@ -76,12 +73,11 @@ describe('<Menu_List />', () => {
   describe('<Props>', () => {
     test('should pass the folowing props to header component', () => {
       const wrapper = mount(<Menu_List {...defaultProps} />);
-      const headerText = wrapper.findWhere((node) => node.prop('testID') === 'TEST_HEADER_TEXT_TEST_ID');
+      const headerText = wrapper.findWhere((node) => node.prop('testID') === 'Menu_List_Header');
 
       const headerTextProps = headerText.first().props();
 
-      expect(headerTextProps).toHaveProperty('testID', defaultProps.headerTextProps.testID);
-      expect(headerTextProps).toHaveProperty('headerText', defaultProps.headerTextProps.headerText);
+      expect(headerTextProps).toHaveProperty('headerText', defaultProps.headerText);
     });
     test('should pass the folowing props to About Beautify Button', () => {
       const wrapper = mount(<Menu_List {...defaultProps} />);

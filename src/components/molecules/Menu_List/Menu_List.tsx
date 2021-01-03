@@ -21,13 +21,11 @@ export interface Props {
     navigate: (navigationAddress: string) => void;
   };
   DATA: [MenuButtonObject];
-  headerTextProps: {
-    headerText: string;
-    testID: string;
-  };
+  headerText: string;
+  testID: string;
 }
 
-const Menu_List: React.FC<Props> = ({navigation, DATA, headerTextProps}) => {
+const Menu_List: React.FC<Props> = ({navigation, DATA, testID, headerText}) => {
   const {config, style} = ThemeProvider('Menu_List');
 
   const {headerProps, buttonProps} = config;
@@ -37,7 +35,7 @@ const Menu_List: React.FC<Props> = ({navigation, DATA, headerTextProps}) => {
   };
 
   const header = () => {
-    return <Header {...headerProps} {...headerTextProps} />;
+    return <Header {...headerProps} headerText={headerText} testID="Menu_List_Header" />;
   };
 
   const renderItem = ({item}) => {
@@ -53,7 +51,7 @@ const Menu_List: React.FC<Props> = ({navigation, DATA, headerTextProps}) => {
   };
 
   return (
-    <View style={style.container} testID="Menu_List">
+    <View style={style.container} testID={testID || 'Menu_List'}>
       <FlatList
         data={DATA}
         renderItem={renderItem}
