@@ -1,10 +1,6 @@
 ---
-to: src/utils/<%=name%>/<%=name%>.util.js
+to: src/utils/<%=name%>/<%=name%>.ts
 ---
-/**
- * @flow
- */
-
 /**
  * @name <%=name%>
  * @description {description}
@@ -16,4 +12,4 @@ to: src/utils/<%=name%>/<%=name%>.util.js
  */
 export function <%=name%> (arg) {
   return arg
-}
+};
