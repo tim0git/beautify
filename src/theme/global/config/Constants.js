@@ -10,10 +10,38 @@ export const PROFILE_MENU_BUTTONS = {
   Notifications: 'Notifications',
 };
 
+export const PROFILE_MENU_NAVIGATION = {
+  About: 'Web_View',
+  Help: 'Web_View',
+  Legal: 'Legal_Screen',
+  FutureBookings: 'Upcoming Bookings',
+  PastBookings: 'Previous Bookings',
+  Contact: 'Contact Details',
+  Payment: 'Payment Methods',
+  Marketing: 'Marketing_Preferences',
+  Notifications: 'Notifications',
+};
+
 export const PROFILE_GUEST_MENU = {
-  General: {
-    [PROFILE_MENU_BUTTONS.About]: {},
-    [PROFILE_MENU_BUTTONS.Help]: {},
-    [PROFILE_MENU_BUTTONS.Legal]: {},
-  },
+  headerText: 'General',
+  DATA: [
+    {
+      id: PROFILE_MENU_BUTTONS.About,
+      title: PROFILE_MENU_BUTTONS.About,
+      navigationAddress: PROFILE_MENU_NAVIGATION.About,
+      testID: 'Profile_Guest_About_Beautify',
+    },
+    {
+      id: PROFILE_MENU_BUTTONS.Help,
+      title: PROFILE_MENU_BUTTONS.Help,
+      navigationAddress: PROFILE_MENU_NAVIGATION.Help,
+      testID: 'Profile_Guest_Help_center',
+    },
+    {
+      id: PROFILE_MENU_BUTTONS.Legal,
+      title: PROFILE_MENU_BUTTONS.Legal,
+      navigationAddress: PROFILE_MENU_NAVIGATION.Legal,
+      testID: 'Profile_Guest_Legal_Stuff',
+    },
+  ],
 };
