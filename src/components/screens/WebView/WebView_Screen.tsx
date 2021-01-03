@@ -8,6 +8,7 @@ import {View, Text, StatusBar, SafeAreaView} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
 import {WebView} from 'react-native-webview';
 import Header from '../../atoms/Header/Header';
+import Loading from '../../molecules/Loading/Loading';
 
 export interface Props {
   route: {
@@ -29,7 +30,7 @@ const WebView_Screen: React.FC<Props> = ({route}) => {
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={style.pageWrapper} testID="WebView_Screen">
         <Header headerText={route.params.title} type="Screen" testID="WebView_Screen_Header" />
-        {loading && <Text testID="WebView_Screen_Loading">Loading...</Text>}
+        {loading && <Loading />}
         {error && <Text testID="WebView_Screen_Error">Error...</Text>}
         {!error && (
           <View style={style.container}>
