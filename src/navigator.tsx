@@ -9,6 +9,7 @@ import Bookings_Container from './containers/Bookings_Container';
 import Inbox_Container from './containers/Inbox_Container';
 import Profile_Container from './containers/Profile_Container';
 import IconRN from './components/atoms/Icon/Icon';
+import WebView_Screen from './components/screens/WebView/WebView_Screen';
 
 const SearchStack = createStackNavigator();
 
@@ -83,6 +84,7 @@ export default function AppNavigationContainer() {
         <Stack.Screen name="Home" component={TabStack} />
         <Stack.Screen name="Search_Screen" component={SearchStackScreen} />
         <Stack.Screen name="Login_Screen" component={Landing_Container} />
+        <Stack.Screen name="Web_View" component={WebView_Screen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
