@@ -18,7 +18,7 @@ type MenuButtonObject = {
 
 export interface Props {
   navigation: {
-    navigate: (navigationAddress: string) => void;
+    navigate: (navigationAddress: string, {title: string}) => void;
   };
   DATA: [MenuButtonObject];
   headerText: string;
@@ -30,8 +30,8 @@ const Menu_List: React.FC<Props> = ({navigation, DATA, testID, headerText}) => {
 
   const {headerProps, buttonProps} = config;
 
-  const handleOnPress = (navigationAddress: string) => {
-    navigation.navigate(navigationAddress);
+  const handleOnPress = (navigationAddress: string, title: string) => {
+    navigation.navigate(navigationAddress, {title});
   };
 
   const header = () => {
@@ -44,7 +44,7 @@ const Menu_List: React.FC<Props> = ({navigation, DATA, testID, headerText}) => {
         {...item}
         {...buttonProps}
         onPress={() => {
-          handleOnPress(item.navigationAddress);
+          handleOnPress(item.navigationAddress, item.title);
         }}
       />
     );

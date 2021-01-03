@@ -11,22 +11,22 @@ export const PROFILE_MENU_BUTTONS = {
 };
 
 export const PROFILE_MENU_NAVIGATION = {
-  [PROFILE_MENU_BUTTONS.About]: 'Web_View',
-  [PROFILE_MENU_BUTTONS.Help]: 'Web_View',
-  [PROFILE_MENU_BUTTONS.Legal]: 'Legal_Screen',
-  [PROFILE_MENU_BUTTONS.FutureBookings]: 'Upcoming_Bookings',
-  [PROFILE_MENU_BUTTONS.PastBookings]: 'Previous_Bookings',
-  [PROFILE_MENU_BUTTONS.Contact]: 'Contact_Details',
-  [PROFILE_MENU_BUTTONS.Payment]: 'Payment_Methods',
-  [PROFILE_MENU_BUTTONS.Marketing]: 'Marketing_Preferences',
-  [PROFILE_MENU_BUTTONS.Notifications]: 'Notifications',
+  About: 'Web_View',
+  Help: 'Web_View',
+  Legal: 'Legal_Screen',
+  FutureBookings: 'Upcoming_Bookings',
+  PastBookings: 'Previous_Bookings',
+  Contact: 'Contact_Details',
+  Payment: 'Payment_Methods',
+  Marketing: 'Marketing_Preferences',
+  Notifications: 'Notifications',
 };
 
 export const WEB_VIEW_URLS = {
   TEST_WEBVIEW_URL: 'https://httpstat.us/200',
   TEST_ERROR_WEBVIEW_URL: 'https://httpstat.us/404',
   [PROFILE_MENU_BUTTONS.About]: 'https://apposing.co.uk/privacy-policy/',
-  [PROFILE_MENU_BUTTONS.Help]: 'https://apposing.co.uk/privacy-policy/',
+  [PROFILE_MENU_BUTTONS.Help]: 'https://apposing.co.uk/contact/',
 };
 
 export const PROFILE_GUEST_MENU = {
