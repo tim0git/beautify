@@ -3,7 +3,7 @@ import {SafeAreaView, View, StatusBar} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
 import Header from '../../atoms/Header/Header';
 import Guest_Welcome from '../../organisms/Guest_Welcome/Guest_Welcome';
-
+import {Client as ConversationsClient} from '@twilio/conversations';
 export interface Props {
   navigation: {
     navigate: () => void;
@@ -14,6 +14,8 @@ const Inbox_Screen: React.FC<Props> = ({navigation}) => {
   const {styles, config} = ThemeProvider('Inbox');
 
   const {screenHeaderProps, screenInstructionsProps} = config;
+
+  console.dir(ConversationsClient);
 
   return (
     <>
