@@ -57,6 +57,7 @@ const Tab = createBottomTabNavigator();
 function TabStack() {
   return (
     <Tab.Navigator
+      tabBarOptions={{activeTintColor: '#796ef6'}}
       screenOptions={({route}) => ({
         tabBarIcon: ({color, size}) => {
           const icons = {
