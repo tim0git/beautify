@@ -70,10 +70,12 @@ describe('<Dispatch Actions>', () => {
   describe('syncUser', () => {
     it('should dispatch SYNC_USER with the user passed as argument', () => {
       const user = 'MOCK_USER';
-      const dispatch = syncUser(user);
+      const authToken = 'MOCK_TOKEN';
+      const dispatch = syncUser(user, authToken);
       expect(dispatch).toEqual({
         type: SYNC_USER,
         user,
+        authToken,
       });
     });
   });
