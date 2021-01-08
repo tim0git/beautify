@@ -6,6 +6,7 @@ import {USER_PROFILE_MENU} from '../../../theme/global/config';
 
 const defaultProps = {
   userProfileMenu: USER_PROFILE_MENU,
+  navigation: () => {},
 };
 
 storiesOf('User_Profile_Menu', module)
