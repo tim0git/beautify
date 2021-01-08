@@ -10,6 +10,7 @@ export const PROFILE_MENU_BUTTONS = {
   Payment: 'Payment Methods',
   Marketing: 'Marketing Preferences',
   Notifications: 'Notifications',
+  Logout: 'Logout',
 };
 
 export const PROFILE_MENU_NAVIGATION = {
@@ -22,6 +23,7 @@ export const PROFILE_MENU_NAVIGATION = {
   Payment: 'Payment_Methods',
   Marketing: 'Marketing_Preferences',
   Notifications: 'Notifications',
+  Logout: 'Logout',
 };
 
 export const WEB_VIEW_URLS = {
@@ -51,6 +53,19 @@ export const PROFILE_GUEST_MENU = {
       title: PROFILE_MENU_BUTTONS.Legal,
       navigationAddress: PROFILE_MENU_NAVIGATION.Legal,
       testID: 'Profile_Guest_Legal_Stuff',
+    },
+  ],
+};
+
+export const PROFILE_USER_MENU = {
+  headerText: PROFILE_GUEST_MENU.headerText,
+  DATA: [
+    ...PROFILE_GUEST_MENU.DATA,
+    {
+      id: uuidv4(),
+      title: PROFILE_MENU_BUTTONS.Logout,
+      navigationAddress: PROFILE_MENU_NAVIGATION.Logout,
+      testID: 'Profile_Guest_Logout',
     },
   ],
 };
@@ -103,8 +118,4 @@ export const PROFILE_USER_MY_PROFILE_SETTINGS_MENU = {
   ],
 };
 
-export const USER_PROFILE_MENU = [
-  PROFILE_USER_BOOKINGS_MENU,
-  PROFILE_USER_MY_PROFILE_SETTINGS_MENU,
-  PROFILE_GUEST_MENU,
-];
+export const USER_PROFILE_MENU = [PROFILE_USER_BOOKINGS_MENU, PROFILE_USER_MY_PROFILE_SETTINGS_MENU, PROFILE_USER_MENU];
