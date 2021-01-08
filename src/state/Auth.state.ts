@@ -4,6 +4,7 @@
  */
 
 import {call, fork, put, take, takeEvery} from 'redux-saga/effects';
+import {getUserIDToken} from './Firebase.helpers';
 
 import rsf from './Redux/Redux-Saga-Firebase';
 
@@ -24,6 +25,8 @@ const initialState = {
   loading: false,
   errorCode: null,
   isLoggedIn: false,
+  authToken: null,
+  user: null,
 };
 
 export const authentication = (state = initialState, action) => {
@@ -57,6 +60,8 @@ export const actionCreators = {
       ...state,
       loading: false,
       isLoggedIn: !!action.user,
+      user: action.user,
+      authToken: action.authToken,
     };
   },
   loginIn: (state) => {
@@ -86,9 +91,10 @@ export const actionCreators = {
 /**
  * Dispatch
  */
-export const syncUser = (user) => ({
+export const syncUser = (user, authToken) => ({
   type: SYNC_USER,
   user,
+  authToken,
 });
 
 export const loginIn = (phoneNumber) => ({
@@ -117,10 +123,15 @@ export function* syncUserSaga() {
   const channel = yield call(rsf.auth.channel);
 
   while (true) {
-    const {user} = yield take(channel);
+    const user = yield take(channel);
 
-    if (user) yield put(syncUser(user));
-    else yield put(syncUser(null));
+    const authToken = yield call(getUserIDToken, user);
+
+    if (user) {
+      yield put(syncUser(user, authToken));
+    } else {
+      yield put(syncUser(null, null));
+    }
   }
 }
 

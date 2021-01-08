@@ -16,7 +16,7 @@ export const user = (state = initialState, action) => {
       return actionCreators.clearCurrentUser();
     }
     case SYNC_USER: {
-      return actionCreators.syncUser(state, action);
+      return actionCreators.syncUser(state);
     }
     default:
       return actionCreators.default(state);
@@ -35,10 +35,9 @@ export const actionCreators = {
       user: null,
     };
   },
-  syncUser: (state, action) => {
+  syncUser: (state) => {
     return {
       ...state,
-      user: action.user,
     };
   },
 };
