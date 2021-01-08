@@ -1,4 +1,5 @@
 ---
-to: src/theme/components/organisms/<%=name%>/dict.js
+to: src/theme/components/organisms/<%=name%>/dict.ts
 ---
-export const dict = {}
+export const dict = {};
+
