@@ -37,12 +37,12 @@ export const config = {
       color: colors.text.primary,
       size: 30,
     },
-    [PROFILE_MENU_BUTTONS.FutureBookings]: {
+    [PROFILE_MENU_BUTTONS.UpcomingBookings]: {
       name: 'Calendar',
       color: colors.text.primary,
       size: 30,
     },
-    [PROFILE_MENU_BUTTONS.PastBookings]: {
+    [PROFILE_MENU_BUTTONS.PreviousBookings]: {
       name: 'Calendar',
       color: colors.text.primary,
       size: 30,

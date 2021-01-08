@@ -1,3 +1,5 @@
+const {v4: uuidv4} = require('uuid');
+
 export const PROFILE_MENU_BUTTONS = {
   About: 'About Beautify',
   Help: 'Help Center',
@@ -33,19 +35,19 @@ export const PROFILE_GUEST_MENU = {
   headerText: 'General',
   DATA: [
     {
-      id: PROFILE_MENU_BUTTONS.About,
+      id: uuidv4(),
       title: PROFILE_MENU_BUTTONS.About,
       navigationAddress: PROFILE_MENU_NAVIGATION.About,
       testID: 'Profile_Guest_About_Beautify',
     },
     {
-      id: PROFILE_MENU_BUTTONS.Help,
+      id: uuidv4(),
       title: PROFILE_MENU_BUTTONS.Help,
       navigationAddress: PROFILE_MENU_NAVIGATION.Help,
       testID: 'Profile_Guest_Help_center',
     },
     {
-      id: PROFILE_MENU_BUTTONS.Legal,
+      id: uuidv4(),
       title: PROFILE_MENU_BUTTONS.Legal,
       navigationAddress: PROFILE_MENU_NAVIGATION.Legal,
       testID: 'Profile_Guest_Legal_Stuff',
@@ -57,13 +59,13 @@ export const PROFILE_USER_BOOKINGS_MENU = {
   headerText: 'Bookings',
   DATA: [
     {
-      id: PROFILE_MENU_BUTTONS.UpcomingBookings,
+      id: uuidv4(),
       title: PROFILE_MENU_BUTTONS.UpcomingBookings,
       navigationAddress: PROFILE_MENU_NAVIGATION.UpcomingBookings,
       testID: 'Profile_User_Upcoming_Bookings',
     },
     {
-      id: PROFILE_MENU_BUTTONS.PreviousBookings,
+      id: uuidv4(),
       title: PROFILE_MENU_BUTTONS.PreviousBookings,
       navigationAddress: PROFILE_MENU_NAVIGATION.PreviousBookings,
       testID: 'Profile_User_Previous_Bookings',
@@ -75,25 +77,25 @@ export const PROFILE_USER_MY_PROFILE_SETTINGS_MENU = {
   headerText: 'My Profile Settings',
   DATA: [
     {
-      id: PROFILE_MENU_BUTTONS.Contact,
+      id: uuidv4(),
       title: PROFILE_MENU_BUTTONS.Contact,
       navigationAddress: PROFILE_MENU_NAVIGATION.Contact,
       testID: 'Profile_User_Contact',
     },
     {
-      id: PROFILE_MENU_BUTTONS.Payment,
+      id: uuidv4(),
       title: PROFILE_MENU_BUTTONS.Payment,
       navigationAddress: PROFILE_MENU_NAVIGATION.Payment,
       testID: 'Profile_User_Payment',
     },
     {
-      id: PROFILE_MENU_BUTTONS.Marketing,
+      id: uuidv4(),
       title: PROFILE_MENU_BUTTONS.Marketing,
       navigationAddress: PROFILE_MENU_NAVIGATION.Marketing,
       testID: 'Profile_User_Marketing',
     },
     {
-      id: PROFILE_MENU_BUTTONS.Notifications,
+      id: uuidv4(),
       title: PROFILE_MENU_BUTTONS.Notifications,
       navigationAddress: PROFILE_MENU_NAVIGATION.Notifications,
       testID: 'Profile_User_Notifications',
