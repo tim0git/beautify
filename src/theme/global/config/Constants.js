@@ -2,8 +2,8 @@ export const PROFILE_MENU_BUTTONS = {
   About: 'About Beautify',
   Help: 'Help Center',
   Legal: 'Legal Stuff',
-  FutureBookings: 'Upcoming Bookings',
-  PastBookings: 'Previous Bookings',
+  UpcomingBookings: 'Upcoming Bookings',
+  PreviousBookings: 'Previous Bookings',
   Contact: 'Contact Details',
   Payment: 'Payment Methods',
   Marketing: 'Marketing Preferences',
@@ -14,8 +14,8 @@ export const PROFILE_MENU_NAVIGATION = {
   About: 'Web_View',
   Help: 'Web_View',
   Legal: 'Legal_Screen',
-  FutureBookings: 'Upcoming_Bookings',
-  PastBookings: 'Previous_Bookings',
+  UpcomingBookings: 'Upcoming_Bookings',
+  PreviousBookings: 'Previous_Bookings',
   Contact: 'Contact_Details',
   Payment: 'Payment_Methods',
   Marketing: 'Marketing_Preferences',
@@ -52,3 +52,57 @@ export const PROFILE_GUEST_MENU = {
     },
   ],
 };
+
+export const PROFILE_USER_BOOKINGS_MENU = {
+  headerText: 'Bookings',
+  DATA: [
+    {
+      id: PROFILE_MENU_BUTTONS.UpcomingBookings,
+      title: PROFILE_MENU_BUTTONS.UpcomingBookings,
+      navigationAddress: PROFILE_MENU_NAVIGATION.UpcomingBookings,
+      testID: 'Profile_User_Upcoming_Bookings',
+    },
+    {
+      id: PROFILE_MENU_BUTTONS.PreviousBookings,
+      title: PROFILE_MENU_BUTTONS.PreviousBookings,
+      navigationAddress: PROFILE_MENU_NAVIGATION.PreviousBookings,
+      testID: 'Profile_User_Previous_Bookings',
+    },
+  ],
+};
+
+export const PROFILE_USER_MY_PROFILE_SETTINGS_MENU = {
+  headerText: 'My Profile Settings',
+  DATA: [
+    {
+      id: PROFILE_MENU_BUTTONS.Contact,
+      title: PROFILE_MENU_BUTTONS.Contact,
+      navigationAddress: PROFILE_MENU_NAVIGATION.Contact,
+      testID: 'Profile_User_Contact',
+    },
+    {
+      id: PROFILE_MENU_BUTTONS.Payment,
+      title: PROFILE_MENU_BUTTONS.Payment,
+      navigationAddress: PROFILE_MENU_NAVIGATION.Payment,
+      testID: 'Profile_User_Payment',
+    },
+    {
+      id: PROFILE_MENU_BUTTONS.Marketing,
+      title: PROFILE_MENU_BUTTONS.Marketing,
+      navigationAddress: PROFILE_MENU_NAVIGATION.Marketing,
+      testID: 'Profile_User_Marketing',
+    },
+    {
+      id: PROFILE_MENU_BUTTONS.Notifications,
+      title: PROFILE_MENU_BUTTONS.Notifications,
+      navigationAddress: PROFILE_MENU_NAVIGATION.Notifications,
+      testID: 'Profile_User_Notifications',
+    },
+  ],
+};
+
+export const USER_PROFILE_MENU = [
+  PROFILE_USER_BOOKINGS_MENU,
+  PROFILE_USER_MY_PROFILE_SETTINGS_MENU,
+  PROFILE_GUEST_MENU,
+];
