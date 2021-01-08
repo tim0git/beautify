@@ -34,8 +34,10 @@ const molecules = {
 };
 
 // Organisms Import
+import * as User_Profile_Menu from '../theme/components/organisms/User_Profile_Menu';
 import * as Guest_Welcome from '../theme/components/organisms/Guest_Welcome';
 const organisms = {
+  User_Profile_Menu,
   Guest_Welcome,
 };
 
