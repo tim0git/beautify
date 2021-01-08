@@ -4,6 +4,7 @@ import {ThemeProvider} from '../../../services/ThemeProvider';
 import Header from '../../atoms/Header/Header';
 import Menu_List from '../../molecules/Menu_List/Menu_List';
 import Guest_Welcome from '../../organisms/Guest_Welcome/Guest_Welcome';
+import User_Profile_Menu from '../../organisms/User_Profile_Menu/User_Profile_Menu';
 export interface Props {
   navigation: {
     navigate: () => void;
@@ -14,12 +15,16 @@ export interface Props {
 
 const Profile_Screen: React.FC<Props> = ({navigation, isLoggedIn}) => {
   const {styles, config} = ThemeProvider('Profile');
-  const {PROFILE_GUEST_MENU} = ThemeProvider('global').config;
+  const {PROFILE_GUEST_MENU, USER_PROFILE_MENU} = ThemeProvider('global').config;
 
   const {screenHeaderProps, screenInstructionsProps} = config;
 
   const UserProfile = () => {
-    return null;
+    return (
+      <View style={styles.container}>
+        <User_Profile_Menu navigation={navigation} userProfileMenu={USER_PROFILE_MENU} />
+      </View>
+    );
   };
 
   const GuestProfile = () => {
