@@ -67,5 +67,10 @@ export const config = {
       color: colors.text.primary,
       size: 30,
     },
+    [PROFILE_MENU_BUTTONS.Logout]: {
+      name: 'ArrowLeft',
+      color: colors.text.primary,
+      size: 30,
+    },
   },
 };

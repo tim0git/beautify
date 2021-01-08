@@ -5,6 +5,7 @@ export const config = {
     Inbox: 'message-text-outline',
     Profile: 'account-outline',
     ArrowRight: 'arrow-right',
+    ArrowLeft: 'arrow-left',
     Help: 'help-circle-outline',
     Legal: 'clipboard-text-outline',
     Calendar: 'calendar-blank',
