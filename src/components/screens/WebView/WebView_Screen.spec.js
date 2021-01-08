@@ -43,23 +43,13 @@ describe('<WebView_Screen />', () => {
 
       expect(webViewScreenHeader).toExist();
     });
-    test('should render a Loading component when loading is true [Loading is the default state]', () => {
-      const wrapper = shallow(<WebView_Screen {...defaultProps} />);
-      const webViewLoading = wrapper.findWhere((node) => node.prop('testID') === 'WebView_Screen_Loading');
-
-      expect(webViewLoading).toExist();
-    });
     test('should render a Error component when error is true', () => {
       /**
        * Mock useState hooks
        */
-      const initialLoadingState = false;
       const initialErrorState = true;
 
-      jest
-        .spyOn(React, 'useState')
-        .mockReturnValueOnce([initialLoadingState, {}])
-        .mockReturnValueOnce([initialErrorState, {}]);
+      jest.spyOn(React, 'useState').mockReturnValueOnce([initialErrorState, {}]);
 
       /**
        * Test
@@ -89,38 +79,15 @@ describe('<WebView_Screen />', () => {
     beforeEach(() => {
       jest.clearAllMocks();
     });
-    test('should set state with loading false when WebView onLoad is called', () => {
-      /**
-       * Mock useState hook
-       */
-      const setState = jest.fn();
-      const useStateMock = (initState) => [initState, setState];
-      jest.spyOn(React, 'useState').mockImplementation(useStateMock);
-
-      /**
-       * Test
-       */
-      const wrapper = shallow(<WebView_Screen {...defaultProps} />);
-
-      const webViewScreenWebView = wrapper.findWhere((node) => node.prop('testID') === 'WebView_Screen_WebView');
-
-      webViewScreenWebView.props().onLoad();
-
-      expect(setState).toHaveBeenCalledWith(false);
-    });
     test('should set state with error true and loading false when WebView onHttpError is called', () => {
       /**
        * Mock useState hook
        */
-      const setStateLoading = jest.fn();
-      const useStateMockLoading = (initState) => [initState, setStateLoading];
+
       const setStateError = jest.fn();
       const useStateMockError = (initState) => [initState, setStateError];
 
-      jest
-        .spyOn(React, 'useState')
-        .mockImplementationOnce(useStateMockLoading)
-        .mockImplementationOnce(useStateMockError);
+      jest.spyOn(React, 'useState').mockImplementationOnce(useStateMockError);
 
       /**
        * Test
@@ -131,7 +98,6 @@ describe('<WebView_Screen />', () => {
 
       webViewScreenWebView.props().onHttpError();
 
-      expect(setStateLoading).toHaveBeenCalledWith(false);
       expect(setStateError).toHaveBeenCalledWith(true);
     });
   });
