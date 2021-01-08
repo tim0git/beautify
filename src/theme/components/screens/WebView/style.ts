@@ -8,7 +8,7 @@ export const style = {
   container: {
     flexGrow: 1,
   },
-  WebView: {
+  webView: {
     flex: 1,
   },
 };

@@ -36,7 +36,7 @@ const WebView_Screen: React.FC<Props> = ({route}) => {
               {...WebViewProps}
               testID="WebView_Screen_WebView"
               source={{uri: WEB_VIEW_URLS[route.params.title]}}
-              style={style.WebView}
+              style={style.webView}
               startInLoadingState={true}
               renderLoading={() => <Loading testID="WebView_Screen_Loading" />}
               onHttpError={() => {
