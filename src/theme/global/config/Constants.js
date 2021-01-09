@@ -34,6 +34,7 @@ export const WEB_VIEW_URLS = {
 };
 
 export const PROFILE_GUEST_MENU = {
+  testID: 'Profile_Guest_Menu',
   headerText: 'General',
   DATA: [
     {
@@ -58,6 +59,7 @@ export const PROFILE_GUEST_MENU = {
 };
 
 export const PROFILE_USER_MENU = {
+  testID: 'Profile_User_Menu',
   headerText: PROFILE_GUEST_MENU.headerText,
   DATA: [
     ...PROFILE_GUEST_MENU.DATA,
