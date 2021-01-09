@@ -4,7 +4,7 @@
 
 # DO NOT COMMIT TEST COVERAGE
 #
-coverage/*
+coverage
 
 # Xcode
 #
