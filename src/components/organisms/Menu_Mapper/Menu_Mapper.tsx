@@ -1,5 +1,5 @@
 /**
- * @name User_Profile_Menu
+ * @name Menu_Mapper
  * @description {description}
  *
  */
@@ -13,7 +13,7 @@ export interface Props {
   testID: string;
 }
 
-const User_Profile_Menu: React.FC<Props> = ({userProfileMenu, navigation}) => {
+const Menu_Mapper: React.FC<Props> = ({userProfileMenu, navigation}) => {
   return userProfileMenu.map((menu) => {
     return (
       <Menu_List
@@ -27,4 +27,4 @@ const User_Profile_Menu: React.FC<Props> = ({userProfileMenu, navigation}) => {
   });
 };
 
-export default User_Profile_Menu;
+export default Menu_Mapper;
