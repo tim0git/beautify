@@ -16,7 +16,7 @@ const Loading: React.FC<Props> = ({testID}) => {
 
   return (
     <View style={style.pageWrapper} testID={testID || 'Loading'}>
-      <Spinner size="large" color="#ff6bb3" />
+      <Spinner size="large" color="#ff6bb3" testID="Loading_Spinner" />
     </View>
   );
 };
