@@ -2,6 +2,10 @@
 #
 .DS_Store
 
+# DO NOT COMMIT TEST COVERAGE
+#
+coverage/*
+
 # Xcode
 #
 build/
