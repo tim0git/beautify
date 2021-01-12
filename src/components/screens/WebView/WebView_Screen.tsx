@@ -3,7 +3,7 @@
  * @description {description}
  *
  */
-import React, {useState} from 'react';
+import React from 'react';
 import {View, Text, StatusBar, SafeAreaView} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
 import {WebView} from 'react-native-webview';
@@ -19,7 +19,6 @@ export interface Props {
 }
 
 const WebView_Screen: React.FC<Props> = ({route}) => {
-  const [error, setError] = useState(false);
   const {config, style} = ThemeProvider('WebView');
   const {WEB_VIEW_URLS} = ThemeProvider('global').config;
   const {WebViewProps} = config;
@@ -29,22 +28,19 @@ const WebView_Screen: React.FC<Props> = ({route}) => {
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={style.pageWrapper} testID="WebView_Screen">
         <Header headerText={route.params.title} type="Screen" testID="WebView_Screen_Header" />
-        {error && <Text testID="WebView_Screen_Error">Error...</Text>}
-        {!error && (
-          <View style={style.container}>
-            <WebView
-              {...WebViewProps}
-              testID="WebView_Screen_WebView"
-              source={{uri: WEB_VIEW_URLS[route.params.title]}}
-              style={style.webView}
-              startInLoadingState={true}
-              renderLoading={() => <Loading testID="WebView_Screen_Loading" />}
-              onHttpError={() => {
-                setError(true);
-              }}
-            />
-          </View>
-        )}
+        <View style={style.container}>
+          <WebView
+            {...WebViewProps}
+            testID="WebView_Screen_WebView"
+            source={{uri: WEB_VIEW_URLS[route.params.title]}}
+            style={style.webView}
+            startInLoadingState={true}
+            renderLoading={() => <Loading testID="WebView_Screen_Loading" />}
+            renderError={() => {
+              <Text testID="WebView_Screen_Error">Error...</Text>;
+            }}
+          />
+        </View>
       </SafeAreaView>
     </>
   );

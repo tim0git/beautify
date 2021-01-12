@@ -8,11 +8,9 @@ const defaultProps = {
   navigation: {
     navigate: () => {},
   },
-  headerTextProps: {
-    headerText: PROFILE_GUEST_MENU.headerText,
-    testID: 'TEST_HEADER_TEXT_TEST_ID',
-  },
   DATA: PROFILE_GUEST_MENU.DATA,
+  headerText: PROFILE_GUEST_MENU.headerText,
+  testID: 'TEST_HEADER_TEXT_TEST_ID',
 };
 
 storiesOf('Design System/Molecule/Menu_List', module)

@@ -9,6 +9,6 @@ const defaultProps = {
   navigation: () => {},
 };
 
-storiesOf('Menu_Mapper', module)
+storiesOf('Design System/Organism/Menu_Mapper', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Menu_Mapper_Default', () => <Menu_Mapper {...defaultProps} />);

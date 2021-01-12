@@ -9,7 +9,7 @@ const defaultProps = {
   },
   route: {
     params: {
-      title: 'About Beautify',
+      title: 'TEST_WEBVIEW_URL',
     },
   },
 };
