@@ -3,10 +3,13 @@ const COLORS = {
   greyLight: '#C2C5CC',
   greyMedium: '#696969',
   greyDark: '#545C71',
+  greyToggle: '#989da9',
+  greytrack: '#edeef1',
   white: '#FFFFFF',
   offWhite: '#fafafb',
   pinkDark: '#ff6bb3',
   pinkLight: '#ff78b9',
+  pinkLightest: '#ffebf5',
   purpleDark: '#796ef6',
   blueDark: '#19253f',
 };
@@ -24,6 +27,13 @@ export const colors = {
   },
   button: {
     primary: COLORS.pinkDark,
+    secondary: COLORS.pinkLightest,
+  },
+  switch: {
+    primaryEnabled: COLORS.pinkDark,
+    secondaryEnabled: COLORS.pinkLightest,
+    primaryDisabled: COLORS.greyToggle,
+    secondaryDisabled: COLORS.greytrack,
   },
   border: {
     black: COLORS.black,

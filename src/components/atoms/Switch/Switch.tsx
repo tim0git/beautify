@@ -1,21 +1,33 @@
 /**
  * @name Switch
  * @description {description}
- * 
+ *
  */
 import React from 'react';
-import { View, Text } from 'react-native';
+import {Switch as SwitchRN} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
 
-export interface Props {}
-
-const Switch: React.FC<Props> = ({}) => {
-  const {config, dict, style} = ThemeProvider('Switch')
-  return (
-     <View style={style.container} testID='Switch'>
-        <Text>Switch</Text>
-      </View>
-  );
+export interface Props {
+  isEnabled: boolean;
+  onValueChange: (isEnabled: boolean) => boolean;
+  disabled: boolean;
 }
+
+const Switch: React.FC<Props> = ({isEnabled, onValueChange, disabled = false}) => {
+  const {style} = ThemeProvider('Switch');
+
+  return (
+    <SwitchRN
+      style={style.switch}
+      testID="Switch"
+      disabled={disabled}
+      ios_backgroundColor={style.ios_backgroundColor}
+      trackColor={style.trackColor}
+      thumbColor={!isEnabled ? style.thumbColor.isEnbaledFalse : style.thumbColor.isEnabledTrue}
+      onValueChange={onValueChange}
+      value={isEnabled}
+    />
+  );
+};
 
 export default Switch;

@@ -8,6 +8,7 @@ function loadStories() {
   require('../src/components/atoms/Header/Header.stories');
   require('../src/components/atoms/Icon/Icon.stories');
   require('../src/components/atoms/Spinner/Spinner.stories');
+  require('../src/components/atoms/Switch/Switch.stories');
   require('../src/components/atoms/Text/Text.stories');
   require('../src/components/molecules/Loading/Loading.stories');
   require('../src/components/molecules/Login_Cluster/Login_Cluster.stories');
@@ -30,6 +31,7 @@ const stories = [
   '../src/components/atoms/Header/Header.stories',
   '../src/components/atoms/Icon/Icon.stories',
   '../src/components/atoms/Spinner/Spinner.stories',
+  '../src/components/atoms/Switch/Switch.stories',
   '../src/components/atoms/Text/Text.stories',
   '../src/components/molecules/Loading/Loading.stories',
   '../src/components/molecules/Login_Cluster/Login_Cluster.stories',
