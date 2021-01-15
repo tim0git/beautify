@@ -122,3 +122,71 @@ export const PROFILE_USER_MY_PROFILE_SETTINGS_MENU = {
 };
 
 export const USER_PROFILE_MENU = [PROFILE_USER_BOOKINGS_MENU, PROFILE_USER_MY_PROFILE_SETTINGS_MENU, PROFILE_USER_MENU];
+
+export const NOTIFICATIONS_MENU_BUTTONS = {
+  BookingComplete: 'Booking Complete',
+  UpcomingAppointments48: 'Upcoming Appointments (48hr)',
+  UpcomingAppointments24: 'Upcoming Appointments (24hr)',
+  DepositTaken: 'Deposit Taken',
+  RemainingPaymentTaken: 'Remaining Payment Taken',
+  PaymentFailures: 'Payment Failures',
+  NewPractitioner: 'New Practitioner',
+};
+
+export const NOTIFICATIONS_BOOKINGS_MENU = {
+  testID: 'Notificatons_Bookings_Menu',
+  headerText: 'Booking notifications',
+  DATA: [
+    {
+      id: uuidv4(),
+      title: NOTIFICATIONS_MENU_BUTTONS.BookingComplete,
+      testID: 'Notifications_Menu_Booking_Complete',
+    },
+    {
+      id: uuidv4(),
+      title: NOTIFICATIONS_MENU_BUTTONS.UpcomingAppointments48,
+      testID: 'Notifications_Menu_Upcoming_Appointments_48',
+    },
+    {
+      id: uuidv4(),
+      title: NOTIFICATIONS_MENU_BUTTONS.UpcomingAppointments24,
+      testID: 'Notifications_Menu_Upcoming_Appointments_24',
+    },
+  ],
+};
+
+export const NOTIFICATIONS_PAYMENT_MENU = {
+  testID: 'Notificatons_Payment_Menu',
+  headerText: 'Payment notifications',
+  DATA: [
+    {
+      id: uuidv4(),
+      title: NOTIFICATIONS_MENU_BUTTONS.DepositTaken,
+      testID: 'Notifications_Menu_Deposit_Taken',
+    },
+    {
+      id: uuidv4(),
+      title: NOTIFICATIONS_MENU_BUTTONS.RemainingPaymentTaken,
+      testID: 'Notifications_Menu_Remaining_Payment_Taken',
+    },
+    {
+      id: uuidv4(),
+      title: NOTIFICATIONS_MENU_BUTTONS.PaymentFailures,
+      testID: 'Notifications_Menu_Payment_Failures',
+    },
+  ],
+};
+
+export const NOTIFICATIONS_GENERAL_MENU = {
+  testID: 'Notificatons_General_Menu',
+  headerText: 'General push',
+  DATA: [
+    {
+      id: uuidv4(),
+      title: NOTIFICATIONS_MENU_BUTTONS.NewPractitioner,
+      testID: 'Notifications_Menu_New_Practitioner',
+    },
+  ],
+};
+
+export const NOTIFICATIONS_MENU = [NOTIFICATIONS_BOOKINGS_MENU, NOTIFICATIONS_PAYMENT_MENU, NOTIFICATIONS_GENERAL_MENU];
