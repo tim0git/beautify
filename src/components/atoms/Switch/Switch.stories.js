@@ -14,7 +14,7 @@ const disabledProps = {
   isEnabled: false,
 };
 
-storiesOf('Switch', module)
+storiesOf('Design System/Atoms/Switch', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Switch_Enabled', () => <Switch {...enabledProps} />)
   .add('Switch_Disabled', () => <Switch {...disabledProps} />);
