@@ -11,7 +11,7 @@ import IconRN from '../../atoms/Icon/Icon';
 export interface Props {}
 
 const Splash: React.FC<Props> = ({}) => {
-  const {config, dict, style} = ThemeProvider('Splash');
+  const {style} = ThemeProvider('Splash');
   const {barStyle} = ThemeProvider('global').styles;
   return (
     <>
