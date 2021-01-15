@@ -18,7 +18,7 @@ const Splash: React.FC<Props> = ({}) => {
       <StatusBar barStyle={barStyle} />
       <SafeAreaView style={style.pageWrapper} testID="Splash">
         <View style={style.container}>
-          <IconRN testID="Splash_Icon" name="Bookings" color="white" size={40} />
+          <IconRN testID="Splash_Icon" name="Bookings" color="white" size={45} />
           <Text testID="Splash_Text" style={style.splashText}>
             beautify
           </Text>
