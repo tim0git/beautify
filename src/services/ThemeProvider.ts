@@ -5,6 +5,7 @@ import * as TEST_COMPONENT from '../../__mocks__/Theme/mock_theme';
 import * as global from '../theme/global';
 
 // Atoms Import
+import * as Switch from '../theme/components/atoms/Switch'
 import * as Spinner from '../theme/components/atoms/Spinner';
 import * as Text from '../theme/components/atoms/Text';
 import * as Button from '../theme/components/atoms/Button';
@@ -12,6 +13,7 @@ import * as Icon from '../theme/components/atoms/Icon';
 import * as Header from '../theme/components/atoms/Header';
 
 const atoms = {
+Switch,
   Spinner,
   Text,
   Button,
