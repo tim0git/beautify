@@ -5,6 +5,7 @@ export interface Props {
   name: string;
   color: string;
   size: number;
+  testID?: string;
 }
 
 const IconRN: React.FC<Props> = ({name, color, size}) => {

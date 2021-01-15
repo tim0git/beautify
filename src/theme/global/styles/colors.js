@@ -24,6 +24,7 @@ export const colors = {
   background: {
     primary: COLORS.white,
     menuHeader: COLORS.offWhite,
+    splash: COLORS.pinkDark,
   },
   button: {
     primary: COLORS.pinkDark,
