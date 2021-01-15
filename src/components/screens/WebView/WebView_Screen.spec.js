@@ -17,15 +17,6 @@ const defaultProps = {
   },
 };
 
-const errorProps = {
-  ...defaultProps,
-  route: {
-    params: {
-      title: 'TEST_ERROR_WEBVIEW_URL',
-    },
-  },
-};
-
 describe('<WebView_Screen />', () => {
   describe('<Render>', () => {
     beforeEach(() => {
@@ -43,25 +34,6 @@ describe('<WebView_Screen />', () => {
 
       expect(webViewScreenHeader).toExist();
     });
-    test('should render a Error component when error is true', () => {
-      /**
-       * Mock useState hooks
-       */
-      const initialErrorState = true;
-
-      jest.spyOn(React, 'useState').mockReturnValueOnce([initialErrorState, {}]);
-
-      /**
-       * Test
-       */
-      const wrapper = shallow(<WebView_Screen {...errorProps} />);
-
-      const webViewError = wrapper.findWhere((node) => node.prop('testID') === 'WebView_Screen_Error');
-      const webViewScreenWebView = wrapper.findWhere((node) => node.prop('testID') === 'WebView_Screen_WebView');
-
-      expect(webViewError).toExist();
-      expect(webViewScreenWebView).not.toExist();
-    });
   });
   describe('<Props>', () => {
     test('should pass the title prop to props to WebView', () => {
@@ -74,31 +46,5 @@ describe('<WebView_Screen />', () => {
       expect(webViewComponentProps).toHaveProperty('source', {uri: WEB_VIEW_URLS[defaultProps.route.params.title]});
     });
     test.todo('should pass the following props from config to WebView');
-  });
-  describe('<Methods>', () => {
-    beforeEach(() => {
-      jest.clearAllMocks();
-    });
-    test('should set state with error true and loading false when WebView onHttpError is called', () => {
-      /**
-       * Mock useState hook
-       */
-
-      const setStateError = jest.fn();
-      const useStateMockError = (initState) => [initState, setStateError];
-
-      jest.spyOn(React, 'useState').mockImplementationOnce(useStateMockError);
-
-      /**
-       * Test
-       */
-      const wrapper = shallow(<WebView_Screen {...defaultProps} />);
-
-      const webViewScreenWebView = wrapper.findWhere((node) => node.prop('testID') === 'WebView_Screen_WebView');
-
-      webViewScreenWebView.props().onHttpError();
-
-      expect(setStateError).toHaveBeenCalledWith(true);
-    });
   });
 });
