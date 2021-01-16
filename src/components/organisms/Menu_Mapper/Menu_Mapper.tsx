@@ -17,6 +17,7 @@ export interface Props {
 }
 
 const Menu_Mapper: React.FC<Props> = ({menuData, navigation, onValueChange, notificationSettings}) => {
+  // @ts-ignore set until i can create a compound type or ts can type check both types provided for menuData.
   return menuData.map((menu) => {
     return (
       <Menu_List

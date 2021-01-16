@@ -1,4 +1,4 @@
-import {size, colors} from '../../../global/styles';
+import {colors} from '../../../global/styles';
 import {PROFILE_MENU_BUTTONS} from '../../../global/config/constants/menu';
 export const config = {
   SearchBar: {
