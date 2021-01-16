@@ -2,10 +2,11 @@ import 'react-native-get-random-values'; // provides UUID access the global obje
 import {v4 as uuidv4} from 'uuid';
 import {
   NotificationMenuButtons,
-  NotificationsMenu,
+  NotificationMenu,
   ProfileMenu,
   ProfileMenuButtons,
   UserProfileMenu,
+  NotificationsMenu,
 } from '../../types/menu.types';
 
 export const PROFILE_MENU_BUTTONS: ProfileMenuButtons = {
@@ -146,7 +147,7 @@ export const NOTIFICATIONS_MENU_BUTTONS: NotificationMenuButtons = {
   NewPractitioner: 'New Practitioner',
 };
 
-export const NOTIFICATIONS_BOOKINGS_MENU: NotificationsMenu = {
+export const NOTIFICATIONS_BOOKINGS_MENU: NotificationMenu = {
   testID: 'Notificatons_Bookings_Menu',
   headerText: 'Booking notifications',
   DATA: [
@@ -168,7 +169,7 @@ export const NOTIFICATIONS_BOOKINGS_MENU: NotificationsMenu = {
   ],
 };
 
-export const NOTIFICATIONS_PAYMENT_MENU: NotificationsMenu = {
+export const NOTIFICATIONS_PAYMENT_MENU: NotificationMenu = {
   testID: 'Notificatons_Payment_Menu',
   headerText: 'Payment notifications',
   DATA: [
@@ -190,7 +191,7 @@ export const NOTIFICATIONS_PAYMENT_MENU: NotificationsMenu = {
   ],
 };
 
-export const NOTIFICATIONS_GENERAL_MENU: NotificationsMenu = {
+export const NOTIFICATIONS_GENERAL_MENU: NotificationMenu = {
   testID: 'Notificatons_General_Menu',
   headerText: 'General push',
   DATA: [
@@ -202,4 +203,8 @@ export const NOTIFICATIONS_GENERAL_MENU: NotificationsMenu = {
   ],
 };
 
-export const NOTIFICATIONS_MENU = [NOTIFICATIONS_BOOKINGS_MENU, NOTIFICATIONS_PAYMENT_MENU, NOTIFICATIONS_GENERAL_MENU];
+export const NOTIFICATIONS_MENU: NotificationsMenu = [
+  NOTIFICATIONS_BOOKINGS_MENU,
+  NOTIFICATIONS_PAYMENT_MENU,
+  NOTIFICATIONS_GENERAL_MENU,
+];
