@@ -5,7 +5,7 @@ import React from 'react'
 import 'react-native'
 import 'jest-enzyme'
 import { shallow, render, mount } from 'enzyme'
-import <%=name%> from './<%=name%>'
+import <%=name%>_Screen from './<%=name%>_Screen'
 
 describe('<<%=name%> />', () => {
  

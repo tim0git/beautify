@@ -1,5 +1,5 @@
 ---
-to: src/components/screens/<%=name%>/<%=name%>.tsx
+to: src/components/screens/<%=name%>/<%=name%>_Screen.tsx
 ---
 /**
  * @name <%=name%>
@@ -12,13 +12,13 @@ import {ThemeProvider} from '../../../services/ThemeProvider';
 
 export interface Props {}
 
-const <%=name%>: React.FC<Props> = ({}) => {
+const <%=name%>_Screen: React.FC<Props> = ({}) => {
   const {config, dict, style} = ThemeProvider('<%=name%>')
   return (
-     <View style={style.container} testID='<%=name%>'>
+     <View style={style.container} testID='<%=name%>_Screen'>
         <Text><%=name%></Text>
       </View>
   );
 }
 
-export default <%=name%>;
+export default <%=name%>_Screen;
