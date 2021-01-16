@@ -8,7 +8,7 @@ const onProps = {
   type: 'Switch',
   onValueChange: (title) => {},
   isEnabled: true,
-  disabled: true,
+  disabled: false,
 };
 
 const offProps = {
