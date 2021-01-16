@@ -1,8 +1,10 @@
+/* eslint-disable no-shadow */
 import React from 'react';
 import 'react-native';
 import 'jest-enzyme';
 import {shallow, mount} from 'enzyme';
 import Menu_List from './Menu_List';
+import {NOTIFICATIONS_BOOKINGS_MENU, NOTIFICATIONS_MENU_BUTTONS} from '../../../theme/global/config';
 
 const defaultProps = {
   navigation: {
@@ -29,6 +31,21 @@ const defaultProps = {
       testID: 'TEST_LEGAL_STUFF_MENU_BUTTON_TEST_ID',
     },
   ],
+};
+
+const notificationMenuProps = {
+  navigation: {
+    navigate: () => {},
+  },
+  DATA: NOTIFICATIONS_BOOKINGS_MENU.DATA,
+  headerText: NOTIFICATIONS_BOOKINGS_MENU.headerText,
+  onValueChange: jest.fn(),
+  notificationSettings: {
+    [NOTIFICATIONS_MENU_BUTTONS.BookingComplete]: true,
+    [NOTIFICATIONS_MENU_BUTTONS.UpcomingAppointments48]: false,
+    [NOTIFICATIONS_MENU_BUTTONS.UpcomingAppointments24]: true,
+  },
+  testID: 'TEST_MENU_LIST_NOTIFICATIONS_BOOKINGS',
 };
 
 describe('<Menu_List />', () => {
@@ -70,7 +87,7 @@ describe('<Menu_List />', () => {
       expect(legalStuffButton).toExist();
     });
   });
-  describe('<Props>', () => {
+  describe('<Props> - Button', () => {
     test('should pass the folowing props to header component', () => {
       const wrapper = mount(<Menu_List {...defaultProps} />);
       const headerText = wrapper.findWhere((node) => node.prop('testID') === 'Menu_List_Header');
@@ -125,6 +142,32 @@ describe('<Menu_List />', () => {
       expect(legalStuffButtonProps).toHaveProperty('navigationAddress', navigationAddress);
     });
   });
+  describe('<Props> - menuRowSwitch', () => {
+    test('should pass the folowing props to header component', () => {
+      const wrapper = mount(<Menu_List {...notificationMenuProps} />);
+      const headerText = wrapper.findWhere((node) => node.prop('testID') === 'Menu_List_Header');
+
+      const headerTextProps = headerText.first().props();
+
+      expect(headerTextProps).toHaveProperty('headerText', notificationMenuProps.headerText);
+    });
+    test('should pass the folowing props to Booking Complete menu row switch', () => {
+      const wrapper = mount(<Menu_List {...notificationMenuProps} />);
+      const bookingCompleteMenuRowSwitch = wrapper.findWhere(
+        (node) => node.prop('testID') === 'Notifications_Menu_Booking_Complete',
+      );
+
+      const bookingCompleteMenuRowSwitchProps = bookingCompleteMenuRowSwitch.first().props();
+
+      const {id, title, testID} = notificationMenuProps.DATA[0];
+
+      expect(bookingCompleteMenuRowSwitchProps).toHaveProperty('id', id);
+      expect(bookingCompleteMenuRowSwitchProps).toHaveProperty('title', title);
+      expect(bookingCompleteMenuRowSwitchProps).toHaveProperty('type', 'Switch');
+      expect(bookingCompleteMenuRowSwitchProps).toHaveProperty('testID', testID);
+      expect(bookingCompleteMenuRowSwitchProps).toHaveProperty('onValueChange', notificationMenuProps.onValueChange);
+    });
+  });
   describe('<Methods>', () => {
     beforeEach(() => {
       jest.resetAllMocks();
@@ -150,6 +193,16 @@ describe('<Menu_List />', () => {
       expect(defaultProps.navigation.navigate).toHaveBeenCalledWith(defaultProps.DATA[0].navigationAddress, {
         title: 'About Beautify',
       });
+    });
+    test('should call onValueChange prop when the menuRowSwitch component is toggled', () => {
+      const wrapper = mount(<Menu_List {...notificationMenuProps} />);
+      const bookingComplete = wrapper.findWhere(
+        (node) => node.prop('testID') === 'Notifications_Menu_Booking_Complete',
+      );
+
+      bookingComplete.first().props().onValueChange();
+
+      expect(notificationMenuProps.onValueChange).toHaveBeenCalledTimes(1);
     });
   });
 });
