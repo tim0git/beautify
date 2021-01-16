@@ -22,7 +22,7 @@ const Profile_Screen: React.FC<Props> = ({navigation, isLoggedIn}) => {
   const UserProfile = () => {
     return (
       <View style={styles.container}>
-        <Menu_Mapper navigation={navigation} userProfileMenu={USER_PROFILE_MENU} />
+        <Menu_Mapper navigation={navigation} menuData={USER_PROFILE_MENU} testID="User_Profile_Menu_Mapper" />
       </View>
     );
   };

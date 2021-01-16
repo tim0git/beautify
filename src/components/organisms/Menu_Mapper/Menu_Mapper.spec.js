@@ -7,16 +7,16 @@ import {USER_PROFILE_MENU, PROFILE_GUEST_MENU, NOTIFICATIONS_MENU} from '../../.
 
 const guestProps = {
   navigation: {navigate: () => {}},
-  userProfileMenu: [PROFILE_GUEST_MENU],
+  menuData: [PROFILE_GUEST_MENU],
 };
 
 const userProps = {
   navigation: {navigate: () => {}},
-  userProfileMenu: USER_PROFILE_MENU,
+  menuData: USER_PROFILE_MENU,
 };
 
 const bookingProps = {
-  userProfileMenu: NOTIFICATIONS_MENU,
+  menuData: NOTIFICATIONS_MENU,
 };
 
 describe('<Menu_Mapper />', () => {

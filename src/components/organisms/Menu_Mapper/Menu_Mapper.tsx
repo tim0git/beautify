@@ -6,15 +6,15 @@
 import React from 'react';
 import Menu_List from '../../molecules/Menu_List/Menu_List';
 export interface Props {
-  userProfileMenu: any;
+  menuData: any;
   navigation: {
     navigate: () => void;
   };
   testID: string;
 }
 
-const Menu_Mapper: React.FC<Props> = ({userProfileMenu, navigation}) => {
-  return userProfileMenu.map((menu) => {
+const Menu_Mapper: React.FC<Props> = ({menuData, navigation}) => {
+  return menuData.map((menu) => {
     return (
       <Menu_List
         navigation={navigation}

@@ -38,7 +38,7 @@ const Menu_List: React.FC<Props> = ({navigation, DATA, testID, headerText}) => {
     return <Header {...headerProps} headerText={headerText} testID="Menu_List_Header" />;
   };
 
-  const renderItem = ({item}) => {
+  const renderButton = (item) => {
     return (
       <Button
         {...item}
@@ -48,6 +48,10 @@ const Menu_List: React.FC<Props> = ({navigation, DATA, testID, headerText}) => {
         }}
       />
     );
+  };
+
+  const renderItem = ({item}) => {
+    return renderButton(item);
   };
 
   return (

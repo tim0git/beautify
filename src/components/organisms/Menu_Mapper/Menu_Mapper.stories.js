@@ -5,17 +5,17 @@ import Menu_Mapper from './Menu_Mapper';
 import {USER_PROFILE_MENU, NOTIFICATIONS_MENU, PROFILE_GUEST_MENU} from '../../../theme/global/config';
 
 const defaultProps = {
-  userProfileMenu: USER_PROFILE_MENU,
+  menuData: USER_PROFILE_MENU,
   navigation: () => {},
 };
 
 const guestProps = {
   navigation: () => {},
-  userProfileMenu: [PROFILE_GUEST_MENU],
+  menuData: [PROFILE_GUEST_MENU],
 };
 
 const bookingProps = {
-  userProfileMenu: NOTIFICATIONS_MENU,
+  menuData: NOTIFICATIONS_MENU,
 };
 
 storiesOf('Design System/Organism/Menu_Mapper', module)
