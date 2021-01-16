@@ -1,4 +1,4 @@
-import {colors} from '../../../global/styles';
+import {colors, typography} from '../../../global/styles';
 
 export const style = {
   pageWrapper: {
@@ -14,9 +14,8 @@ export const style = {
     flexDirection: 'row',
   },
   splashText: {
-    color: 'white',
-    fontSize: 48,
+    ...typography.splash,
     paddingLeft: 12,
-    fontWeight: '500',
+    color: colors.text.splash,
   },
 };

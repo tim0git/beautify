@@ -20,6 +20,7 @@ export const colors = {
     primary: COLORS.blueDark,
     secondary: COLORS.pinkLight,
     tertiary: COLORS.greyMedium,
+    splash: COLORS.white,
   },
   background: {
     primary: COLORS.white,

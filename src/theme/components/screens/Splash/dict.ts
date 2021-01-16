@@ -1,1 +1,3 @@
-export const dict = {};
+export const dict = {
+  splashScreenText: 'beautify',
+};

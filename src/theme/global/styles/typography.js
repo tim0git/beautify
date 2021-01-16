@@ -28,9 +28,8 @@ export const typography = {
     paddingHorizontal: 16,
   },
   splash: {
-    alignSelf: 'center',
-    fontWeight: 'bold',
-    fontSize: 30,
+    fontSize: 48,
+    fontWeight: '500',
   },
 
   buttons: {

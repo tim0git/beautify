@@ -11,16 +11,18 @@ import IconRN from '../../atoms/Icon/Icon';
 export interface Props {}
 
 const Splash: React.FC<Props> = ({}) => {
-  const {style} = ThemeProvider('Splash');
   const {barStyle} = ThemeProvider('global').styles;
+  const {config, dict, style} = ThemeProvider('Splash');
+  const {splashIconProps} = config;
+  const {splashScreenText} = dict;
   return (
     <>
       <StatusBar barStyle={barStyle} />
       <SafeAreaView style={style.pageWrapper} testID="Splash">
         <View style={style.container}>
-          <IconRN testID="Splash_Icon" name="Bookings" color="white" size={45} />
+          <IconRN testID="Splash_Icon" {...splashIconProps} />
           <Text testID="Splash_Text" style={style.splashText}>
-            beautify
+            {splashScreenText}
           </Text>
         </View>
       </SafeAreaView>
