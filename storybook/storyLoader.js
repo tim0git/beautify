@@ -22,6 +22,7 @@ function loadStories() {
   require('../src/components/screens/Home/Home_Screen.stories');
   require('../src/components/screens/Inbox/Inbox_Screen.stories');
   require('../src/components/screens/Landing/Landing_Screen.stories');
+  require('../src/components/screens/Notification_Settings/Notification_Settings.stories');
   require('../src/components/screens/Profile/Profile_Screen.stories');
   require('../src/components/screens/Search/Search_Screen.stories');
   require('../src/components/screens/Splash/Splash.stories');
@@ -47,6 +48,7 @@ const stories = [
   '../src/components/screens/Home/Home_Screen.stories',
   '../src/components/screens/Inbox/Inbox_Screen.stories',
   '../src/components/screens/Landing/Landing_Screen.stories',
+  '../src/components/screens/Notification_Settings/Notification_Settings.stories',
   '../src/components/screens/Profile/Profile_Screen.stories',
   '../src/components/screens/Search/Search_Screen.stories',
   '../src/components/screens/Splash/Splash.stories',
