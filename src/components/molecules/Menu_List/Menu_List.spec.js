@@ -1,4 +1,3 @@
-/* eslint-disable no-shadow */
 import React from 'react';
 import 'react-native';
 import 'jest-enzyme';
