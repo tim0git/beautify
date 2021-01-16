@@ -21,11 +21,12 @@ export interface Props {
 const WebView_Screen: React.FC<Props> = ({route}) => {
   const {config, style} = ThemeProvider('WebView');
   const {WEB_VIEW_URLS} = ThemeProvider('global').config;
+  const {barStyle} = ThemeProvider('global').styles;
   const {WebViewProps} = config;
 
   return (
     <>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar barStyle={barStyle} />
       <SafeAreaView style={style.pageWrapper} testID="WebView_Screen">
         <Header headerText={route.params.title} type="Screen" testID="WebView_Screen_Header" />
         <View style={style.container}>

@@ -15,6 +15,7 @@ export interface Props {
 
 const Profile_Screen: React.FC<Props> = ({navigation, isLoggedIn}) => {
   const {styles, config} = ThemeProvider('Profile');
+  const {barStyle} = ThemeProvider('global').styles;
   const {PROFILE_GUEST_MENU, USER_PROFILE_MENU} = ThemeProvider('global').config;
 
   const {screenHeaderProps, screenInstructionsProps} = config;
@@ -51,7 +52,7 @@ const Profile_Screen: React.FC<Props> = ({navigation, isLoggedIn}) => {
 
   return (
     <>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar barStyle={barStyle} />
       <SafeAreaView style={styles.pageWrapper} testID="Profile_Screen">
         <Header {...screenHeaderProps} />
         {isLoggedIn ? UserProfile() : GuestProfile()}

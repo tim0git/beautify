@@ -10,10 +10,11 @@ export interface Props {
 
 const Landing_Page: React.FC<Props> = ({loginIn, submitCode}) => {
   const {styles} = ThemeProvider('Landing');
+  const {barStyle} = ThemeProvider('global').styles;
 
   return (
     <>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar barStyle={barStyle} />
       <SafeAreaView>
         <View style={styles.container}>
           <Text testID="Landing_Page-Page_Title">beautify</Text>

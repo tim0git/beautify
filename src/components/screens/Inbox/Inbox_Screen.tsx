@@ -12,14 +12,13 @@ export interface Props {
 
 const Inbox_Screen: React.FC<Props> = ({navigation}) => {
   const {styles, config} = ThemeProvider('Inbox');
+  const {barStyle} = ThemeProvider('global').styles;
 
   const {screenHeaderProps, screenInstructionsProps} = config;
 
-  console.dir(ConversationsClient);
-
   return (
     <>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar barStyle={barStyle} />
       <SafeAreaView style={styles.pageWrapper}>
         <Header {...screenHeaderProps} />
         <View style={styles.container}>

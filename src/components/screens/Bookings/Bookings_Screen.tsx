@@ -12,12 +12,13 @@ export interface Props {
 
 const Bookings_Screen: React.FC<Props> = ({navigation}) => {
   const {styles, config} = ThemeProvider('Bookings');
+  const {barStyle} = ThemeProvider('global').styles;
 
   const {screenHeaderProps, screenInstructionsProps, loginClusterProps} = config;
 
   return (
     <>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar barStyle={barStyle} />
       <SafeAreaView style={styles.pageWrapper}>
         <Header {...screenHeaderProps} />
         <View style={styles.container}>
