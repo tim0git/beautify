@@ -5,7 +5,7 @@ import * as TEST_COMPONENT from '../../__mocks__/Theme/mock_theme';
 import * as global from '../theme/global';
 
 // Atoms Import
-import * as Switch from '../theme/components/atoms/Switch'
+import * as Switch from '../theme/components/atoms/Switch';
 import * as Spinner from '../theme/components/atoms/Spinner';
 import * as Text from '../theme/components/atoms/Text';
 import * as Button from '../theme/components/atoms/Button';
@@ -13,7 +13,7 @@ import * as Icon from '../theme/components/atoms/Icon';
 import * as Header from '../theme/components/atoms/Header';
 
 const atoms = {
-Switch,
+  Switch,
   Spinner,
   Text,
   Button,
@@ -22,12 +22,14 @@ Switch,
 };
 
 // Molecules Import
+import * as Menu_Row from '../theme/components/molecules/Menu_Row';
 import * as Loading from '../theme/components/molecules/Loading';
 import * as Menu_List from '../theme/components/molecules/Menu_List';
 import * as Login_Cluster from '../theme/components/molecules/Login_Cluster';
 import * as Search_Bar from '../theme/components/molecules/Search_Bar';
 import * as Screen_Instructions from '../theme/components/molecules/Screen_Instructions';
 const molecules = {
+  Menu_Row,
   Loading,
   Menu_List,
   Login_Cluster,
@@ -44,7 +46,7 @@ const organisms = {
 };
 
 // Screens Import
-import * as Splash from '../theme/components/screens/Splash'
+import * as Splash from '../theme/components/screens/Splash';
 import * as WebView from '../theme/components/screens/WebView';
 import * as Landing from '../theme/components/screens/Landing';
 import * as Home from '../theme/components/screens/Home';
@@ -53,7 +55,7 @@ import * as Bookings from '../theme/components/screens/Bookings';
 import * as Profile from '../theme/components/screens/Profile';
 import * as Search from '../theme/components/screens/Search';
 const screens = {
-Splash,
+  Splash,
   WebView,
   Landing,
   Home,
