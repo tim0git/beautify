@@ -14,10 +14,10 @@ const profileGuestProps = {
   },
   DATA: PROFILE_GUEST_MENU.DATA,
   headerText: PROFILE_GUEST_MENU.headerText,
-  testID: '',
+  testID: 'TEST_MENU_LIST_GUEST_PROFILE',
 };
 
-const notifictaionMenuProps = {
+const notificationMenuProps = {
   navigation: {
     navigate: () => {},
   },
@@ -29,10 +29,10 @@ const notifictaionMenuProps = {
     [NOTIFICATIONS_MENU_BUTTONS.UpcomingAppointments48]: false,
     [NOTIFICATIONS_MENU_BUTTONS.UpcomingAppointments24]: true,
   },
-  testID: '',
+  testID: 'TEST_MENU_LIST_NOTIFICATIONS_BOOKINGS',
 };
 
 storiesOf('Design System/Molecule/Menu_List', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Menu_List_Profile_Guest', () => <Menu_List {...profileGuestProps} />)
-  .add('Menu_List_Notification_Menu', () => <Menu_List {...notifictaionMenuProps} />);
+  .add('Menu_List_Notification_Menu', () => <Menu_List {...notificationMenuProps} />);

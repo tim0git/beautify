@@ -9,22 +9,16 @@ import {ThemeProvider} from '../../../services/ThemeProvider';
 import Header from '../../atoms/Header/Header';
 import Button from '../../atoms/Button/Button';
 import Menu_Row from '../Menu_Row/Menu_Row';
-
-type MenuButtonObject = {
-  id: string;
-  title: string;
-  navigationAddress: string;
-  testID: string;
-};
+import {MenuButtonData, NotificationSettings, NotificationSwitchData} from '../../../theme/global/types';
 
 export interface Props {
   navigation: {
     navigate: (navigationAddress: string, {title: string}) => void;
   };
-  DATA: [MenuButtonObject];
+  DATA: ReadonlyArray<MenuButtonData | NotificationSwitchData>;
   headerText: string;
-  onValueChange?: () => string;
-  notificationSettings?: {};
+  onValueChange?: (title: string) => string;
+  notificationSettings?: NotificationSettings;
   testID: string;
 }
 
