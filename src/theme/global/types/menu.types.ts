@@ -1,11 +1,11 @@
 export type NotificationSettings = {
-  BookingComplete: boolean;
-  UpcomingAppointments48: boolean;
-  UpcomingAppointments24: boolean;
-  DepositTaken: boolean;
-  RemainingPaymentTaken: boolean;
-  PaymentFailures: boolean;
-  NewPractitioner: boolean;
+  'Booking Complete': boolean;
+  'Upcoming Appointments (48hr)': boolean;
+  'Upcoming Appointments (24hr)': boolean;
+  'Deposit Taken': boolean;
+  'Remaining Payment Taken': boolean;
+  'Payment Failures': boolean;
+  'New Practitioner': boolean;
 };
 
 export type NotificationMenuButtons = {

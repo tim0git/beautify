@@ -9,26 +9,31 @@ import {ThemeProvider} from '../../../services/ThemeProvider';
 import Header from '../../atoms/Header/Header';
 import Menu_Mapper from '../../organisms/Menu_Mapper/Menu_Mapper';
 
-export interface Props {}
+export interface Props {
+  navigation: {
+    navigate: () => void;
+    goBack: () => void;
+  };
+}
 
 const Notification_Settings_Screen: React.FC<Props> = ({navigation}) => {
-  const {config, dict, style} = ThemeProvider('Notification_Settings');
+  const {config, style} = ThemeProvider('Notification_Settings');
   const {barStyle} = ThemeProvider('global').styles;
   const {notificationSettingsHeaderProps} = config;
-  const {NOTIFICATIONS_MENU, NOTIFICATIONS_MENU_BUTTONS} = ThemeProvider('global').config;
-  const [notificationSettings, setNotificationSettings] = useState({
-    [NOTIFICATIONS_MENU_BUTTONS.BookingComplete]: true,
-    [NOTIFICATIONS_MENU_BUTTONS.UpcomingAppointments48]: false,
-    [NOTIFICATIONS_MENU_BUTTONS.UpcomingAppointments24]: true,
-    [NOTIFICATIONS_MENU_BUTTONS.DepositTaken]: false,
-    [NOTIFICATIONS_MENU_BUTTONS.RemainingPaymentTaken]: true,
-    [NOTIFICATIONS_MENU_BUTTONS.PaymentFailures]: true,
-    [NOTIFICATIONS_MENU_BUTTONS.NewPractitioner]: false,
-  });
+  const {NOTIFICATIONS_MENU} = ThemeProvider('global').config;
 
-  const onValueChange = (item) => {
-    console.log('called', item);
-    setNotificationSettings({...notificationSettings, [item]: !notificationSettings[item]});
+  // Replace with GraphQL Mutation & Query.
+  const [notificationSettings, setNotificationSettings] = useState({
+    'Booking Complete': true,
+    'Upcoming Appointments (48hr)': true,
+    'Upcoming Appointments (24hr)': true,
+    'Deposit Taken': true,
+    'Remaining Payment Taken': true,
+    'Payment Failures': true,
+    'New Practitioner': true,
+  });
+  const onValueChange = (title: string) => {
+    setNotificationSettings({...notificationSettings, [title]: !notificationSettings[title]});
   };
 
   return (

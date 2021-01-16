@@ -17,7 +17,7 @@ export interface Props {
   };
   DATA: ReadonlyArray<MenuButtonData | NotificationSwitchData>;
   headerText: string;
-  onValueChange?: (title: string) => string;
+  onValueChange?: (title: string) => void;
   notificationSettings?: NotificationSettings;
   testID: string;
 }

@@ -11,7 +11,7 @@ export interface Props {
   navigation: {
     navigate: () => void;
   };
-  onValueChange?: (title: string) => string;
+  onValueChange?: (title: string) => void;
   notificationSettings?: NotificationSettings;
   testID: string;
 }
