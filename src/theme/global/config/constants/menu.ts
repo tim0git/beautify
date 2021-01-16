@@ -1,7 +1,14 @@
 import 'react-native-get-random-values'; // provides UUID access the global object crypto.getRandomValues
 import {v4 as uuidv4} from 'uuid';
+import {
+  NotificationMenuButtons,
+  NotificationsMenu,
+  ProfileMenu,
+  ProfileMenuButtons,
+  UserProfileMenu,
+} from '../../types/menu.types';
 
-export const PROFILE_MENU_BUTTONS = {
+export const PROFILE_MENU_BUTTONS: ProfileMenuButtons = {
   About: 'About Beautify',
   Help: 'Help Center',
   Legal: 'Legal Stuff',
@@ -14,7 +21,7 @@ export const PROFILE_MENU_BUTTONS = {
   Logout: 'Logout',
 };
 
-export const PROFILE_MENU_NAVIGATION = {
+export const PROFILE_MENU_NAVIGATION: ProfileMenuButtons = {
   About: 'Web_View',
   Help: 'Web_View',
   Legal: 'Legal_Screen',
@@ -34,7 +41,7 @@ export const WEB_VIEW_URLS = {
   [PROFILE_MENU_BUTTONS.Help]: 'https://apposing.co.uk/contact/',
 };
 
-export const PROFILE_GUEST_MENU = {
+export const PROFILE_GUEST_MENU: ProfileMenu = {
   testID: 'Profile_Guest_Menu',
   headerText: 'General',
   DATA: [
@@ -59,7 +66,7 @@ export const PROFILE_GUEST_MENU = {
   ],
 };
 
-export const PROFILE_USER_MENU = {
+export const PROFILE_USER_MENU: ProfileMenu = {
   testID: 'Profile_User_Menu',
   headerText: PROFILE_GUEST_MENU.headerText,
   DATA: [
@@ -73,8 +80,9 @@ export const PROFILE_USER_MENU = {
   ],
 };
 
-export const PROFILE_USER_BOOKINGS_MENU = {
+export const PROFILE_USER_BOOKINGS_MENU: ProfileMenu = {
   headerText: 'Bookings',
+  testID: 'Profile_User_Bookings_Menu',
   DATA: [
     {
       id: uuidv4(),
@@ -91,8 +99,9 @@ export const PROFILE_USER_BOOKINGS_MENU = {
   ],
 };
 
-export const PROFILE_USER_MY_PROFILE_SETTINGS_MENU = {
+export const PROFILE_USER_MY_PROFILE_SETTINGS_MENU: ProfileMenu = {
   headerText: 'My Profile Settings',
+  testID: 'Profile_User_Settings_Menu',
   DATA: [
     {
       id: uuidv4(),
@@ -121,9 +130,13 @@ export const PROFILE_USER_MY_PROFILE_SETTINGS_MENU = {
   ],
 };
 
-export const USER_PROFILE_MENU = [PROFILE_USER_BOOKINGS_MENU, PROFILE_USER_MY_PROFILE_SETTINGS_MENU, PROFILE_USER_MENU];
+export const USER_PROFILE_MENU: UserProfileMenu = [
+  PROFILE_USER_BOOKINGS_MENU,
+  PROFILE_USER_MY_PROFILE_SETTINGS_MENU,
+  PROFILE_USER_MENU,
+];
 
-export const NOTIFICATIONS_MENU_BUTTONS = {
+export const NOTIFICATIONS_MENU_BUTTONS: NotificationMenuButtons = {
   BookingComplete: 'Booking Complete',
   UpcomingAppointments48: 'Upcoming Appointments (48hr)',
   UpcomingAppointments24: 'Upcoming Appointments (24hr)',
@@ -133,7 +146,7 @@ export const NOTIFICATIONS_MENU_BUTTONS = {
   NewPractitioner: 'New Practitioner',
 };
 
-export const NOTIFICATIONS_BOOKINGS_MENU = {
+export const NOTIFICATIONS_BOOKINGS_MENU: NotificationsMenu = {
   testID: 'Notificatons_Bookings_Menu',
   headerText: 'Booking notifications',
   DATA: [
@@ -155,7 +168,7 @@ export const NOTIFICATIONS_BOOKINGS_MENU = {
   ],
 };
 
-export const NOTIFICATIONS_PAYMENT_MENU = {
+export const NOTIFICATIONS_PAYMENT_MENU: NotificationsMenu = {
   testID: 'Notificatons_Payment_Menu',
   headerText: 'Payment notifications',
   DATA: [
@@ -177,7 +190,7 @@ export const NOTIFICATIONS_PAYMENT_MENU = {
   ],
 };
 
-export const NOTIFICATIONS_GENERAL_MENU = {
+export const NOTIFICATIONS_GENERAL_MENU: NotificationsMenu = {
   testID: 'Notificatons_General_Menu',
   headerText: 'General push',
   DATA: [
