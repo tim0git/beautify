@@ -22,7 +22,7 @@ const disabledProps = {
   disabled: true,
 };
 
-storiesOf('Menu_Row', module)
+storiesOf('Design System/Molecule/Menu_Row', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Menu_Row_Switch_On', () => <Menu_Row {...onProps} />)
   .add('Menu_Row_Switch_Off', () => <Menu_Row {...offProps} />)
