@@ -4,16 +4,19 @@
  *
  */
 import React from 'react';
+import {NotificationSettings, NotificationsMenu, UserProfileMenu} from '../../../theme/global/types';
 import Menu_List from '../../molecules/Menu_List/Menu_List';
 export interface Props {
-  menuData: any;
+  menuData: UserProfileMenu | NotificationsMenu;
   navigation: {
     navigate: () => void;
   };
+  onValueChange?: (title: string) => string;
+  notificationSettings?: NotificationSettings;
   testID: string;
 }
 
-const Menu_Mapper: React.FC<Props> = ({menuData, navigation}) => {
+const Menu_Mapper: React.FC<Props> = ({menuData, navigation, onValueChange, notificationSettings}) => {
   return menuData.map((menu) => {
     return (
       <Menu_List
@@ -22,6 +25,8 @@ const Menu_Mapper: React.FC<Props> = ({menuData, navigation}) => {
         DATA={menu.DATA}
         testID={menu.testID}
         key={menu.headerText}
+        onValueChange={onValueChange}
+        notificationSettings={notificationSettings}
       />
     );
   });

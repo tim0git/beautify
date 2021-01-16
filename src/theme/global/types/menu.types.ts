@@ -41,7 +41,7 @@ export type MenuButtonData = {
 export type ProfileMenu = {
   testID: string;
   headerText: string;
-  DATA: Array<MenuButtonData>;
+  DATA: ReadonlyArray<MenuButtonData>;
 };
 
 export type NotificationSwitchData = {
@@ -49,10 +49,12 @@ export type NotificationSwitchData = {
   title: string;
   testID: string;
 };
-export type NotificationsMenu = {
+export type NotificationMenu = {
   testID: string;
   headerText: string;
-  DATA: Array<NotificationSwitchData>;
+  DATA: ReadonlyArray<NotificationSwitchData>;
 };
 
 export type UserProfileMenu = Array<ProfileMenu>;
+
+export type NotificationsMenu = Array<NotificationMenu>;
