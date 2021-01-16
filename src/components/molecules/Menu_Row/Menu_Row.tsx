@@ -6,14 +6,33 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
+import Switch from '../../atoms/Switch/Switch';
 
-export interface Props {}
+export interface Props {
+  title: string;
+  type: string | 'Switch';
+  onValueChange: (title: string) => string;
+  isEnabled: boolean;
+  disabled: boolean;
+}
 
-const Menu_Row: React.FC<Props> = ({}) => {
-  const {config, dict, style} = ThemeProvider('Menu_Row');
+const Menu_Row: React.FC<Props> = ({onValueChange, isEnabled, disabled, title, type}) => {
+  const {style} = ThemeProvider('Menu_Row');
   return (
-    <View style={style.container} testID="Menu_Row">
-      <Text>Menu_Row</Text>
+    <View style={style.wrapper[type]} testID="Menu_Row">
+      <View style={style.container[type]}>
+        <Text testID="Menu_Row_Menu_Text" style={style.text[type]}>
+          {title}
+        </Text>
+        <Switch
+          testID="Menu_Row_Switch"
+          isEnabled={isEnabled}
+          onValueChange={() => {
+            onValueChange(title);
+          }}
+          disabled={disabled}
+        />
+      </View>
     </View>
   );
 };

@@ -13,6 +13,7 @@ function loadStories() {
   require('../src/components/molecules/Loading/Loading.stories');
   require('../src/components/molecules/Login_Cluster/Login_Cluster.stories');
   require('../src/components/molecules/Menu_List/Menu_List.stories');
+  require('../src/components/molecules/Menu_Row/Menu_Row.stories');
   require('../src/components/molecules/Screen_Instructions/Screen_Instructions.stories');
   require('../src/components/molecules/Search_Bar/Search_Bar.stories');
   require('../src/components/organisms/Guest_Welcome/Guest_Welcome.stories');
@@ -37,6 +38,7 @@ const stories = [
   '../src/components/molecules/Loading/Loading.stories',
   '../src/components/molecules/Login_Cluster/Login_Cluster.stories',
   '../src/components/molecules/Menu_List/Menu_List.stories',
+  '../src/components/molecules/Menu_Row/Menu_Row.stories',
   '../src/components/molecules/Screen_Instructions/Screen_Instructions.stories',
   '../src/components/molecules/Search_Bar/Search_Bar.stories',
   '../src/components/organisms/Guest_Welcome/Guest_Welcome.stories',

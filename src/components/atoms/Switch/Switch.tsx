@@ -9,17 +9,18 @@ import {ThemeProvider} from '../../../services/ThemeProvider';
 
 export interface Props {
   isEnabled: boolean;
-  onValueChange: (isEnabled: boolean) => boolean;
+  onValueChange: () => void;
   disabled: boolean;
+  testID: string;
 }
 
-const Switch: React.FC<Props> = ({isEnabled, onValueChange, disabled = false}) => {
+const Switch: React.FC<Props> = ({testID, isEnabled, onValueChange, disabled = false}) => {
   const {style} = ThemeProvider('Switch');
 
   return (
     <SwitchRN
       style={style.switch}
-      testID="Switch"
+      testID={testID ? testID : 'Switch'}
       disabled={disabled}
       ios_backgroundColor={style.ios_backgroundColor}
       trackColor={style.trackColor}
