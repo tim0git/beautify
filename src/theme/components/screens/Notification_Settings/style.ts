@@ -1,4 +1,4 @@
-import {colors} from '../../../global/styles';
+import {colors, size} from '../../../global/styles';
 export const style = {
   pageWrapper: {
     flexGrow: 1,
@@ -6,4 +6,8 @@ export const style = {
     backgroundColor: colors.background.primary,
   },
   container: {},
+  pageInstructionContainer: {
+    paddingHorizontal: size.padding.xxlg,
+    paddingVertical: size.padding.xlg,
+  },
 };
