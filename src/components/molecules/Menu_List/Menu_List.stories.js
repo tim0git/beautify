@@ -2,17 +2,37 @@ import {storiesOf} from '@storybook/react-native';
 import React from 'react';
 import CenterView from '../../../../storybook/stories/CenterView';
 import Menu_List from './Menu_List';
-import {PROFILE_GUEST_MENU} from '../../../theme/global/config';
+import {
+  PROFILE_GUEST_MENU,
+  NOTIFICATIONS_BOOKINGS_MENU,
+  NOTIFICATIONS_MENU_BUTTONS,
+} from '../../../theme/global/config';
 
-const defaultProps = {
+const profileGuestProps = {
   navigation: {
     navigate: () => {},
   },
   DATA: PROFILE_GUEST_MENU.DATA,
   headerText: PROFILE_GUEST_MENU.headerText,
-  testID: 'TEST_HEADER_TEXT_TEST_ID',
+  testID: '',
+};
+
+const notifictaionMenuProps = {
+  navigation: {
+    navigate: () => {},
+  },
+  DATA: NOTIFICATIONS_BOOKINGS_MENU.DATA,
+  headerText: NOTIFICATIONS_BOOKINGS_MENU.headerText,
+  onValueChange: () => {},
+  notificationSettings: {
+    [NOTIFICATIONS_MENU_BUTTONS.BookingComplete]: true,
+    [NOTIFICATIONS_MENU_BUTTONS.UpcomingAppointments48]: false,
+    [NOTIFICATIONS_MENU_BUTTONS.UpcomingAppointments24]: true,
+  },
+  testID: '',
 };
 
 storiesOf('Design System/Molecule/Menu_List', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
-  .add('Menu_List_Default', () => <Menu_List {...defaultProps} />);
+  .add('Menu_List_Profile_Guest', () => <Menu_List {...profileGuestProps} />)
+  .add('Menu_List_Notification_Menu', () => <Menu_List {...notifictaionMenuProps} />);

@@ -8,6 +8,7 @@ import {View, FlatList} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
 import Header from '../../atoms/Header/Header';
 import Button from '../../atoms/Button/Button';
+import Menu_Row from '../Menu_Row/Menu_Row';
 
 type MenuButtonObject = {
   id: string;
@@ -22,13 +23,15 @@ export interface Props {
   };
   DATA: [MenuButtonObject];
   headerText: string;
+  onValueChange?: () => string;
+  notificationSettings?: {};
   testID: string;
 }
 
-const Menu_List: React.FC<Props> = ({navigation, DATA, testID, headerText}) => {
+const Menu_List: React.FC<Props> = ({navigation, DATA, testID, headerText, onValueChange, notificationSettings}) => {
   const {config, style} = ThemeProvider('Menu_List');
 
-  const {headerProps, buttonProps} = config;
+  const {headerProps, menuRowSwitchProps, buttonProps} = config;
 
   const handleOnPress = (navigationAddress: string, title: string) => {
     navigation.navigate(navigationAddress, {title});
@@ -50,8 +53,19 @@ const Menu_List: React.FC<Props> = ({navigation, DATA, testID, headerText}) => {
     );
   };
 
+  const renderMenuRowSwitch = (item) => {
+    return (
+      <Menu_Row
+        {...item}
+        {...menuRowSwitchProps}
+        onValueChange={onValueChange}
+        isEnabled={notificationSettings[item.title]}
+      />
+    );
+  };
+
   const renderItem = ({item}) => {
-    return renderButton(item);
+    return onValueChange ? renderMenuRowSwitch(item) : renderButton(item);
   };
 
   return (

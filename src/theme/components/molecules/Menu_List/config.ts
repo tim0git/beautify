@@ -7,4 +7,7 @@ export const config = {
     iconLeft: true,
     iconRight: true,
   },
+  menuRowSwitchProps: {
+    type: 'Switch',
+  },
 };
