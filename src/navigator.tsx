@@ -2,6 +2,7 @@ import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {navigationRef} from './RootNavigation';
 import Landing_Container from './containers/Landing_Container';
 import Home_Container from './containers/Home_Container';
 import Search_Container from './containers/Search_Container';
@@ -80,7 +81,7 @@ function TabStack() {
 
 export default function AppNavigationContainer() {
   return (
-    <NavigationContainer>
+    <NavigationContainer ref={navigationRef}>
       <Stack.Navigator initialRouteName="Home" headerMode="none">
         <Stack.Screen name="Home" component={TabStack} />
         <Stack.Screen name="Search_Screen" component={SearchStackScreen} />
