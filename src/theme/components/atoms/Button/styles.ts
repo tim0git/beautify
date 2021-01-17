@@ -20,6 +20,9 @@ export const styles = {
     Menu: {
       alignSelf: 'stretch',
     },
+    HeaderBackButton: {
+      // no styles applied
+    },
   },
   container: {
     default: {
@@ -71,6 +74,9 @@ export const styles = {
       paddingHorizontal: size.padding.sm,
       borderBottomColor: colors.border.primary,
       borderBottomWidth: 1 / 2,
+    },
+    HeaderBackButton: {
+      // no styles applied
     },
   },
   text: {

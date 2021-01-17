@@ -21,6 +21,11 @@ export const config = {
     color: colors.text.primary,
     size: 30,
   },
+  HeaderBackButton: {
+    name: 'ArrowLeft',
+    color: colors.text.primary,
+    size: 30,
+  },
   MENULEFT: {
     [PROFILE_MENU_BUTTONS.About]: {
       name: 'Bookings',

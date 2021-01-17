@@ -5,7 +5,7 @@ import {ThemeProvider} from '../../../services/ThemeProvider';
 
 export interface Props {
   title: string;
-  type: string;
+  type: string | 'HeaderBackButton' | 'Menu' | 'Secondary' | 'Primary' | 'SearchBar' | 'NoBorder';
   iconLeft?: boolean;
   iconRight?: boolean;
   onPress: () => void;
@@ -32,6 +32,8 @@ const Button: React.FC<Props> = ({
 
   const iconProps = config[type];
 
+  const renderHeaderBackButton = type === 'HeaderBackButton';
+
   const handlePress = () => {
     !disabled && onPress();
   };
@@ -43,27 +45,32 @@ const Button: React.FC<Props> = ({
 
     return iconProps;
   };
-
-  return (
-    <Pressable
-      style={styles.wrapper[type]}
-      onPress={handlePress}
-      testID={testID || 'Button-Container'}
-      accessible={accessible}
-      accessibilityLabel={accessibilityLabel}
-      accessibilityHint={accessibilityHint}
-      accessibilityRole={'button'}>
-      <View style={styles.container[type]}>
-        {iconLeft && <IconRN {...getLeftIconProps()} testID="Button-IconLeft" />}
-        <View style={styles.textContainer[type]}>
-          <Text style={styles.text[type]} testID="Button-Text">
-            {title}
-          </Text>
+  const renderButton = () => {
+    return (
+      <Pressable
+        style={styles.wrapper[type]}
+        onPress={handlePress}
+        testID={testID || 'Button-Container'}
+        accessible={accessible}
+        accessibilityLabel={accessibilityLabel}
+        accessibilityHint={accessibilityHint}
+        accessibilityRole={'button'}>
+        <View style={styles.container[type]}>
+          {iconLeft && <IconRN {...getLeftIconProps()} testID="Button-IconLeft" />}
+          {renderHeaderBackButton && <IconRN {...iconProps} testID="Button_Back_Button_Icon" />}
+          {title && (
+            <View style={styles.textContainer[type]}>
+              <Text style={styles.text[type]} testID="Button-Text">
+                {title}
+              </Text>
+            </View>
+          )}
+          {iconRight && <IconRN {...iconProps} testID="Button-IconRight" />}
         </View>
-        {iconRight && <IconRN {...iconProps} testID="Button-IconRight" />}
-      </View>
-    </Pressable>
-  );
+      </Pressable>
+    );
+  };
+  return renderButton();
 };
 
 export default Button;

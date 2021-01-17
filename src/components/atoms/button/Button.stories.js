@@ -52,6 +52,20 @@ const MenuProps = {
   iconLeft: true,
 };
 
+const HeaderBackButton = {
+  title: undefined,
+  type: 'HeaderBackButton',
+  onPress: () => {
+    alert('Pressed!');
+  },
+  accessible: true,
+  accessibilityLabel: 'TEST A11Y LABEL',
+  accessibilityHint: 'TEST A11Y HINT',
+  accessibilityRole: 'button',
+  disabled: false,
+  testID: 'TEST_ID',
+};
+
 storiesOf('Design System/Atoms/Buttons', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Button_Default', () => <Button {...defaultProps} />)
@@ -59,4 +73,5 @@ storiesOf('Design System/Atoms/Buttons', module)
   .add('Button_SearchBar', () => <Button {...SearchBarProps} />)
   .add('Button_Primary', () => <Button {...PrimaryProps} />)
   .add('Button_Secondary', () => <Button {...SecondaryProps} />)
-  .add('Button_Menu', () => <Button {...MenuProps} />);
+  .add('Button_Menu', () => <Button {...MenuProps} />)
+  .add('Button_Header_Back', () => <Button {...HeaderBackButton} />);

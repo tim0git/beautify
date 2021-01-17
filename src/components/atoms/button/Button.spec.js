@@ -37,6 +37,12 @@ const secondaryProps = {
   iconRight: true,
 };
 
+const headerBackButtonProps = {
+  ...defaultProps,
+  title: undefined,
+  type: 'HeaderBackButton',
+};
+
 describe('<Button>', () => {
   describe('<Render> -default', () => {
     test('should render a touchable component', () => {
@@ -101,6 +107,31 @@ describe('<Button>', () => {
       const ButtonIconRight = wrapper.findWhere((node) => node.prop('testID') === 'Button-IconRight');
 
       expect(ButtonIconRight).toExist();
+    });
+  });
+
+  describe('<Render> -HeaderBackButton', () => {
+    test('should render a touchable component', () => {
+      const wrapper = shallow(<Button {...headerBackButtonProps} />);
+      const button = wrapper.findWhere((node) => node.prop('testID') === 'TEST_BUTTON_TEST_ID');
+
+      expect(button).toExist();
+    });
+    test('should render a back button icon component', () => {
+      const wrapper = shallow(<Button {...headerBackButtonProps} />);
+      const BackButton = wrapper.findWhere((node) => node.prop('testID') === 'Button_Back_Button_Icon');
+
+      expect(BackButton).toExist();
+    });
+    test('should NOT render the following; iconLeft, iconRight, title', () => {
+      const wrapper = shallow(<Button {...headerBackButtonProps} />);
+      const IconLeft = wrapper.findWhere((node) => node.prop('testID') === 'Button-IconLeft');
+      const ButtonText = wrapper.findWhere((node) => node.prop('testID') === 'Button-Text');
+      const IconRight = wrapper.findWhere((node) => node.prop('testID') === 'Button-IconRight');
+
+      expect(IconLeft).not.toExist();
+      expect(ButtonText).not.toExist();
+      expect(IconRight).not.toExist();
     });
   });
   describe('<Methods>', () => {
