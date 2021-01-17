@@ -1,10 +1,10 @@
 import {storiesOf} from '@storybook/react-native';
 import React from 'react';
 import CenterView from '../../../../storybook/stories/CenterView';
-import Notification_Settings_Screen from './Notification_Settings_Screen';
+import Profile_Notifications_Screen from './Profile_Notifications_Screen';
 
 const defaultProps = {};
 
-storiesOf('Design System/Screens/Notification_Settings', module)
+storiesOf('Design System/Screens/Profile_Notifications', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
-  .add('Notification_Settings_Default', () => <Notification_Settings_Screen {...defaultProps} />);
+  .add('Profile_Notifications_Default', () => <Profile_Notifications_Screen {...defaultProps} />);

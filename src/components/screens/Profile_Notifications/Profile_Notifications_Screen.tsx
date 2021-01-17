@@ -1,5 +1,5 @@
 /**
- * @name Notification_Settings
+ * @name Profile_Notifications
  * @description {description}
  *
  */
@@ -17,8 +17,8 @@ export interface Props {
   };
 }
 
-const Notification_Settings_Screen: React.FC<Props> = ({navigation}) => {
-  const {config, style} = ThemeProvider('Notification_Settings');
+const Profile_Notifications_Screen: React.FC<Props> = ({navigation}) => {
+  const {config, style} = ThemeProvider('Profile_Notifications');
   const {barStyle} = ThemeProvider('global').styles;
   const {notificationSettingsHeaderProps} = config;
   const {NOTIFICATIONS_MENU} = ThemeProvider('global').config;
@@ -42,7 +42,7 @@ const Notification_Settings_Screen: React.FC<Props> = ({navigation}) => {
       <StatusBar barStyle={barStyle} />
       <SafeAreaView style={style.pageWrapper}>
         <Header {...notificationSettingsHeaderProps} />
-        <View style={style.container} testID="Notification_Settings_Screen">
+        <View style={style.container} testID="Profile_Notifications_Screen">
           <View style={style.pageInstructionContainer}>
             <Text
               content="Here you can choose the notifications you want to receive (or not recieve)"
@@ -63,4 +63,4 @@ const Notification_Settings_Screen: React.FC<Props> = ({navigation}) => {
   );
 };
 
-export default Notification_Settings_Screen;
+export default Profile_Notifications_Screen;

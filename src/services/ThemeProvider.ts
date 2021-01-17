@@ -46,7 +46,7 @@ const organisms = {
 };
 
 // Screens Import
-import * as Notification_Settings from '../theme/components/screens/Notification_Settings'
+import * as Profile_Notifications from '../theme/components/screens/Profile_Notifications';
 import * as Splash from '../theme/components/screens/Splash';
 import * as WebView from '../theme/components/screens/WebView';
 import * as Landing from '../theme/components/screens/Landing';
@@ -56,7 +56,7 @@ import * as Bookings from '../theme/components/screens/Bookings';
 import * as Profile from '../theme/components/screens/Profile';
 import * as Search from '../theme/components/screens/Search';
 const screens = {
-Notification_Settings,
+  Profile_Notifications,
   Splash,
   WebView,
   Landing,
