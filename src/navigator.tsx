@@ -11,6 +11,7 @@ import Inbox_Container from './containers/Inbox_Container';
 import Profile_Container from './containers/Profile_Container';
 import IconRN from './components/atoms/Icon/Icon';
 import WebView_Screen from './components/screens/WebView/WebView_Screen';
+import Profile_Notifications_Screen from './components/screens/Profile_Notifications/Profile_Notifications_Screen';
 
 const SearchStack = createStackNavigator();
 
@@ -48,6 +49,7 @@ function ProfileStackScreen() {
   return (
     <ProfileStack.Navigator headerMode="none">
       <ProfileStack.Screen name="Profile_Landing" component={Profile_Container} />
+      <ProfileStack.Screen name="Profile_Notifications" component={Profile_Notifications_Screen} />
     </ProfileStack.Navigator>
   );
 }
