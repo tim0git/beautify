@@ -10,7 +10,6 @@ import Bookings_Container from './containers/Bookings_Container';
 import Inbox_Container from './containers/Inbox_Container';
 import Profile_Container from './containers/Profile_Container';
 import IconRN from './components/atoms/Icon/Icon';
-import WebView_Screen from './components/screens/WebView/WebView_Screen';
 import Profile_Notifications_Screen from './components/screens/Profile_Notifications/Profile_Notifications_Screen';
 
 const SearchStack = createStackNavigator();
@@ -43,18 +42,6 @@ function MessagesStackScreen() {
   );
 }
 
-const ProfileStack = createStackNavigator();
-
-function ProfileStackScreen() {
-  return (
-    <ProfileStack.Navigator headerMode="none">
-      <ProfileStack.Screen name="Profile_Landing" component={Profile_Container} />
-      <ProfileStack.Screen name="Profile_Notifications" component={Profile_Notifications_Screen} />
-    </ProfileStack.Navigator>
-  );
-}
-const Stack = createStackNavigator();
-
 const Tab = createBottomTabNavigator();
 
 function TabStack() {
@@ -76,10 +63,12 @@ function TabStack() {
       <Tab.Screen name="Search" component={Home_Container} />
       <Tab.Screen name="Bookings" component={BookingsStackScreen} />
       <Tab.Screen name="Inbox" component={MessagesStackScreen} />
-      <Tab.Screen name="Profile" component={ProfileStackScreen} />
+      <Tab.Screen name="Profile" component={Profile_Container} />
     </Tab.Navigator>
   );
 }
+
+const Stack = createStackNavigator();
 
 export default function AppNavigationContainer() {
   return (
@@ -88,7 +77,7 @@ export default function AppNavigationContainer() {
         <Stack.Screen name="Home" component={TabStack} />
         <Stack.Screen name="Search_Screen" component={SearchStackScreen} />
         <Stack.Screen name="Login_Screen" component={Landing_Container} />
-        <Stack.Screen name="Web_View" component={WebView_Screen} />
+        <Stack.Screen name="Profile_Notifications" component={Profile_Notifications_Screen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

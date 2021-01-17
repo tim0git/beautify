@@ -12,6 +12,13 @@ const menuProps = {
   type: 'Menu',
 };
 
+const screenBackButtonProps = {
+  headerText: 'General Back Button',
+  type: 'Screen',
+  backButton: true,
+};
+
 storiesOf('Design System/Atoms/Header', module)
   .add('Header', () => <Header {...screenProps} />)
-  .add('Menu_Header', () => <Header {...menuProps} />);
+  .add('Menu_Header', () => <Header {...menuProps} />)
+  .add('Header_Back_Button', () => <Header {...screenBackButtonProps} />);

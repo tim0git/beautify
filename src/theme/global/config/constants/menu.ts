@@ -31,7 +31,7 @@ export const PROFILE_MENU_NAVIGATION: ProfileMenuButtons = {
   Contact: 'Contact_Details',
   Payment: 'Payment_Methods',
   Marketing: 'Marketing_Preferences',
-  Notifications: 'Notifications',
+  Notifications: 'Profile_Notifications',
   Logout: 'Logout',
 };
 
