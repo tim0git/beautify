@@ -13,10 +13,11 @@ export interface Props {
   };
   onValueChange?: (title: string) => void;
   notificationSettings?: NotificationSettings;
+  signOut?: () => void;
   testID: string;
 }
 
-const Menu_Mapper: React.FC<Props> = ({menuData, navigation, onValueChange, notificationSettings}) => {
+const Menu_Mapper: React.FC<Props> = ({menuData, navigation, onValueChange, notificationSettings, signOut}) => {
   // @ts-ignore set until i can create a compound type or ts can type check both types provided for menuData.
   return menuData.map((menu) => {
     return (
@@ -28,6 +29,7 @@ const Menu_Mapper: React.FC<Props> = ({menuData, navigation, onValueChange, noti
         key={menu.headerText}
         onValueChange={onValueChange}
         notificationSettings={notificationSettings}
+        signOut={signOut}
       />
     );
   });

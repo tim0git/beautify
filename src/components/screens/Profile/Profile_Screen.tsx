@@ -13,7 +13,7 @@ export interface Props {
   signOut: () => void;
 }
 
-const Profile_Screen: React.FC<Props> = ({navigation, isLoggedIn}) => {
+const Profile_Screen: React.FC<Props> = ({navigation, isLoggedIn, signOut}) => {
   const {styles, config} = ThemeProvider('Profile');
   const {barStyle} = ThemeProvider('global').styles;
   const {PROFILE_GUEST_MENU, USER_PROFILE_MENU} = ThemeProvider('global').config;
@@ -23,7 +23,12 @@ const Profile_Screen: React.FC<Props> = ({navigation, isLoggedIn}) => {
   const UserProfile = () => {
     return (
       <View style={styles.container}>
-        <Menu_Mapper navigation={navigation} menuData={USER_PROFILE_MENU} testID="User_Profile_Menu_Mapper" />
+        <Menu_Mapper
+          navigation={navigation}
+          menuData={USER_PROFILE_MENU}
+          testID="User_Profile_Menu_Mapper"
+          signOut={signOut}
+        />
       </View>
     );
   };

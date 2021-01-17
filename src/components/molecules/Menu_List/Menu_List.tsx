@@ -10,6 +10,7 @@ import Header from '../../atoms/Header/Header';
 import Button from '../../atoms/Button/Button';
 import Menu_Row from '../Menu_Row/Menu_Row';
 import {MenuButtonData, NotificationSettings, NotificationSwitchData} from '../../../theme/global/types';
+import {AlertLogout} from '../../../utils';
 
 export interface Props {
   navigation: {
@@ -19,16 +20,29 @@ export interface Props {
   headerText: string;
   onValueChange?: (title: string) => void;
   notificationSettings?: NotificationSettings;
+  signOut?: () => void;
   testID: string;
 }
 
-const Menu_List: React.FC<Props> = ({navigation, DATA, testID, headerText, onValueChange, notificationSettings}) => {
+const Menu_List: React.FC<Props> = ({
+  navigation,
+  DATA,
+  testID,
+  headerText,
+  onValueChange,
+  notificationSettings,
+  signOut,
+}) => {
   const {config, style} = ThemeProvider('Menu_List');
-
   const {headerProps, menuRowSwitchProps, buttonProps} = config;
 
   const handleOnPress = (navigationAddress: string, title: string) => {
-    navigation.navigate(navigationAddress, {title});
+    switch (navigationAddress) {
+      case 'Logout':
+        return AlertLogout(signOut);
+      default:
+        return navigation.navigate(navigationAddress, {title});
+    }
   };
 
   const header = () => {
