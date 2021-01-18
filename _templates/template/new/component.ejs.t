@@ -24,7 +24,7 @@ const <%=name%>__Template: React.FC<Props> = ({headerText, render, testID}) => {
   return (
     <>
       <StatusBar barStyle={barStyle} />
-      <SafeAreaView style={styles.pageWrapper} testID={testID ? testID :"<%=name%>_Template"} ,>
+      <SafeAreaView style={styles.pageWrapper} testID={testID ? testID="<%=name%>_Template"} ,>
         <Header headerText={headerText} type='Screen' testID='<%=name%>_Template_Screen_Header'/>
         {render}
       </SafeAreaView>
