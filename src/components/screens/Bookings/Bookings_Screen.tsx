@@ -1,8 +1,8 @@
 import React from 'react';
-import {SafeAreaView, View, StatusBar} from 'react-native';
+import {View} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
-import Header from '../../atoms/Header/Header';
 import Guest_Welcome from '../../organisms/Guest_Welcome/Guest_Welcome';
+import Default_Screen_Template from '../../templates/Default_Screen/Default_Screen_Template';
 
 export interface Props {
   navigation: {
@@ -12,27 +12,30 @@ export interface Props {
 
 const Bookings_Screen: React.FC<Props> = ({navigation}) => {
   const {styles, config} = ThemeProvider('Bookings');
-  const {barStyle} = ThemeProvider('global').styles;
+  const {screenTitle, backButton, screenInstructionsProps, loginClusterProps} = config;
 
-  const {screenHeaderProps, screenInstructionsProps, loginClusterProps} = config;
+  const renderGuestWelcome = () => {
+    return (
+      <View style={styles.container}>
+        <View style={styles.guestWelcomeContainer}>
+          <Guest_Welcome
+            screenInstructionsProps={screenInstructionsProps}
+            navigation={navigation}
+            loginClusterProps={loginClusterProps}
+            testID="Bookings_Screen_Guest_Welcome"
+          />
+        </View>
+      </View>
+    );
+  };
 
   return (
-    <>
-      <StatusBar barStyle={barStyle} />
-      <SafeAreaView style={styles.pageWrapper}>
-        <Header {...screenHeaderProps} />
-        <View style={styles.container}>
-          <View style={styles.guestWelcomeContainer}>
-            <Guest_Welcome
-              screenInstructionsProps={screenInstructionsProps}
-              navigation={navigation}
-              loginClusterProps={loginClusterProps}
-              testID="Bookings_Screen_Guest_Welcome"
-            />
-          </View>
-        </View>
-      </SafeAreaView>
-    </>
+    <Default_Screen_Template
+      screenTitle={screenTitle}
+      testID="Bookings_Default_Screen_Template"
+      render={renderGuestWelcome()}
+      backButton={backButton}
+    />
   );
 };
 
