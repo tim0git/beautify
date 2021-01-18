@@ -10,7 +10,7 @@ import {ThemeProvider} from '../../../services/ThemeProvider';
 
 export interface Props {
   screenTitle: string;
-  render: () => any;
+  render: any;
   backButton: boolean;
   testID: string;
 }
