@@ -10,7 +10,9 @@ describe('<Profile_Notifications />', () => {
   describe('<Render>', () => {
     test('should render a profile notications component', () => {
       const wrapper = shallow(<Profile_Notifications_Screen {...defaultProps} />);
-      const notificationSettings = wrapper.findWhere((node) => node.prop('testID') === 'Profile_Notifications_Screen');
+      const notificationSettings = wrapper.findWhere(
+        (node) => node.prop('testID') === 'Profile_Notifications_Screen_Template',
+      );
       expect(notificationSettings).toExist();
     });
   });

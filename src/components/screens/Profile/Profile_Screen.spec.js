@@ -16,15 +16,17 @@ describe('<Profile_Screen>', () => {
     jest.useFakeTimers();
   });
   describe('<Render>', () => {
-    test('should render a search bar', () => {
+    test('should render a Profile_Default_Screen_Template', () => {
       const wrapper = mount(
         <MockedProvider>
           <Profile_Screen {...defaultProps} />
         </MockedProvider>,
       );
-      const ProfileBar = wrapper.findWhere((node) => node.prop('testID') === 'Profile_Screen');
+      const profileDefaultScreenTemplate = wrapper.findWhere(
+        (node) => node.prop('testID') === 'Profile_Default_Screen_Template',
+      );
 
-      expect(ProfileBar).toExist();
+      expect(profileDefaultScreenTemplate).toExist();
     });
     test('should render a Guest_Welcome component', () => {
       const wrapper = mount(
