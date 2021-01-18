@@ -27,6 +27,7 @@ function loadStories() {
   require('../src/components/screens/Search/Search_Screen.stories');
   require('../src/components/screens/Splash/Splash.stories');
   require('../src/components/screens/WebView/WebView_Screen.stories');
+  require('../src/components/templates/Default_Screen/Default_Screen.stories');
 }
 
 const stories = [
@@ -53,6 +54,7 @@ const stories = [
   '../src/components/screens/Search/Search_Screen.stories',
   '../src/components/screens/Splash/Splash.stories',
   '../src/components/screens/WebView/WebView_Screen.stories',
+  '../src/components/templates/Default_Screen/Default_Screen.stories',
 ];
 
 module.exports = {
