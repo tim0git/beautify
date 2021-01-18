@@ -67,6 +67,13 @@ const screens = {
   Search,
 };
 
+// Templates Import
+import * as Default_Screen from '../theme/components/templates/Default_Screen';
+
+const templates = {
+  Default_Screen,
+};
+
 const themes = {
   TEST_COMPONENT,
   global,
@@ -74,6 +81,7 @@ const themes = {
   ...molecules,
   ...organisms,
   ...screens,
+  ...templates,
 };
 
 export const ThemeProvider = (component) => {
