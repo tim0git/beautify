@@ -4,7 +4,7 @@
  *
  */
 import React from 'react';
-import {SafeAreaView, View, StatusBar} from 'react-native';
+import {SafeAreaView, StatusBar} from 'react-native';
 import Header from '../../atoms/Header/Header';
 import {ThemeProvider} from '../../../services/ThemeProvider';
 import Loading from '../../molecules/Loading/Loading';
@@ -34,7 +34,7 @@ const Default_Screen_Template: React.FC<Props> = ({
   };
 
   const renderContent = () => {
-    return <View testID="Default_Screen_Template_Content">{render}</View>;
+    return render;
   };
 
   return (
