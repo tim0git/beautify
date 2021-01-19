@@ -30,7 +30,7 @@ export const PROFILE_MENU_NAVIGATION: ProfileMenuButtons = {
   PreviousBookings: 'Previous_Bookings',
   Contact: 'Contact_Details',
   Payment: 'Payment_Methods',
-  Marketing: 'Marketing_Preferences',
+  Marketing: 'Profile_Marketing',
   Notifications: 'Profile_Notifications',
   Logout: 'Logout',
 };

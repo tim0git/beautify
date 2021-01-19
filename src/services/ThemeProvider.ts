@@ -48,6 +48,7 @@ const organisms = {
 };
 
 // Screens Import
+import * as Profile_Marketing from '../theme/components/screens/Profile_Marketing';
 import * as Profile_Notifications from '../theme/components/screens/Profile_Notifications';
 import * as Splash from '../theme/components/screens/Splash';
 import * as WebView from '../theme/components/screens/WebView';
@@ -58,6 +59,7 @@ import * as Bookings from '../theme/components/screens/Bookings';
 import * as Profile from '../theme/components/screens/Profile';
 import * as Search from '../theme/components/screens/Search';
 const screens = {
+  Profile_Marketing,
   Profile_Notifications,
   Splash,
   WebView,
