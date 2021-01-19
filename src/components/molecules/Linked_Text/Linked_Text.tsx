@@ -10,6 +10,8 @@ import {ThemeProvider} from '../../../services/ThemeProvider';
 export interface Props {
   content: string;
   textToLink: string;
+  link: string;
+  type: string | 'Body';
 }
 
 const Linked_Text: React.FC<Props> = ({content, textToLink}) => {
