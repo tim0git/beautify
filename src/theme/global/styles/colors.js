@@ -21,6 +21,7 @@ export const colors = {
     secondary: COLORS.pinkLight,
     tertiary: COLORS.greyMedium,
     splash: COLORS.white,
+    link: COLORS.purpleDark,
   },
   background: {
     primary: COLORS.white,
