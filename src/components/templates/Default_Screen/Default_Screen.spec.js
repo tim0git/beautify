@@ -2,11 +2,12 @@ import React from 'react';
 import 'react-native';
 import 'jest-enzyme';
 import {shallow} from 'enzyme';
+import {Text} from 'react-native';
 import Default_Screen_Template from './Default_Screen_Template';
 
 const defaultProps = {
   screenTitle: 'Default Screen Template',
-  render: undefined,
+  render: <Text testID="Default_Screen_Template_Content">Test jsx</Text>,
   backButton: true,
   testID: '',
 };
