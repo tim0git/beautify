@@ -46,7 +46,10 @@ const Menu_List: React.FC<Props> = ({
   };
 
   const header = () => {
-    return <Header {...headerProps} headerText={headerText} testID="Menu_List_Header" />;
+    if (headerText) {
+      return <Header {...headerProps} headerText={headerText} testID="Menu_List_Header" />;
+    }
+    return null;
   };
 
   const renderButton = (item) => {

@@ -3,7 +3,12 @@ import 'react-native';
 import 'jest-enzyme';
 import {shallow, mount} from 'enzyme';
 import Menu_List from './Menu_List';
-import {NOTIFICATIONS_BOOKINGS_MENU, NOTIFICATIONS_MENU_BUTTONS} from '../../../theme/global/config';
+import {
+  NOTIFICATIONS_BOOKINGS_MENU,
+  NOTIFICATIONS_MENU_BUTTONS,
+  MARKETING_MENU,
+  MARKETING_MENU_BUTTONS,
+} from '../../../theme/global/config';
 
 const defaultProps = {
   navigation: {
@@ -47,6 +52,19 @@ const notificationMenuProps = {
   testID: 'TEST_MENU_LIST_NOTIFICATIONS_BOOKINGS',
 };
 
+const marketingProps = {
+  navigation: {
+    navigate: () => {},
+  },
+  DATA: MARKETING_MENU,
+  onValueChange: jest.fn(),
+  notificationSettings: {
+    [MARKETING_MENU_BUTTONS.ViaEmail]: true,
+    [MARKETING_MENU_BUTTONS.ViaSMS]: false,
+  },
+  testID: 'TEST_MENU_LIST_MARKETING_PREFERENCES',
+};
+
 describe('<Menu_List />', () => {
   describe('<Render>', () => {
     test('should render a Menu_List component', () => {
@@ -86,6 +104,21 @@ describe('<Menu_List />', () => {
       expect(legalStuffButton).toExist();
     });
   });
+  describe('<Render> -Marketing_Menu', () => {
+    test('should render a Menu_List component', () => {
+      const wrapper = shallow(<Menu_List {...marketingProps} />);
+      const MenuList = wrapper.findWhere((node) => node.prop('testID') === 'TEST_MENU_LIST_MARKETING_PREFERENCES');
+
+      expect(MenuList).toExist();
+    });
+    test('should NOT render a menu header component', () => {
+      const wrapper = shallow(<Menu_List {...marketingProps} />);
+      const MenuListHeader = wrapper.findWhere((node) => node.prop('testID') === 'Menu_List_Header');
+
+      expect(MenuListHeader).not.toExist();
+    });
+  });
+
   describe('<Props> - Button', () => {
     test('should pass the folowing props to header component', () => {
       const wrapper = mount(<Menu_List {...defaultProps} />);

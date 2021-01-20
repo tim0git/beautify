@@ -9,6 +9,7 @@ import {
   NotificationsMenu,
 } from '../../types/menu.types';
 
+// Profile
 export const PROFILE_MENU_BUTTONS: ProfileMenuButtons = {
   About: 'About Beautify',
   Help: 'Help Center',
@@ -137,6 +138,7 @@ export const USER_PROFILE_MENU: UserProfileMenu = [
   PROFILE_USER_MENU,
 ];
 
+// Notifications
 export const NOTIFICATIONS_MENU_BUTTONS: NotificationMenuButtons = {
   BookingComplete: 'Booking Complete',
   UpcomingAppointments48: 'Upcoming Appointments (48hr)',
@@ -208,3 +210,28 @@ export const NOTIFICATIONS_MENU: NotificationsMenu = [
   NOTIFICATIONS_PAYMENT_MENU,
   NOTIFICATIONS_GENERAL_MENU,
 ];
+
+// Marketing
+export const MARKETING_MENU_BUTTONS = {
+  ViaEmail: 'Via Email',
+  ViaSMS: 'Via SMS',
+};
+
+export const MARKETING_GENERAL_MENU = {
+  testID: 'Marketing_General_Menu',
+  headerText: '', // intentionally left blck
+  DATA: [
+    {
+      id: uuidv4(),
+      title: MARKETING_MENU_BUTTONS.ViaEmail,
+      testID: 'Marketing_Menu_Via_Email',
+    },
+    {
+      id: uuidv4(),
+      title: MARKETING_MENU_BUTTONS.ViaSMS,
+      testID: 'Marketing_Menu_Via_SMS',
+    },
+  ],
+};
+
+export const MARKETING_MENU = [MARKETING_GENERAL_MENU];
