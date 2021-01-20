@@ -24,7 +24,11 @@ const WebView_Screen: React.FC<Props> = ({route}) => {
   const {WebViewProps} = config;
 
   const _renderLoading = () => {
-    return <Loading testID="WebView_Screen_Loading" />;
+    return (
+      <View style={style.webViewLoading}>
+        <Loading testID="WebView_Screen_Loading" />
+      </View>
+    );
   };
 
   const renderWebView = () => {
