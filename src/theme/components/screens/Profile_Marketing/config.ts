@@ -4,6 +4,6 @@ export const config = {
   linkedTextProps: {
     textToLink: 'privacy policy',
     type: 'url',
-    link: 'body',
+    link: 'https://www.google.com',
   },
 };
