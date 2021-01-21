@@ -9,17 +9,17 @@ import {ThemeProvider} from '../../../services/ThemeProvider';
 import Header from '../../atoms/Header/Header';
 import Button from '../../atoms/Button/Button';
 import Menu_Row from '../Menu_Row/Menu_Row';
-import {MenuButtonData, NotificationSettings, NotificationSwitchData} from '../../../theme/global/types';
+import {MenuSettings, MenuListData} from '../../../theme/global/types';
 import {AlertLogout} from '../../../utils';
 
 export interface Props {
   navigation: {
     navigate: (navigationAddress: string, {title: string}) => void;
   };
-  DATA: ReadonlyArray<MenuButtonData | NotificationSwitchData>;
+  DATA: MenuListData;
   headerText: string;
   onValueChange?: (title: string) => void;
-  switchState?: NotificationSettings;
+  switchState?: MenuSettings;
   signOut?: () => void;
   testID: string;
 }
@@ -69,6 +69,7 @@ const Menu_List: React.FC<Props> = ({navigation, DATA, testID, headerText, onVal
   return (
     <View style={style.container} testID={testID || 'Menu_List'}>
       <FlatList
+        // @ts-ignore
         data={DATA}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}

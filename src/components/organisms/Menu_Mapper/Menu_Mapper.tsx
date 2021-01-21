@@ -4,21 +4,21 @@
  *
  */
 import React from 'react';
-import {NotificationSettings, MarketingSettings, NotificationsMenu, UserProfileMenu} from '../../../theme/global/types';
+import {MenuSettings, MenuMapperData} from '../../../theme/global/types';
 import Menu_List from '../../molecules/Menu_List/Menu_List';
 export interface Props {
-  menuData: UserProfileMenu | NotificationsMenu;
+  menuData: MenuMapperData;
   navigation: {
     navigate: () => void;
   };
   onValueChange?: (title: string) => void;
-  switchState?: NotificationSettings | MarketingSettings;
+  switchState?: MenuSettings;
   signOut?: () => void;
   testID: string;
 }
 
+// @ts-ignore
 const Menu_Mapper: React.FC<Props> = ({menuData, navigation, onValueChange, switchState, signOut}) => {
-  // @ts-ignore TODO create a generic type.
   return menuData.map((menu) => {
     return (
       <Menu_List
@@ -28,7 +28,6 @@ const Menu_Mapper: React.FC<Props> = ({menuData, navigation, onValueChange, swit
         testID={menu.testID}
         key={menu.headerText}
         onValueChange={onValueChange}
-        // @ts-ignore TODO create a generic type.
         switchState={switchState}
         signOut={signOut}
       />
