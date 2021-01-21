@@ -219,7 +219,7 @@ export const MARKETING_MENU_BUTTONS = {
 
 export const MARKETING_GENERAL_MENU = {
   testID: 'Marketing_General_Menu',
-  headerText: '', // intentionally left blck
+  headerText: '', // intentionally left blank
   DATA: [
     {
       id: uuidv4(),
