@@ -24,7 +24,7 @@ const guestProps = {
 const bookingProps = {
   menuData: NOTIFICATIONS_MENU,
   onValueChange: () => {},
-  notificationSettings: {
+  switchState: {
     [NOTIFICATIONS_MENU_BUTTONS.BookingComplete]: true,
     [NOTIFICATIONS_MENU_BUTTONS.UpcomingAppointments48]: false,
     [NOTIFICATIONS_MENU_BUTTONS.UpcomingAppointments24]: true,
@@ -38,7 +38,7 @@ const bookingProps = {
 const marketingProps = {
   menuData: MARKETING_MENU,
   onValueChange: () => {},
-  notificationSettings: {
+  switchState: {
     [MARKETING_MENU_BUTTONS.ViaEmail]: true,
     [MARKETING_MENU_BUTTONS.ViaSMS]: false,
   },
