@@ -11,10 +11,11 @@ export interface Props {
   content: string;
   textToLink: string;
   link: string;
-  type: string | 'Body';
+  type: string | 'URL' | 'NAVIGATION';
+  testID?: string;
 }
 
-const Linked_Text: React.FC<Props> = ({content, textToLink}) => {
+const Linked_Text: React.FC<Props> = ({content, textToLink, testID, link}) => {
   const {style} = ThemeProvider('Linked_Text');
 
   const sentances: Array<string> = content.split('.');
@@ -24,7 +25,7 @@ const Linked_Text: React.FC<Props> = ({content, textToLink}) => {
     return (
       <React.Fragment key={sentance}>
         <Text style={style.textBeforeLink}>{sentancesWithLinkRemoved[0]}</Text>
-        <TouchableOpacity onPress={() => Linking.openURL('https://www.google.com')}>
+        <TouchableOpacity onPress={() => Linking.openURL(link)}>
           <Text style={style.linkText}>{textToLink}</Text>
         </TouchableOpacity>
         <Text style={style.textAfterLink}>{sentancesWithLinkRemoved[1] + '.'}</Text>
@@ -41,7 +42,7 @@ const Linked_Text: React.FC<Props> = ({content, textToLink}) => {
   };
 
   return (
-    <View style={style.container} testID="Linked_Text">
+    <View style={style.container} testID={testID ? testID : 'Linked_Text'}>
       <View style={style.container}>
         <View style={style.textWrapper}>
           {sentances.map((sentance) => {
