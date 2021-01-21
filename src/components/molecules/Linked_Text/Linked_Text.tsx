@@ -6,6 +6,7 @@
 import React from 'react';
 import {View, Text, Linking, TouchableOpacity} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
+import * as RootNavigation from '../../../RootNavigation';
 
 export interface Props {
   content: string;
@@ -15,27 +16,42 @@ export interface Props {
   testID?: string;
 }
 
-const Linked_Text: React.FC<Props> = ({content, textToLink, testID, link}) => {
+const Linked_Text: React.FC<Props> = ({content, textToLink, testID, link, type}) => {
   const {style} = ThemeProvider('Linked_Text');
 
   const sentances: Array<string> = content.split('.');
+
+  const handlePress = () => {
+    switch (type) {
+      case 'NAVIGATION':
+        return RootNavigation.navigate(link);
+      default:
+        return Linking.openURL(link);
+    }
+  };
 
   const renderLinkedSentance = (sentance) => {
     const sentancesWithLinkRemoved: Array<string> = sentance.split(textToLink);
     return (
       <React.Fragment key={sentance}>
-        <Text style={style.textBeforeLink}>{sentancesWithLinkRemoved[0]}</Text>
-        <TouchableOpacity onPress={() => Linking.openURL(link)}>
-          <Text style={style.linkText}>{textToLink}</Text>
+        <Text testID="Linked_Text_Text_Before_Link" style={style.textBeforeLink}>
+          {sentancesWithLinkRemoved[0]}
+        </Text>
+        <TouchableOpacity onPress={handlePress} testID="Linked_Text_Text_Pressable">
+          <Text style={style.linkText} testID="Linked_Text_Text">
+            {textToLink}
+          </Text>
         </TouchableOpacity>
-        <Text style={style.textAfterLink}>{sentancesWithLinkRemoved[1] + '.'}</Text>
+        <Text testID="Linked_Text_Text_After_Link" style={style.textAfterLink}>
+          {sentancesWithLinkRemoved[1] + '.'}
+        </Text>
       </React.Fragment>
     );
   };
 
   const nonLinkedSentance = (sentance) => {
     return (
-      <Text style={style.textBeforeLink} key={sentance}>
+      <Text style={style.textBeforeLink} key={sentance} testID="Linked_Text_Non_Linked_Sentance">
         {sentance + '.'}
       </Text>
     );
