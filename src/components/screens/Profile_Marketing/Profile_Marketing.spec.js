@@ -4,4 +4,20 @@ import 'jest-enzyme';
 import {shallow, render, mount} from 'enzyme';
 import Profile_Marketing_Screen from './Profile_Marketing_Screen';
 
-describe('<Profile_Marketing />', () => {});
+const defaultProps = {
+  navigation: {
+    navigate: () => {},
+  },
+};
+
+describe('<Profile_Marketing />', () => {
+  describe('<Render>', () => {
+    test('should render a marketing screen component', () => {
+      const wrapper = shallow(<Profile_Marketing_Screen {...defaultProps} />);
+      const switchState = wrapper.findWhere(
+        (node) => node.prop('testID') === 'Profile_Marketing_Default_Screen_Template',
+      );
+      expect(switchState).toExist();
+    });
+  });
+});
