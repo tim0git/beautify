@@ -23,7 +23,7 @@ const Profile_Notifications_Screen: React.FC<Props> = ({navigation}) => {
   const {NOTIFICATIONS_MENU} = ThemeProvider('global').config;
 
   // Replace with GraphQL Mutation & Query.
-  const [notificationSettings, setNotificationSettings] = useState({
+  const [switchState, setNotificationSettings] = useState({
     'Booking Complete': true,
     'Upcoming Appointments (48hr)': true,
     'Upcoming Appointments (24hr)': true,
@@ -33,7 +33,7 @@ const Profile_Notifications_Screen: React.FC<Props> = ({navigation}) => {
     'New Practitioner': true,
   });
   const onValueChange = (title: string) => {
-    setNotificationSettings({...notificationSettings, [title]: !notificationSettings[title]});
+    setNotificationSettings({...switchState, [title]: !switchState[title]});
   };
 
   const renderNotificationSettings = () => {
@@ -51,7 +51,7 @@ const Profile_Notifications_Screen: React.FC<Props> = ({navigation}) => {
           menuData={NOTIFICATIONS_MENU}
           testID="Notifications_Settings_Menu_Mapper"
           onValueChange={onValueChange}
-          notificationSettings={notificationSettings}
+          switchState={switchState}
         />
       </View>
     );
