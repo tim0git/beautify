@@ -12,11 +12,11 @@ export interface Props {
 }
 
 const Loading: React.FC<Props> = ({testID}) => {
-  const {style} = ThemeProvider('Loading');
-
+  const {style, config} = ThemeProvider('Loading');
+  const {spinnerProps} = config;
   return (
     <View style={style.pageWrapper} testID={testID || 'Loading'}>
-      <Spinner size="large" color="#ff6bb3" testID="Loading_Spinner" />
+      <Spinner {...spinnerProps} testID="Loading_Spinner" />
     </View>
   );
 };

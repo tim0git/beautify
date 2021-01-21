@@ -42,4 +42,7 @@ export const colors = {
     black: COLORS.black,
     primary: COLORS.greyLight,
   },
+  loading: {
+    primary: COLORS.pinkDark,
+  },
 };
