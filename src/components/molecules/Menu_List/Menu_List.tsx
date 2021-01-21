@@ -19,20 +19,12 @@ export interface Props {
   DATA: ReadonlyArray<MenuButtonData | NotificationSwitchData>;
   headerText: string;
   onValueChange?: (title: string) => void;
-  notificationSettings?: NotificationSettings;
+  switchState?: NotificationSettings;
   signOut?: () => void;
   testID: string;
 }
 
-const Menu_List: React.FC<Props> = ({
-  navigation,
-  DATA,
-  testID,
-  headerText,
-  onValueChange,
-  notificationSettings,
-  signOut,
-}) => {
+const Menu_List: React.FC<Props> = ({navigation, DATA, testID, headerText, onValueChange, switchState, signOut}) => {
   const {config, style} = ThemeProvider('Menu_List');
   const {headerProps, menuRowSwitchProps, buttonProps} = config;
 
@@ -66,12 +58,7 @@ const Menu_List: React.FC<Props> = ({
 
   const renderMenuRowSwitch = (item) => {
     return (
-      <Menu_Row
-        {...item}
-        {...menuRowSwitchProps}
-        onValueChange={onValueChange}
-        isEnabled={notificationSettings[item.title]}
-      />
+      <Menu_Row {...item} {...menuRowSwitchProps} onValueChange={onValueChange} isEnabled={switchState[item.title]} />
     );
   };
 

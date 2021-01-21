@@ -24,7 +24,7 @@ const notificationMenuProps = {
   DATA: NOTIFICATIONS_BOOKINGS_MENU.DATA,
   headerText: NOTIFICATIONS_BOOKINGS_MENU.headerText,
   onValueChange: () => {},
-  notificationSettings: {
+  switchState: {
     [NOTIFICATIONS_MENU_BUTTONS.BookingComplete]: true,
     [NOTIFICATIONS_MENU_BUTTONS.UpcomingAppointments48]: false,
     [NOTIFICATIONS_MENU_BUTTONS.UpcomingAppointments24]: true,
