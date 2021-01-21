@@ -8,6 +8,11 @@ export type NotificationSettings = {
   'New Practitioner': boolean;
 };
 
+export type MarketingSettings = {
+  'Via Email': boolean;
+  'Via SMS': boolean;
+};
+
 export type NotificationMenuButtons = {
   BookingComplete: string;
   UpcomingAppointments48: string;
