@@ -29,7 +29,7 @@ export const config = {
     // Disable all touch events for disabled days. can be override with disableTouchEvent in markedDates
     disableAllTouchEventsForDisabledDays: true,
     // Enable the option to swipe between months. Default = false
-    enableSwipeMonths: true,
+    enableSwipeMonths: false,
     // Date marking style [simple/period/multi-dot/custom]. Default = 'simple'
     markingType: 'custom',
   },
