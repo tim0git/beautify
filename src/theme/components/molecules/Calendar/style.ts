@@ -4,7 +4,7 @@ export const style = {
     flexGrow: 1,
     alignSelf: 'stretch',
     justifyContent: 'center',
-    alignitems: 'center',
+    alignitems: 'stretch',
   },
   date: {
     selected: {
@@ -13,7 +13,7 @@ export const style = {
           alignItems: 'center',
           justifyContent: 'center',
           backgroundColor: colors.button.primary,
-          ...shadows.box.small,
+          ...shadows.box.medium,
           borderRadius: 4,
         },
         text: {
@@ -27,6 +27,7 @@ export const style = {
     },
   },
   calendar: {
+    height: 350,
     // No styles applied
   },
   theme: {
@@ -36,7 +37,7 @@ export const style = {
     // textSectionTitleDisabledColor: '#d9e1e8',
     // selectedDayBackgroundColor: '#00adf5',
     // selectedDayTextColor: '#ffffff',
-    todayTextColor: colors.text.tertiary,
+    todayTextColor: colors.text.secondary,
     dayTextColor: colors.text.primary,
     textDisabledColor: '#d9e1e8',
     // dotColor: '#00adf5',
@@ -55,4 +56,5 @@ export const style = {
     textMonthFontSize: 16,
     textDayHeaderFontSize: 12,
   },
+  arrowColor: colors.text.primary,
 };

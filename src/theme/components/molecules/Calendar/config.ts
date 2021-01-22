@@ -33,4 +33,14 @@ export const config = {
     // Date marking style [simple/period/multi-dot/custom]. Default = 'simple'
     markingType: 'custom',
   },
+  iconProps: {
+    left: {
+      name: 'ArrowLeft',
+      size: 25,
+    },
+    right: {
+      name: 'ArrowRight',
+      size: 25,
+    },
+  },
 };
