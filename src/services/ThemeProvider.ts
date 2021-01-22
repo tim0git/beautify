@@ -5,7 +5,6 @@ import * as TEST_COMPONENT from '../../__mocks__/Theme/mock_theme';
 import * as global from '../theme/global';
 
 // Atoms Import
-import * as Calendar from '../theme/components/atoms/Calendar';
 import * as Switch from '../theme/components/atoms/Switch';
 import * as Spinner from '../theme/components/atoms/Spinner';
 import * as Text from '../theme/components/atoms/Text';
@@ -14,7 +13,6 @@ import * as Icon from '../theme/components/atoms/Icon';
 import * as Header from '../theme/components/atoms/Header';
 
 const atoms = {
-  Calendar,
   Switch,
   Spinner,
   Text,
@@ -24,6 +22,7 @@ const atoms = {
 };
 
 // Molecules Import
+import * as Calendar from '../theme/components/molecules/Calendar';
 import * as Linked_Text from '../theme/components/molecules/Linked_Text';
 import * as Menu_Row from '../theme/components/molecules/Menu_Row';
 import * as Loading from '../theme/components/molecules/Loading';
@@ -32,6 +31,7 @@ import * as Login_Cluster from '../theme/components/molecules/Login_Cluster';
 import * as Search_Bar from '../theme/components/molecules/Search_Bar';
 import * as Screen_Instructions from '../theme/components/molecules/Screen_Instructions';
 const molecules = {
+  Calendar,
   Linked_Text,
   Menu_Row,
   Loading,

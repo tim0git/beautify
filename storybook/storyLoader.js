@@ -5,6 +5,7 @@
 
 function loadStories() {
   require('../src/components/atoms/Button/Button.stories');
+  require('../src/components/molecules/Calendar/Calendar.stories');
   require('../src/components/atoms/Header/Header.stories');
   require('../src/components/atoms/Icon/Icon.stories');
   require('../src/components/atoms/Spinner/Spinner.stories');
@@ -34,6 +35,7 @@ function loadStories() {
 
 const stories = [
   '../src/components/atoms/Button/Button.stories',
+  '../src/components/atoms/Calendar/Calendar.stories',
   '../src/components/atoms/Header/Header.stories',
   '../src/components/atoms/Icon/Icon.stories',
   '../src/components/atoms/Spinner/Spinner.stories',
