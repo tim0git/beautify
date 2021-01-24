@@ -1,5 +1,7 @@
 import moment from 'moment';
 export const config = {
+  headerFormat: 'MMMM YYYY',
+  // Moment format => January 2021
   calendarProps: {
     // Initially visible month. Default = Date()
     current: moment().format('YYYY-MM-DD'),
@@ -8,8 +10,6 @@ export const config = {
     // Maximum date that can be selected, dates after maxDate will be grayed out. Default = undefined
     maxDate: moment().add(90, 'days').calendar(),
     // Month format in calendar title. Formatting values: http://arshaw.com/xdate/#Formatting
-    monthFormat: 'MMMM YYYY',
-    // Hide month navigation arrows. Default = false
     hideArrows: false,
     // Do not show days of other months in month page. Default = false
     hideExtraDays: true,

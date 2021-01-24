@@ -47,7 +47,6 @@ describe('<Calendar />', () => {
       expect(calendarProps).toHaveProperty('current');
       expect(calendarProps).toHaveProperty('minDate');
       expect(calendarProps).toHaveProperty('maxDate');
-      expect(calendarProps).toHaveProperty('monthFormat', 'MMMM YYYY');
       expect(calendarProps).toHaveProperty('hideArrows', false);
       expect(calendarProps).toHaveProperty('hideExtraDays', true);
       expect(calendarProps).toHaveProperty('disableMonthChange', true);
