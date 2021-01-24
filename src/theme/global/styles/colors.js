@@ -22,6 +22,7 @@ export const colors = {
     tertiary: COLORS.greyMedium,
     splash: COLORS.white,
     link: COLORS.purpleDark,
+    disabled: COLORS.greyLight,
   },
   background: {
     primary: COLORS.white,

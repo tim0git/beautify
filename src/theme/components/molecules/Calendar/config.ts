@@ -6,9 +6,9 @@ export const config = {
     // Minimum date that can be selected, dates before minDate will be grayed out. Default = undefined
     minDate: moment().format('YYYY-MM-DD'),
     // Maximum date that can be selected, dates after maxDate will be grayed out. Default = undefined
-    maxDate: '2025-05-30',
+    maxDate: moment().add(90, 'days').calendar(),
     // Month format in calendar title. Formatting values: http://arshaw.com/xdate/#Formatting
-    monthFormat: 'yyyy MM',
+    monthFormat: 'MMMM YYYY',
     // Hide month navigation arrows. Default = false
     hideArrows: false,
     // Do not show days of other months in month page. Default = false
