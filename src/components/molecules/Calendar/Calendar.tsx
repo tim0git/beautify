@@ -16,23 +16,33 @@ import {
   getMarkedDates,
 } from '../../../utils/Calendar_Helpers/Calendar_Helpers';
 
-export interface Props {}
-const Calendar: React.FC<Props> = ({}) => {
+export interface Props {
+  testID?: string;
+}
+
+const Calendar: React.FC<Props> = ({testID}) => {
   const {config, style} = ThemeProvider('Calendar');
   const [selectedDay, setSelectedDay] = useState<object>({});
   const [showBackArrow, setShowBackArrow] = useState<boolean>(false);
   const {calendarProps, iconProps, headerFormat} = config;
 
   const renderHeader = (date: XDate) => {
-    return <Header headerText={formatXDateToString(date, headerFormat)} type="Calendar" backButton={false} />;
+    return (
+      <Header
+        headerText={formatXDateToString(date, headerFormat)}
+        type="Calendar"
+        backButton={false}
+        testID="Calendar_Header"
+      />
+    );
   };
 
   const renderArrow = (direction: string) => {
     if (direction === 'left' && showBackArrow) {
-      return <IconRN {...iconProps[direction]} color={style.arrowColor} />;
+      return <IconRN {...iconProps[direction]} color={style.arrowColor} testID="Calendar_Navigation_Arrow_Left" />;
     }
     if (direction === 'right') {
-      return <IconRN {...iconProps[direction]} color={style.arrowColor} />;
+      return <IconRN {...iconProps[direction]} color={style.arrowColor} testID="Calendar_Navigation_Arrow_Right" />;
     }
   };
 
@@ -47,7 +57,7 @@ const Calendar: React.FC<Props> = ({}) => {
   return (
     <View style={style.container}>
       <CalendarWix
-        testID="Calendar"
+        testID={testID ? testID : 'Calendar'}
         {...calendarProps}
         disabledDaysIndexes={getDisabledDaysIndexes()}
         markedDates={getMarkedDates({selectedDay})}

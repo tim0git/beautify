@@ -1,8 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 import 'react-native';
 import 'jest-enzyme';
 import {shallow} from 'enzyme';
 import Calendar from './Calendar';
+import MockDate from 'mockdate';
+import {ThemeProvider} from '../../../services/ThemeProvider';
 
 const defaultProps = {};
 
@@ -58,6 +60,128 @@ describe('<Calendar />', () => {
       expect(calendarProps).toHaveProperty('disableAllTouchEventsForDisabledDays', true);
       expect(calendarProps).toHaveProperty('enableSwipeMonths', false);
       expect(calendarProps).toHaveProperty('markingType', 'custom');
+    });
+  });
+  describe('<Methods>', () => {
+    beforeEach(() => {
+      jest.clearAllMocks();
+    });
+    test('should call setSelectedDay when a day is selected', () => {
+      /**
+       * Mock useState hook
+       */
+      const setState = jest.fn();
+      const useStateMock = (initState) => [initState, setState];
+      jest.spyOn(React, 'useState').mockImplementation(useStateMock);
+
+      /**
+       * Test
+       */
+      const mockCalendarDateObject = {dateString: () => 'MOCK DATE'};
+
+      const wrapper = shallow(<Calendar {...defaultProps} />);
+      const calendar = wrapper.findWhere((node) => node.prop('testID') === 'Calendar');
+
+      calendar.props().onDayPress(mockCalendarDateObject);
+
+      expect(setState).toHaveBeenCalledTimes(1);
+    });
+    test('should call setSelectedDay with a selected date key value pair', () => {
+      const {style} = ThemeProvider('Calendar');
+      /**
+       * Mock useState hook
+       */
+      const setState = jest.fn();
+      const useStateMock = (initState) => [initState, setState];
+      jest.spyOn(React, 'useState').mockImplementation(useStateMock);
+
+      /**
+       * Test
+       */
+      const mockCalendarDateObject = {
+        get dateString() {
+          return 'MOCK DATE';
+        },
+      };
+
+      const wrapper = shallow(<Calendar {...defaultProps} />);
+      const calendar = wrapper.findWhere((node) => node.prop('testID') === 'Calendar');
+
+      calendar.props().onDayPress(mockCalendarDateObject);
+
+      expect(setState).toHaveBeenCalledWith({[mockCalendarDateObject.dateString]: style.date.selected});
+    });
+    test('should call setShowBackArrow when onMonthChange is called', () => {
+      /**
+       * Mock useState hook
+       */
+      const setState = jest.fn();
+      const useStateMock = (initState) => [initState, setState];
+      jest.spyOn(React, 'useState').mockImplementation(useStateMock);
+
+      /**
+       * Test
+       */
+      const mockCalendarDateObject = {year: 2020, month: 1, day: 1, timestamp: 1234567890, dateString: '2020-01-01'};
+
+      const wrapper = shallow(<Calendar {...defaultProps} />);
+      const calendar = wrapper.findWhere((node) => node.prop('testID') === 'Calendar');
+
+      calendar.props().onMonthChange(mockCalendarDateObject);
+
+      expect(setState).toHaveBeenCalledTimes(1);
+    });
+    test('should call setShowBackArrow with false when date passed in is equal to the month date of the currect calendar.', () => {
+      /**
+       * Mock useState hook
+       */
+      const setState = jest.fn();
+      const useStateMock = (initState) => [initState, setState];
+      jest.spyOn(React, 'useState').mockImplementation(useStateMock);
+
+      /**
+       * Mock Date
+       */
+      MockDate.set('2021-01-01');
+
+      /**
+       * Test
+       */
+      const mockCalendarDateObject = {year: 2020, month: 1, day: 1, timestamp: 1609502400, dateString: '2020-01-01'};
+
+      const wrapper = shallow(<Calendar {...defaultProps} />);
+      const calendar = wrapper.findWhere((node) => node.prop('testID') === 'Calendar');
+
+      calendar.props().onMonthChange(mockCalendarDateObject);
+      expect(new Date().toString()).toBe('Fri Jan 01 2021 00:00:00 GMT+0000 (Greenwich Mean Time)');
+      expect(setState).toHaveBeenCalledWith(false);
+      MockDate.reset();
+    });
+    test('should call setShowBackArrow with true when date passed in is NOT equal to the month date of the currect calendar.', () => {
+      /**
+       * Mock useState hook
+       */
+      const setState = jest.fn();
+      const useStateMock = (initState) => [initState, setState];
+      jest.spyOn(React, 'useState').mockImplementation(useStateMock);
+
+      /**
+       * Mock Date
+       */
+      MockDate.set('2021-01-01');
+
+      /**
+       * Test
+       */
+      const mockCalendarDateObject = {year: 2020, month: 2, day: 1, timestamp: 1609502400, dateString: '2020-01-01'};
+
+      const wrapper = shallow(<Calendar {...defaultProps} />);
+      const calendar = wrapper.findWhere((node) => node.prop('testID') === 'Calendar');
+
+      calendar.props().onMonthChange(mockCalendarDateObject);
+      expect(new Date().toString()).toBe('Fri Jan 01 2021 00:00:00 GMT+0000 (Greenwich Mean Time)');
+      expect(setState).toHaveBeenCalledWith(true);
+      MockDate.reset();
     });
   });
 });
