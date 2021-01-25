@@ -8,6 +8,10 @@ import {ThemeProvider} from '../../../services/ThemeProvider';
 
 const defaultProps = {};
 
+const testIdProps = {
+  testID: 'TEST_CALENDAR_TEST_ID',
+};
+
 describe('<Calendar />', () => {
   describe('<Render>', () => {
     test('should render a calendar component', () => {
@@ -17,6 +21,11 @@ describe('<Calendar />', () => {
     });
   });
   describe('<Props> -Calendar', () => {
+    test('should recieve a testID if one is passed as a prop', () => {
+      const wrapper = shallow(<Calendar {...testIdProps} />);
+      const calendar = wrapper.findWhere((node) => node.prop('testID') === testIdProps.testID);
+      expect(calendar).toExist();
+    });
     test('should recieve the following method props', () => {
       const wrapper = shallow(<Calendar {...defaultProps} />);
       const calendar = wrapper.findWhere((node) => node.prop('testID') === 'Calendar');
