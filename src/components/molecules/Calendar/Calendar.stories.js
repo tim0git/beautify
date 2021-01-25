@@ -5,6 +5,6 @@ import Calendar from './Calendar';
 
 const defaultProps = {};
 
-storiesOf('Calendar', module)
+storiesOf('Design System/Molecule/Calendar', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Calendar_Default', () => <Calendar {...defaultProps} />);
