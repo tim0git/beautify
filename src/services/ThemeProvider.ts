@@ -22,6 +22,7 @@ const atoms = {
 };
 
 // Molecules Import
+import * as Map_View from '../theme/components/molecules/Map_View';
 import * as Calendar from '../theme/components/molecules/Calendar';
 import * as Linked_Text from '../theme/components/molecules/Linked_Text';
 import * as Menu_Row from '../theme/components/molecules/Menu_Row';
@@ -31,6 +32,7 @@ import * as Login_Cluster from '../theme/components/molecules/Login_Cluster';
 import * as Search_Bar from '../theme/components/molecules/Search_Bar';
 import * as Screen_Instructions from '../theme/components/molecules/Screen_Instructions';
 const molecules = {
+  Map_View,
   Calendar,
   Linked_Text,
   Menu_Row,
