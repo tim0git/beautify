@@ -32,7 +32,7 @@ const initialState = {
   user: null,
 };
 
-export const authentication = (state = initialState, action) => {
+export const authentication = (state = initialState, action: any) => {
   switch (action.type) {
     case SYNC_USER: {
       return actionCreators.syncUser(state, action);
@@ -64,33 +64,33 @@ export const authentication = (state = initialState, action) => {
  * ActionCreators
  */
 export const actionCreators = {
-  default: (state) => {
+  default: (state: any) => {
     return state;
   },
-  syncUser: (state, action) => {
+  syncUser: (state: any, action: {user: {user: any}; authToken: any}) => {
     return {
       ...state,
       loading: false,
-      isLoggedIn: !!action.user,
+      isLoggedIn: !!action.user.user,
       user: action.user,
       authToken: action.authToken,
     };
   },
-  loginIn: (state) => {
+  loginIn: (state: any) => {
     return {
       ...state,
       isLoggedIn: false,
       loading: true,
     };
   },
-  loginInSuccess: (state) => {
+  loginInSuccess: (state: any) => {
     return {
       ...state,
       loading: false,
       isLoggedIn: true,
     };
   },
-  loginInFail: (state, action) => {
+  loginInFail: (state: any, action: {errorCode: any}) => {
     return {
       ...state,
       loading: false,
@@ -98,7 +98,7 @@ export const actionCreators = {
       errorCode: action.errorCode,
     };
   },
-  signOut: (state) => {
+  signOut: (state: any) => {
     return {
       ...state,
       loading: true,
@@ -107,7 +107,7 @@ export const actionCreators = {
   signOutSuccess: () => {
     return initialState;
   },
-  signOutFail: (state, action) => {
+  signOutFail: (state: any, action: {errorCode: any}) => {
     return {
       ...state,
       loading: false,
@@ -119,13 +119,13 @@ export const actionCreators = {
 /**
  * Dispatch
  */
-export const syncUser = (user, authToken) => ({
+export const syncUser = (user: string | null, authToken: string | null) => ({
   type: SYNC_USER,
   user,
   authToken,
 });
 
-export const loginIn = (phoneNumber) => ({
+export const loginIn = (phoneNumber: string) => ({
   type: LOGIN,
   phoneNumber,
 });
@@ -134,12 +134,12 @@ export const loginSuccess = () => ({
   type: LOGIN_SUCCESS,
 });
 
-export const loginFailure = (errorCode) => ({
+export const loginFailure = (errorCode: string) => ({
   type: LOGIN_FAIL,
   errorCode,
 });
 
-export const submitCode = (verificationCode) => ({
+export const submitCode = (verificationCode: string) => ({
   type: SUBMIT_CODE,
   verificationCode,
 });
@@ -152,7 +152,7 @@ export const signOutSuccess = () => ({
   type: SIGN_OUT_SUCCESS,
 });
 
-export const signOutFailure = (errorCode) => ({
+export const signOutFailure = (errorCode: any) => ({
   type: SIGN_OUT_FAIL,
   errorCode,
 });
@@ -160,7 +160,7 @@ export const signOutFailure = (errorCode) => ({
 /**
  * Selectors
  */
-export const getUser = (state) => state.authentication;
+export const getUser = (state: {authentication: any}) => state.authentication;
 
 /**
  * Sagas
@@ -181,7 +181,7 @@ export function* syncUserSaga() {
   }
 }
 
-export function* loginSaga(action) {
+export function* loginSaga(action: {phoneNumber: string}) {
   try {
     const confirmationResult = yield call(rsf.auth.signInWithPhoneNumber, action.phoneNumber, null);
 
@@ -209,6 +209,7 @@ function* signOutSaga() {
 
 export function* authSaga() {
   yield fork(syncUserSaga);
+  // @ts-ignore
   yield takeEvery(LOGIN, loginSaga);
   yield takeEvery(SIGN_OUT, signOutSaga);
 }
