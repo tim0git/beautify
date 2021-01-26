@@ -46,11 +46,6 @@ export type Marker = {
   description: String;
 };
 
-export type GeoDecimalLocation = {
-  latitude: Number;
-  longitude: Number;
-};
-
 export type Region = {
   latitude: number;
   longitude: number;

@@ -1,6 +1,6 @@
 export const config = {
   regionProps: {
-    latitudeDelta: 0.0322,
-    longitudeDelta: 0.0121,
+    latitudeDelta: 0.0122,
+    longitudeDelta: 0.0021,
   },
 };

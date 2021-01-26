@@ -7,10 +7,10 @@ import React from 'react';
 import {View} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
 import MapView from 'react-native-maps';
-import {Location, Region} from './Map_View.types';
+import {LatLng, Region} from './Map_View.types';
 
 export interface Props {
-  location: Location;
+  location: LatLng;
 }
 
 const Map_View: React.FC<Props> = ({location}) => {
