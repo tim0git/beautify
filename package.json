@@ -10,7 +10,8 @@
     "lint": "eslint ./src",
     "storybook": "start-storybook -p 7007",
     "build-storybook": "build-storybook",
-    "prestorybook": "rnstl"
+    "prestorybook": "rnstl",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@apollo/client": "^3.3.6",
@@ -67,6 +68,7 @@
     "jest-enzyme": "^7.1.2",
     "metro-react-native-babel-preset": "^0.59.0",
     "mockdate": "^3.0.2",
+    "patch-package": "^6.2.2",
     "react-dom": "^16.13.1",
     "react-native-storybook-loader": "^2.0.2",
     "react-test-renderer": "16.13.1",
