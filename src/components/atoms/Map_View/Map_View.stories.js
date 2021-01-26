@@ -3,7 +3,12 @@ import React from 'react';
 import CenterView from '../../../../storybook/stories/CenterView';
 import Map_View from './Map_View';
 
-const defaultProps = {};
+const defaultProps = {
+  location: {
+    latitude: 51.50853,
+    longitude: -0.12574,
+  },
+};
 
 storiesOf('Map_View', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)

@@ -7,6 +7,7 @@ function loadStories() {
   require('../src/components/atoms/Button/Button.stories');
   require('../src/components/atoms/Header/Header.stories');
   require('../src/components/atoms/Icon/Icon.stories');
+  require('../src/components/atoms/Map_View/Map_View.stories');
   require('../src/components/atoms/Spinner/Spinner.stories');
   require('../src/components/atoms/Switch/Switch.stories');
   require('../src/components/atoms/Text/Text.stories');
@@ -14,7 +15,6 @@ function loadStories() {
   require('../src/components/molecules/Linked_Text/Linked_Text.stories');
   require('../src/components/molecules/Loading/Loading.stories');
   require('../src/components/molecules/Login_Cluster/Login_Cluster.stories');
-  require('../src/components/molecules/Map_View/Map_View.stories');
   require('../src/components/molecules/Menu_List/Menu_List.stories');
   require('../src/components/molecules/Menu_Row/Menu_Row.stories');
   require('../src/components/molecules/Screen_Instructions/Screen_Instructions.stories');
@@ -38,6 +38,7 @@ const stories = [
   '../src/components/atoms/Button/Button.stories',
   '../src/components/atoms/Header/Header.stories',
   '../src/components/atoms/Icon/Icon.stories',
+  '../src/components/atoms/Map_View/Map_View.stories',
   '../src/components/atoms/Spinner/Spinner.stories',
   '../src/components/atoms/Switch/Switch.stories',
   '../src/components/atoms/Text/Text.stories',
@@ -45,7 +46,6 @@ const stories = [
   '../src/components/molecules/Linked_Text/Linked_Text.stories',
   '../src/components/molecules/Loading/Loading.stories',
   '../src/components/molecules/Login_Cluster/Login_Cluster.stories',
-  '../src/components/molecules/Map_View/Map_View.stories',
   '../src/components/molecules/Menu_List/Menu_List.stories',
   '../src/components/molecules/Menu_Row/Menu_Row.stories',
   '../src/components/molecules/Screen_Instructions/Screen_Instructions.stories',

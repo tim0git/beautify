@@ -1,7 +1,7 @@
 export const style = {
   container: {
     alignSelf: 'stretch',
-    height: 350,
+    height: 250,
   },
   map: {
     flexGrow: 1,

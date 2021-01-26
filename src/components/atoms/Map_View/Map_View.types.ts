@@ -45,3 +45,15 @@ export type Marker = {
   title: String;
   description: String;
 };
+
+export type GeoDecimalLocation = {
+  latitude: Number;
+  longitude: Number;
+};
+
+export type Region = {
+  latitude: number;
+  longitude: number;
+  latitudeDelta: number;
+  longitudeDelta: number;
+};
