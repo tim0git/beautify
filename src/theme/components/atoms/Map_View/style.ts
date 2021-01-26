@@ -6,5 +6,6 @@ export const style = {
   map: {
     flexGrow: 1,
     alignSelf: 'stretch',
+    borderRadius: 20,
   },
 };

@@ -2,43 +2,7 @@ export type LatLng = {
   latitude: Number;
   longitude: Number;
 };
-export type Location = {
-  latitude: Number;
-  longitude: Number;
-  altitude: Number;
-  timestamp: Number; //Milliseconds since Unix epoch
-  accuracy: Number;
-  altitudeAccuracy: Number;
-  speed: Number;
-};
-export type Point = {
-  x: Number;
-  y: Number;
-};
-export type Frame = {
-  x: Number;
-  y: Number;
-  width: Number;
-  height: Number;
-};
-//   export enum MapType {
-//     "standard"
-//     "satellite"
-//     "hybrid"
-//     "terrain" //Android only
-//   }
-export type EdgePadding = {
-  top: Number;
-  right: Number;
-  bottom: Number;
-  left: Number;
-};
-export type EdgeInsets = {
-  top: Number;
-  left: Number;
-  bottom: Number;
-  right: Number;
-};
+
 export type Marker = {
   id: String;
   coordinate: LatLng;
@@ -51,4 +15,16 @@ export type Region = {
   longitude: number;
   latitudeDelta: number;
   longitudeDelta: number;
+};
+
+export type MapConfig = {
+  mapProps: {
+    provider: 'google' | 'null' | 'undefined';
+    //"google" for GoogleMaps, otherwise null or undefined to use the native map framework (MapKit in iOS and GoogleMaps in android).
+    mapType: 'standard' | 'hybrid' | 'satellite';
+  };
+  regionProps: {
+    latitudeDelta: number;
+    longitudeDelta: number;
+  };
 };

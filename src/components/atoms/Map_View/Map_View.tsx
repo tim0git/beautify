@@ -11,19 +11,22 @@ import {LatLng, Region} from './Map_View.types';
 
 export interface Props {
   location: LatLng;
+  testID: string;
 }
 
-const Map_View: React.FC<Props> = ({location}) => {
+const Map_View: React.FC<Props> = ({location, testID}) => {
   const {config, style} = ThemeProvider('Map_View');
 
+  const {regionProps, mapProps} = config;
+
   const region: Region = {
-    ...config.regionProps,
+    ...regionProps,
     ...location,
   };
 
   return (
-    <View style={style.container} testID="Map_View">
-      <MapView provider="google" style={style.map} region={region} />
+    <View style={style.container}>
+      <MapView {...mapProps} style={style.map} region={region} testID={testID ? testID : 'Map_View'} />
     </View>
   );
 };
