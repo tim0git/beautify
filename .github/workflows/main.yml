@@ -51,5 +51,8 @@ jobs:
       - name: Install Apple Utils
         run: brew install applesimutils
 
-      - name: Build & Test iOS Release
-        run: npm run e2e:ios-release
+      - name: Build iOS Release
+        run: npm run build:ios-release
+
+      - name: Test e2e iOS Release
+        run: npm run test:ios-release
