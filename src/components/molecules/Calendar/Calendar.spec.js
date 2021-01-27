@@ -162,7 +162,7 @@ describe('<Calendar />', () => {
       const calendar = wrapper.findWhere((node) => node.prop('testID') === 'Calendar');
 
       calendar.props().onMonthChange(mockCalendarDateObject);
-      expect(new Date().toString()).toBe('Fri Jan 01 2021 00:00:00 GMT+0000 (Greenwich Mean Time)');
+      expect(new Date().toDateString()).toBe('Fri Jan 01 2021');
       expect(setState).toHaveBeenCalledWith(false);
       MockDate.reset();
     });
@@ -188,7 +188,7 @@ describe('<Calendar />', () => {
       const calendar = wrapper.findWhere((node) => node.prop('testID') === 'Calendar');
 
       calendar.props().onMonthChange(mockCalendarDateObject);
-      expect(new Date().toString()).toBe('Fri Jan 01 2021 00:00:00 GMT+0000 (Greenwich Mean Time)');
+      expect(new Date().toDateString()).toBe('Fri Jan 01 2021');
       expect(setState).toHaveBeenCalledWith(true);
       MockDate.reset();
     });
