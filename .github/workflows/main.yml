@@ -39,9 +39,6 @@ jobs:
       - name: Install Detox CLI
         run: npm install -g detox-cli
 
-      - name: Install XCode CLI
-        run: xcode-select --install
-
       - name: Install Home brew
         run: curl -fsSL -o install.sh https://raw.githubusercontent.com/Homebrew/install/master/install.sh
 
