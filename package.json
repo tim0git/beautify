@@ -14,6 +14,7 @@
     "prestorybook": "rnstl",
     "fullinstall": "npm run install && cd ios && pod install && cd ..",
     "postinstall": "patch-package",
+    "pod-install": "cd ios && pod install && cd ..",
     "build:ios-debug": "detox build -c ios.sim.debug",
     "build:ios-release": "detox build -c ios.sim.release",
     "build:android-debug": "detox build -c android.emu.debug",

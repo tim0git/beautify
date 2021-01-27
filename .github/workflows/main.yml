@@ -32,3 +32,27 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Test
         run: npm test .
+
+      - name: Install Pods
+        run: npm run pod-install
+
+      - name: Install Detox CLI
+        run: npm install -g detox-cli
+
+      - name: Install XCode CLI
+        run: xcode-select --install
+
+      - name: Install Home brew
+        run: curl -fsSL -o install.sh https://raw.githubusercontent.com/Homebrew/install/master/install.sh
+
+      - name: InstallBrew/Wix
+        run: brew tap wix/brew
+
+      - name: Update Brew packages
+        run: brew upgrade
+
+      - name: Install Apple Utils
+        run: brew install applesimutils
+
+      - name: Build & Test iOS Release
+        run: npm run e2e:ios-release
