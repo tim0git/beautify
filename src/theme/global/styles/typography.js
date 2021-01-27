@@ -31,7 +31,19 @@ export const typography = {
     fontSize: 48,
     fontWeight: '500',
   },
-
+  calendar: {
+    theme: {
+      textDayFontWeight: '500',
+      textDayHeaderFontWeight: '500',
+      textDayFontSize: 16,
+      textMonthFontSize: 16,
+      textDayHeaderFontSize: 12,
+      // textDayFontFamily: 'monospace',
+      // textMonthFontFamily: 'monospace',
+      // textDayHeaderFontFamily: 'monospace',
+      // textMonthFontWeight: 'bold',
+    },
+  },
   buttons: {
     searchBar: {
       alignSelf: 'center',

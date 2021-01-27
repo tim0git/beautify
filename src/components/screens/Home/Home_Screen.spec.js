@@ -1,5 +1,5 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import {mount} from 'enzyme';
 import Home_Screen from './Home_Screen';
 
 const defaultProps = {
@@ -11,18 +11,18 @@ const defaultProps = {
 describe('<Home_Screen>', () => {
   describe('<Render>', () => {
     test('should render a Search Bar Button', () => {
-      const wrapper = shallow(<Home_Screen {...defaultProps} />);
-      const SearchBarButton = wrapper.findWhere((node) => node.prop('testID') === 'Home-SearchBarButton');
+      const wrapper = mount(<Home_Screen {...defaultProps} />);
+      const SearchBarButton = wrapper.findWhere((node) => node.prop('testID') === 'Home_SearchBarButton');
 
       expect(SearchBarButton).toExist();
     });
   });
   describe('<Props>', () => {
     test('Search Bar Button should recieve the following props', () => {
-      const wrapper = shallow(<Home_Screen {...defaultProps} />);
-      const SearchBarButton = wrapper.findWhere((node) => node.prop('testID') === 'Home-SearchBarButton');
+      const wrapper = mount(<Home_Screen {...defaultProps} />);
+      const SearchBarButton = wrapper.findWhere((node) => node.prop('testID') === 'Home_SearchBarButton');
 
-      const SearchBarButtonProps = SearchBarButton.props();
+      const SearchBarButtonProps = SearchBarButton.first().props();
 
       expect(SearchBarButtonProps).toHaveProperty('title');
       expect(SearchBarButtonProps).toHaveProperty('type');
@@ -35,31 +35,30 @@ describe('<Home_Screen>', () => {
       expect(SearchBarButtonProps).toHaveProperty('onPress');
     });
   });
-
   describe('<Methods>', () => {
     beforeEach(() => {
       jest.clearAllMocks;
     });
 
     test('should call navigate when Search Bar Button is pressed', () => {
-      const wrapper = shallow(<Home_Screen {...defaultProps} />);
+      const wrapper = mount(<Home_Screen {...defaultProps} />);
 
       wrapper.instance();
 
-      const SearchBarButton = wrapper.findWhere((node) => node.prop('testID') === 'Home-SearchBarButton');
+      const SearchBarButton = wrapper.findWhere((node) => node.prop('testID') === 'Home_SearchBarButton');
 
-      SearchBarButton.props().onPress();
+      SearchBarButton.first().props().onPress();
 
       expect(defaultProps.navigation.navigate).toHaveBeenCalledTimes(1);
     });
     test('should call navigate with the string "Search_Screen"', () => {
-      const wrapper = shallow(<Home_Screen {...defaultProps} />);
+      const wrapper = mount(<Home_Screen {...defaultProps} />);
 
       wrapper.instance();
 
-      const SearchBarButton = wrapper.findWhere((node) => node.prop('testID') === 'Home-SearchBarButton');
+      const SearchBarButton = wrapper.findWhere((node) => node.prop('testID') === 'Home_SearchBarButton');
 
-      SearchBarButton.props().onPress();
+      SearchBarButton.first().props().onPress();
 
       expect(defaultProps.navigation.navigate).toHaveBeenCalledWith('Search_Screen');
     });

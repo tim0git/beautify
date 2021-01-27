@@ -3,7 +3,12 @@ import 'react-native';
 import 'jest-enzyme';
 import {shallow, mount} from 'enzyme';
 import Menu_List from './Menu_List';
-import {NOTIFICATIONS_BOOKINGS_MENU, NOTIFICATIONS_MENU_BUTTONS} from '../../../theme/global/config';
+import {
+  NOTIFICATIONS_BOOKINGS_MENU,
+  NOTIFICATIONS_MENU_BUTTONS,
+  MARKETING_GENERAL_MENU,
+  MARKETING_MENU_BUTTONS,
+} from '../../../theme/global/config';
 
 const defaultProps = {
   navigation: {
@@ -33,18 +38,25 @@ const defaultProps = {
 };
 
 const notificationMenuProps = {
-  navigation: {
-    navigate: () => {},
-  },
   DATA: NOTIFICATIONS_BOOKINGS_MENU.DATA,
   headerText: NOTIFICATIONS_BOOKINGS_MENU.headerText,
   onValueChange: jest.fn(),
-  notificationSettings: {
+  switchState: {
     [NOTIFICATIONS_MENU_BUTTONS.BookingComplete]: true,
     [NOTIFICATIONS_MENU_BUTTONS.UpcomingAppointments48]: false,
     [NOTIFICATIONS_MENU_BUTTONS.UpcomingAppointments24]: true,
   },
   testID: 'TEST_MENU_LIST_NOTIFICATIONS_BOOKINGS',
+};
+
+const marketingMenuProps = {
+  DATA: MARKETING_GENERAL_MENU.DATA,
+  onValueChange: jest.fn(),
+  switchState: {
+    [MARKETING_MENU_BUTTONS.ViaEmail]: true,
+    [MARKETING_MENU_BUTTONS.ViaSMS]: false,
+  },
+  testID: 'TEST_MENU_LIST_MARKETING_PREFERENCES',
 };
 
 describe('<Menu_List />', () => {
@@ -86,6 +98,21 @@ describe('<Menu_List />', () => {
       expect(legalStuffButton).toExist();
     });
   });
+  describe('<Render> -MARKETING_GENERAL_MENU', () => {
+    test('should render a Menu_List component', () => {
+      const wrapper = shallow(<Menu_List {...marketingMenuProps} />);
+      const MenuList = wrapper.findWhere((node) => node.prop('testID') === 'TEST_MENU_LIST_MARKETING_PREFERENCES');
+
+      expect(MenuList).toExist();
+    });
+    test('should NOT render a menu header component', () => {
+      const wrapper = shallow(<Menu_List {...marketingMenuProps} />);
+      const MenuListHeader = wrapper.findWhere((node) => node.prop('testID') === 'Menu_List_Header');
+
+      expect(MenuListHeader).not.toExist();
+    });
+  });
+
   describe('<Props> - Button', () => {
     test('should pass the folowing props to header component', () => {
       const wrapper = mount(<Menu_List {...defaultProps} />);
@@ -165,6 +192,19 @@ describe('<Menu_List />', () => {
       expect(bookingCompleteMenuRowSwitchProps).toHaveProperty('type', 'Switch');
       expect(bookingCompleteMenuRowSwitchProps).toHaveProperty('testID', testID);
       expect(bookingCompleteMenuRowSwitchProps).toHaveProperty('onValueChange', notificationMenuProps.onValueChange);
+    });
+    test('should pass the folowing props to Via Email menu row switch', () => {
+      const wrapper = mount(<Menu_List {...marketingMenuProps} />);
+      const viaEmailSwitch = wrapper.findWhere((node) => node.prop('testID') === 'Marketing_Menu_Via_Email');
+      const viaEmailSwitchProps = viaEmailSwitch.first().props();
+
+      const {id, title, testID} = marketingMenuProps.DATA[0];
+
+      expect(viaEmailSwitchProps).toHaveProperty('id', id);
+      expect(viaEmailSwitchProps).toHaveProperty('title', title);
+      expect(viaEmailSwitchProps).toHaveProperty('type', 'Switch');
+      expect(viaEmailSwitchProps).toHaveProperty('testID', testID);
+      expect(viaEmailSwitchProps).toHaveProperty('onValueChange', marketingMenuProps.onValueChange);
     });
   });
   describe('<Methods>', () => {

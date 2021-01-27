@@ -1,9 +1,6 @@
 export const config = {
-  screenHeaderProps: {
-    headerText: 'Inbox',
-    type: 'Screen',
-    testID: 'Inbox_Screen_Screen_Header',
-  },
+  screenTitle: 'Inbox',
+  backButton: false,
   screenInstructionsProps: {
     instructionProps: {
       content: 'No messages yet.',

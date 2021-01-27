@@ -11,4 +11,9 @@ export const style = {
   webView: {
     flex: 1,
   },
+  webViewLoading: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+  },
 };

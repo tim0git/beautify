@@ -1,10 +1,10 @@
 import React from 'react';
-import {SafeAreaView, View, StatusBar} from 'react-native';
+import {View} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
-import Header from '../../atoms/Header/Header';
 import Menu_List from '../../molecules/Menu_List/Menu_List';
 import Guest_Welcome from '../../organisms/Guest_Welcome/Guest_Welcome';
 import Menu_Mapper from '../../organisms/Menu_Mapper/Menu_Mapper';
+import Default_Screen_Template from '../../templates/Default_Screen/Default_Screen_Template';
 export interface Props {
   navigation: {
     navigate: () => void;
@@ -15,10 +15,8 @@ export interface Props {
 
 const Profile_Screen: React.FC<Props> = ({navigation, isLoggedIn, signOut}) => {
   const {styles, config} = ThemeProvider('Profile');
-  const {barStyle} = ThemeProvider('global').styles;
   const {PROFILE_GUEST_MENU, USER_PROFILE_MENU} = ThemeProvider('global').config;
-
-  const {screenHeaderProps, screenInstructionsProps} = config;
+  const {screenTitle, backButton, screenInstructionsProps} = config;
 
   const UserProfile = () => {
     return (
@@ -56,13 +54,12 @@ const Profile_Screen: React.FC<Props> = ({navigation, isLoggedIn, signOut}) => {
   };
 
   return (
-    <>
-      <StatusBar barStyle={barStyle} />
-      <SafeAreaView style={styles.pageWrapper} testID="Profile_Screen">
-        <Header {...screenHeaderProps} />
-        {isLoggedIn ? UserProfile() : GuestProfile()}
-      </SafeAreaView>
-    </>
+    <Default_Screen_Template
+      screenTitle={screenTitle}
+      testID="Profile_Default_Screen_Template"
+      render={isLoggedIn ? UserProfile() : GuestProfile()}
+      backButton={backButton}
+    />
   );
 };
 

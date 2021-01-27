@@ -23,7 +23,7 @@ const userProps = {
 const bookingProps = {
   menuData: NOTIFICATIONS_MENU,
   onValueChange: () => {},
-  notificationSettings: {
+  switchState: {
     [NOTIFICATIONS_MENU_BUTTONS.BookingComplete]: true,
     [NOTIFICATIONS_MENU_BUTTONS.UpcomingAppointments48]: false,
     [NOTIFICATIONS_MENU_BUTTONS.UpcomingAppointments24]: true,
@@ -64,7 +64,7 @@ describe('<Menu_Mapper />', () => {
       const notificatonsBookingsMenuProps = notificatonsBookingsMenu.props();
 
       expect(notificatonsBookingsMenuProps).toHaveProperty('onValueChange', bookingProps.onValueChange);
-      expect(notificatonsBookingsMenuProps).toHaveProperty('notificationSettings', bookingProps.notificationSettings);
+      expect(notificatonsBookingsMenuProps).toHaveProperty('switchState', bookingProps.switchState);
     });
   });
 });

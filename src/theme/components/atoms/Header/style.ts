@@ -14,6 +14,10 @@ export const style = {
       paddingVertical: size.padding.lg,
       backgroundColor: colors.background.menuHeader,
     },
+    Calendar: {
+      alignSelf: 'stretch',
+      justifyContent: 'flex-start',
+    },
   },
   titleContainer: {
     Screen: {
@@ -28,6 +32,9 @@ export const style = {
       },
     },
     Menu: {
+      // no styles applied
+    },
+    Calendar: {
       // no styles applied
     },
   },

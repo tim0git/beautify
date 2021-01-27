@@ -1,14 +1,16 @@
-export type NotificationSettings = {
-  'Booking Complete': boolean;
-  'Upcoming Appointments (48hr)': boolean;
-  'Upcoming Appointments (24hr)': boolean;
-  'Deposit Taken': boolean;
-  'Remaining Payment Taken': boolean;
-  'Payment Failures': boolean;
-  'New Practitioner': boolean;
+export type MenuSettings = {
+  'Booking Complete'?: boolean;
+  'Upcoming Appointments (48hr)'?: boolean;
+  'Upcoming Appointments (24hr)'?: boolean;
+  'Deposit Taken'?: boolean;
+  'Remaining Payment Taken'?: boolean;
+  'Payment Failures'?: boolean;
+  'New Practitioner'?: boolean;
+  'Via Email'?: boolean;
+  'Via SMS'?: boolean;
 };
 
-export type NotificationMenuButtons = {
+export type ProfileMenuNotifications = {
   BookingComplete: string;
   UpcomingAppointments48: string;
   UpcomingAppointments24: string;
@@ -18,7 +20,7 @@ export type NotificationMenuButtons = {
   NewPractitioner: string;
 };
 
-export type ProfileMenuButtons = {
+export type ProfileMenuUser = {
   About: string;
   Help: string;
   Legal: string;
@@ -31,6 +33,11 @@ export type ProfileMenuButtons = {
   Logout: string;
 };
 
+export type ProfileMenuMarketing = {
+  ViaEmail: string;
+  ViaSMS: string;
+};
+
 export type MenuButtonData = {
   id: string;
   title: string;
@@ -38,23 +45,16 @@ export type MenuButtonData = {
   testID: string;
 };
 
-export type ProfileMenu = {
-  testID: string;
-  headerText: string;
-  DATA: ReadonlyArray<MenuButtonData>;
-};
-
-export type NotificationSwitchData = {
+export type MenuSwitchData = {
   id: string;
   title: string;
   testID: string;
 };
-export type NotificationMenu = {
+
+export type MenuListData = {
   testID: string;
   headerText: string;
-  DATA: ReadonlyArray<NotificationSwitchData>;
+  DATA: ReadonlyArray<MenuSwitchData | MenuButtonData>;
 };
 
-export type UserProfileMenu = Array<ProfileMenu>;
-
-export type NotificationsMenu = Array<NotificationMenu>;
+export type MenuMapperData = Array<MenuListData>;

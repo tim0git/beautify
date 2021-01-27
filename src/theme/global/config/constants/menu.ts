@@ -1,15 +1,14 @@
 import 'react-native-get-random-values'; // provides UUID access the global object crypto.getRandomValues
 import {v4 as uuidv4} from 'uuid';
 import {
-  NotificationMenuButtons,
-  NotificationMenu,
-  ProfileMenu,
-  ProfileMenuButtons,
-  UserProfileMenu,
-  NotificationsMenu,
+  ProfileMenuNotifications,
+  ProfileMenuUser,
+  ProfileMenuMarketing,
+  MenuMapperData,
+  MenuListData,
 } from '../../types/menu.types';
 
-export const PROFILE_MENU_BUTTONS: ProfileMenuButtons = {
+export const PROFILE_MENU_BUTTONS: ProfileMenuUser = {
   About: 'About Beautify',
   Help: 'Help Center',
   Legal: 'Legal Stuff',
@@ -22,7 +21,7 @@ export const PROFILE_MENU_BUTTONS: ProfileMenuButtons = {
   Logout: 'Logout',
 };
 
-export const PROFILE_MENU_NAVIGATION: ProfileMenuButtons = {
+export const PROFILE_MENU_NAVIGATION: ProfileMenuUser = {
   About: 'Web_View',
   Help: 'Web_View',
   Legal: 'Legal_Screen',
@@ -30,9 +29,24 @@ export const PROFILE_MENU_NAVIGATION: ProfileMenuButtons = {
   PreviousBookings: 'Previous_Bookings',
   Contact: 'Contact_Details',
   Payment: 'Payment_Methods',
-  Marketing: 'Marketing_Preferences',
+  Marketing: 'Profile_Marketing',
   Notifications: 'Profile_Notifications',
   Logout: 'Logout',
+};
+
+export const NOTIFICATIONS_MENU_BUTTONS: ProfileMenuNotifications = {
+  BookingComplete: 'Booking Complete',
+  UpcomingAppointments48: 'Upcoming Appointments (48hr)',
+  UpcomingAppointments24: 'Upcoming Appointments (24hr)',
+  DepositTaken: 'Deposit Taken',
+  RemainingPaymentTaken: 'Remaining Payment Taken',
+  PaymentFailures: 'Payment Failures',
+  NewPractitioner: 'New Practitioner',
+};
+
+export const MARKETING_MENU_BUTTONS: ProfileMenuMarketing = {
+  ViaEmail: 'Via Email',
+  ViaSMS: 'Via SMS',
 };
 
 export const WEB_VIEW_URLS = {
@@ -42,7 +56,7 @@ export const WEB_VIEW_URLS = {
   [PROFILE_MENU_BUTTONS.Help]: 'https://apposing.co.uk/contact/',
 };
 
-export const PROFILE_GUEST_MENU: ProfileMenu = {
+export const PROFILE_GUEST_MENU: MenuListData = {
   testID: 'Profile_Guest_Menu',
   headerText: 'General',
   DATA: [
@@ -67,7 +81,7 @@ export const PROFILE_GUEST_MENU: ProfileMenu = {
   ],
 };
 
-export const PROFILE_USER_MENU: ProfileMenu = {
+export const PROFILE_USER_MENU: MenuListData = {
   testID: 'Profile_User_Menu',
   headerText: PROFILE_GUEST_MENU.headerText,
   DATA: [
@@ -81,7 +95,7 @@ export const PROFILE_USER_MENU: ProfileMenu = {
   ],
 };
 
-export const PROFILE_USER_BOOKINGS_MENU: ProfileMenu = {
+export const PROFILE_USER_BOOKINGS_MENU: MenuListData = {
   headerText: 'Bookings',
   testID: 'Profile_User_Bookings_Menu',
   DATA: [
@@ -100,7 +114,7 @@ export const PROFILE_USER_BOOKINGS_MENU: ProfileMenu = {
   ],
 };
 
-export const PROFILE_USER_MY_PROFILE_SETTINGS_MENU: ProfileMenu = {
+export const PROFILE_USER_MY_PROFILE_SETTINGS_MENU: MenuListData = {
   headerText: 'My Profile Settings',
   testID: 'Profile_User_Settings_Menu',
   DATA: [
@@ -131,23 +145,7 @@ export const PROFILE_USER_MY_PROFILE_SETTINGS_MENU: ProfileMenu = {
   ],
 };
 
-export const USER_PROFILE_MENU: UserProfileMenu = [
-  PROFILE_USER_BOOKINGS_MENU,
-  PROFILE_USER_MY_PROFILE_SETTINGS_MENU,
-  PROFILE_USER_MENU,
-];
-
-export const NOTIFICATIONS_MENU_BUTTONS: NotificationMenuButtons = {
-  BookingComplete: 'Booking Complete',
-  UpcomingAppointments48: 'Upcoming Appointments (48hr)',
-  UpcomingAppointments24: 'Upcoming Appointments (24hr)',
-  DepositTaken: 'Deposit Taken',
-  RemainingPaymentTaken: 'Remaining Payment Taken',
-  PaymentFailures: 'Payment Failures',
-  NewPractitioner: 'New Practitioner',
-};
-
-export const NOTIFICATIONS_BOOKINGS_MENU: NotificationMenu = {
+export const NOTIFICATIONS_BOOKINGS_MENU: MenuListData = {
   testID: 'Notificatons_Bookings_Menu',
   headerText: 'Booking notifications',
   DATA: [
@@ -169,7 +167,7 @@ export const NOTIFICATIONS_BOOKINGS_MENU: NotificationMenu = {
   ],
 };
 
-export const NOTIFICATIONS_PAYMENT_MENU: NotificationMenu = {
+export const NOTIFICATIONS_PAYMENT_MENU: MenuListData = {
   testID: 'Notificatons_Payment_Menu',
   headerText: 'Payment notifications',
   DATA: [
@@ -191,7 +189,7 @@ export const NOTIFICATIONS_PAYMENT_MENU: NotificationMenu = {
   ],
 };
 
-export const NOTIFICATIONS_GENERAL_MENU: NotificationMenu = {
+export const NOTIFICATIONS_GENERAL_MENU: MenuListData = {
   testID: 'Notificatons_General_Menu',
   headerText: 'General push',
   DATA: [
@@ -203,8 +201,33 @@ export const NOTIFICATIONS_GENERAL_MENU: NotificationMenu = {
   ],
 };
 
-export const NOTIFICATIONS_MENU: NotificationsMenu = [
+export const MARKETING_GENERAL_MENU: MenuListData = {
+  testID: 'Marketing_General_Menu',
+  headerText: '', // intentionally left blank
+  DATA: [
+    {
+      id: uuidv4(),
+      title: MARKETING_MENU_BUTTONS.ViaEmail,
+      testID: 'Marketing_Menu_Via_Email',
+    },
+    {
+      id: uuidv4(),
+      title: MARKETING_MENU_BUTTONS.ViaSMS,
+      testID: 'Marketing_Menu_Via_SMS',
+    },
+  ],
+};
+
+export const USER_PROFILE_MENU: MenuMapperData = [
+  PROFILE_USER_BOOKINGS_MENU,
+  PROFILE_USER_MY_PROFILE_SETTINGS_MENU,
+  PROFILE_USER_MENU,
+];
+
+export const NOTIFICATIONS_MENU: MenuMapperData = [
   NOTIFICATIONS_BOOKINGS_MENU,
   NOTIFICATIONS_PAYMENT_MENU,
   NOTIFICATIONS_GENERAL_MENU,
 ];
+
+export const MARKETING_MENU: MenuMapperData = [MARKETING_GENERAL_MENU];

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import 'react-native';
 import 'jest-enzyme';
-import {shallow} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 import WebView_Screen from './WebView_Screen';
 import {ThemeProvider} from '../../../services/ThemeProvider';
 const {WEB_VIEW_URLS} = ThemeProvider('global').config;
@@ -23,25 +23,27 @@ describe('<WebView_Screen />', () => {
       jest.clearAllMocks();
     });
     test('should render a web view component', () => {
-      const wrapper = shallow(<WebView_Screen {...defaultProps} />);
-      const webView = wrapper.findWhere((node) => node.prop('testID') === 'WebView_Screen');
+      const wrapper = mount(<WebView_Screen {...defaultProps} />);
+      const webView = wrapper.findWhere((node) => node.prop('testID') === 'WebView_Screen_WebView');
 
       expect(webView).toExist();
     });
-    test('should render a WebView Screen Header component', () => {
+    test('should render a WebView default screen template', () => {
       const wrapper = shallow(<WebView_Screen {...defaultProps} />);
-      const webViewScreenHeader = wrapper.findWhere((node) => node.prop('testID') === 'WebView_Screen_Header');
+      const webViewDefaultScreenTemplate = wrapper.findWhere(
+        (node) => node.prop('testID') === 'WebView_Default_Screen_Template',
+      );
 
-      expect(webViewScreenHeader).toExist();
+      expect(webViewDefaultScreenTemplate).toExist();
     });
   });
   describe('<Props>', () => {
     test('should pass the title prop to props to WebView', () => {
-      const wrapper = shallow(<WebView_Screen {...defaultProps} />);
+      const wrapper = mount(<WebView_Screen {...defaultProps} />);
 
       const webViewScreenWebView = wrapper.findWhere((node) => node.prop('testID') === 'WebView_Screen_WebView');
 
-      const webViewComponentProps = webViewScreenWebView.props();
+      const webViewComponentProps = webViewScreenWebView.first().props();
 
       expect(webViewComponentProps).toHaveProperty('source', {uri: WEB_VIEW_URLS[defaultProps.route.params.title]});
     });

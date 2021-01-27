@@ -7,6 +7,8 @@ import {
   NOTIFICATIONS_MENU,
   PROFILE_GUEST_MENU,
   NOTIFICATIONS_MENU_BUTTONS,
+  MARKETING_MENU,
+  MARKETING_MENU_BUTTONS,
 } from '../../../theme/global/config';
 
 const defaultProps = {
@@ -22,7 +24,7 @@ const guestProps = {
 const bookingProps = {
   menuData: NOTIFICATIONS_MENU,
   onValueChange: () => {},
-  notificationSettings: {
+  switchState: {
     [NOTIFICATIONS_MENU_BUTTONS.BookingComplete]: true,
     [NOTIFICATIONS_MENU_BUTTONS.UpcomingAppointments48]: false,
     [NOTIFICATIONS_MENU_BUTTONS.UpcomingAppointments24]: true,
@@ -33,8 +35,18 @@ const bookingProps = {
   },
 };
 
+const marketingProps = {
+  menuData: MARKETING_MENU,
+  onValueChange: () => {},
+  switchState: {
+    [MARKETING_MENU_BUTTONS.ViaEmail]: true,
+    [MARKETING_MENU_BUTTONS.ViaSMS]: false,
+  },
+};
+
 storiesOf('Design System/Organism/Menu_Mapper', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Menu_Mapper_Guest_Profile', () => <Menu_Mapper {...guestProps} />)
   .add('Menu_Mapper_User_Profile', () => <Menu_Mapper {...defaultProps} />)
-  .add('Menu_Mapper_Bookings', () => <Menu_Mapper {...bookingProps} />);
+  .add('Menu_Mapper_Bookings', () => <Menu_Mapper {...bookingProps} />)
+  .add('Menu_Mapper_Marketing', () => <Menu_Mapper {...marketingProps} />);

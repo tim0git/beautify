@@ -9,30 +9,22 @@ import {ThemeProvider} from '../../../services/ThemeProvider';
 import Header from '../../atoms/Header/Header';
 import Button from '../../atoms/Button/Button';
 import Menu_Row from '../Menu_Row/Menu_Row';
-import {MenuButtonData, NotificationSettings, NotificationSwitchData} from '../../../theme/global/types';
+import {MenuSettings, MenuListData} from '../../../theme/global/types';
 import {AlertLogout} from '../../../utils';
 
 export interface Props {
   navigation: {
     navigate: (navigationAddress: string, {title: string}) => void;
   };
-  DATA: ReadonlyArray<MenuButtonData | NotificationSwitchData>;
+  DATA: MenuListData;
   headerText: string;
   onValueChange?: (title: string) => void;
-  notificationSettings?: NotificationSettings;
+  switchState?: MenuSettings;
   signOut?: () => void;
   testID: string;
 }
 
-const Menu_List: React.FC<Props> = ({
-  navigation,
-  DATA,
-  testID,
-  headerText,
-  onValueChange,
-  notificationSettings,
-  signOut,
-}) => {
+const Menu_List: React.FC<Props> = ({navigation, DATA, testID, headerText, onValueChange, switchState, signOut}) => {
   const {config, style} = ThemeProvider('Menu_List');
   const {headerProps, menuRowSwitchProps, buttonProps} = config;
 
@@ -46,7 +38,10 @@ const Menu_List: React.FC<Props> = ({
   };
 
   const header = () => {
-    return <Header {...headerProps} headerText={headerText} testID="Menu_List_Header" />;
+    if (headerText) {
+      return <Header {...headerProps} headerText={headerText} testID="Menu_List_Header" />;
+    }
+    return null;
   };
 
   const renderButton = (item) => {
@@ -63,12 +58,7 @@ const Menu_List: React.FC<Props> = ({
 
   const renderMenuRowSwitch = (item) => {
     return (
-      <Menu_Row
-        {...item}
-        {...menuRowSwitchProps}
-        onValueChange={onValueChange}
-        isEnabled={notificationSettings[item.title]}
-      />
+      <Menu_Row {...item} {...menuRowSwitchProps} onValueChange={onValueChange} isEnabled={switchState[item.title]} />
     );
   };
 
@@ -79,6 +69,7 @@ const Menu_List: React.FC<Props> = ({
   return (
     <View style={style.container} testID={testID || 'Menu_List'}>
       <FlatList
+        // @ts-ignore
         data={DATA}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}

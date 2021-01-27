@@ -21,6 +21,8 @@ export const colors = {
     secondary: COLORS.pinkLight,
     tertiary: COLORS.greyMedium,
     splash: COLORS.white,
+    link: COLORS.purpleDark,
+    disabled: COLORS.greyLight,
   },
   background: {
     primary: COLORS.white,
@@ -40,5 +42,8 @@ export const colors = {
   border: {
     black: COLORS.black,
     primary: COLORS.greyLight,
+  },
+  loading: {
+    primary: COLORS.pinkDark,
   },
 };

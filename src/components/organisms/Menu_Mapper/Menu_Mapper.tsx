@@ -4,21 +4,21 @@
  *
  */
 import React from 'react';
-import {NotificationSettings, NotificationsMenu, UserProfileMenu} from '../../../theme/global/types';
+import {MenuSettings, MenuMapperData} from '../../../theme/global/types';
 import Menu_List from '../../molecules/Menu_List/Menu_List';
 export interface Props {
-  menuData: UserProfileMenu | NotificationsMenu;
+  menuData: MenuMapperData;
   navigation: {
     navigate: () => void;
   };
   onValueChange?: (title: string) => void;
-  notificationSettings?: NotificationSettings;
+  switchState?: MenuSettings;
   signOut?: () => void;
   testID: string;
 }
 
-const Menu_Mapper: React.FC<Props> = ({menuData, navigation, onValueChange, notificationSettings, signOut}) => {
-  // @ts-ignore set until i can create a compound type or ts can type check both types provided for menuData.
+// @ts-ignore
+const Menu_Mapper: React.FC<Props> = ({menuData, navigation, onValueChange, switchState, signOut}) => {
   return menuData.map((menu) => {
     return (
       <Menu_List
@@ -28,7 +28,7 @@ const Menu_Mapper: React.FC<Props> = ({menuData, navigation, onValueChange, noti
         testID={menu.testID}
         key={menu.headerText}
         onValueChange={onValueChange}
-        notificationSettings={notificationSettings}
+        switchState={switchState}
         signOut={signOut}
       />
     );

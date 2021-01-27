@@ -5,6 +5,7 @@ import * as TEST_COMPONENT from '../../__mocks__/Theme/mock_theme';
 import * as global from '../theme/global';
 
 // Atoms Import
+import * as Map_View from '../theme/components/atoms/Map_View';
 import * as Switch from '../theme/components/atoms/Switch';
 import * as Spinner from '../theme/components/atoms/Spinner';
 import * as Text from '../theme/components/atoms/Text';
@@ -13,6 +14,7 @@ import * as Icon from '../theme/components/atoms/Icon';
 import * as Header from '../theme/components/atoms/Header';
 
 const atoms = {
+  Map_View,
   Switch,
   Spinner,
   Text,
@@ -22,6 +24,8 @@ const atoms = {
 };
 
 // Molecules Import
+import * as Calendar from '../theme/components/molecules/Calendar';
+import * as Linked_Text from '../theme/components/molecules/Linked_Text';
 import * as Menu_Row from '../theme/components/molecules/Menu_Row';
 import * as Loading from '../theme/components/molecules/Loading';
 import * as Menu_List from '../theme/components/molecules/Menu_List';
@@ -29,6 +33,8 @@ import * as Login_Cluster from '../theme/components/molecules/Login_Cluster';
 import * as Search_Bar from '../theme/components/molecules/Search_Bar';
 import * as Screen_Instructions from '../theme/components/molecules/Screen_Instructions';
 const molecules = {
+  Calendar,
+  Linked_Text,
   Menu_Row,
   Loading,
   Menu_List,
@@ -46,6 +52,7 @@ const organisms = {
 };
 
 // Screens Import
+import * as Profile_Marketing from '../theme/components/screens/Profile_Marketing';
 import * as Profile_Notifications from '../theme/components/screens/Profile_Notifications';
 import * as Splash from '../theme/components/screens/Splash';
 import * as WebView from '../theme/components/screens/WebView';
@@ -56,6 +63,7 @@ import * as Bookings from '../theme/components/screens/Bookings';
 import * as Profile from '../theme/components/screens/Profile';
 import * as Search from '../theme/components/screens/Search';
 const screens = {
+  Profile_Marketing,
   Profile_Notifications,
   Splash,
   WebView,
@@ -67,6 +75,13 @@ const screens = {
   Search,
 };
 
+// Templates Import
+import * as Default_Screen from '../theme/components/templates/Default_Screen';
+
+const templates = {
+  Default_Screen,
+};
+
 const themes = {
   TEST_COMPONENT,
   global,
@@ -74,6 +89,7 @@ const themes = {
   ...molecules,
   ...organisms,
   ...screens,
+  ...templates,
 };
 
 export const ThemeProvider = (component) => {

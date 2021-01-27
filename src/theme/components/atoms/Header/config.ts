@@ -8,6 +8,10 @@ export const config = {
       type: 'MenuTitle',
       testID: 'MENU_TITLE_TEXT',
     },
+    Calendar: {
+      type: 'MenuTitle',
+      testID: 'MENU_TITLE_TEXT',
+    },
   },
   backButtonProps: {
     title: undefined,

@@ -1,5 +1,4 @@
-import React from 'react';
-import {useState} from 'react';
+import React, {useState} from 'react';
 import {TextInput, View} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
 import Button from '../../atoms/Button/Button';

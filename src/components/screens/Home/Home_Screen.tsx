@@ -1,7 +1,8 @@
 import React from 'react';
-import {SafeAreaView, View, StatusBar} from 'react-native';
+import {View} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
 import Button from '../../atoms/Button/Button';
+import Default_Screen_Template from '../../templates/Default_Screen/Default_Screen_Template';
 
 export interface Props {
   navigation: {
@@ -11,26 +12,32 @@ export interface Props {
 
 const Home_Screen: React.FC<Props> = (props) => {
   const {styles, config} = ThemeProvider('Home');
-  const {barStyle} = ThemeProvider('global').styles;
-  const {SearchBarButtonProps} = config;
-  return (
-    <>
-      <StatusBar barStyle={barStyle} />
-      <SafeAreaView style={styles.pageWrapper}>
-        <View style={styles.container}>
-          <View style={styles.searchBarButtonContainer}>
-            <Button
-              {...SearchBarButtonProps}
-              disabled={false}
-              testID="Home-SearchBarButton"
-              onPress={() => {
-                props.navigation.navigate('Search_Screen');
-              }}
-            />
-          </View>
+  const {screenTitle, backButton, showHeader, SearchBarButtonProps} = config;
+
+  const renderHome = () => {
+    return (
+      <View style={styles.container}>
+        <View style={styles.searchBarButtonContainer}>
+          <Button
+            {...SearchBarButtonProps}
+            disabled={false}
+            testID="Home_SearchBarButton"
+            onPress={() => {
+              props.navigation.navigate('Search_Screen');
+            }}
+          />
         </View>
-      </SafeAreaView>
-    </>
+      </View>
+    );
+  };
+  return (
+    <Default_Screen_Template
+      screenTitle={screenTitle}
+      testID="Home_Screen_Screen_Template"
+      render={renderHome()}
+      backButton={backButton}
+      showHeader={showHeader}
+    />
   );
 };
 

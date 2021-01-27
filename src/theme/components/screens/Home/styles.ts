@@ -1,10 +1,5 @@
-import {colors, size} from '../../../global/styles';
+import {size} from '../../../global/styles';
 export const styles = {
-  pageWrapper: {
-    flexGrow: 1,
-    alignSelf: 'stretch',
-    backgroundColor: colors.background.primary,
-  },
   container: {
     flex: 1,
     justifyContent: 'flex-start',
