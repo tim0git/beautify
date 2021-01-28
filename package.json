@@ -28,7 +28,7 @@
     "e2e:android-release": "npm run build:android-release && npm run test:android-release"
   },
   "dependencies": {
-    "@apollo/client": "^3.3.6",
+    "@apollo/client": "^3.3.7",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-native-firebase/app": "^10.5.0",
     "@react-native-firebase/auth": "^10.5.1",
