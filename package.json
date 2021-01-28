@@ -12,7 +12,7 @@
     "storybook": "start-storybook -p 7007",
     "build-storybook": "build-storybook",
     "prestorybook": "rnstl",
-    "fullinstall": "npm run install && cd ios && pod install && cd ..",
+    "fullinstall": "npm install && cd ios && pod install && cd ..",
     "postinstall": "patch-package",
     "pod-install": "cd ios && pod install && cd ..",
     "build:ios-debug": "detox build -c ios.sim.debug",
