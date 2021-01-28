@@ -26,7 +26,8 @@
     "e2e:ios-debug": "npm run build:ios-debug && npm run test:ios-debug",
     "e2e:ios-release": "npm run build:ios-release && npm run test:ios-release",
     "e2e:android-debug": "npm run build:android-debug && npm run test:android-debug",
-    "e2e:android-release": "npm run build:android-release && npm run test:android-release"
+    "e2e:android-release": "npm run build:android-release && npm run test:android-release",
+    "bundle:ios": "react-native bundle --entry-file ./index.js --platform ios --bundle-output ios/main.jsbundle"
   },
   "dependencies": {
     "@apollo/client": "^3.3.7",
