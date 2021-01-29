@@ -9,15 +9,24 @@ to: src/components/screens/<%=name%>/<%=name%>_Screen.tsx
 import React from 'react';
 import { View, Text } from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
+import Default_Screen_Template from '../../templates/Default_Screen/Default_Screen_Template';
 
-export interface Props {}
+export interface Props {
+  navigation: {
+    navigate: () => void;
+  };
+}
 
 const <%=name%>_Screen: React.FC<Props> = ({}) => {
   const {config, dict, style} = ThemeProvider('<%=name%>')
+  const {screenTitle, backButton} = config;
   return (
-     <View style={style.container} testID='<%=name%>_Screen'>
-        <Text><%=name%></Text>
-      </View>
+    <Default_Screen_Template
+      screenTitle={screenTitle}
+      testID="<%=name%>_Default_Screen_Template"
+      render={}
+      backButton={backButton}
+    />
   );
 }
 
