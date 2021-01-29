@@ -13,7 +13,7 @@ export const getDisabledDates = (startDate: string, endDate: string, daysToDisab
   if (!startDate || !endDate || !daysToDisable) {
     return {};
   }
-  const disabledDates = {};
+  const disabledDates: any = {};
   const start = moment(startDate);
   const end = moment(endDate);
 
@@ -25,7 +25,7 @@ export const getDisabledDates = (startDate: string, endDate: string, daysToDisab
   return disabledDates;
 };
 
-export const getMarkedDates = (propsObject) => {
+export const getMarkedDates = (propsObject: {selectedDay: any}) => {
   if (!propsObject) {
     return {};
   }
@@ -40,7 +40,7 @@ export const getDisabledDaysIndexes = () => {
   return [2, 6];
 };
 
-export const formatXDateToString = (date, expectedFormat) => {
+export const formatXDateToString = (date: String, expectedFormat: string): String => {
   if (!date || !expectedFormat) {
     return '';
   }
