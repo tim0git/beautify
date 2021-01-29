@@ -52,6 +52,7 @@ const organisms = {
 };
 
 // Screens Import
+import * as About_Beautify from '../theme/components/screens/About_Beautify';
 import * as Profile_Marketing from '../theme/components/screens/Profile_Marketing';
 import * as Profile_Notifications from '../theme/components/screens/Profile_Notifications';
 import * as Splash from '../theme/components/screens/Splash';
@@ -63,6 +64,7 @@ import * as Bookings from '../theme/components/screens/Bookings';
 import * as Profile from '../theme/components/screens/Profile';
 import * as Search from '../theme/components/screens/Search';
 const screens = {
+  About_Beautify,
   Profile_Marketing,
   Profile_Notifications,
   Splash,
