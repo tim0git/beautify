@@ -23,7 +23,7 @@ export const PROFILE_MENU_BUTTONS: ProfileMenuUser = {
 
 export const PROFILE_MENU_NAVIGATION: ProfileMenuUser = {
   About: 'About_Beautify',
-  Help: 'Web_View',
+  Help: 'Help_Centre',
   Legal: 'Legal_Screen',
   UpcomingBookings: 'Upcoming_Bookings',
   PreviousBookings: 'Previous_Bookings',
