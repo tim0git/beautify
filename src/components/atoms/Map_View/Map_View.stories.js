@@ -10,6 +10,6 @@ const defaultProps = {
   },
 };
 
-storiesOf('Map_View', module)
+storiesOf('Design System/Atoms/Map_View', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Map_View_Default', () => <Map_View {...defaultProps} />);
