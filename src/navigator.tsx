@@ -12,6 +12,7 @@ import Profile_Container from './containers/Profile_Container';
 import IconRN from './components/atoms/Icon/Icon';
 import Profile_Notifications_Screen from './components/screens/Profile_Notifications/Profile_Notifications_Screen';
 import Marketing_Preferences_Screen from './components/screens/Profile_Marketing/Profile_Marketing_Screen';
+import About_Beautify_Screen from './components/screens/About_Beautify/About_Beautify_Screen';
 
 const SearchStack = createStackNavigator();
 
@@ -90,6 +91,7 @@ export default function AppNavigationContainer() {
         <Stack.Screen name="Login_Screen" component={Landing_Container} />
         <Stack.Screen name="Profile_Notifications" component={Profile_Notifications_Screen} />
         <Stack.Screen name="Profile_Marketing" component={Marketing_Preferences_Screen} />
+        <Stack.Screen name="About_Beautify" component={About_Beautify_Screen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
