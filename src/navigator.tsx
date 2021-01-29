@@ -43,6 +43,16 @@ function MessagesStackScreen() {
   );
 }
 
+const ProfileStack = createStackNavigator();
+
+function ProfileStackScreen() {
+  return (
+    <ProfileStack.Navigator headerMode="none">
+      <ProfileStack.Screen name="Profile" component={Profile_Container} />
+    </ProfileStack.Navigator>
+  );
+}
+
 const Tab = createBottomTabNavigator();
 
 function TabStack() {
@@ -64,7 +74,7 @@ function TabStack() {
       <Tab.Screen name="Search" component={Home_Container} />
       <Tab.Screen name="Bookings" component={BookingsStackScreen} />
       <Tab.Screen name="Inbox" component={MessagesStackScreen} />
-      <Tab.Screen name="Profile" component={Profile_Container} />
+      <Tab.Screen name="Profile" component={ProfileStackScreen} />
     </Tab.Navigator>
   );
 }
