@@ -1,7 +1,7 @@
 import React from 'react';
 import 'react-native';
 import 'jest-enzyme';
-import {shallow, render, mount} from 'enzyme';
+import {shallow} from 'enzyme';
 import About_Beautify_Screen from './About_Beautify_Screen';
 
 const defaultProps = {};

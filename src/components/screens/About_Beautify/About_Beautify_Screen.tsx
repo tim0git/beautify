@@ -15,12 +15,12 @@ export interface Props {
 }
 
 const About_Beautify_Screen: React.FC<Props> = ({}) => {
-  const {config, dict, style} = ThemeProvider('About_Beautify');
+  const {config, style} = ThemeProvider('About_Beautify');
   const {screenTitle, backButton} = config;
 
   const renderContent = () => {
     return (
-      <View>
+      <View style={style.container}>
         <Text>Placeholder</Text>
       </View>
     );
