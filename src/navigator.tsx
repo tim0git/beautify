@@ -14,6 +14,7 @@ import Profile_Notifications_Screen from './components/screens/Profile_Notificat
 import Profile_Marketing_Screen from './components/screens/Profile_Marketing/Profile_Marketing_Screen';
 import Profile_About_Beautify_Screen from './components/screens/Profile_About_Beautify/Profile_About_Beautify_Screen';
 import Profile_Help_Centre_Screen from './components/screens/Profile_Help_Centre/Profile_Help_Centre_Screen';
+import Profile_Legal_Stuff_Screen from './components/screens/Profile_Legal_Stuff/Profile_Legal_Stuff_Screen';
 
 const SearchStack = createStackNavigator();
 
@@ -51,6 +52,7 @@ function ProfileStackScreen() {
   return (
     <ProfileStack.Navigator headerMode="none">
       <ProfileStack.Screen name="Profile" component={Profile_Container} />
+      <ProfileStack.Screen name="Legal_Stuff" component={Profile_Legal_Stuff_Screen} />
     </ProfileStack.Navigator>
   );
 }
