@@ -23,7 +23,7 @@ describe('<Help_Centre />', () => {
         (node) => node.prop('testID') === 'Help_Centre_Default_Screen_Template',
       );
       const defaultScreenTemplateProps = defaultScreenTemplate.props();
-      expect(defaultScreenTemplateProps).toHaveProperty('screenTitle', 'About Beautify');
+      expect(defaultScreenTemplateProps).toHaveProperty('screenTitle', 'Help Centre');
       expect(defaultScreenTemplateProps).toHaveProperty('backButton', true);
     });
   });
