@@ -38,6 +38,13 @@ export type ProfileMenuMarketing = {
   ViaSMS: string;
 };
 
+export type LegalStuffGeneral = {
+  TermsAndConditions: string;
+  PrivacyPolicy: string;
+  Insurance: string;
+  DataPolicy: string;
+};
+
 export type MenuButtonData = {
   id: string;
   title: string;
