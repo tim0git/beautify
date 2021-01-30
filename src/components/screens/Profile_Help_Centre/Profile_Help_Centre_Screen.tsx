@@ -14,7 +14,7 @@ export interface Props {
   };
 }
 
-const Help_Centre_Screen: React.FC<Props> = ({}) => {
+const Profile_Help_Centre_Screen: React.FC<Props> = ({}) => {
   const {config, style} = ThemeProvider('Help_Centre');
   const {screenTitle, backButton} = config;
 
@@ -35,4 +35,4 @@ const Help_Centre_Screen: React.FC<Props> = ({}) => {
   );
 };
 
-export default Help_Centre_Screen;
+export default Profile_Help_Centre_Screen;
