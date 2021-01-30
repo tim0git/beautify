@@ -53,8 +53,8 @@ const organisms = {
 
 // Screens Import
 import * as Profile_Legal_Stuff from '../theme/components/screens/Profile_Legal_Stuff';
-import * as Help_Centre from '../theme/components/screens/Help_Centre';
-import * as About_Beautify from '../theme/components/screens/About_Beautify';
+import * as Help_Centre from '../theme/components/screens/Profile_Help_Centre';
+import * as About_Beautify from '../theme/components/screens/Profile_About_Beautify';
 import * as Profile_Marketing from '../theme/components/screens/Profile_Marketing';
 import * as Profile_Notifications from '../theme/components/screens/Profile_Notifications';
 import * as Splash from '../theme/components/screens/Splash';
