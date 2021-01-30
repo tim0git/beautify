@@ -6,6 +6,7 @@ import {
   ProfileMenuMarketing,
   MenuMapperData,
   MenuListData,
+  LegalStuffGeneral,
 } from '../../types/menu.types';
 
 export const PROFILE_MENU_BUTTONS: ProfileMenuUser = {
@@ -34,6 +35,13 @@ export const PROFILE_MENU_NAVIGATION: ProfileMenuUser = {
   Logout: 'Logout',
 };
 
+export const LEGAL_STUFF_NAVIGATION: LegalStuffGeneral = {
+  TermsAndConditions: 'Terms_Conditions',
+  PrivacyPolicy: 'Privacy_Policy',
+  Insurance: 'Insurance',
+  DataPolicy: 'Data_Policy',
+};
+
 export const NOTIFICATIONS_MENU_BUTTONS: ProfileMenuNotifications = {
   BookingComplete: 'Booking Complete',
   UpcomingAppointments48: 'Upcoming Appointments (48hr)',
@@ -47,6 +55,13 @@ export const NOTIFICATIONS_MENU_BUTTONS: ProfileMenuNotifications = {
 export const MARKETING_MENU_BUTTONS: ProfileMenuMarketing = {
   ViaEmail: 'Via Email',
   ViaSMS: 'Via SMS',
+};
+
+export const LEGAL_STUFF_MENU_BUTTONS: LegalStuffGeneral = {
+  TermsAndConditions: 'Terms and Conditions',
+  PrivacyPolicy: 'Privacy Policy',
+  Insurance: 'Insurance',
+  DataPolicy: 'How your data is stored',
 };
 
 export const WEB_VIEW_URLS = {
@@ -218,6 +233,37 @@ export const MARKETING_GENERAL_MENU: MenuListData = {
   ],
 };
 
+export const LEGAL_STUFF_GENERAL_MENU: MenuListData = {
+  testID: 'Legal_Stuff_General_Menu',
+  headerText: '', // intentionally left blank
+  DATA: [
+    {
+      id: uuidv4(),
+      title: LEGAL_STUFF_MENU_BUTTONS.TermsAndConditions,
+      navigationAddress: LEGAL_STUFF_NAVIGATION.TermsAndConditions,
+      testID: 'Legal_Stuff_Terms_And_Conditions',
+    },
+    {
+      id: uuidv4(),
+      title: LEGAL_STUFF_MENU_BUTTONS.PrivacyPolicy,
+      navigationAddress: LEGAL_STUFF_NAVIGATION.PrivacyPolicy,
+      testID: 'Legal_Stuff_Privacy_Policy',
+    },
+    {
+      id: uuidv4(),
+      title: LEGAL_STUFF_MENU_BUTTONS.Insurance,
+      navigationAddress: LEGAL_STUFF_NAVIGATION.Insurance,
+      testID: 'Legal_Stuff_Insurance',
+    },
+    {
+      id: uuidv4(),
+      title: LEGAL_STUFF_MENU_BUTTONS.DataPolicy,
+      navigationAddress: LEGAL_STUFF_NAVIGATION.DataPolicy,
+      testID: 'Legal_Stuff_Data',
+    },
+  ],
+};
+
 export const USER_PROFILE_MENU: MenuMapperData = [
   PROFILE_USER_BOOKINGS_MENU,
   PROFILE_USER_MY_PROFILE_SETTINGS_MENU,
@@ -231,3 +277,5 @@ export const NOTIFICATIONS_MENU: MenuMapperData = [
 ];
 
 export const MARKETING_MENU: MenuMapperData = [MARKETING_GENERAL_MENU];
+
+export const LEGAL_STUFF_MENU: MenuMapperData = [LEGAL_STUFF_GENERAL_MENU];
