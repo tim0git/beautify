@@ -7,4 +7,4 @@ const defaultProps = {};
 
 storiesOf('Design System/Screens/Profile_Marketing', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
-  .add('Profile_Marketing_Default', () => <Profile_Marketing_Screen {...defaultProps} />);
+  .add('Profile_Marketing_Screen_Default', () => <Profile_Marketing_Screen {...defaultProps} />);
