@@ -21,11 +21,11 @@ function loadStories() {
   require('../src/components/molecules/Search_Bar/Search_Bar.stories');
   require('../src/components/organisms/Guest_Welcome/Guest_Welcome.stories');
   require('../src/components/organisms/Menu_Mapper/Menu_Mapper.stories');
-  require('../src/components/screens/About_Beautify/About_Beautify.stories');
   require('../src/components/screens/Bookings/Bookings_Screen.stories');
   require('../src/components/screens/Home/Home_Screen.stories');
   require('../src/components/screens/Inbox/Inbox_Screen.stories');
   require('../src/components/screens/Landing/Landing_Screen.stories');
+  require('../src/components/screens/Profile_About_Beautify/Profile_About_Beautify_Screen.stories');
   require('../src/components/screens/Profile_Help_Centre/Profile_Help_Centre.stories');
   require('../src/components/screens/Profile_Marketing/Profile_Marketing.stories');
   require('../src/components/screens/Profile_Notifications/Notification_Settings.stories');
@@ -54,11 +54,11 @@ const stories = [
   '../src/components/molecules/Search_Bar/Search_Bar.stories',
   '../src/components/organisms/Guest_Welcome/Guest_Welcome.stories',
   '../src/components/organisms/Menu_Mapper/Menu_Mapper.stories',
-  '../src/components/screens/About_Beautify/About_Beautify.stories',
   '../src/components/screens/Bookings/Bookings_Screen.stories',
   '../src/components/screens/Home/Home_Screen.stories',
   '../src/components/screens/Inbox/Inbox_Screen.stories',
   '../src/components/screens/Landing/Landing_Screen.stories',
+  '../src/components/screens/Profile_About_Beautify/Profile_About_Beautify_Screen.stories',
   '../src/components/screens/Profile_Help_Centre/Profile_Help_Centre.stories',
   '../src/components/screens/Profile_Marketing/Profile_Marketing.stories',
   '../src/components/screens/Profile_Notifications/Notification_Settings.stories',

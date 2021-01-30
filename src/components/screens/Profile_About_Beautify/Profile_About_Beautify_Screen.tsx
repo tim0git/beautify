@@ -14,7 +14,7 @@ export interface Props {
   };
 }
 
-const About_Beautify_Screen: React.FC<Props> = ({}) => {
+const Profile_About_Beautify_Screen: React.FC<Props> = ({}) => {
   const {config, style} = ThemeProvider('About_Beautify');
   const {screenTitle, backButton} = config;
 
@@ -35,4 +35,4 @@ const About_Beautify_Screen: React.FC<Props> = ({}) => {
   );
 };
 
-export default About_Beautify_Screen;
+export default Profile_About_Beautify_Screen;
