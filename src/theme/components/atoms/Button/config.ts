@@ -1,5 +1,5 @@
 import {colors} from '../../../global/styles';
-import {PROFILE_MENU_BUTTONS} from '../../../global/config/constants/menu';
+import {LEGAL_STUFF_MENU_BUTTONS, PROFILE_MENU_BUTTONS} from '../../../global/config/constants/menu';
 export const config = {
   SearchBar: {
     name: 'Search',
@@ -74,6 +74,26 @@ export const config = {
     },
     [PROFILE_MENU_BUTTONS.Logout]: {
       name: 'ArrowLeft',
+      color: colors.text.primary,
+      size: 30,
+    },
+    [LEGAL_STUFF_MENU_BUTTONS.DataPolicy]: {
+      name: 'Legal',
+      color: colors.text.primary,
+      size: 30,
+    },
+    [LEGAL_STUFF_MENU_BUTTONS.Insurance]: {
+      name: 'Legal',
+      color: colors.text.primary,
+      size: 30,
+    },
+    [LEGAL_STUFF_MENU_BUTTONS.PrivacyPolicy]: {
+      name: 'Legal',
+      color: colors.text.primary,
+      size: 30,
+    },
+    [LEGAL_STUFF_MENU_BUTTONS.TermsAndConditions]: {
+      name: 'Legal',
       color: colors.text.primary,
       size: 30,
     },
