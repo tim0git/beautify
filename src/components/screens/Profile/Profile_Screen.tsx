@@ -22,6 +22,7 @@ const Profile_Screen: React.FC<Props> = ({navigation, isLoggedIn, signOut}) => {
     return (
       <View style={styles.container}>
         <Menu_Mapper
+          scrollEnabled={true}
           navigation={navigation}
           menuData={USER_PROFILE_MENU}
           testID="User_Profile_Menu_Mapper"
