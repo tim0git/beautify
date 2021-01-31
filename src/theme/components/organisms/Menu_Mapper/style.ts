@@ -1,3 +1,5 @@
 export const style = {
-  container: {},
+  container: {
+    flex: 1,
+  },
 };
