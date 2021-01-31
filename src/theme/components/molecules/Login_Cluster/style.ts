@@ -9,7 +9,7 @@ export const style = {
   },
   captionContainer: {
     paddingVertical: size.padding.sm,
-    paddingHorizontal: size.padding.xxxlg,
+    paddingHorizontal: size.padding.xxlg,
     alignSelf: 'stretch',
   },
   loginButtonContainer: {
