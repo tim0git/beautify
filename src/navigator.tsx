@@ -55,7 +55,7 @@ function ProfileStackScreen() {
   return (
     <ProfileStack.Navigator headerMode="none">
       <ProfileStack.Screen name="Profile" component={Profile_Container} />
-      <ProfileStack.Screen name="Legal_Stuff" component={Profile_Legal_Stuff_Screen} />
+      <ProfileStack.Screen name="Profile_Legal_Stuff" component={Profile_Legal_Stuff_Screen} />
     </ProfileStack.Navigator>
   );
 }
@@ -98,11 +98,11 @@ export default function AppNavigationContainer() {
         {/* Profile Screens */}
         <Stack.Screen name="Profile_Notifications" component={Profile_Notifications_Screen} />
         <Stack.Screen name="Profile_Marketing" component={Profile_Marketing_Screen} />
-        <Stack.Screen name="About_Beautify" component={Profile_About_Beautify_Screen} />
-        <Stack.Screen name="Help_Centre" component={Profile_Help_Centre_Screen} />
-        <Stack.Screen name="Terms_Conditions" component={Profile_Terms_Conditions_Screen} />
-        <Stack.Screen name="Privacy_Policy" component={Profile_Privacy_Policy_Screen} />
-        <Stack.Screen name="Insurance" component={Profile_Insurance_Screen} />
+        <Stack.Screen name="Profile_About_Beautify" component={Profile_About_Beautify_Screen} />
+        <Stack.Screen name="Profile_Help_Centre" component={Profile_Help_Centre_Screen} />
+        <Stack.Screen name="Profile_Terms_Conditions" component={Profile_Terms_Conditions_Screen} />
+        <Stack.Screen name="Profile_Privacy_Policy" component={Profile_Privacy_Policy_Screen} />
+        <Stack.Screen name="Profile_Insurance" component={Profile_Insurance_Screen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

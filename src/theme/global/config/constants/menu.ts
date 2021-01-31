@@ -23,9 +23,9 @@ export const PROFILE_MENU_BUTTONS: ProfileMenuUser = {
 };
 
 export const PROFILE_MENU_NAVIGATION: ProfileMenuUser = {
-  About: 'About_Beautify',
-  Help: 'Help_Centre',
-  Legal: 'Legal_Stuff',
+  About: 'Profile_About_Beautify',
+  Help: 'Profile_Help_Centre',
+  Legal: 'Profile_Legal_Stuff',
   UpcomingBookings: 'Upcoming_Bookings',
   PreviousBookings: 'Previous_Bookings',
   Contact: 'Contact_Details',
@@ -36,10 +36,10 @@ export const PROFILE_MENU_NAVIGATION: ProfileMenuUser = {
 };
 
 export const LEGAL_STUFF_NAVIGATION: LegalStuffGeneral = {
-  TermsAndConditions: 'Terms_Conditions',
-  PrivacyPolicy: 'Privacy_Policy',
-  Insurance: 'Insurance',
-  DataPolicy: 'Data_Policy',
+  TermsAndConditions: 'Profile_Terms_Conditions',
+  PrivacyPolicy: 'Profile_Privacy_Policy',
+  Insurance: 'Profile_Insurance',
+  DataPolicy: 'Profile_Data_Policy',
 };
 
 export const NOTIFICATIONS_MENU_BUTTONS: ProfileMenuNotifications = {
