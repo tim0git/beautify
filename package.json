@@ -5,6 +5,7 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
+    "ios12Mini": "react-native run-ios --simulator='iPhone 12 mini'",
     "start": "react-native start",
     "test": "jest",
     "detox test r": "detox test --reuse",
@@ -26,7 +27,8 @@
     "e2e:ios-debug": "npm run build:ios-debug && npm run test:ios-debug",
     "e2e:ios-release": "npm run build:ios-release && npm run test:ios-release",
     "e2e:android-debug": "npm run build:android-debug && npm run test:android-debug",
-    "e2e:android-release": "npm run build:android-release && npm run test:android-release"
+    "e2e:android-release": "npm run build:android-release && npm run test:android-release",
+    "list ios devices": "xcrun simctl list devices"
   },
   "dependencies": {
     "@apollo/client": "^3.3.7",
