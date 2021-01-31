@@ -30,6 +30,7 @@ function loadStories() {
   require('../src/components/screens/Profile_Legal_Stuff/Profile_Legal_Stuff.stories');
   require('../src/components/screens/Profile_Marketing/Profile_Marketing.stories');
   require('../src/components/screens/Profile_Notifications/Notification_Settings.stories');
+  require('../src/components/screens/Profile_Terms_Conditions/Profile_Terms_Conditions.stories');
   require('../src/components/screens/Profile/Profile_Screen.stories');
   require('../src/components/screens/Search/Search_Screen.stories');
   require('../src/components/screens/Splash/Splash.stories');
@@ -64,6 +65,7 @@ const stories = [
   '../src/components/screens/Profile_Legal_Stuff/Profile_Legal_Stuff.stories',
   '../src/components/screens/Profile_Marketing/Profile_Marketing.stories',
   '../src/components/screens/Profile_Notifications/Notification_Settings.stories',
+  '../src/components/screens/Profile_Terms_Conditions/Profile_Terms_Conditions.stories',
   '../src/components/screens/Profile/Profile_Screen.stories',
   '../src/components/screens/Search/Search_Screen.stories',
   '../src/components/screens/Splash/Splash.stories',
