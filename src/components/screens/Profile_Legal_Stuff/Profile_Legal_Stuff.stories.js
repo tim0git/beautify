@@ -5,6 +5,6 @@ import Profile_Legal_Stuff_Screen from './Profile_Legal_Stuff_Screen';
 
 const defaultProps = {};
 
-storiesOf('Profile_Legal_Stuff', module)
+storiesOf('Design System/Screens/Profile_Legal_Stuff', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Profile_Legal_Stuff_Default', () => <Profile_Legal_Stuff_Screen {...defaultProps} />);

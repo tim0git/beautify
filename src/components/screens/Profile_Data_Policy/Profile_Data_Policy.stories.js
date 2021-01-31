@@ -5,6 +5,6 @@ import Profile_Data_Policy_Screen from './Profile_Data_Policy_Screen';
 
 const defaultProps = {};
 
-storiesOf('Profile_Data_Policy', module)
+storiesOf('Design System/Screens/Profile_Data_Policy', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Profile_Data_Policy_Default', () => <Profile_Data_Policy_Screen {...defaultProps} />);

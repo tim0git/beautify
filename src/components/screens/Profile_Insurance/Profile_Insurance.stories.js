@@ -5,6 +5,6 @@ import Profile_Insurance_Screen from './Profile_Insurance_Screen';
 
 const defaultProps = {};
 
-storiesOf('Profile_Insurance', module)
+storiesOf('Design System/Screens/Profile_Insurance', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Profile_Insurance_Default', () => <Profile_Insurance_Screen {...defaultProps} />);
