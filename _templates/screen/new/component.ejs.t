@@ -24,7 +24,7 @@ const <%=name%>_Screen: React.FC<Props> = ({}) => {
     <Default_Screen_Template
       screenTitle={screenTitle}
       testID="<%=name%>_Default_Screen_Template"
-      render={}
+      render={null}
       backButton={backButton}
     />
   );
