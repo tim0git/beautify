@@ -18,6 +18,7 @@ import Profile_Legal_Stuff_Screen from './components/screens/Profile_Legal_Stuff
 import Profile_Terms_Conditions_Screen from './components/screens/Profile_Terms_Conditions/Profile_Terms_Conditions_Screen';
 import Profile_Privacy_Policy_Screen from './components/screens/Profile_Privacy_Policy/Profile_Privacy_Policy_Screen';
 import Profile_Insurance_Screen from './components/screens/Profile_Insurance/Profile_Insurance_Screen';
+import Profile_Data_Policy_Screen from './components/screens/Profile_Data_Policy/Profile_Data_Policy_Screen';
 
 const SearchStack = createStackNavigator();
 
@@ -103,6 +104,7 @@ export default function AppNavigationContainer() {
         <Stack.Screen name="Profile_Terms_Conditions" component={Profile_Terms_Conditions_Screen} />
         <Stack.Screen name="Profile_Privacy_Policy" component={Profile_Privacy_Policy_Screen} />
         <Stack.Screen name="Profile_Insurance" component={Profile_Insurance_Screen} />
+        <Stack.Screen name="Profile_Data_Policy" component={Profile_Data_Policy_Screen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
