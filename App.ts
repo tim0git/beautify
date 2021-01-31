@@ -10,6 +10,6 @@ import App from './src/index';
 // @ts-ignore
 import {default as storybook} from './storybook';
 
-const useStorybook = true;
+const useStorybook = false;
 
 export default useStorybook ? storybook : App;
