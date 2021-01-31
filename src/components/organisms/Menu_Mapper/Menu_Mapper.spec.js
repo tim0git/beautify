@@ -1,7 +1,7 @@
 import React from 'react';
 import 'react-native';
 import 'jest-enzyme';
-import {shallow} from 'enzyme';
+import {mount} from 'enzyme';
 import Menu_Mapper from './Menu_Mapper';
 import {
   USER_PROFILE_MENU,
@@ -37,17 +37,17 @@ const bookingProps = {
 describe('<Menu_Mapper />', () => {
   describe('<Render>', () => {
     test('should render guest profile menu list when passed as a prop', () => {
-      const wrapper = shallow(<Menu_Mapper {...guestProps} />);
+      const wrapper = mount(<Menu_Mapper {...guestProps} />);
       const profileGuestMenu = wrapper.findWhere((node) => node.prop('testID') === 'Profile_Guest_Menu');
       expect(profileGuestMenu).toExist();
     });
     test('should render user profile menu list when passed as a prop', () => {
-      const wrapper = shallow(<Menu_Mapper {...userProps} />);
+      const wrapper = mount(<Menu_Mapper {...userProps} />);
       const profileUserMenu = wrapper.findWhere((node) => node.prop('testID') === 'Profile_User_Menu');
       expect(profileUserMenu).toExist();
     });
     test('should render notificatons bookings menu', () => {
-      const wrapper = shallow(<Menu_Mapper {...bookingProps} />);
+      const wrapper = mount(<Menu_Mapper {...bookingProps} />);
       const notificatonsBookingsMenu = wrapper.findWhere(
         (node) => node.prop('testID') === 'Notificatons_Bookings_Menu',
       );
@@ -56,12 +56,12 @@ describe('<Menu_Mapper />', () => {
   });
   describe('<Props>', () => {
     test('should pass onValueChange and notificatonSettings as a prop to Menu_List when they are declared', () => {
-      const wrapper = shallow(<Menu_Mapper {...bookingProps} />);
+      const wrapper = mount(<Menu_Mapper {...bookingProps} />);
       const notificatonsBookingsMenu = wrapper.findWhere(
         (node) => node.prop('testID') === 'Notificatons_Bookings_Menu',
       );
 
-      const notificatonsBookingsMenuProps = notificatonsBookingsMenu.props();
+      const notificatonsBookingsMenuProps = notificatonsBookingsMenu.first().props();
 
       expect(notificatonsBookingsMenuProps).toHaveProperty('onValueChange', bookingProps.onValueChange);
       expect(notificatonsBookingsMenuProps).toHaveProperty('switchState', bookingProps.switchState);
