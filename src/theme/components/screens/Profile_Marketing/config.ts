@@ -3,7 +3,7 @@ export const config = {
   backButton: true,
   linkedTextProps: {
     textToLink: 'privacy policy',
-    type: 'url',
-    link: 'https://www.google.com',
+    type: 'NAVIGATION',
+    link: 'Profile_Privacy_Policy',
   },
 };
