@@ -15,6 +15,7 @@ import Profile_Marketing_Screen from './components/screens/Profile_Marketing/Pro
 import Profile_About_Beautify_Screen from './components/screens/Profile_About_Beautify/Profile_About_Beautify_Screen';
 import Profile_Help_Centre_Screen from './components/screens/Profile_Help_Centre/Profile_Help_Centre_Screen';
 import Profile_Legal_Stuff_Screen from './components/screens/Profile_Legal_Stuff/Profile_Legal_Stuff_Screen';
+import Profile_Terms_Conditions_Screen from './components/screens/Profile_Terms_Conditions/Profile_Terms_Conditions_Screen';
 
 const SearchStack = createStackNavigator();
 
@@ -97,6 +98,7 @@ export default function AppNavigationContainer() {
         <Stack.Screen name="Profile_Marketing" component={Profile_Marketing_Screen} />
         <Stack.Screen name="About_Beautify" component={Profile_About_Beautify_Screen} />
         <Stack.Screen name="Help_Centre" component={Profile_Help_Centre_Screen} />
+        <Stack.Screen name="Terms_Conditions" component={Profile_Terms_Conditions_Screen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

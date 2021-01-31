@@ -52,7 +52,8 @@ const organisms = {
 };
 
 // Screens Import
-import * as Profile_Terms_Conditions from '../theme/components/screens/Profile_Terms_Conditions'
+import * as Profile_Privacy_Policy from '../theme/components/screens/Profile_Privacy_Policy';
+import * as Profile_Terms_Conditions from '../theme/components/screens/Profile_Terms_Conditions';
 import * as Profile_Legal_Stuff from '../theme/components/screens/Profile_Legal_Stuff';
 import * as Help_Centre from '../theme/components/screens/Profile_Help_Centre';
 import * as About_Beautify from '../theme/components/screens/Profile_About_Beautify';
@@ -67,7 +68,8 @@ import * as Bookings from '../theme/components/screens/Bookings';
 import * as Profile from '../theme/components/screens/Profile';
 import * as Search from '../theme/components/screens/Search';
 const screens = {
-Profile_Terms_Conditions,
+  Profile_Privacy_Policy,
+  Profile_Terms_Conditions,
   Profile_Legal_Stuff,
   Help_Centre,
   About_Beautify,
