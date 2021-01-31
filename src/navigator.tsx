@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {colors} from './theme/global/styles';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -66,7 +67,7 @@ const Tab = createBottomTabNavigator();
 function TabStack() {
   return (
     <Tab.Navigator
-      tabBarOptions={{activeTintColor: '#796ef6'}}
+      tabBarOptions={{activeTintColor: colors.tabBar.selected}}
       screenOptions={({route}) => ({
         tabBarIcon: ({color, size}) => {
           const icons = {

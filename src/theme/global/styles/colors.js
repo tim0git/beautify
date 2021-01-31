@@ -46,4 +46,7 @@ export const colors = {
   loading: {
     primary: COLORS.pinkDark,
   },
+  tabBar: {
+    selected: COLORS.purpleDark,
+  },
 };
