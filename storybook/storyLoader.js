@@ -25,6 +25,7 @@ function loadStories() {
   require('../src/components/screens/Home/Home_Screen.stories');
   require('../src/components/screens/Inbox/Inbox_Screen.stories');
   require('../src/components/screens/Landing/Landing_Screen.stories');
+  require('../src/components/screens/Onboarding/Onboarding.stories');
   require('../src/components/screens/Profile_About_Beautify/Profile_About_Beautify_Screen.stories');
   require('../src/components/screens/Profile_Data_Policy/Profile_Data_Policy.stories');
   require('../src/components/screens/Profile_Help_Centre/Profile_Help_Centre.stories');
@@ -63,6 +64,7 @@ const stories = [
   '../src/components/screens/Home/Home_Screen.stories',
   '../src/components/screens/Inbox/Inbox_Screen.stories',
   '../src/components/screens/Landing/Landing_Screen.stories',
+  '../src/components/screens/Onboarding/Onboarding.stories',
   '../src/components/screens/Profile_About_Beautify/Profile_About_Beautify_Screen.stories',
   '../src/components/screens/Profile_Data_Policy/Profile_Data_Policy.stories',
   '../src/components/screens/Profile_Help_Centre/Profile_Help_Centre.stories',

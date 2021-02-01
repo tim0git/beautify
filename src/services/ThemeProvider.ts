@@ -52,6 +52,7 @@ const organisms = {
 };
 
 // Screens Import
+import * as Onboarding from '../theme/components/screens/Onboarding';
 import * as Profile_Data_Policy from '../theme/components/screens/Profile_Data_Policy';
 import * as Profile_Insurance from '../theme/components/screens/Profile_Insurance';
 import * as Profile_Privacy_Policy from '../theme/components/screens/Profile_Privacy_Policy';
@@ -70,6 +71,7 @@ import * as Bookings from '../theme/components/screens/Bookings';
 import * as Profile from '../theme/components/screens/Profile';
 import * as Search from '../theme/components/screens/Search';
 const screens = {
+  Onboarding,
   Profile_Data_Policy,
   Profile_Insurance,
   Profile_Privacy_Policy,
