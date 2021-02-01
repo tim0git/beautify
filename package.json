@@ -8,6 +8,7 @@
     "ios12Mini": "react-native run-ios --simulator='iPhone 12 mini'",
     "start": "react-native start",
     "test": "jest",
+    "test openHandles": "jest --detectOpenHandles",
     "detox test r": "detox test --reuse",
     "lint": "eslint ./src",
     "storybook": "start-storybook -p 7007",
