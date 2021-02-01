@@ -8,13 +8,13 @@
     "ios12Mini": "react-native run-ios --simulator='iPhone 12 mini'",
     "start": "react-native start",
     "test": "jest",
-    "test openHandles": "jest --detectOpenHandles",
-    "detox test r": "detox test --reuse",
+    "test-openHandles": "jest --detectOpenHandles",
+    "detox-test-r": "detox test --reuse",
     "lint": "eslint ./src",
     "storybook": "start-storybook -p 7007",
     "build-storybook": "build-storybook",
     "prestorybook": "rnstl",
-    "clean build": "./scripts/cleanBuild.sh",
+    "cleanbuild": "./scripts/cleanBuild.sh",
     "fullinstall": "npm install && cd ios && pod install && cd ..",
     "postinstall": "patch-package",
     "build:ios-debug": "detox build -c ios.sim.debug",
@@ -29,7 +29,7 @@
     "e2e:ios-release": "npm run build:ios-release && npm run test:ios-release",
     "e2e:android-debug": "npm run build:android-debug && npm run test:android-debug",
     "e2e:android-release": "npm run build:android-release && npm run test:android-release",
-    "list ios devices": "xcrun simctl list devices"
+    "list-ios-devices": "xcrun simctl list devices"
   },
   "dependencies": {
     "@apollo/client": "^3.3.7",
