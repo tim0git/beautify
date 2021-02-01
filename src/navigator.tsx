@@ -94,39 +94,20 @@ const Stack = createStackNavigator();
 export default function AppNavigationContainer(onboardingStatus: boolean) {
   return (
     <NavigationContainer ref={navigationRef}>
-      <Stack.Navigator headerMode="none" screenOptions={{gestureEnabled: false}}>
-        {onboardingStatus ? (
-          <>
-            <Stack.Screen name="Home" component={TabStack} />
-            <Stack.Screen name="Search_Screen" component={SearchStackScreen} />
-            <Stack.Screen name="Login_Screen" component={Landing_Container} />
-            {/* Profile Screens */}
-            <Stack.Screen name="Profile_Notifications" component={Profile_Notifications_Screen} />
-            <Stack.Screen name="Profile_Marketing" component={Profile_Marketing_Screen} />
-            <Stack.Screen name="Profile_About_Beautify" component={Profile_About_Beautify_Screen} />
-            <Stack.Screen name="Profile_Help_Centre" component={Profile_Help_Centre_Screen} />
-            <Stack.Screen name="Profile_Terms_Conditions" component={Profile_Terms_Conditions_Screen} />
-            <Stack.Screen name="Profile_Privacy_Policy" component={Profile_Privacy_Policy_Screen} />
-            <Stack.Screen name="Profile_Insurance" component={Profile_Insurance_Screen} />
-            <Stack.Screen name="Profile_Data_Policy" component={Profile_Data_Policy_Screen} />
-          </>
-        ) : (
-          <>
-            <Stack.Screen name="Onboarding" component={Onboarding_Screen} />
-            <Stack.Screen name="Home" component={TabStack} />
-            <Stack.Screen name="Search_Screen" component={SearchStackScreen} />
-            <Stack.Screen name="Login_Screen" component={Landing_Container} />
-            {/* Profile Screens */}
-            <Stack.Screen name="Profile_Notifications" component={Profile_Notifications_Screen} />
-            <Stack.Screen name="Profile_Marketing" component={Profile_Marketing_Screen} />
-            <Stack.Screen name="Profile_About_Beautify" component={Profile_About_Beautify_Screen} />
-            <Stack.Screen name="Profile_Help_Centre" component={Profile_Help_Centre_Screen} />
-            <Stack.Screen name="Profile_Terms_Conditions" component={Profile_Terms_Conditions_Screen} />
-            <Stack.Screen name="Profile_Privacy_Policy" component={Profile_Privacy_Policy_Screen} />
-            <Stack.Screen name="Profile_Insurance" component={Profile_Insurance_Screen} />
-            <Stack.Screen name="Profile_Data_Policy" component={Profile_Data_Policy_Screen} />
-          </>
-        )}
+      <Stack.Navigator headerMode="none" initialRouteName={onboardingStatus ? 'Home' : 'Onboarding'}>
+        <Stack.Screen name="Onboarding" component={Onboarding_Screen} />
+        <Stack.Screen name="Home" component={TabStack} />
+        <Stack.Screen name="Search_Screen" component={SearchStackScreen} />
+        <Stack.Screen name="Login_Screen" component={Landing_Container} />
+        {/* Profile Screens */}
+        <Stack.Screen name="Profile_Notifications" component={Profile_Notifications_Screen} />
+        <Stack.Screen name="Profile_Marketing" component={Profile_Marketing_Screen} />
+        <Stack.Screen name="Profile_About_Beautify" component={Profile_About_Beautify_Screen} />
+        <Stack.Screen name="Profile_Help_Centre" component={Profile_Help_Centre_Screen} />
+        <Stack.Screen name="Profile_Terms_Conditions" component={Profile_Terms_Conditions_Screen} />
+        <Stack.Screen name="Profile_Privacy_Policy" component={Profile_Privacy_Policy_Screen} />
+        <Stack.Screen name="Profile_Insurance" component={Profile_Insurance_Screen} />
+        <Stack.Screen name="Profile_Data_Policy" component={Profile_Data_Policy_Screen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
