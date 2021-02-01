@@ -4,6 +4,7 @@
  */
 
 import {call, fork, put, take, takeEvery} from 'redux-saga/effects';
+import {clearAll} from '../services/AsyncStorage';
 import {getUserIDToken} from './Firebase.helpers';
 
 import rsf from './Redux/Redux-Saga-Firebase';
@@ -200,6 +201,8 @@ export function* loginSaga(action: {phoneNumber: string}) {
 function* signOutSaga() {
   try {
     yield call(rsf.auth.signOut);
+
+    yield call(clearAll);
 
     yield put(signOutSuccess());
   } catch (error) {
