@@ -1,3 +1,3 @@
-export * from './config'
-export * from './style'
-export * from './dict'
+export * from './config';
+export * from './style';
+export * from './dict';

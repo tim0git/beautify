@@ -1,1 +1,1 @@
-export const dict = {}
+export const dict = {};

@@ -1,4 +1,4 @@
-import {size, shadows, colors, typography} from '../../../global/styles';
+import {size, colors, typography} from '../../../global/styles';
 export const style = {
   wrapper: {
     Switch: {

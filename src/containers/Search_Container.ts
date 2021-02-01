@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 
 import Search_Screen from '../components/screens/Search/Search_Screen';
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = () => ({});
 
 const mapDispatchToProps = {};
 

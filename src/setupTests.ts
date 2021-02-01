@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import 'jest-enzyme';
 import 'react-native-gesture-handler/jestSetup';
 import {configure} from 'enzyme';
@@ -22,8 +23,7 @@ Object.keys(document.defaultView).forEach((property) => {
 
 function suppressDomErrors() {
   const suppressedErrors = /(React does not recognize the.*prop on a DOM element|Unknown event handler property|is using uppercase HTML|Received `true` for a non-boolean attribute `accessible`|The tag.*is unrecognized in this browser|PascalCase)/;
-  // eslint-disable-next-line no-console
-  console.error = (message) => {
+  console.error = (message: string) => {
     if (message.match(suppressedErrors)) {
     }
   };
