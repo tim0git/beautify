@@ -1,8 +1,10 @@
 import * as React from 'react';
+// @ts-ignore
 import {colors} from './theme/global/styles';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+// @ts-ignore
 import {navigationRef} from './RootNavigation';
 import Landing_Container from './containers/Landing_Container';
 import Home_Container from './containers/Home_Container';
@@ -77,7 +79,7 @@ function TabStack() {
             Inbox: 'Inbox',
             Profile: 'Profile',
           };
-
+          // @ts-ignore
           return <IconRN name={icons[route.name]} color={color} size={size} />;
         },
       })}>
