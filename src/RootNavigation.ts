@@ -3,7 +3,7 @@ import {NavigationContainerRef} from '@react-navigation/native';
 
 const navigationRef = React.createRef<NavigationContainerRef>();
 
-export function navigate(name: string, params: object): void {
+export function navigate(name: string, params?: object): void {
   navigationRef.current?.navigate(name, params);
 }
 
