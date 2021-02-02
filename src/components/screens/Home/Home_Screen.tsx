@@ -3,14 +3,13 @@ import {View} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
 import Button from '../../atoms/Button/Button';
 import Default_Screen_Template from '../../templates/Default_Screen/Default_Screen_Template';
-
 export interface Props {
   navigation: {
     navigate: (path: string) => void;
   };
 }
 
-const Home_Screen: React.FC<Props> = (props) => {
+const Home_Screen: React.FC<Props> = ({navigation}) => {
   const {styles, config} = ThemeProvider('Home');
   const {screenTitle, backButton, showHeader, SearchBarButtonProps} = config;
 
@@ -23,7 +22,7 @@ const Home_Screen: React.FC<Props> = (props) => {
             disabled={false}
             testID="Home_SearchBarButton"
             onPress={() => {
-              props.navigation.navigate('Search_Screen');
+              navigation.navigate('Search_Screen');
             }}
           />
         </View>

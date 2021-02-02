@@ -93,10 +93,10 @@ function TabStack() {
 
 const Stack = createStackNavigator();
 
-export default function AppNavigationContainer(onboardingStatus: boolean) {
+export default function AppNavigationContainer() {
   return (
     <NavigationContainer ref={navigationRef}>
-      <Stack.Navigator headerMode="none" initialRouteName={onboardingStatus ? 'Home' : 'Onboarding'}>
+      <Stack.Navigator headerMode="none" initialRouteName="Home">
         <Stack.Screen name="Onboarding" component={Onboarding_Screen} />
         <Stack.Screen name="Home" component={TabStack} />
         <Stack.Screen name="Search_Screen" component={SearchStackScreen} />
