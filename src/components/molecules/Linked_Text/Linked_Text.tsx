@@ -30,7 +30,7 @@ const Linked_Text: React.FC<Props> = ({content, textToLink, testID, link, type})
     }
   };
 
-  const renderLinkedSentance = (sentance) => {
+  const renderLinkedSentance = (sentance: string) => {
     const sentancesWithLinkRemoved: Array<string> = sentance.split(textToLink);
     return (
       <React.Fragment key={sentance}>
@@ -49,7 +49,7 @@ const Linked_Text: React.FC<Props> = ({content, textToLink, testID, link, type})
     );
   };
 
-  const nonLinkedSentance = (sentance) => {
+  const nonLinkedSentance = (sentance: string) => {
     return (
       <Text style={style.textBeforeLink} key={sentance} testID="Linked_Text_Non_Linked_Sentance">
         {sentance + '.'}
