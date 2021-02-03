@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
 import {authentication} from '../Auth.state';
-import {user} from '../User.state';
+import {onboarding} from '../Onboarding.state';
 
-const appReducer = combineReducers({authentication, user});
+const appReducer = combineReducers({authentication, onboarding});
 
 const rootReducer = (state, action) => {
   return appReducer(state, action);
