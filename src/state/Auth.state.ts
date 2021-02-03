@@ -1,11 +1,10 @@
 /**
  * @name Auth state
- * @description Sets out the actions, reducder and saga of authenticating a user
+ * @description Sets out the actions, reducer and saga of authenticating a user
  */
 
 import {call, fork, put, take, takeEvery} from 'redux-saga/effects';
 import {getUserIDToken} from './Firebase.helpers';
-
 import rsf from './Redux/Redux-Saga-Firebase';
 
 /**

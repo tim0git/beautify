@@ -1,3 +1,4 @@
+/* eslint-disable dot-notation */
 import {createStore, applyMiddleware, compose} from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import reducers from './Reducers';
@@ -6,7 +7,7 @@ import {sagas} from './Sagas';
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware();
 
-// eslint-disable-next-line dot-notation
+//@ts-ignore
 const composeEnhancers = (window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'] as typeof compose) || compose;
 
 const store = createStore(reducers, /* preloadedState, */ composeEnhancers(applyMiddleware(sagaMiddleware)));
