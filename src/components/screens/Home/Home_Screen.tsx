@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
 import Button from '../../atoms/Button/Button';
@@ -7,11 +7,18 @@ export interface Props {
   navigation: {
     navigate: (path: string) => void;
   };
+  onboardingComplete: boolean;
 }
 
-const Home_Screen: React.FC<Props> = ({navigation}) => {
+const Home_Screen: React.FC<Props> = ({navigation, onboardingComplete}) => {
   const {styles, config} = ThemeProvider('Home');
   const {screenTitle, backButton, showHeader, SearchBarButtonProps} = config;
+
+  useEffect(() => {
+    if (!onboardingComplete) {
+      navigation.navigate('Onboarding');
+    }
+  });
 
   const renderHome = () => {
     return (
