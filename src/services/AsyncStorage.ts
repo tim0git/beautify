@@ -12,11 +12,11 @@ export const getData = async (storageKey: string) => {
   try {
     const value = await AsyncStorage.getItem(storageKey);
     if (value !== null) {
-      return value;
+      return !!value;
     }
     return null;
   } catch (e) {
-    Error(e);
+    return Error(`Error unable to get ${storageKey} from Async Storage`);
   }
 };
 

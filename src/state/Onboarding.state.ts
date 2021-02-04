@@ -3,14 +3,16 @@
  * @description Sets out the actions, reducer and saga of the onboarding state
  */
 
-import {call, fork, put} from 'redux-saga/effects';
+import {call, fork, put, takeEvery} from 'redux-saga/effects';
+import {clearAll, getData} from '../services/AsyncStorage';
 import {SIGN_OUT} from './Auth.state';
 
 /**
  * Actions
  */
-export const SET_ONBOARDING_STATE = 'SET_ONBOARDING_STATE';
-export const ONBOARDING_ERROR = 'ONBOARDING_ERROR';
+export const SET_ONBOARDING_COMPLETE = 'SET_ONBOARDING_COMPLETE';
+export const SET_ONBOARDING_ERROR = 'SET_ONBOARDING_ERROR';
+export const RESET_ONBOARDING = 'RESET_ONBOARDING';
 
 /**
  * Reducer
@@ -32,13 +34,13 @@ const initialState: onboardingState = {
 
 export const onboarding = (state = initialState, action: actionType) => {
   switch (action.type) {
-    case SET_ONBOARDING_STATE: {
+    case SET_ONBOARDING_COMPLETE: {
       return actionCreators.updateOnboardingComplete(state, action);
     }
-    case ONBOARDING_ERROR: {
+    case SET_ONBOARDING_ERROR: {
       return;
     }
-    case SIGN_OUT: {
+    case RESET_ONBOARDING: {
       return actionCreators.resetOnboardingState();
     }
     default:
@@ -76,12 +78,15 @@ export const actionCreators = {
  * Dispatch
  */
 export const updateOnboardingComplete = (onboardingComplete: boolean) => ({
-  type: SET_ONBOARDING_STATE,
+  type: SET_ONBOARDING_COMPLETE,
   onboardingComplete,
 });
 export const handleOnboardingError = (error: string) => ({
-  type: SET_ONBOARDING_STATE,
+  type: SET_ONBOARDING_ERROR,
   error,
+});
+export const resetOnboardingState = () => ({
+  type: RESET_ONBOARDING,
 });
 
 /**
@@ -89,9 +94,17 @@ export const handleOnboardingError = (error: string) => ({
  */
 export function* getOnboarding() {
   try {
-    const onboardingComplete = yield call(() => {});
-
+    const onboardingComplete = yield call(getData, 'onboardingComplete');
     yield put(updateOnboardingComplete(onboardingComplete));
+  } catch (error) {
+    yield put(handleOnboardingError(error));
+  }
+}
+
+export function* resetOnboarding() {
+  try {
+    yield call(clearAll);
+    yield put(resetOnboardingState());
   } catch (error) {
     yield put(handleOnboardingError(error));
   }
@@ -99,4 +112,5 @@ export function* getOnboarding() {
 
 export function* onboardingSaga() {
   yield fork(getOnboarding);
+  yield takeEvery(SIGN_OUT, resetOnboarding);
 }
