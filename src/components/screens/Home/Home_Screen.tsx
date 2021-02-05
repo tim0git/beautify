@@ -7,18 +7,18 @@ export interface Props {
   navigation: {
     navigate: (path: string) => void;
   };
-  onboardingComplete: boolean;
+  onboardingStatus: string;
 }
 
-const Home_Screen: React.FC<Props> = ({navigation, onboardingComplete}) => {
+const Home_Screen: React.FC<Props> = ({navigation, onboardingStatus}) => {
   const {styles, config} = ThemeProvider('Home');
   const {screenTitle, backButton, showHeader, SearchBarButtonProps} = config;
 
   useEffect(() => {
-    if (!onboardingComplete) {
+    if (onboardingStatus === 'incomplete') {
       navigation.navigate('Onboarding');
     }
-  });
+  }, [onboardingStatus, navigation]);
 
   const renderHome = () => {
     return (
@@ -36,6 +36,7 @@ const Home_Screen: React.FC<Props> = ({navigation, onboardingComplete}) => {
       </View>
     );
   };
+
   return (
     <Default_Screen_Template
       screenTitle={screenTitle}

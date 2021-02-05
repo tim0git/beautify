@@ -8,7 +8,7 @@ export interface Props {
   submitCode: (verificationCode: string) => void;
 }
 
-const Landing_Page: React.FC<Props> = ({loginIn, submitCode}) => {
+const Landing_Page: React.FC<Props> = ({loginIn, submitCode, navigation}) => {
   const {styles} = ThemeProvider('Landing');
   const {barStyle} = ThemeProvider('global').styles;
 
@@ -28,6 +28,7 @@ const Landing_Page: React.FC<Props> = ({loginIn, submitCode}) => {
             title="Submit code"
             onPress={() => {
               submitCode('654321');
+              navigation.navigate('Home');
             }}
           />
         </View>

@@ -4,44 +4,41 @@
  */
 
 import {call, fork, put, takeEvery} from 'redux-saga/effects';
-import {clearAll, getData} from '../services/AsyncStorage';
-import {SIGN_OUT} from './Auth.state';
+import {getOnboardingStatus, storeData} from '../services/AsyncStorage';
+import {LOGIN_SUCCESS, SIGN_OUT} from './Auth.state';
 
 /**
  * Actions
  */
-export const SET_ONBOARDING_COMPLETE = 'SET_ONBOARDING_COMPLETE';
+export const SET_ONBOARDING = 'SET_ONBOARDING';
+export const SET_ONBOARDING_SUCCESS = 'SET_ONBOARDING_SUCCESS';
 export const SET_ONBOARDING_ERROR = 'SET_ONBOARDING_ERROR';
-export const RESET_ONBOARDING = 'RESET_ONBOARDING';
 
 /**
  * Reducer
  */
 type onboardingState = {
-  onboardingComplete: boolean;
+  onboardingStatus: string | null | 'complete' | 'incomplete';
   error: null | string;
 };
 
 type actionType = {
   type: string;
-  onboardingComplete?: boolean;
+  onboardingStatus: string | 'complete' | 'incomplete';
 };
 
 const initialState: onboardingState = {
-  onboardingComplete: false,
+  onboardingStatus: null,
   error: null,
 };
 
 export const onboarding = (state = initialState, action: actionType) => {
   switch (action.type) {
-    case SET_ONBOARDING_COMPLETE: {
-      return actionCreators.updateOnboardingComplete(state, action);
+    case SET_ONBOARDING_SUCCESS: {
+      return actionCreators.updateOnboardingStatus(state, action);
     }
     case SET_ONBOARDING_ERROR: {
       return;
-    }
-    case RESET_ONBOARDING: {
-      return actionCreators.resetOnboardingState();
     }
     default:
       return actionCreators.default(state);
@@ -52,21 +49,16 @@ export const onboarding = (state = initialState, action: actionType) => {
  * ActionCreators
  */
 export const actionCreators = {
-  updateOnboardingComplete: (state: onboardingState, action: actionType) => {
+  updateOnboardingStatus: (state: onboardingState, action: actionType) => {
     return {
       ...state,
-      onboardingComplete: action.onboardingComplete,
+      onboardingStatus: action.onboardingStatus,
     };
   },
   handleOnboardingError: (state: onboardingState, error: string) => {
     return {
       ...state,
       error,
-    };
-  },
-  resetOnboardingState: () => {
-    return {
-      ...initialState,
     };
   },
   default: (state: onboardingState) => {
@@ -77,16 +69,13 @@ export const actionCreators = {
 /**
  * Dispatch
  */
-export const updateOnboardingComplete = (onboardingComplete: boolean) => ({
-  type: SET_ONBOARDING_COMPLETE,
-  onboardingComplete,
+export const updateOnboardingStatus = (onboardingStatus: string) => ({
+  type: SET_ONBOARDING_SUCCESS,
+  onboardingStatus,
 });
 export const handleOnboardingError = (error: string) => ({
   type: SET_ONBOARDING_ERROR,
   error,
-});
-export const resetOnboardingState = () => ({
-  type: RESET_ONBOARDING,
 });
 
 /**
@@ -94,17 +83,28 @@ export const resetOnboardingState = () => ({
  */
 export function* getOnboarding() {
   try {
-    const onboardingComplete = yield call(getData, 'onboardingComplete');
-    yield put(updateOnboardingComplete(onboardingComplete));
+    const onboardingStatus = yield call(getOnboardingStatus, 'onboardingStatus');
+    yield put(updateOnboardingStatus(onboardingStatus));
   } catch (error) {
     yield put(handleOnboardingError(error));
   }
 }
 
-export function* resetOnboarding() {
+export function* setOnboardingComplete() {
   try {
-    yield call(clearAll);
-    yield put(resetOnboardingState());
+    yield call(storeData, 'onboardingStatus', 'complete');
+
+    yield put(updateOnboardingStatus('complete'));
+  } catch (error) {
+    yield put(handleOnboardingError(error));
+  }
+}
+
+export function* setOnboardingIncomplete() {
+  try {
+    yield call(storeData, 'onboardingStatus', 'incomplete');
+
+    yield put(updateOnboardingStatus('incomplete'));
   } catch (error) {
     yield put(handleOnboardingError(error));
   }
@@ -112,5 +112,6 @@ export function* resetOnboarding() {
 
 export function* onboardingSaga() {
   yield fork(getOnboarding);
-  yield takeEvery(SIGN_OUT, resetOnboarding);
+  yield takeEvery(SIGN_OUT, setOnboardingIncomplete);
+  yield takeEvery(LOGIN_SUCCESS, setOnboardingComplete);
 }
