@@ -6,6 +6,7 @@ const defaultProps = {
   navigation: {
     navigate: jest.fn(),
   },
+  onboardingComplete: true,
 };
 
 describe('<Home_Screen>', () => {
