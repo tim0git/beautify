@@ -19,7 +19,7 @@ describe('<Home_Screen>', () => {
     });
   });
   describe('<Props>', () => {
-    test('Search Bar Button should recieve the following props', () => {
+    test('Search Bar Button should receive the following props', () => {
       const wrapper = mount(<Home_Screen {...defaultProps} />);
       const SearchBarButton = wrapper.findWhere((node) => node.prop('testID') === 'Home_SearchBarButton');
 
