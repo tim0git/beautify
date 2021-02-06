@@ -4,44 +4,59 @@
  */
 
 import {call, fork, put, takeEvery} from 'redux-saga/effects';
-import {getOnboardingStatus, storeData} from '../services/AsyncStorage';
+import {getData, clearAll, storeData} from '../services/AsyncStorage';
 import {LOGIN_SUCCESS, SIGN_OUT} from './Auth.state';
+
+/**
+ * Async key
+ */
+const asyncStoreKey = 'onboardingStatus';
+export const ONBOARDING_STATUS = {
+  complete: 'complete',
+  incomplete: 'incomplete',
+};
 
 /**
  * Actions
  */
-export const SET_ONBOARDING = 'SET_ONBOARDING';
-export const SET_ONBOARDING_SUCCESS = 'SET_ONBOARDING_SUCCESS';
+export const SET_ONBOARDING_STATUS = 'SET_ONBOARDING_SUCCESS';
 export const SET_ONBOARDING_ERROR = 'SET_ONBOARDING_ERROR';
+export const RESET_ONBOARDING_STATUS = 'RESET_ONBOARDING_STATUS';
 
 /**
  * Reducer
  */
 type onboardingState = {
-  onboardingStatus: string | null | 'complete' | 'incomplete';
+  loading: boolean;
   error: null | string;
+  onboardingStatus: string | null | 'complete' | 'incomplete';
 };
 
 type actionType = {
   type: string;
-  onboardingStatus: string | 'complete' | 'incomplete';
+  onboardingStatus?: string | 'complete' | 'incomplete';
+  error?: string;
 };
 
 const initialState: onboardingState = {
-  onboardingStatus: null,
+  loading: true,
   error: null,
+  onboardingStatus: null,
 };
 
 export const onboarding = (state = initialState, action: actionType) => {
   switch (action.type) {
-    case SET_ONBOARDING_SUCCESS: {
+    case SET_ONBOARDING_STATUS: {
       return actionCreators.updateOnboardingStatus(state, action);
     }
     case SET_ONBOARDING_ERROR: {
-      return;
+      return actionCreators.handleOnboardingError(state, action);
+    }
+    case RESET_ONBOARDING_STATUS: {
+      return actionCreators.resetOnboardingStatus(state);
     }
     default:
-      return actionCreators.default(state);
+      return state;
   }
 };
 
@@ -52,17 +67,23 @@ export const actionCreators = {
   updateOnboardingStatus: (state: onboardingState, action: actionType) => {
     return {
       ...state,
+      loading: false,
       onboardingStatus: action.onboardingStatus,
     };
   },
-  handleOnboardingError: (state: onboardingState, error: string) => {
+  handleOnboardingError: (state: onboardingState, action: actionType) => {
     return {
       ...state,
-      error,
+      loading: false,
+      error: action.error,
     };
   },
-  default: (state: onboardingState) => {
-    return state;
+  resetOnboardingStatus: (state: onboardingState) => {
+    return {
+      ...state,
+      loading: false,
+      onboardingStatus: 'incomplete',
+    };
   },
 };
 
@@ -70,12 +91,17 @@ export const actionCreators = {
  * Dispatch
  */
 export const updateOnboardingStatus = (onboardingStatus: string) => ({
-  type: SET_ONBOARDING_SUCCESS,
+  type: SET_ONBOARDING_STATUS,
   onboardingStatus,
 });
+
 export const handleOnboardingError = (error: string) => ({
   type: SET_ONBOARDING_ERROR,
   error,
+});
+
+export const resetOnboardingStatus = () => ({
+  type: RESET_ONBOARDING_STATUS,
 });
 
 /**
@@ -83,28 +109,33 @@ export const handleOnboardingError = (error: string) => ({
  */
 export function* getOnboarding() {
   try {
-    const onboardingStatus = yield call(getOnboardingStatus, 'onboardingStatus');
-    yield put(updateOnboardingStatus(onboardingStatus));
+    const onboardingStatus = yield call(getData, asyncStoreKey);
+
+    if (onboardingStatus === null) {
+      yield put(updateOnboardingStatus(ONBOARDING_STATUS.incomplete));
+    }
+
+    if (onboardingStatus !== null) {
+      yield put(updateOnboardingStatus(onboardingStatus));
+    }
   } catch (error) {
     yield put(handleOnboardingError(error));
   }
 }
 
-export function* setOnboardingComplete() {
+export function* resetOnboarding() {
   try {
-    yield call(storeData, 'onboardingStatus', 'complete');
-
-    yield put(updateOnboardingStatus('complete'));
+    yield call(clearAll);
+    yield put(resetOnboardingStatus());
   } catch (error) {
     yield put(handleOnboardingError(error));
   }
 }
 
-export function* setOnboardingIncomplete() {
+export function* loginSuccess() {
   try {
-    yield call(storeData, 'onboardingStatus', 'incomplete');
-
-    yield put(updateOnboardingStatus('incomplete'));
+    yield call(storeData, asyncStoreKey, ONBOARDING_STATUS.complete);
+    yield put(updateOnboardingStatus(ONBOARDING_STATUS.complete));
   } catch (error) {
     yield put(handleOnboardingError(error));
   }
@@ -112,6 +143,6 @@ export function* setOnboardingIncomplete() {
 
 export function* onboardingSaga() {
   yield fork(getOnboarding);
-  yield takeEvery(SIGN_OUT, setOnboardingIncomplete);
-  yield takeEvery(LOGIN_SUCCESS, setOnboardingComplete);
+  yield takeEvery(SIGN_OUT, resetOnboarding);
+  yield takeEvery(LOGIN_SUCCESS, loginSuccess);
 }

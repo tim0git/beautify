@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {View} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
+import {ONBOARDING_STATUS} from '../../../state/Onboarding.state';
 import Button from '../../atoms/Button/Button';
 import Default_Screen_Template from '../../templates/Default_Screen/Default_Screen_Template';
 export interface Props {
@@ -15,7 +16,7 @@ const Home_Screen: React.FC<Props> = ({navigation, onboardingStatus}) => {
   const {screenTitle, backButton, showHeader, SearchBarButtonProps} = config;
 
   useEffect(() => {
-    if (onboardingStatus === 'incomplete') {
+    if (onboardingStatus === ONBOARDING_STATUS.incomplete) {
       navigation.navigate('Onboarding');
     }
   }, [onboardingStatus, navigation]);

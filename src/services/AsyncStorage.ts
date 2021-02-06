@@ -16,16 +16,10 @@ export const clearAll = async () => {
   }
 };
 
-export const getOnboardingStatus = async (storageKey: string) => {
+export const getData = async (storageKey: string) => {
   try {
-    const value = await AsyncStorage.getItem(storageKey);
-
-    if (value !== null) {
-      return value; // 'complete'
-    }
-
-    return 'incomplete';
+    return await AsyncStorage.getItem(storageKey);
   } catch (e) {
-    return Error('Error unable to get onboardingStatus from Async Storage');
+    return Error(`Error unable to get ${storageKey} from Async Storage`);
   }
 };
