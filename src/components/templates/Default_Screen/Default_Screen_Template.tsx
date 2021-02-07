@@ -16,7 +16,7 @@ export interface Props {
   testID: string;
   isLoading?: boolean;
   showHeader?: boolean;
-  headerRHSButtonAction: () => void;
+  headerRHSButtonAction?: () => void;
 }
 
 const Default_Screen_Template: React.FC<Props> = ({
@@ -47,6 +47,7 @@ const Default_Screen_Template: React.FC<Props> = ({
           {showHeader && (
             <Header
               backButton={backButton}
+              nextButton={!!headerRHSButtonAction}
               headerText={screenTitle}
               type="Screen"
               testID="Default_Screen_Template_Screen_Header"
