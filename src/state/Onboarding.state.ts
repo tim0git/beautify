@@ -22,6 +22,7 @@ export const ONBOARDING_STATUS = {
 export const SET_ONBOARDING_STATUS = 'SET_ONBOARDING_SUCCESS';
 export const SET_ONBOARDING_ERROR = 'SET_ONBOARDING_ERROR';
 export const RESET_ONBOARDING_STATUS = 'RESET_ONBOARDING_STATUS';
+export const SKIP_ONBOARDING = 'SKIP_ONBOARDING';
 
 /**
  * Reducer
@@ -104,6 +105,10 @@ export const resetOnboardingStatus = () => ({
   type: RESET_ONBOARDING_STATUS,
 });
 
+export const skipOnboarding = () => ({
+  type: SKIP_ONBOARDING,
+});
+
 /**
  * Sagas
  */
@@ -132,7 +137,7 @@ export function* resetOnboarding() {
   }
 }
 
-export function* loginSuccess() {
+export function* updateOnboarding() {
   try {
     yield call(storeData, asyncStoreKey, ONBOARDING_STATUS.complete);
     yield put(updateOnboardingStatus(ONBOARDING_STATUS.complete));
@@ -144,5 +149,6 @@ export function* loginSuccess() {
 export function* onboardingSaga() {
   yield fork(getOnboarding);
   yield takeEvery(SIGN_OUT, resetOnboarding);
-  yield takeEvery(LOGIN_SUCCESS, loginSuccess);
+  yield takeEvery(LOGIN_SUCCESS, updateOnboarding);
+  yield takeEvery(SKIP_ONBOARDING, updateOnboarding);
 }
