@@ -16,6 +16,7 @@ export interface Props {
   testID: string;
   isLoading?: boolean;
   showHeader?: boolean;
+  headerRHSButtonAction: () => void;
 }
 
 const Default_Screen_Template: React.FC<Props> = ({
@@ -25,6 +26,7 @@ const Default_Screen_Template: React.FC<Props> = ({
   testID,
   isLoading,
   showHeader = true,
+  headerRHSButtonAction,
 }) => {
   const {style} = ThemeProvider('Default_Screen');
   const {barStyle} = ThemeProvider('global').styles;
@@ -48,6 +50,7 @@ const Default_Screen_Template: React.FC<Props> = ({
               headerText={screenTitle}
               type="Screen"
               testID="Default_Screen_Template_Screen_Header"
+              headerRHSButtonAction={headerRHSButtonAction}
             />
           )}
         </SafeAreaView>
