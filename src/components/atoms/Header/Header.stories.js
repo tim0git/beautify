@@ -22,6 +22,7 @@ const screenOnboardingProps = {
   headerText: '',
   type: 'Screen',
   nextButton: true,
+  headerRHSButtonAction: () => {},
 };
 
 storiesOf('Design System/Atoms/Header', module)

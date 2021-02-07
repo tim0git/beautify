@@ -19,7 +19,14 @@ export interface Props {
   testID?: string;
 }
 
-const Header: React.FC<Props> = ({headerText, testID, type, backButton = false, nextButton = false}) => {
+const Header: React.FC<Props> = ({
+  headerText,
+  testID,
+  type,
+  headerRHSButtonAction,
+  backButton = false,
+  nextButton = false,
+}) => {
   const {config, style} = ThemeProvider('Header');
 
   const {backButtonProps, skipButtonProps, screenHeaderTextProps} = config;
@@ -36,7 +43,7 @@ const Header: React.FC<Props> = ({headerText, testID, type, backButton = false, 
       </View>
       {nextButton && (
         <View style={style.skipButtonContainer}>
-          <Button {...skipButtonProps} onPress={() => {}} testID="Header_Next_Button" />
+          <Button {...skipButtonProps} onPress={headerRHSButtonAction} testID="Header_Next_Button" />
         </View>
       )}
     </View>

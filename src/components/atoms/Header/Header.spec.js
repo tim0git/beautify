@@ -21,6 +21,7 @@ const backButtonProps = {
 const nextButtonProps = {
   ...screenProps,
   nextButton: true,
+  headerRHSButtonAction: jest.fn(),
 };
 
 describe('<Header />', () => {
@@ -124,6 +125,16 @@ describe('<Header />', () => {
       shallow(<Header {...backButtonProps} />);
 
       expect(mockGoBack).not.toHaveBeenCalled();
+    });
+
+    test('should call headerRHSButtonAction when next button is pressed', () => {
+      const wrapper = shallow(<Header {...nextButtonProps} />);
+
+      const headerNextButton = wrapper.findWhere((node) => node.prop('testID') === 'Header_Next_Button');
+
+      headerNextButton.props().onPress();
+
+      expect(nextButtonProps.headerRHSButtonAction).toHaveBeenCalledTimes(1);
     });
   });
 });
