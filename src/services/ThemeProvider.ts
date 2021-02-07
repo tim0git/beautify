@@ -5,6 +5,7 @@ import * as TEST_COMPONENT from '../../__mocks__/Theme/mock_theme';
 import * as global from '../theme/global';
 
 // Atoms Import
+import * as Carousel_View from '../theme/components/atoms/Carousel_View';
 import * as Map_View from '../theme/components/atoms/Map_View';
 import * as Switch from '../theme/components/atoms/Switch';
 import * as Spinner from '../theme/components/atoms/Spinner';
@@ -14,6 +15,7 @@ import * as Icon from '../theme/components/atoms/Icon';
 import * as Header from '../theme/components/atoms/Header';
 
 const atoms = {
+  Carousel_View,
   Map_View,
   Switch,
   Spinner,
