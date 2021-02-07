@@ -58,7 +58,7 @@ const Carousel_View: React.FC<Props> = () => {
             width: 10,
             height: 10,
             borderRadius: 5,
-            marginHorizontal: 8,
+            marginHorizontal: 2,
             backgroundColor: 'grey',
           }}
           inactiveDotOpacity={0.4}
