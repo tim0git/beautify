@@ -19,9 +19,6 @@ const Home_Screen: React.FC<Props> = ({navigation, onboardingStatus}) => {
     if (onboardingStatus === ONBOARDING_STATUS.incomplete) {
       navigation.navigate('Onboarding');
     }
-    if (onboardingStatus === ONBOARDING_STATUS.complete) {
-      navigation.navigate('Home');
-    }
   }, [onboardingStatus, navigation]);
 
   const renderHome = () => {
