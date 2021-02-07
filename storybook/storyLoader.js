@@ -5,6 +5,7 @@
 
 function loadStories() {
   require('../src/components/atoms/Button/Button.stories');
+  require('../src/components/atoms/Carousel_View/Carousel_View.stories');
   require('../src/components/atoms/Header/Header.stories');
   require('../src/components/atoms/Icon/Icon.stories');
   require('../src/components/atoms/Map_View/Map_View.stories');
@@ -44,6 +45,7 @@ function loadStories() {
 
 const stories = [
   '../src/components/atoms/Button/Button.stories',
+  '../src/components/atoms/Carousel_View/Carousel_View.stories',
   '../src/components/atoms/Header/Header.stories',
   '../src/components/atoms/Icon/Icon.stories',
   '../src/components/atoms/Map_View/Map_View.stories',
