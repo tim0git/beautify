@@ -22,4 +22,13 @@ export const config = {
     accessibilityRole: 'button',
     disabled: false,
   },
+  skipButtonProps: {
+    title: 'Skip for now',
+    type: 'NoBorder',
+    accessible: true,
+    accessibilityLabel: 'TEST A11Y LABEL',
+    accessibilityHint: 'TEST A11Y HINT',
+    accessibilityRole: 'button',
+    disabled: false,
+  },
 };

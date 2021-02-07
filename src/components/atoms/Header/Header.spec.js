@@ -18,6 +18,11 @@ const backButtonProps = {
   backButton: true,
 };
 
+const nextButtonProps = {
+  ...screenProps,
+  nextButton: true,
+};
+
 describe('<Header />', () => {
   const {config} = ThemeProvider('Header');
 
@@ -66,6 +71,23 @@ describe('<Header />', () => {
 
       const headerBackButton = wrapper.findWhere((node) => node.prop('testID') === 'Header_Back_Button');
 
+      expect(headerBackButton).toExist();
+    });
+  });
+  describe('<Render> - Next button', () => {
+    test('should render a Screen Header Component', () => {
+      const wrapper = shallow(<Header {...nextButtonProps} />);
+      const ScreenHeader = wrapper.findWhere((node) => node.prop('testID') === 'TEST_SCREEN_HEADER');
+      expect(ScreenHeader).toExist();
+    });
+    test('should render a Text Component Component', () => {
+      const wrapper = shallow(<Header {...nextButtonProps} />);
+      const ScreenHeaderText = wrapper.findWhere((node) => node.prop('testID') === screenHeaderTextProps.testID);
+      expect(ScreenHeaderText).toExist();
+    });
+    test('should render a next button', () => {
+      const wrapper = shallow(<Header {...nextButtonProps} />);
+      const headerBackButton = wrapper.findWhere((node) => node.prop('testID') === 'Header_Next_Button');
       expect(headerBackButton).toExist();
     });
   });

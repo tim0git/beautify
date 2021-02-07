@@ -42,4 +42,8 @@ export const style = {
     paddingLeft: size.padding.xs,
     flex: 0.1,
   },
+  skipButtonContainer: {
+    paddingRight: size.padding.xs,
+    flex: 0.3,
+  },
 };

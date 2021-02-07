@@ -13,14 +13,15 @@ import * as RootNavigation from '../../../RootNavigation';
 export interface Props {
   headerText: string;
   type: string;
-  backButton: boolean;
+  backButton?: boolean;
+  nextButton?: boolean;
   testID?: string;
 }
 
-const Header: React.FC<Props> = ({headerText, testID, type, backButton = false}) => {
+const Header: React.FC<Props> = ({headerText, testID, type, backButton = false, nextButton = false}) => {
   const {config, style} = ThemeProvider('Header');
 
-  const {backButtonProps, screenHeaderTextProps} = config;
+  const {backButtonProps, skipButtonProps, screenHeaderTextProps} = config;
 
   return (
     <View style={style.container[type]} testID={testID || 'Header'}>
@@ -32,6 +33,11 @@ const Header: React.FC<Props> = ({headerText, testID, type, backButton = false})
       <View style={style.titleContainer[type][backButton]}>
         <Text content={headerText} {...screenHeaderTextProps[type]} />
       </View>
+      {nextButton && (
+        <View style={style.skipButtonContainer}>
+          <Button {...skipButtonProps} onPress={() => {}} testID="Header_Next_Button" />
+        </View>
+      )}
     </View>
   );
 };
