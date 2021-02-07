@@ -15,6 +15,7 @@ export interface Props {
   type: string;
   backButton?: boolean;
   nextButton?: boolean;
+  headerRHSButtonAction?: () => void;
   testID?: string;
 }
 
