@@ -13,9 +13,10 @@ export interface Props {
   navigation: {
     navigate: () => void;
   };
+  skipOnboarding: () => void;
 }
 
-const Onboarding_Screen: React.FC<Props> = ({navigation}) => {
+const Onboarding_Screen: React.FC<Props> = ({navigation, skipOnboarding}) => {
   const {config, style} = ThemeProvider('Onboarding');
   const {screenTitle, backButton} = config;
 
@@ -34,6 +35,7 @@ const Onboarding_Screen: React.FC<Props> = ({navigation}) => {
       testID="Onboarding_Default_Screen_Template"
       render={renderOnboarding()}
       backButton={backButton}
+      headerRHSButtonAction={skipOnboarding}
     />
   );
 };
