@@ -7,7 +7,9 @@ import {bindActionCreators, Dispatch} from 'redux';
 import Onboarding_Screen from '../components/screens/Onboarding/Onboarding_Screen';
 import {skipOnboarding} from '../state/Onboarding.state';
 
-const mapStateToProps = () => ({});
+const mapStateToProps = ({onboarding}) => ({
+  onboardingStatus: onboarding.onboardingStatus,
+});
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(

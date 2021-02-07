@@ -3,22 +3,30 @@
  * @description {description}
  *
  */
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View} from 'react-native';
 import Login_Cluster from '../../molecules/Login_Cluster/Login_Cluster';
 import {ThemeProvider} from '../../../services/ThemeProvider';
 import Default_Screen_Template from '../../templates/Default_Screen/Default_Screen_Template';
+import {ONBOARDING_STATUS} from '../../../state/Onboarding.state';
 
 export interface Props {
   navigation: {
-    navigate: () => void;
+    navigate: (path: string) => void;
   };
+  onboardingStatus: 'complete' | 'incomplete';
   skipOnboarding: () => void;
 }
 
-const Onboarding_Screen: React.FC<Props> = ({navigation, skipOnboarding}) => {
+const Onboarding_Screen: React.FC<Props> = ({navigation, onboardingStatus, skipOnboarding}) => {
   const {config, style} = ThemeProvider('Onboarding');
   const {screenTitle, backButton} = config;
+
+  useEffect(() => {
+    if (onboardingStatus === ONBOARDING_STATUS.complete) {
+      navigation.navigate('Home');
+    }
+  }, [onboardingStatus, navigation]);
 
   const renderOnboarding = () => {
     return (
@@ -29,6 +37,7 @@ const Onboarding_Screen: React.FC<Props> = ({navigation, skipOnboarding}) => {
       </View>
     );
   };
+
   return (
     <Default_Screen_Template
       screenTitle={screenTitle}
