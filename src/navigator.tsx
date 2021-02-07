@@ -6,13 +6,16 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 // @ts-ignore
 import {navigationRef} from './RootNavigation';
+import IconRN from './components/atoms/Icon/Icon';
+// Containers
 import Landing_Container from './containers/Landing_Container';
 import Home_Container from './containers/Home_Container';
 import Search_Container from './containers/Search_Container';
 import Bookings_Container from './containers/Bookings_Container';
 import Inbox_Container from './containers/Inbox_Container';
 import Profile_Container from './containers/Profile_Container';
-import IconRN from './components/atoms/Icon/Icon';
+import Onboarding_Screen from './containers/Onboarding_Container';
+// Screens
 import Profile_Notifications_Screen from './components/screens/Profile_Notifications/Profile_Notifications_Screen';
 import Profile_Marketing_Screen from './components/screens/Profile_Marketing/Profile_Marketing_Screen';
 import Profile_About_Beautify_Screen from './components/screens/Profile_About_Beautify/Profile_About_Beautify_Screen';
@@ -22,7 +25,6 @@ import Profile_Terms_Conditions_Screen from './components/screens/Profile_Terms_
 import Profile_Privacy_Policy_Screen from './components/screens/Profile_Privacy_Policy/Profile_Privacy_Policy_Screen';
 import Profile_Insurance_Screen from './components/screens/Profile_Insurance/Profile_Insurance_Screen';
 import Profile_Data_Policy_Screen from './components/screens/Profile_Data_Policy/Profile_Data_Policy_Screen';
-import Onboarding_Screen from './components/screens/Onboarding/Onboarding_Screen';
 
 const SearchStack = createStackNavigator();
 
