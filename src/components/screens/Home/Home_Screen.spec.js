@@ -38,9 +38,8 @@ describe('<Home_Screen>', () => {
   });
   describe('<Methods>', () => {
     beforeEach(() => {
-      jest.clearAllMocks;
+      jest.resetAllMocks();
     });
-
     test('should call navigate when Search Bar Button is pressed', () => {
       const wrapper = mount(<Home_Screen {...defaultProps} />);
 
@@ -52,6 +51,7 @@ describe('<Home_Screen>', () => {
 
       expect(defaultProps.navigation.navigate).toHaveBeenCalledTimes(1);
     });
+
     test('should call navigate with the string "Search_Screen"', () => {
       const wrapper = mount(<Home_Screen {...defaultProps} />);
 
