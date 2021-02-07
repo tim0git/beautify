@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 
-describe('<Guest >', () => {
+describe('<Guest />', () => {
   beforeAll(async () => {
     await device.launchApp();
   });
@@ -9,13 +9,14 @@ describe('<Guest >', () => {
     await device.reloadReactNative();
   });
 
-  describe.only('Guest - Onboarding', () => {
+  describe('Guest - Onboarding', () => {
     it('Should show onboarding screen', async () => {
       await expect(element(by.id('Onboarding_Default_Screen_Template'))).toBeVisible();
     });
 
-    it('Should show onboarding screen login cluster', async () => {
-      await expect(element(by.id('Onboarding_Screen_Login_Cluster'))).toBeVisible();
+    it('Should show Home screen after skipping onboarding', async () => {
+      await element(by.id('Header_Next_Button')).tap();
+      await expect(element(by.id('Home_SearchBarButton'))).toBeVisible();
     });
   });
 
@@ -31,14 +32,14 @@ describe('<Guest >', () => {
       await expect(element(by.text('Browse by category or by practitioner'))).toBeVisible();
     });
 
-    it('should show inbox screen after tap on inbox bottom tab bar icon', async () => {
-      await element(by.label('Inbox')).tap();
-      await expect(element(by.text('No messages yet.'))).toBeVisible();
-    });
-
     it('should show bookings screen after tap on bookings bottom tab bar icon', async () => {
       await element(by.label('Bookings')).tap();
       await expect(element(by.text('No Bookings made yet.'))).toBeVisible();
+    });
+
+    it('should show inbox screen after tap on inbox bottom tab bar icon', async () => {
+      await element(by.label('Inbox')).tap();
+      await expect(element(by.text('No messages yet.'))).toBeVisible();
     });
 
     it('should show guest profile screen after tap on profile bottom tab bar icon', async () => {
