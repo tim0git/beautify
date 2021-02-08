@@ -85,10 +85,10 @@ function TabStack() {
           return <IconRN name={icons[route.name]} color={color} size={size} />;
         },
       })}>
-      <Tab.Screen name="Search" component={Home_Container} />
-      <Tab.Screen name="Bookings" component={BookingsStackScreen} />
-      <Tab.Screen name="Inbox" component={MessagesStackScreen} />
-      <Tab.Screen name="Profile" component={ProfileStackScreen} />
+      <Tab.Screen name="Search" options={{tabBarTestID: 'TabBar_Search'}} component={Home_Container} />
+      <Tab.Screen name="Bookings" options={{tabBarTestID: 'TabBar_Bookings'}} component={BookingsStackScreen} />
+      <Tab.Screen name="Inbox" options={{tabBarTestID: 'TabBar_Inbox'}} component={MessagesStackScreen} />
+      <Tab.Screen name="Profile" options={{tabBarTestID: 'TabBar_Profile'}} component={ProfileStackScreen} />
     </Tab.Navigator>
   );
 }

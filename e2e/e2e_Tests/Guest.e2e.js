@@ -33,17 +33,17 @@ describe('<Guest />', () => {
     });
 
     it('should show bookings screen after tap on bookings bottom tab bar icon', async () => {
-      await element(by.label('Bookings')).tap();
+      await element(by.id('TabBar_Bookings')).tap();
       await expect(element(by.text('No Bookings made yet.'))).toBeVisible();
     });
 
     it('should show inbox screen after tap on inbox bottom tab bar icon', async () => {
-      await element(by.label('Inbox')).tap();
+      await element(by.id('TabBar_Inbox')).tap();
       await expect(element(by.text('No messages yet.'))).toBeVisible();
     });
 
     it('should show guest profile screen after tap on profile bottom tab bar icon', async () => {
-      await element(by.label('Profile')).tap();
+      await element(by.id('TabBar_Profile')).tap();
       await expect(
         element(
           by.text(
