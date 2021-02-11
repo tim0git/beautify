@@ -100,12 +100,6 @@
     "react-test-renderer": "16.13.1",
     "redux-saga-test-plan": "^4.0.1"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint --fix",
-      "pre-push": "npm test && npm run lint --fix"
-    }
-  },
   "jest": {
     "preset": "react-native",
     "setupFilesAfterEnv": [
