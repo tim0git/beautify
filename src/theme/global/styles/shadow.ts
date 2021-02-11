@@ -1,4 +1,4 @@
-export const shadows = {
+export const shadows: any = {
   box: {
     small: {
       borderRadius: 8,

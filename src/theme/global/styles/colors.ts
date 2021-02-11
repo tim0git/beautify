@@ -4,7 +4,7 @@ const COLORS = {
   greyMedium: '#696969',
   greyDark: '#545C71',
   greyToggle: '#989da9',
-  greytrack: '#edeef1',
+  greyTrack: '#edeef1',
   white: '#FFFFFF',
   offWhite: '#fafafb',
   pinkDark: '#ff6bb3',
@@ -14,7 +14,7 @@ const COLORS = {
   blueDark: '#19253f',
 };
 
-export const colors = {
+export const colors: any = {
   text: {
     instruction: COLORS.greyLight,
     primary: COLORS.blueDark,
@@ -37,7 +37,7 @@ export const colors = {
     primaryEnabled: COLORS.pinkDark,
     secondaryEnabled: COLORS.pinkLightest,
     primaryDisabled: COLORS.greyToggle,
-    secondaryDisabled: COLORS.greytrack,
+    secondaryDisabled: COLORS.greyTrack,
   },
   border: {
     black: COLORS.black,
@@ -48,5 +48,9 @@ export const colors = {
   },
   tabBar: {
     selected: COLORS.purpleDark,
+  },
+  carouselPagination: {
+    active: COLORS.black,
+    inactive: COLORS.greyMedium,
   },
 };

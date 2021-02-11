@@ -5,6 +5,7 @@ import * as TEST_COMPONENT from '../../__mocks__/Theme/mock_theme';
 import * as global from '../theme/global';
 
 // Atoms Import
+import * as Carousel_View from '../theme/components/atoms/Carousel_View';
 import * as Map_View from '../theme/components/atoms/Map_View';
 import * as Switch from '../theme/components/atoms/Switch';
 import * as Spinner from '../theme/components/atoms/Spinner';
@@ -14,6 +15,7 @@ import * as Icon from '../theme/components/atoms/Icon';
 import * as Header from '../theme/components/atoms/Header';
 
 const atoms = {
+  Carousel_View,
   Map_View,
   Switch,
   Spinner,
@@ -52,6 +54,7 @@ const organisms = {
 };
 
 // Screens Import
+import * as Onboarding from '../theme/components/screens/Onboarding';
 import * as Profile_Data_Policy from '../theme/components/screens/Profile_Data_Policy';
 import * as Profile_Insurance from '../theme/components/screens/Profile_Insurance';
 import * as Profile_Privacy_Policy from '../theme/components/screens/Profile_Privacy_Policy';
@@ -70,6 +73,7 @@ import * as Bookings from '../theme/components/screens/Bookings';
 import * as Profile from '../theme/components/screens/Profile';
 import * as Search from '../theme/components/screens/Search';
 const screens = {
+  Onboarding,
   Profile_Data_Policy,
   Profile_Insurance,
   Profile_Privacy_Policy,

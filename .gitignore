@@ -61,4 +61,6 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
+
+# beautify initial review
 docs/beautify_review.pdf

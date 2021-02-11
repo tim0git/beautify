@@ -6,6 +6,7 @@ const defaultProps = {
   navigation: {
     navigate: jest.fn(),
   },
+  onboardingStatus: 'complete',
 };
 
 describe('<Home_Screen>', () => {
@@ -18,7 +19,7 @@ describe('<Home_Screen>', () => {
     });
   });
   describe('<Props>', () => {
-    test('Search Bar Button should recieve the following props', () => {
+    test('Search Bar Button should receive the following props', () => {
       const wrapper = mount(<Home_Screen {...defaultProps} />);
       const SearchBarButton = wrapper.findWhere((node) => node.prop('testID') === 'Home_SearchBarButton');
 
@@ -37,9 +38,8 @@ describe('<Home_Screen>', () => {
   });
   describe('<Methods>', () => {
     beforeEach(() => {
-      jest.clearAllMocks;
+      jest.resetAllMocks();
     });
-
     test('should call navigate when Search Bar Button is pressed', () => {
       const wrapper = mount(<Home_Screen {...defaultProps} />);
 
@@ -51,6 +51,7 @@ describe('<Home_Screen>', () => {
 
       expect(defaultProps.navigation.navigate).toHaveBeenCalledTimes(1);
     });
+
     test('should call navigate with the string "Search_Screen"', () => {
       const wrapper = mount(<Home_Screen {...defaultProps} />);
 

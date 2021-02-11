@@ -161,7 +161,7 @@ export const PROFILE_USER_MY_PROFILE_SETTINGS_MENU: MenuListData = {
 };
 
 export const NOTIFICATIONS_BOOKINGS_MENU: MenuListData = {
-  testID: 'Notificatons_Bookings_Menu',
+  testID: 'Notifications_Bookings_Menu',
   headerText: 'Booking notifications',
   DATA: [
     {
@@ -183,7 +183,7 @@ export const NOTIFICATIONS_BOOKINGS_MENU: MenuListData = {
 };
 
 export const NOTIFICATIONS_PAYMENT_MENU: MenuListData = {
-  testID: 'Notificatons_Payment_Menu',
+  testID: 'Notifications_Payment_Menu',
   headerText: 'Payment notifications',
   DATA: [
     {
@@ -205,7 +205,7 @@ export const NOTIFICATIONS_PAYMENT_MENU: MenuListData = {
 };
 
 export const NOTIFICATIONS_GENERAL_MENU: MenuListData = {
-  testID: 'Notificatons_General_Menu',
+  testID: 'Notifications_General_Menu',
   headerText: 'General push',
   DATA: [
     {

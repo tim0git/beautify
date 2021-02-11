@@ -1,4 +1,4 @@
-export const typography = {
+export const typography: any = {
   instruction: {
     alignSelf: 'center',
     fontWeight: 'bold',

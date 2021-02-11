@@ -25,7 +25,7 @@ export const SIGN_OUT_SUCCESS = 'SIGN_OUT_SUCCESS';
  */
 const initialState = {
   loading: false,
-  errorCode: null,
+  error: null,
   isLoggedIn: false,
   authToken: null,
   user: null,
@@ -89,12 +89,12 @@ export const actionCreators = {
       isLoggedIn: true,
     };
   },
-  loginInFail: (state: any, action: {errorCode: any}) => {
+  loginInFail: (state: any, action: {error: any}) => {
     return {
       ...state,
       loading: false,
       isLoggedIn: false,
-      errorCode: action.errorCode,
+      error: action.error,
     };
   },
   signOut: (state: any) => {
@@ -106,11 +106,11 @@ export const actionCreators = {
   signOutSuccess: () => {
     return initialState;
   },
-  signOutFail: (state: any, action: {errorCode: any}) => {
+  signOutFail: (state: any, action: {error: any}) => {
     return {
       ...state,
       loading: false,
-      errorCode: action.errorCode,
+      error: action.error,
     };
   },
 };
@@ -133,9 +133,9 @@ export const loginSuccess = () => ({
   type: LOGIN_SUCCESS,
 });
 
-export const loginFailure = (errorCode: string) => ({
+export const loginFailure = (error: string) => ({
   type: LOGIN_FAIL,
-  errorCode,
+  error,
 });
 
 export const submitCode = (verificationCode: string) => ({
@@ -151,9 +151,9 @@ export const signOutSuccess = () => ({
   type: SIGN_OUT_SUCCESS,
 });
 
-export const signOutFailure = (errorCode: any) => ({
+export const signOutFailure = (error: any) => ({
   type: SIGN_OUT_FAIL,
-  errorCode,
+  error,
 });
 
 /**

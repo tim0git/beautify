@@ -46,25 +46,25 @@ describe('<Menu_Mapper />', () => {
       const profileUserMenu = wrapper.findWhere((node) => node.prop('testID') === 'Profile_User_Menu');
       expect(profileUserMenu).toExist();
     });
-    test('should render notificatons bookings menu', () => {
+    test('should render notifications bookings menu', () => {
       const wrapper = mount(<Menu_Mapper {...bookingProps} />);
-      const notificatonsBookingsMenu = wrapper.findWhere(
-        (node) => node.prop('testID') === 'Notificatons_Bookings_Menu',
+      const notificationsBookingsMenu = wrapper.findWhere(
+        (node) => node.prop('testID') === 'Notifications_Bookings_Menu',
       );
-      expect(notificatonsBookingsMenu).toExist();
+      expect(notificationsBookingsMenu).toExist();
     });
   });
   describe('<Props>', () => {
-    test('should pass onValueChange and notificatonSettings as a prop to Menu_List when they are declared', () => {
+    test('should pass onValueChange and notificationSettings as a prop to Menu_List when they are declared', () => {
       const wrapper = mount(<Menu_Mapper {...bookingProps} />);
-      const notificatonsBookingsMenu = wrapper.findWhere(
-        (node) => node.prop('testID') === 'Notificatons_Bookings_Menu',
+      const notificationsBookingsMenu = wrapper.findWhere(
+        (node) => node.prop('testID') === 'Notifications_Bookings_Menu',
       );
 
-      const notificatonsBookingsMenuProps = notificatonsBookingsMenu.first().props();
+      const notificationsBookingsMenuProps = notificationsBookingsMenu.first().props();
 
-      expect(notificatonsBookingsMenuProps).toHaveProperty('onValueChange', bookingProps.onValueChange);
-      expect(notificatonsBookingsMenuProps).toHaveProperty('switchState', bookingProps.switchState);
+      expect(notificationsBookingsMenuProps).toHaveProperty('onValueChange', bookingProps.onValueChange);
+      expect(notificationsBookingsMenuProps).toHaveProperty('switchState', bookingProps.switchState);
     });
   });
 });

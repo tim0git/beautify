@@ -1,18 +1,25 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
+import {ONBOARDING_STATUS} from '../../../state/Onboarding.state';
 import Button from '../../atoms/Button/Button';
 import Default_Screen_Template from '../../templates/Default_Screen/Default_Screen_Template';
-
 export interface Props {
   navigation: {
     navigate: (path: string) => void;
   };
+  onboardingStatus: string;
 }
 
-const Home_Screen: React.FC<Props> = (props) => {
+const Home_Screen: React.FC<Props> = ({navigation, onboardingStatus}) => {
   const {styles, config} = ThemeProvider('Home');
   const {screenTitle, backButton, showHeader, SearchBarButtonProps} = config;
+
+  useEffect(() => {
+    if (onboardingStatus === ONBOARDING_STATUS.incomplete) {
+      navigation.navigate('Onboarding');
+    }
+  }, [onboardingStatus, navigation]);
 
   const renderHome = () => {
     return (
@@ -23,13 +30,14 @@ const Home_Screen: React.FC<Props> = (props) => {
             disabled={false}
             testID="Home_SearchBarButton"
             onPress={() => {
-              props.navigation.navigate('Search_Screen');
+              navigation.navigate('Search_Screen');
             }}
           />
         </View>
       </View>
     );
   };
+
   return (
     <Default_Screen_Template
       screenTitle={screenTitle}

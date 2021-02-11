@@ -18,13 +18,13 @@ import {
 describe('<Action Creators>', () => {
   const initialState = {
     loading: false,
-    errorCode: null,
+    error: null,
     isLoggedIn: false,
   };
 
   const subscribedState = {
     loading: false,
-    errorCode: null,
+    error: null,
     isLoggedIn: false,
   };
 
@@ -32,7 +32,7 @@ describe('<Action Creators>', () => {
     it('Return an object', () => {
       const state = actionCreators.default(initialState);
       expect(state).toHaveProperty('loading', false);
-      expect(state).toHaveProperty('errorCode', null);
+      expect(state).toHaveProperty('error', null);
       expect(state).toHaveProperty('isLoggedIn', false);
     });
   });
@@ -41,17 +41,17 @@ describe('<Action Creators>', () => {
     it('Return an object', () => {
       const state = actionCreators.loginIn(subscribedState);
       expect(state).toHaveProperty('loading', true);
-      expect(state).toHaveProperty('errorCode', null);
+      expect(state).toHaveProperty('error', null);
       expect(state).toHaveProperty('isLoggedIn', false);
     });
   });
 
   describe('Auth state - loginInFail', () => {
     it('Return an object', () => {
-      const action = {errorCode: 'LOGIN_TEST_ERROR_CODE'};
+      const action = {error: 'LOGIN_TEST_ERROR_CODE'};
       const state = actionCreators.loginInFail(subscribedState, action);
       expect(state).toHaveProperty('loading', false);
-      expect(state).toHaveProperty('errorCode', action.errorCode);
+      expect(state).toHaveProperty('error', action.error);
       expect(state).toHaveProperty('isLoggedIn', false);
     });
   });
@@ -60,7 +60,7 @@ describe('<Action Creators>', () => {
     it('Return an object', () => {
       const state = actionCreators.loginInSuccess(subscribedState);
       expect(state).toHaveProperty('loading', false);
-      expect(state).toHaveProperty('errorCode', null);
+      expect(state).toHaveProperty('error', null);
       expect(state).toHaveProperty('isLoggedIn', true);
     });
   });
@@ -112,12 +112,12 @@ describe('<Dispatch Actions>', () => {
   });
 
   describe('loginFailure', () => {
-    it('should dispatch LOGIN_FAIL with the errorCode passed as an augument', () => {
-      const errorCode = 'MOCK_CODE';
-      const dispatch = loginFailure(errorCode);
+    it('should dispatch LOGIN_FAIL with the errorCode passed as an argument', () => {
+      const error = 'MOCK_CODE';
+      const dispatch = loginFailure(error);
       expect(dispatch).toEqual({
         type: LOGIN_FAIL,
-        errorCode,
+        error,
       });
     });
   });

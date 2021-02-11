@@ -1,16 +1,21 @@
 import * as React from 'react';
+// @ts-ignore
 import {colors} from './theme/global/styles';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+// @ts-ignore
 import {navigationRef} from './RootNavigation';
+import IconRN from './components/atoms/Icon/Icon';
+// Containers
 import Landing_Container from './containers/Landing_Container';
 import Home_Container from './containers/Home_Container';
 import Search_Container from './containers/Search_Container';
 import Bookings_Container from './containers/Bookings_Container';
 import Inbox_Container from './containers/Inbox_Container';
 import Profile_Container from './containers/Profile_Container';
-import IconRN from './components/atoms/Icon/Icon';
+import Onboarding_Screen from './containers/Onboarding_Container';
+// Screens
 import Profile_Notifications_Screen from './components/screens/Profile_Notifications/Profile_Notifications_Screen';
 import Profile_Marketing_Screen from './components/screens/Profile_Marketing/Profile_Marketing_Screen';
 import Profile_About_Beautify_Screen from './components/screens/Profile_About_Beautify/Profile_About_Beautify_Screen';
@@ -76,14 +81,30 @@ function TabStack() {
             Inbox: 'Inbox',
             Profile: 'Profile',
           };
-
+          // @ts-ignore
           return <IconRN name={icons[route.name]} color={color} size={size} />;
         },
       })}>
-      <Tab.Screen name="Search" component={Home_Container} />
-      <Tab.Screen name="Bookings" component={BookingsStackScreen} />
-      <Tab.Screen name="Inbox" component={MessagesStackScreen} />
-      <Tab.Screen name="Profile" component={ProfileStackScreen} />
+      <Tab.Screen
+        name="Search"
+        options={{tabBarTestID: 'TabBar_Search', tabBarAccessibilityLabel: 'Search Screen'}}
+        component={Home_Container}
+      />
+      <Tab.Screen
+        name="Bookings"
+        options={{tabBarTestID: 'TabBar_Bookings', tabBarAccessibilityLabel: 'Bookings Screen'}}
+        component={BookingsStackScreen}
+      />
+      <Tab.Screen
+        name="Inbox"
+        options={{tabBarTestID: 'TabBar_Inbox', tabBarAccessibilityLabel: 'Inbox Screen'}}
+        component={MessagesStackScreen}
+      />
+      <Tab.Screen
+        name="Profile"
+        options={{tabBarTestID: 'TabBar_Profile', tabBarAccessibilityLabel: 'Profile Screen'}}
+        component={ProfileStackScreen}
+      />
     </Tab.Navigator>
   );
 }
@@ -93,7 +114,8 @@ const Stack = createStackNavigator();
 export default function AppNavigationContainer() {
   return (
     <NavigationContainer ref={navigationRef}>
-      <Stack.Navigator initialRouteName="Home" headerMode="none">
+      <Stack.Navigator headerMode="none" initialRouteName="Home">
+        <Stack.Screen name="Onboarding" component={Onboarding_Screen} />
         <Stack.Screen name="Home" component={TabStack} />
         <Stack.Screen name="Search_Screen" component={SearchStackScreen} />
         <Stack.Screen name="Login_Screen" component={Landing_Container} />

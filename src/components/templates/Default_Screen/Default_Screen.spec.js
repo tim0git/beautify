@@ -45,7 +45,7 @@ describe('<Default_Screen />', () => {
 
       expect(Loading).toExist();
     });
-    test('should NOT render content wehn isLoading is true', () => {
+    test('should NOT render content when isLoading is true', () => {
       const wrapper = shallow(<Default_Screen_Template {...defaultProps} />);
 
       const TemplateContent = wrapper.findWhere((node) => node.prop('testID') === 'Default_Screen_Template_Content');
@@ -65,6 +65,18 @@ describe('<Default_Screen />', () => {
       const header = wrapper.findWhere((node) => node.prop('testID') === 'Default_Screen_Template_Screen_Header');
 
       expect(header).not.toExist();
+    });
+  });
+  describe('<Props>', () => {
+    test('should pass headerRHSButtonAction prop to Header component', () => {
+      const mockHeaderRHSButtonAction = jest.fn();
+      const wrapper = shallow(
+        <Default_Screen_Template {...defaultProps} headerRHSButtonAction={mockHeaderRHSButtonAction} />,
+      );
+      const header = wrapper.findWhere((node) => node.prop('testID') === 'Default_Screen_Template_Screen_Header');
+
+      const headerProps = header.props();
+      expect(headerProps).toHaveProperty('headerRHSButtonAction', mockHeaderRHSButtonAction);
     });
   });
 });
