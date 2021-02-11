@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.3.7",
+    "@react-native-async-storage/async-storage": "^1.13.4",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-native-firebase/app": "^10.6.3",
     "@react-native-firebase/auth": "^10.6.3",
@@ -40,6 +41,7 @@
     "@react-navigation/native": "^5.9.2",
     "@react-navigation/stack": "^5.14.2",
     "@twilio/conversations": "^1.1.0",
+    "@types/react-native-snap-carousel": "^3.8.2",
     "graphql": "^15.5.0",
     "moment": "^2.29.1",
     "react": "16.13.1",
@@ -52,6 +54,7 @@
     "react-native-reanimated": "^1.13.2",
     "react-native-safe-area-context": "^3.1.9",
     "react-native-screens": "^2.17.1",
+    "react-native-snap-carousel": "^3.9.1",
     "react-native-vector-icons": "^8.0.0",
     "react-native-webview": "^11.2.1",
     "react-redux": "^7.2.2",
