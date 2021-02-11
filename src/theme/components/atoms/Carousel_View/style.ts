@@ -1,10 +1,8 @@
-import {size} from '../../../global/styles';
+import {size, colors} from '../../../global/styles';
 export const style = {
   container: {
     flex: 1,
     alignSelf: 'stretch',
-    padding: 0,
-    margin: 0,
   },
   carouselContainer: {
     flex: 1,
@@ -19,15 +17,15 @@ export const style = {
     width: 20,
     height: 10,
     borderRadius: 5,
-    marginHorizontal: 1,
-    backgroundColor: 'black',
+    marginHorizontal: size.margin.xxs,
+    backgroundColor: colors.carouselPagination.active,
   },
   inactiveDotStyle: {
     width: 10,
     height: 10,
     borderRadius: 5,
-    marginHorizontal: 2,
-    backgroundColor: 'grey',
+    marginHorizontal: size.margin.xxs,
+    backgroundColor: colors.carouselPagination.inactive,
   },
   inactiveDotOpacity: 0.4,
   inactiveDotScale: 0.8,
