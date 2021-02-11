@@ -14,7 +14,7 @@ const COLORS = {
   blueDark: '#19253f',
 };
 
-export const colors = {
+export const colors: any = {
   text: {
     instruction: COLORS.greyLight,
     primary: COLORS.blueDark,
