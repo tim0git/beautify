@@ -15,11 +15,20 @@ export const style = {
     flex: 1,
     alignSelf: 'stretch',
   },
-  renderedText: {
-    alignSelf: 'stretch',
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+  dotStyle: {
+    width: 20,
+    height: 10,
+    borderRadius: 5,
+    marginHorizontal: 1,
+    backgroundColor: 'black',
+  },
+  inactiveDotStyle: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    marginHorizontal: 2,
     backgroundColor: 'grey',
   },
+  inactiveDotOpacity: 0.4,
+  inactiveDotScale: 0.8,
 };
