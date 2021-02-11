@@ -10,7 +10,7 @@
     "test": "jest",
     "test-openHandles": "jest --detectOpenHandles",
     "detox-test-r": "detox test --reuse",
-    "lint": "eslint ./src",
+    "lint": "eslint .",
     "storybook": "start-storybook -p 7007",
     "build-storybook": "build-storybook",
     "android-device-name": "adb -s emulator-5554 emu avd name",
