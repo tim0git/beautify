@@ -48,7 +48,7 @@
     "react-moment": "^1.1.1",
     "react-native": "0.63.4",
     "react-native-calendars": "^1.1249.0",
-    "react-native-gesture-handler": "^1.9.0",
+    "react-native-gesture-handler": "^1.10.0",
     "react-native-get-random-values": "^1.5.1",
     "react-native-maps": "0.27.1",
     "react-native-reanimated": "^1.13.2",
