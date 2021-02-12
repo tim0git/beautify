@@ -32,7 +32,7 @@
     "list-ios-devices": "xcrun simctl list devices"
   },
   "dependencies": {
-    "@apollo/client": "^3.3.7",
+    "@apollo/client": "^3.3.9",
     "@react-native-async-storage/async-storage": "^1.13.4",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-native-firebase/app": "^10.6.3",
