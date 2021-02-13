@@ -9,6 +9,7 @@ import Login_Cluster from '../../molecules/Login_Cluster/Login_Cluster';
 import {ThemeProvider} from '../../../services/ThemeProvider';
 import Default_Screen_Template from '../../templates/Default_Screen/Default_Screen_Template';
 import {ONBOARDING_STATUS} from '../../../state/Onboarding.state';
+import Carousel_View from '../../atoms/Carousel_View/Carousel_View';
 
 export interface Props {
   navigation: {
@@ -31,6 +32,9 @@ const Onboarding_Screen: React.FC<Props> = ({navigation, onboardingStatus, skipO
   const renderOnboarding = () => {
     return (
       <View style={style.container}>
+        <View style={style.carouselContainer}>
+          <Carousel_View carouselData={[{}, {}, {}]} carouselComponent={() => null} showPagination={true} />
+        </View>
         <View style={style.loginClusterContainer}>
           <Login_Cluster navigation={navigation} testID="Onboarding_Screen_Login_Cluster" />
         </View>

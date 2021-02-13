@@ -11,4 +11,7 @@ export const style = {
     paddingBottom: size.padding.xlg,
     backgroundColor: colors.background.menuHeader,
   },
+  carouselContainer: {
+    flexGrow: 1,
+  },
 };
