@@ -40,7 +40,7 @@ export const getDisabledDaysIndexes = () => {
   return [2, 6];
 };
 
-export const formatXDateToString = (date: String, expectedFormat: string): String => {
+export const formatXDateToString = (date: XDate, expectedFormat: string): string => {
   if (!date || !expectedFormat) {
     return '';
   }

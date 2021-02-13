@@ -21,12 +21,12 @@ describe('<Calendar />', () => {
     });
   });
   describe('<Props> -Calendar', () => {
-    test('should recieve a testID if one is passed as a prop', () => {
+    test('should receive a testID if one is passed as a prop', () => {
       const wrapper = shallow(<Calendar {...testIdProps} />);
       const calendar = wrapper.findWhere((node) => node.prop('testID') === testIdProps.testID);
       expect(calendar).toExist();
     });
-    test('should recieve the following method props', () => {
+    test('should receive the following method props', () => {
       const wrapper = shallow(<Calendar {...defaultProps} />);
       const calendar = wrapper.findWhere((node) => node.prop('testID') === 'Calendar');
       const calendarProps = calendar.props();
@@ -42,7 +42,7 @@ describe('<Calendar />', () => {
       expect(calendarProps).toHaveProperty('markedDates');
       expect(calendarProps).toHaveProperty('disabledDaysIndexes');
     });
-    test('should recieve the following style props', () => {
+    test('should receive the following style props', () => {
       const wrapper = shallow(<Calendar {...defaultProps} />);
       const calendar = wrapper.findWhere((node) => node.prop('testID') === 'Calendar');
       const calendarProps = calendar.props();
@@ -50,7 +50,7 @@ describe('<Calendar />', () => {
       expect(calendarProps).toHaveProperty('theme');
       expect(calendarProps).toHaveProperty('style');
     });
-    test('should recieve the following config props', () => {
+    test('should receive the following config props', () => {
       const wrapper = shallow(<Calendar {...defaultProps} />);
       const calendar = wrapper.findWhere((node) => node.prop('testID') === 'Calendar');
       const calendarProps = calendar.props();
@@ -140,7 +140,7 @@ describe('<Calendar />', () => {
 
       expect(setState).toHaveBeenCalledTimes(1);
     });
-    test('should call setShowBackArrow with false when date passed in is equal to the month date of the currect calendar.', () => {
+    test('should call setShowBackArrow with false when date passed in is equal to the month date of the current calendar.', () => {
       /**
        * Mock useState hook
        */
@@ -166,7 +166,7 @@ describe('<Calendar />', () => {
       expect(setState).toHaveBeenCalledWith(false);
       MockDate.reset();
     });
-    test('should call setShowBackArrow with true when date passed in is NOT equal to the month date of the currect calendar.', () => {
+    test('should call setShowBackArrow with true when date passed in is NOT equal to the month date of the current calendar.', () => {
       /**
        * Mock useState hook
        */
