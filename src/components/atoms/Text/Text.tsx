@@ -9,7 +9,7 @@ import {ThemeProvider} from '../../../services/ThemeProvider';
 
 export interface Props {
   content: string;
-  type: string;
+  type: 'TitleLarge' | 'Splash' | 'MenuTitle' | 'Title' | 'Caption' | 'Body' | 'Instruction';
   testID: string;
 }
 
