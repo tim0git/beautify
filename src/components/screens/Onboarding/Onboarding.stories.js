@@ -11,6 +11,6 @@ const defaultProps = {
   skipOnboarding: () => {},
 };
 
-storiesOf('Onboarding', module)
+storiesOf('Design System/Screens/Onboarding', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Onboarding_Default', () => <Onboarding_Screen {...defaultProps} />);
