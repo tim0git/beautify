@@ -3,14 +3,14 @@ export const style = {
   container: {
     flexGrow: 1,
     alignSelf: 'stretch',
-    paddingHorizontal: size.padding.xxlg,
+    paddingHorizontal: size.padding.xlg,
   },
   titleContainer: {
-    paddingVertical: size.padding.xxlg,
+    paddingVertical: size.padding.xlg,
   },
   bodyContainer: {},
   imageContainer: {
     flex: 1,
-    paddingVertical: size.padding.lg,
+    paddingTop: size.padding.lg,
   },
 };

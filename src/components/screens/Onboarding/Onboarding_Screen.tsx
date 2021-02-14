@@ -10,6 +10,7 @@ import {ThemeProvider} from '../../../services/ThemeProvider';
 import Default_Screen_Template from '../../templates/Default_Screen/Default_Screen_Template';
 import {ONBOARDING_STATUS} from '../../../state/Onboarding.state';
 import Carousel_View from '../../atoms/Carousel_View/Carousel_View';
+import Onboarding_Card from '../../organisms/Onboarding_Card/Onboarding_Card';
 
 export interface Props {
   navigation: {
@@ -21,6 +22,7 @@ export interface Props {
 
 const Onboarding_Screen: React.FC<Props> = ({navigation, onboardingStatus, skipOnboarding}) => {
   const {config, style} = ThemeProvider('Onboarding');
+  const {ONBOARDING} = ThemeProvider('global').config;
   const {screenTitle, backButton} = config;
 
   useEffect(() => {
@@ -33,7 +35,12 @@ const Onboarding_Screen: React.FC<Props> = ({navigation, onboardingStatus, skipO
     return (
       <View style={style.container}>
         <View style={style.carouselContainer}>
-          <Carousel_View carouselData={[{}, {}, {}]} carouselComponent={() => null} showPagination={true} />
+          <Carousel_View
+            carouselData={ONBOARDING}
+            carouselComponent={Onboarding_Card}
+            showPagination={true}
+            testID="Onboarding_Carousel"
+          />
         </View>
         <View style={style.loginClusterContainer}>
           <Login_Cluster navigation={navigation} testID="Onboarding_Screen_Login_Cluster" />
