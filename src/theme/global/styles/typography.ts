@@ -18,6 +18,7 @@ export const typography: any = {
   },
   title: {
     alignSelf: 'center',
+    textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 18,
   },
