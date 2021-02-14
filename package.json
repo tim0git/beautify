@@ -109,6 +109,7 @@
   },
   "jest": {
     "preset": "react-native",
+    "testEnvironment": "jsdom",
     "setupFilesAfterEnv": [
       "./src/setupTests.ts"
     ]
