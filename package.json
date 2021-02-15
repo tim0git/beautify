@@ -29,7 +29,8 @@
     "e2e:ios-release": "npm run build:ios-release && npm run test:ios-release",
     "e2e:android-debug": "npm run build:android-debug && npm run test:android-debug",
     "e2e:android-release": "npm run build:android-release && npm run test:android-release",
-    "list-ios-devices": "xcrun simctl list devices"
+    "list-ios-devices": "xcrun simctl list devices",
+    "get-android-dev-keys": "keytool -list -v -keystore android/app/debug.keystore -alias androiddebugkey -storepass android -keypass android"
   },
   "dependencies": {
     "@apollo/client": "^3.3.7",
