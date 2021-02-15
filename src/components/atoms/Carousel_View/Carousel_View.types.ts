@@ -17,4 +17,4 @@ export type Item = {
   item: OnboardingCard;
 };
 
-export type CarouselComponent = (item: any) => React.Component | null;
+export type CarouselComponent = React.FC<any>;

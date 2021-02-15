@@ -46,9 +46,11 @@ const molecules = {
 };
 
 // Organisms Import
+import * as Onboarding_Card from '../theme/components/organisms/Onboarding_Card';
 import * as Menu_Mapper from '../theme/components/organisms/Menu_Mapper';
 import * as Guest_Welcome from '../theme/components/organisms/Guest_Welcome';
 const organisms = {
+  Onboarding_Card,
   Menu_Mapper,
   Guest_Welcome,
 };

@@ -9,7 +9,7 @@ const defaultProps = {
   carouselComponent: () => null,
 };
 
-storiesOf('Carousel_View', module)
+storiesOf('Design System/Atoms/Carousel_View', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Carousel_View_Default', () => <Carousel_View {...defaultProps} />)
   .add('Carousel_Hide_Pagination', () => <Carousel_View {...defaultProps} showPagination={false} />);

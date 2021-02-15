@@ -18,14 +18,14 @@ describe('<Map_View />', () => {
       const webView = wrapper.findWhere((node) => node.prop('testID') === 'Map_View');
       expect(webView).toExist();
     });
-    test('should render a Map View wehn a location has not been passed', () => {
+    test('should render a Map View when a location has not been passed', () => {
       const wrapper = shallow(<Map_View />);
       const webView = wrapper.findWhere((node) => node.prop('testID') === 'Map_View');
       expect(webView).toExist();
     });
   });
   describe('<Props>', () => {
-    test('should revieve the following props', () => {
+    test('should receive the following props', () => {
       const wrapper = shallow(<Map_View {...defaultProps} />);
       const webView = wrapper.findWhere((node) => node.prop('testID') === 'Map_View');
       const webViewProps = webView.props();

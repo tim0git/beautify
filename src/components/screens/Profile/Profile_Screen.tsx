@@ -1,7 +1,6 @@
 import React from 'react';
 import {View} from 'react-native';
 import {ThemeProvider} from '../../../services/ThemeProvider';
-import Menu_List from '../../molecules/Menu_List/Menu_List';
 import Guest_Welcome from '../../organisms/Guest_Welcome/Guest_Welcome';
 import Menu_Mapper from '../../organisms/Menu_Mapper/Menu_Mapper';
 import Default_Screen_Template from '../../templates/Default_Screen/Default_Screen_Template';
@@ -15,7 +14,7 @@ export interface Props {
 
 const Profile_Screen: React.FC<Props> = ({navigation, isLoggedIn, signOut}) => {
   const {styles, config} = ThemeProvider('Profile');
-  const {PROFILE_GUEST_MENU, USER_PROFILE_MENU} = ThemeProvider('global').config;
+  const {GUEST_PROFILE_MENU, USER_PROFILE_MENU} = ThemeProvider('global').config;
   const {screenTitle, backButton, screenInstructionsProps} = config;
 
   const UserProfile = () => {
@@ -43,11 +42,11 @@ const Profile_Screen: React.FC<Props> = ({navigation, isLoggedIn, signOut}) => {
           />
         </View>
         <View style={styles.menuListContainer}>
-          <Menu_List
+          <Menu_Mapper
+            scrollEnabled={false}
             navigation={navigation}
-            DATA={PROFILE_GUEST_MENU.DATA}
-            headerText={PROFILE_GUEST_MENU.headerText}
-            testID="Search_Screen_Menu_List"
+            menuData={GUEST_PROFILE_MENU}
+            testID="User_Profile_Guest_Menu_Mapper"
           />
         </View>
       </View>

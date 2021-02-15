@@ -20,6 +20,9 @@ export const style = {
     Splash: {
       alignSelf: 'stretch',
     },
+    TitleLarge: {
+      alignSelf: 'stretch',
+    },
   },
   text: {
     Instruction: {
@@ -44,6 +47,10 @@ export const style = {
     },
     Splash: {
       ...typography.splash,
+      color: colors.text.primary,
+    },
+    TitleLarge: {
+      ...typography.titleLarge,
       color: colors.text.primary,
     },
   },

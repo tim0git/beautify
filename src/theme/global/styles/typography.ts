@@ -18,8 +18,14 @@ export const typography: any = {
   },
   title: {
     alignSelf: 'center',
+    textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 18,
+  },
+  titleLarge: {
+    alignSelf: 'center',
+    fontWeight: '600',
+    fontSize: 25,
   },
   menuTitle: {
     alignSelf: 'center',
