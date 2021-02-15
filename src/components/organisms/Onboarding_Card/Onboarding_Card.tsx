@@ -22,10 +22,10 @@ const Onboarding_Card: React.FC<Props> = ({title, body, image}) => {
         <Text content={title} type={'TitleLarge'} testID="Onboarding_Card_Title" />
       </View>
       <View style={style.bodyContainer}>
-        <Text content={body} type={'Title'} testID="Onboarding_Card_Title" />
+        <Text content={body} type={'Title'} testID="Onboarding_Card_Body" />
       </View>
       <View style={style.imageContainer}>
-        <Image source={{uri: image}} style={{flex: 1}} />
+        <Image source={{uri: image}} style={style.image} testID="Onboarding_Card_Image" />
       </View>
     </View>
   );
