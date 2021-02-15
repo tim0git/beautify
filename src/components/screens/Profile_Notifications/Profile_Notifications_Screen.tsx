@@ -41,7 +41,7 @@ const Profile_Notifications_Screen: React.FC<Props> = ({navigation}) => {
       <View style={style.container} testID="Profile_Notifications_Screen">
         <View style={style.pageInstructionContainer}>
           <Text
-            content="Here you can choose the notifications you want to receive (or not recieve)"
+            content="Here you can choose the notifications you want to receive (or not receive)"
             type="Body"
             testID="Notifications_Settings_Instruction_Text"
           />
