@@ -9,6 +9,6 @@ const defaultProps = {
   image: 'https://via.placeholder.com/480x640',
 };
 
-storiesOf('Onboarding_Card', module)
+storiesOf('Design System/Organism/Onboarding_Card', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Onboarding_Card_Default', () => <Onboarding_Card {...defaultProps} />);
