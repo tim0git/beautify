@@ -264,6 +264,8 @@ export const LEGAL_STUFF_GENERAL_MENU: MenuListData = {
   ],
 };
 
+export const GUEST_PROFILE_MENU: MenuMapperData = [PROFILE_GUEST_MENU];
+
 export const USER_PROFILE_MENU: MenuMapperData = [
   PROFILE_USER_BOOKINGS_MENU,
   PROFILE_USER_MY_PROFILE_SETTINGS_MENU,

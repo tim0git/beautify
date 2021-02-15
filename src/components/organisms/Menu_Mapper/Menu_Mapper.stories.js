@@ -5,7 +5,7 @@ import Menu_Mapper from './Menu_Mapper';
 import {
   USER_PROFILE_MENU,
   NOTIFICATIONS_MENU,
-  PROFILE_GUEST_MENU,
+  GUEST_PROFILE_MENU,
   NOTIFICATIONS_MENU_BUTTONS,
   MARKETING_MENU,
   MARKETING_MENU_BUTTONS,
@@ -19,7 +19,7 @@ const defaultProps = {
 
 const guestProps = {
   navigation: () => {},
-  menuData: [PROFILE_GUEST_MENU],
+  menuData: GUEST_PROFILE_MENU,
 };
 
 const bookingProps = {

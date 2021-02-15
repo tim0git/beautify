@@ -5,14 +5,14 @@ import {mount} from 'enzyme';
 import Menu_Mapper from './Menu_Mapper';
 import {
   USER_PROFILE_MENU,
-  PROFILE_GUEST_MENU,
+  GUEST_PROFILE_MENU,
   NOTIFICATIONS_MENU,
   NOTIFICATIONS_MENU_BUTTONS,
 } from '../../../theme/global/config/Constants';
 
 const guestProps = {
   navigation: {navigate: () => {}},
-  menuData: [PROFILE_GUEST_MENU],
+  menuData: GUEST_PROFILE_MENU,
 };
 
 const userProps = {
