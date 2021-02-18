@@ -19,23 +19,21 @@ export interface Props {
 const Linked_Text: React.FC<Props> = ({content, textToLink, testID, link, type}) => {
   const {style} = ThemeProvider('Linked_Text');
 
-  const sentances: Array<string> = content.split('.');
+  const sentences: Array<string> = content.split('.');
 
   const handlePress = () => {
-    switch (type) {
-      case 'NAVIGATION':
-        return RootNavigation.navigate(link);
-      default:
-        return Linking.openURL(link);
+    if (type === 'NAVIGATION') {
+      return RootNavigation.navigate(link);
     }
+    return Linking.openURL(link);
   };
 
-  const renderLinkedSentance = (sentance: string) => {
-    const sentancesWithLinkRemoved: Array<string> = sentance.split(textToLink);
+  const renderLinkedSentence = (sentence: string) => {
+    const sentencesWithLinkRemoved: Array<string> = sentence.split(textToLink);
     return (
-      <React.Fragment key={sentance}>
+      <React.Fragment key={sentence}>
         <Text testID="Linked_Text_Text_Before_Link" style={style.textBeforeLink}>
-          {sentancesWithLinkRemoved[0]}
+          {sentencesWithLinkRemoved[0]}
         </Text>
         <TouchableOpacity onPress={handlePress} testID="Linked_Text_Text_Pressable">
           <Text style={style.linkText} testID="Linked_Text_Text">
@@ -43,16 +41,16 @@ const Linked_Text: React.FC<Props> = ({content, textToLink, testID, link, type})
           </Text>
         </TouchableOpacity>
         <Text testID="Linked_Text_Text_After_Link" style={style.textAfterLink}>
-          {sentancesWithLinkRemoved[1] + '.'}
+          {sentencesWithLinkRemoved[1] + '.'}
         </Text>
       </React.Fragment>
     );
   };
 
-  const nonLinkedSentance = (sentance: string) => {
+  const nonLinkedSentence = (sentence: string) => {
     return (
-      <Text style={style.textBeforeLink} key={sentance} testID="Linked_Text_Non_Linked_Sentance">
-        {sentance + '.'}
+      <Text style={style.textBeforeLink} key={sentence} testID="Linked_Text_Non_Linked_Sentence">
+        {sentence + '.'}
       </Text>
     );
   };
@@ -61,11 +59,11 @@ const Linked_Text: React.FC<Props> = ({content, textToLink, testID, link, type})
     <View style={style.container} testID={testID ? testID : 'Linked_Text'}>
       <View style={style.container}>
         <View style={style.textWrapper}>
-          {sentances.map((sentance) => {
-            if (sentance.includes(textToLink)) {
-              return renderLinkedSentance(sentance);
+          {sentences.map((sentence) => {
+            if (sentence.includes(textToLink)) {
+              return renderLinkedSentence(sentence);
             }
-            return nonLinkedSentance(sentance);
+            return nonLinkedSentence(sentence);
           })}
         </View>
       </View>

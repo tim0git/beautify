@@ -19,7 +19,7 @@ describe('<Switch />', () => {
     });
   });
   describe('<Props>', () => {
-    test('Switch should recieve the following props', () => {
+    test('Switch should receive the following props', () => {
       const wrapper = shallow(<Switch {...defaultProps} />);
       const toggleSwitch = wrapper.findWhere((node) => node.prop('testID') === 'Switch');
       const toggleSwitchProps = toggleSwitch.props();

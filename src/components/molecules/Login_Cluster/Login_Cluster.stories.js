@@ -5,7 +5,7 @@ import Login_Cluster from './Login_Cluster';
 
 const defaultProps = {
   navigation: {
-    naviagte: () => {},
+    navigate: () => {},
   },
 };
 

@@ -91,7 +91,7 @@ describe('<Guest_Welcome />', () => {
       expect(loginClusterComponentProps).toHaveProperty('testID', captionProps.testID);
     });
 
-    test('should pass the naviagtion prop to the login cluster component', () => {
+    test('should pass the navigation prop to the login cluster component', () => {
       const wrapper = mount(<Guest_Welcome {...defaultProps} />);
       const loginClusterComponent = wrapper.findWhere((node) => node.prop('testID') === 'TEST_LOGIN_CLUSTER_TEST_ID');
 

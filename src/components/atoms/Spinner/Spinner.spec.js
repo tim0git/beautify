@@ -25,14 +25,14 @@ describe('<Spinner />', () => {
     });
   });
   describe('<Props>', () => {
-    test('should pass color and size prop to activity indictaor component', () => {
+    test('should pass color and size prop to activity indicator component', () => {
       const wrapper = shallow(<Spinner {...defaultProps} />);
-      const activityIndictaor = wrapper.findWhere((node) => node.prop('testID') === 'Spinner_Activity_Indicator');
+      const activityIndicator = wrapper.findWhere((node) => node.prop('testID') === 'Spinner_Activity_Indicator');
 
-      const activityIndictaorProps = activityIndictaor.props();
+      const activityIndicatorProps = activityIndicator.props();
 
-      expect(activityIndictaorProps).toHaveProperty('color', defaultProps.color);
-      expect(activityIndictaorProps).toHaveProperty('size', defaultProps.size);
+      expect(activityIndicatorProps).toHaveProperty('color', defaultProps.color);
+      expect(activityIndicatorProps).toHaveProperty('size', defaultProps.size);
     });
   });
 });

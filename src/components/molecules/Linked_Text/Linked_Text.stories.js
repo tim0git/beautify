@@ -11,15 +11,15 @@ const defaultProps = {
   type: 'Body',
 };
 
-const singleSentanceProps = {
-  content: 'This is a single sentance with a deep link',
+const singleSentenceProps = {
+  content: 'This is a single sentence with a deep link',
   textToLink: 'deep link',
   link: 'url',
   type: 'Body',
 };
 
-const doubleSentancesProps = {
-  content: 'This is a double sentance with a deep link. The link is in the first sentance',
+const doubleSentencesProps = {
+  content: 'This is a double sentence with a deep link. The link is in the first sentence',
   textToLink: 'deep link',
   link: 'url',
   type: 'Body',
@@ -27,6 +27,6 @@ const doubleSentancesProps = {
 
 storiesOf('Design System/Molecule/Linked_Text', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
-  .add('Linked_Text_Single_Sentance', () => <Linked_Text {...singleSentanceProps} />)
-  .add('Linked_Text_Double_Sentance', () => <Linked_Text {...doubleSentancesProps} />)
+  .add('Linked_Text_Single_Sentence', () => <Linked_Text {...singleSentenceProps} />)
+  .add('Linked_Text_Double_Sentence', () => <Linked_Text {...doubleSentencesProps} />)
   .add('Linked_Text_Default', () => <Linked_Text {...defaultProps} />);
