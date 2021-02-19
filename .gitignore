@@ -64,3 +64,6 @@ buck-out/
 
 # beautify initial review
 docs/beautify_review.pdf
+
+# env vars
+.env
