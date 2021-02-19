@@ -152,7 +152,7 @@ describe('<Menu_List />', () => {
       expect(helpCenterButtonProps).toHaveProperty('testID', testID);
       expect(helpCenterButtonProps).toHaveProperty('navigationAddress', navigationAddress);
     });
-    test('should pass the folowing props to Legal Stuff Button', () => {
+    test('should pass the following props to Legal Stuff Button', () => {
       const wrapper = mount(<Menu_List {...defaultProps} />);
       const legalStuffButton = wrapper.findWhere(
         (node) => node.prop('testID') === 'TEST_LEGAL_STUFF_MENU_BUTTON_TEST_ID',
@@ -169,7 +169,7 @@ describe('<Menu_List />', () => {
     });
   });
   describe('<Props> - menuRowSwitch', () => {
-    test('should pass the folowing props to header component', () => {
+    test('should pass the following props to header component', () => {
       const wrapper = mount(<Menu_List {...notificationMenuProps} />);
       const headerText = wrapper.findWhere((node) => node.prop('testID') === 'Menu_List_Header');
 
@@ -177,7 +177,7 @@ describe('<Menu_List />', () => {
 
       expect(headerTextProps).toHaveProperty('headerText', notificationMenuProps.headerText);
     });
-    test('should pass the folowing props to Booking Complete menu row switch', () => {
+    test('should pass the following props to Booking Complete menu row switch', () => {
       const wrapper = mount(<Menu_List {...notificationMenuProps} />);
       const bookingCompleteMenuRowSwitch = wrapper.findWhere(
         (node) => node.prop('testID') === 'Notifications_Menu_Booking_Complete',

@@ -10,7 +10,7 @@ const defaultProps = {
     testID: 'TEST',
   },
   bodyProps: {
-    content: 'Browse by catergory or by practitioner',
+    content: 'Browse by category or by practitioner',
     type: 'Body',
     testID: 'TEST',
   },

@@ -163,7 +163,7 @@ describe('<Button>', () => {
   });
 
   describe('<Accessability>', () => {
-    test('should have the following accessibity props', () => {
+    test('should have the following accessibility props', () => {
       const wrapper = shallow(<Button {...defaultProps} />);
       const SearchBarButton = wrapper.findWhere((node) => node.prop('testID') === 'TEST_BUTTON_TEST_ID');
 

@@ -32,7 +32,7 @@ describe('<Text />', () => {
     });
   });
   describe('<Accessability>', () => {
-    test('should have the following accessibity props', () => {
+    test('should have the following accessibility props', () => {
       const wrapper = shallow(<Text {...defaultProps} />);
       const SubTitleText = wrapper.findWhere((node) => node.prop('testID') === 'Text-Text');
       const SubTitleTextProps = SubTitleText.props();
