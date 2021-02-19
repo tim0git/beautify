@@ -4,6 +4,11 @@ import {
   SET_ONBOARDING_STATUS,
   SET_ONBOARDING_ERROR,
   RESET_ONBOARDING_STATUS,
+  SKIP_ONBOARDING,
+  updateOnboardingStatus,
+  handleOnboardingError,
+  resetOnboardingStatus,
+  skipOnboarding,
 } from './Onboarding.state';
 
 describe('<onboarding> -reducer', () => {
@@ -119,4 +124,41 @@ describe('<actionCreators>', () => {
   });
 });
 
-describe('<Dispatches>', () => {});
+describe('<Dispatches>', () => {
+  describe('<updateOnboardingStatus>', () => {
+    test('should dispatch SET_ONBOARDING_STATUS type', () => {
+      const mockOnboardingStatus = 'MOCK_ONBOARDING_STATUS';
+      const dispatch = updateOnboardingStatus(mockOnboardingStatus);
+      expect(dispatch).toHaveProperty('type', SET_ONBOARDING_STATUS);
+    });
+    test('should dispatch onboardingStatus passed as argument', () => {
+      const mockOnboardingStatus = 'MOCK_ONBOARDING_STATUS';
+      const dispatch = updateOnboardingStatus(mockOnboardingStatus);
+      expect(dispatch).toHaveProperty('onboardingStatus', mockOnboardingStatus);
+    });
+  });
+  describe('<handleOnboardingError>', () => {
+    test('should dispatch SET_ONBOARDING_ERROR type', () => {
+      const mockError = 'MOCK_ERROR';
+      const dispatch = handleOnboardingError(mockError);
+      expect(dispatch).toHaveProperty('type', SET_ONBOARDING_ERROR);
+    });
+    test('should dispatch error passed as argument', () => {
+      const mockError = 'MOCK_ERROR';
+      const dispatch = handleOnboardingError(mockError);
+      expect(dispatch).toHaveProperty('error', mockError);
+    });
+  });
+  describe('<resetOnboardingStatus>', () => {
+    test('should dispatch RESET_ONBOARDING_STATUS type', () => {
+      const dispatch = resetOnboardingStatus();
+      expect(dispatch).toHaveProperty('type', RESET_ONBOARDING_STATUS);
+    });
+  });
+  describe('<skipOnboarding>', () => {
+    test('should dispatch SKIP_ONBOARDING type', () => {
+      const dispatch = skipOnboarding();
+      expect(dispatch).toHaveProperty('type', SKIP_ONBOARDING);
+    });
+  });
+});
