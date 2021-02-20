@@ -10,7 +10,7 @@ import {LOGIN_SUCCESS, SIGN_OUT} from './Auth.state';
 /**
  * Async key
  */
-const asyncStoreKey = 'onboardingStatus';
+export const asyncStoreKey = 'onboardingStatus';
 export const ONBOARDING_STATUS = {
   complete: 'complete',
   incomplete: 'incomplete',
@@ -33,7 +33,7 @@ type onboardingState = {
   onboardingStatus: string | null | 'complete' | 'incomplete';
 };
 
-type actionType = {
+type Action = {
   type: string;
   onboardingStatus?: string | 'complete' | 'incomplete';
   error?: string;
@@ -45,7 +45,7 @@ const initialState: onboardingState = {
   onboardingStatus: null,
 };
 
-export const onboarding = (state = initialState, action: actionType) => {
+export const onboarding = (state = initialState, action: Action) => {
   switch (action.type) {
     case SET_ONBOARDING_STATUS: {
       return actionCreators.updateOnboardingStatus(state, action);
@@ -65,14 +65,14 @@ export const onboarding = (state = initialState, action: actionType) => {
  * ActionCreators
  */
 export const actionCreators = {
-  updateOnboardingStatus: (state: onboardingState, action: actionType) => {
+  updateOnboardingStatus: (state: onboardingState, action: Action) => {
     return {
       ...state,
       loading: false,
       onboardingStatus: action.onboardingStatus,
     };
   },
-  handleOnboardingError: (state: onboardingState, action: actionType) => {
+  handleOnboardingError: (state: onboardingState, action: Action) => {
     return {
       ...state,
       loading: false,
