@@ -81,20 +81,17 @@ describe('<Auth.state>', () => {
       expect(mockDefault).toHaveBeenCalledTimes(1);
     });
   });
-
   describe('<Action Creators>', () => {
     const initialState = {
       loading: false,
       error: null,
       isLoggedIn: false,
     };
-
     const subscribedState = {
       loading: false,
       error: null,
       isLoggedIn: false,
     };
-
     describe('<default>', () => {
       test('Should return state ', () => {
         const state = actionCreators.default(initialState);
@@ -181,7 +178,6 @@ describe('<Auth.state>', () => {
       });
     });
   });
-
   describe('<Dispatch Actions>', () => {
     describe('syncUser', () => {
       test('should dispatch SYNC_USER with the user passed as argument', () => {
@@ -201,7 +197,6 @@ describe('<Auth.state>', () => {
         expect(dispatch).toHaveProperty('phoneNumber', mockPhoneNumber);
       });
     });
-
     describe('loginSuccess', () => {
       test('should dispatch LOGIN_SUCCESS', () => {
         const dispatch = loginSuccess();
