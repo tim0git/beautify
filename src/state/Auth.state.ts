@@ -37,7 +37,7 @@ export const authentication = (state = initialState, action: any) => {
       return actionCreators.syncUser(state, action);
     }
     case LOGIN: {
-      return actionCreators.loginIn(state);
+      return actionCreators.login(state);
     }
     case LOGIN_SUCCESS: {
       return actionCreators.loginInSuccess(state);
@@ -75,7 +75,7 @@ export const actionCreators = {
       authToken: action.authToken,
     };
   },
-  loginIn: (state: any) => {
+  login: (state: any) => {
     return {
       ...state,
       isLoggedIn: false,
@@ -124,7 +124,7 @@ export const syncUser = (user: string | null, authToken: string | null) => ({
   authToken,
 });
 
-export const loginIn = (phoneNumber: string) => ({
+export const login = (phoneNumber: string) => ({
   type: LOGIN,
   phoneNumber,
 });
