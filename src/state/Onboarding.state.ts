@@ -19,7 +19,7 @@ export const ONBOARDING_STATUS = {
 /**
  * Actions
  */
-export const SET_ONBOARDING_STATUS = 'SET_ONBOARDING_SUCCESS';
+export const SET_ONBOARDING_SUCCESS = 'SET_ONBOARDING_SUCCESS';
 export const SET_ONBOARDING_ERROR = 'SET_ONBOARDING_ERROR';
 export const RESET_ONBOARDING_STATUS = 'RESET_ONBOARDING_STATUS';
 export const SKIP_ONBOARDING = 'SKIP_ONBOARDING';
@@ -47,7 +47,7 @@ const initialState: onboardingState = {
 
 export const onboarding = (state = initialState, action: Action) => {
   switch (action.type) {
-    case SET_ONBOARDING_STATUS: {
+    case SET_ONBOARDING_SUCCESS: {
       return actionCreators.updateOnboardingStatus(state, action);
     }
     case SET_ONBOARDING_ERROR: {
@@ -92,7 +92,7 @@ export const actionCreators = {
  * Dispatch
  */
 export const updateOnboardingStatus = (onboardingStatus: string) => ({
-  type: SET_ONBOARDING_STATUS,
+  type: SET_ONBOARDING_SUCCESS,
   onboardingStatus,
 });
 
