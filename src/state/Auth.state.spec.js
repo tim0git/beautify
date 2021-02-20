@@ -73,6 +73,13 @@ describe('<Auth.state>', () => {
       authentication(mockState, mockAction);
       expect(mockSignOutFail).toHaveBeenCalledTimes(1);
     });
+    test('should call signOutSuccess when it receives action.type SIGN_OUT_SUCCESS', () => {
+      const mockSignOutSuccess = jest.fn();
+      jest.spyOn(actionCreators, 'signOutSuccess').mockImplementationOnce(mockSignOutSuccess);
+      const mockAction = {type: SIGN_OUT_SUCCESS};
+      authentication(mockState, mockAction);
+      expect(mockSignOutSuccess).toHaveBeenCalledTimes(1);
+    });
     test('should call default when it receives an action.type that is not matched', () => {
       const mockDefault = jest.fn();
       jest.spyOn(actionCreators, 'default').mockImplementationOnce(mockDefault);
@@ -262,10 +269,10 @@ describe('<Auth.state>', () => {
   });
   describe('<Sagas[Integration-Tests]>', () => {
     describe('<loginSaga>', () => {
-      beforeEach(() => {
-        jest.restoreAllMocks();
-      });
       describe('<Dispatches>', () => {
+        beforeEach(() => {
+          jest.restoreAllMocks();
+        });
         test('should REQUEST_CODE when a user successfully submits a phone number ', () => {
           const mockAction = 'MOCK_PHONE_NUMBER';
           return expectSaga(loginSaga, mockAction).put({type: 'REQUEST_CODE'}).silentRun();
