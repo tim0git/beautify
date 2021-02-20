@@ -156,11 +156,6 @@ export const signOutFailure = (error: any) => ({
   error,
 });
 
-// /**
-//  * Selectors
-//  */
-// export const getUser = (state: {authentication: any}) => state.authentication;
-
 /**
  * Sagas
  */

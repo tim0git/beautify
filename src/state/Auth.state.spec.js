@@ -309,7 +309,3 @@ describe('<Auth.state>', () => {
     });
   });
 });
-
-// //           const mockAuthToken = 'MOCK_TOKEN';
-//           const mockUser = {user: {user: {getIdToken: jest.fn(() => Promise.resolve(mockAuthToken))}}};
-//           jest.spyOn(rsf.auth, 'channel').mockReturnValue(mockUser);
