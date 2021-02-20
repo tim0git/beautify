@@ -1,15 +1,23 @@
-import {
+import * as OnboardingState from './Onboarding.state';
+import * as AsyncStorage from '../services/AsyncStorage';
+import {call, put, take} from 'redux-saga/effects';
+import {expectSaga} from 'redux-saga-test-plan';
+
+const {
   onboarding,
   actionCreators,
   SET_ONBOARDING_STATUS,
   SET_ONBOARDING_ERROR,
   RESET_ONBOARDING_STATUS,
   SKIP_ONBOARDING,
+  ONBOARDING_STATUS,
   updateOnboardingStatus,
   handleOnboardingError,
   resetOnboardingStatus,
   skipOnboarding,
-} from './Onboarding.state';
+  onboardingSaga,
+  getOnboarding,
+} = OnboardingState;
 
 describe('<onboarding> -reducer', () => {
   const mockState = {test: 'TEST'};
@@ -159,6 +167,74 @@ describe('<Dispatches>', () => {
     test('should dispatch SKIP_ONBOARDING type', () => {
       const dispatch = skipOnboarding();
       expect(dispatch).toHaveProperty('type', SKIP_ONBOARDING);
+    });
+  });
+});
+
+describe('<Sagas>[Integration Tests]', () => {
+  describe('<getOnboarding>', () => {
+    describe('<Dispatches>', () => {
+      beforeEach(() => {
+        jest.restoreAllMocks();
+      });
+      test('should dispatch SET_ONBOARDING_STATUS and ONBOARDING_STATUS.incomplete', () => {
+        jest.spyOn(AsyncStorage, 'getData').mockReturnValueOnce(null);
+        return expectSaga(getOnboarding)
+          .dispatch({type: SET_ONBOARDING_STATUS, onboardingStatus: ONBOARDING_STATUS.incomplete})
+          .run();
+      });
+      test('should dispatch SET_ONBOARDING_STATUS and ONBOARDING_STATUS returned from getData', () => {
+        const mockOnboardingStatus = 'MOCK_ONBOARDING_STATUS';
+        jest.spyOn(AsyncStorage, 'getData').mockReturnValueOnce(mockOnboardingStatus);
+        return expectSaga(getOnboarding)
+          .dispatch({type: SET_ONBOARDING_STATUS, onboardingStatus: mockOnboardingStatus})
+          .run();
+      });
+      test('should dispatch SET_ONBOARDING_ERROR and error returned from getData', () => {
+        const mockError = new Error('Async error');
+        jest.spyOn(AsyncStorage, 'getData').mockRejectedValueOnce(mockError);
+        return expectSaga(getOnboarding).dispatch({type: SET_ONBOARDING_ERROR, error: mockError}).run();
+      });
+    });
+    describe('<State>', () => {
+      beforeEach(() => {
+        jest.restoreAllMocks();
+      });
+      test('should set onboardingStatus as ONBOARDING_STATUS.incomplete and loading false if no value returned from AsyncStorage', () => {
+        jest.spyOn(AsyncStorage, 'getData').mockReturnValueOnce(null);
+        return expectSaga(getOnboarding)
+          .withReducer(onboarding)
+          .hasFinalState({
+            loading: false,
+            error: null,
+            onboardingStatus: ONBOARDING_STATUS.incomplete,
+          })
+          .run();
+      });
+      test('should set onboardingStatus as with value returned from AsyncStorage and loading false if value returned from AsyncStorage', () => {
+        const mockOnboardingStatus = 'MOCK_ONBOARDING_STATUS';
+        jest.spyOn(AsyncStorage, 'getData').mockReturnValueOnce(mockOnboardingStatus);
+        return expectSaga(getOnboarding)
+          .withReducer(onboarding)
+          .hasFinalState({
+            loading: false,
+            error: null,
+            onboardingStatus: mockOnboardingStatus,
+          })
+          .run();
+      });
+      test('should set error and loading false if Error is thrown from getData ', () => {
+        const mockError = new Error('Async error');
+        jest.spyOn(AsyncStorage, 'getData').mockRejectedValueOnce(mockError);
+        return expectSaga(getOnboarding)
+          .withReducer(onboarding)
+          .hasFinalState({
+            loading: false,
+            error: mockError,
+            onboardingStatus: null,
+          })
+          .run();
+      });
     });
   });
 });
