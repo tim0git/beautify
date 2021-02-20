@@ -156,10 +156,10 @@ export const signOutFailure = (error: any) => ({
   error,
 });
 
-/**
- * Selectors
- */
-export const getUser = (state: {authentication: any}) => state.authentication;
+// /**
+//  * Selectors
+//  */
+// export const getUser = (state: {authentication: any}) => state.authentication;
 
 /**
  * Sagas
@@ -196,7 +196,7 @@ export function* loginSaga(action: {phoneNumber: string}) {
   }
 }
 
-function* signOutSaga() {
+export function* signOutSaga() {
   try {
     yield call(rsf.auth.signOut);
 

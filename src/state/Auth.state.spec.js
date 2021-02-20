@@ -1,6 +1,5 @@
-import 'react-native';
-import 'jest-enzyme';
-
+import {expectSaga, testSaga} from 'redux-saga-test-plan';
+import rsf from './Redux/Redux-Saga-Firebase';
 import {
   authentication,
   actionCreators,
@@ -20,6 +19,10 @@ import {
   SIGN_OUT_SUCCESS,
   SYNC_USER,
   SUBMIT_CODE,
+  authSaga,
+  syncUserSaga,
+  loginSaga,
+  signOutSaga,
 } from './Auth.state';
 
 describe('<Auth.state>', () => {
@@ -242,4 +245,71 @@ describe('<Auth.state>', () => {
       });
     });
   });
+  describe('<Sagas[Unit-Tests]>', () => {
+    describe('<authSaga>', () => {
+      test('should fork syncUserSaga when onboardingSaga is called', () => {
+        testSaga(authSaga)
+          .next()
+          .fork(syncUserSaga)
+          .next()
+          .takeEvery(LOGIN, loginSaga)
+          .next()
+          .takeEvery(SIGN_OUT, signOutSaga)
+          .next()
+          .isDone();
+      });
+    });
+    describe('<signOutSaga>', () => {
+      test('should call rsf.auth.signOut', () => {
+        testSaga(signOutSaga).next().call(rsf.auth.signOut).next().put(signOutSuccess()).next().isDone();
+      });
+    });
+  });
+  describe('<Sagas[Integration-Tests]>', () => {
+    describe('<loginSaga>', () => {
+      beforeEach(() => {
+        jest.restoreAllMocks();
+      });
+      describe('<Dispatches>', () => {
+        test('should REQUEST_CODE when a user successfully submits a phone number ', () => {
+          const mockAction = 'MOCK_PHONE_NUMBER';
+          return expectSaga(loginSaga, mockAction).put({type: 'REQUEST_CODE'}).silentRun();
+        });
+        test('should LOGIN_SUCCESS when a user successfully submits a phone number and then provides the correct verificationCode token', () => {
+          const mockAction = 'MOCK_PHONE_NUMBER';
+          const mockVerificationCode = 'MOCK_VERIFICATION_CODE';
+          return expectSaga(loginSaga, mockAction)
+            .put({type: 'REQUEST_CODE'})
+            .dispatch({type: 'SUBMIT_CODE', verificationCode: mockVerificationCode})
+            .put({type: 'LOGIN_SUCCESS'})
+            .run();
+        });
+        test('should dispatch LOGIN_FAIL and caught error.code when signInWithPhoneNumber throws an error ', () => {
+          const mockAction = 'MOCK_PHONE_NUMBER';
+          const mockError = new Error('signInWithNumber error');
+          jest.spyOn(rsf.auth, 'signInWithPhoneNumber').mockRejectedValueOnce(mockError);
+          return expectSaga(loginSaga, mockAction).put({type: 'LOGIN_FAIL', error: mockError.code}).run();
+        });
+        test('should dispatch LOGIN_FAIL and caught error.code when confirmationResult.confirm throws an error ', () => {
+          const mockAction = 'MOCK_PHONE_NUMBER';
+          const mockVerificationCode = 'MOCK_VERIFICATION_CODE';
+          const mockError = new Error('confirmationResult error');
+          const mockSignInWithPhoneNumber = jest.fn();
+          const mockConfirm = jest.fn();
+          mockConfirm.mockRejectedValue(mockError);
+          mockSignInWithPhoneNumber.mockReturnValue({confirm: mockConfirm});
+          jest.spyOn(rsf.auth, 'signInWithPhoneNumber').mockImplementation(mockSignInWithPhoneNumber);
+          return expectSaga(loginSaga, mockAction)
+            .put({type: 'REQUEST_CODE'})
+            .dispatch({type: 'SUBMIT_CODE', verificationCode: mockVerificationCode})
+            .put({type: 'LOGIN_FAIL', error: mockError.code})
+            .run();
+        });
+      });
+    });
+  });
 });
+
+// //           const mockAuthToken = 'MOCK_TOKEN';
+//           const mockUser = {user: {user: {getIdToken: jest.fn(() => Promise.resolve(mockAuthToken))}}};
+//           jest.spyOn(rsf.auth, 'channel').mockReturnValue(mockUser);
