@@ -179,7 +179,7 @@ describe('<Onboarding.state>', () => {
 
   describe('<Sagas>[Unit Tests]', () => {
     describe('<onboardingSaga>', () => {
-      test('Test onboardingSaga implementation', () => {
+      test('should fork getOnboarding when onboardingSaga is called', () => {
         testSaga(onboardingSaga)
           .next()
           .fork(getOnboarding)
@@ -193,8 +193,19 @@ describe('<Onboarding.state>', () => {
           .isDone();
       });
     });
+    describe('<getOnboarding>', () => {
+      test('should call getData with asyncStoreKey when getOnboarding is called', () => {
+        testSaga(getOnboarding)
+          .next()
+          .call(AsyncStorage.getData, asyncStoreKey)
+          .next()
+          .put(updateOnboardingStatus())
+          .next()
+          .isDone();
+      });
+    });
     describe('<resetOnboarding>', () => {
-      test('Test resetOnboarding implementation', () => {
+      test('should call clearAll when resetOnboarding is called', () => {
         testSaga(resetOnboarding)
           .next()
           .call(AsyncStorage.clearAll)
@@ -205,7 +216,7 @@ describe('<Onboarding.state>', () => {
       });
     });
     describe('<updateOnboarding>', () => {
-      test('Test updateOnboarding implementation', () => {
+      test('should call storeData when updateOnboarding is called', () => {
         testSaga(updateOnboarding)
           .next()
           .call(AsyncStorage.storeData, asyncStoreKey, ONBOARDING_STATUS.complete)
