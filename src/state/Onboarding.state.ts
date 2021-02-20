@@ -10,7 +10,7 @@ import {LOGIN_SUCCESS, SIGN_OUT} from './Auth.state';
 /**
  * Async key
  */
-const asyncStoreKey = 'onboardingStatus';
+export const asyncStoreKey = 'onboardingStatus';
 export const ONBOARDING_STATUS = {
   complete: 'complete',
   incomplete: 'incomplete',

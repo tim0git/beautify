@@ -14,6 +14,7 @@ import {
   getOnboarding,
   resetOnboarding,
   updateOnboarding,
+  asyncStoreKey,
 } from './Onboarding.state';
 import {SIGN_OUT, LOGIN_SUCCESS} from './Auth.state';
 import * as AsyncStorage from '../services/AsyncStorage';
@@ -192,6 +193,17 @@ describe('<Sagas>[Unit Tests]', () => {
       testSaga(resetOnboarding).next().call(AsyncStorage.clearAll).next().put(resetOnboardingStatus()).next().isDone();
     });
   });
+  describe('<updateOnboarding>', () => {
+    test('Test updateOnboarding implementation', () => {
+      testSaga(updateOnboarding)
+        .next()
+        .call(AsyncStorage.storeData, asyncStoreKey, ONBOARDING_STATUS.complete)
+        .next()
+        .put(updateOnboardingStatus(ONBOARDING_STATUS.complete))
+        .next()
+        .isDone();
+    });
+  });
 });
 
 describe('<Sagas>[Integration Tests]', () => {
@@ -261,13 +273,46 @@ describe('<Sagas>[Integration Tests]', () => {
     });
   });
   describe('<resetOnboarding>', () => {
-    test('should dispatch RESET_ONBOARDING_STATUS type when clearAll AsyncStorage completes', () => {
-      return expectSaga(resetOnboarding).dispatch({type: RESET_ONBOARDING_STATUS}).run();
+    describe('<Dispatches>', () => {
+      beforeEach(() => {
+        jest.restoreAllMocks();
+      });
+      test('should dispatch RESET_ONBOARDING_STATUS type when clearAll AsyncStorage completes', () => {
+        return expectSaga(resetOnboarding).dispatch({type: RESET_ONBOARDING_STATUS}).run();
+      });
+      test('should dispatch SET_ONBOARDING_ERROR and error returned from clearAll', () => {
+        const mockError = new Error('Async error');
+        jest.spyOn(AsyncStorage, 'clearAll').mockRejectedValueOnce(mockError);
+        return expectSaga(resetOnboarding).dispatch({type: SET_ONBOARDING_ERROR, error: mockError}).run();
+      });
     });
-    test('should dispatch SET_ONBOARDING_ERROR and error returned from clearAll', () => {
-      const mockError = new Error('Async error');
-      jest.spyOn(AsyncStorage, 'clearAll').mockRejectedValueOnce(mockError);
-      return expectSaga(resetOnboarding).dispatch({type: SET_ONBOARDING_ERROR, error: mockError}).run();
+    describe('<State>', () => {
+      beforeEach(() => {
+        jest.restoreAllMocks();
+      });
+      test('should return initialState with onboardingStatus set to ONBOARDING_STATUS.incomplete when clearAll AsyncStorage completes', () => {
+        return expectSaga(resetOnboarding)
+          .withReducer(onboarding)
+          .hasFinalState({
+            loading: false,
+            error: null,
+            onboardingStatus: ONBOARDING_STATUS.incomplete,
+          })
+          .run();
+      });
+      test('should return state with error returned from clearAll AsyncStorage method', () => {
+        const mockError = new Error('Async error');
+        jest.spyOn(AsyncStorage, 'clearAll').mockRejectedValueOnce(mockError);
+        return expectSaga(resetOnboarding)
+          .withReducer(onboarding)
+          .hasFinalState({
+            loading: false,
+            error: mockError,
+            onboardingStatus: null,
+          })
+          .run();
+      });
     });
   });
+  describe('<updateOnboarding>', () => {});
 });
