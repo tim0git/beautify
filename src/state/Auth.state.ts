@@ -23,7 +23,7 @@ export const SIGN_OUT_SUCCESS = 'SIGN_OUT_SUCCESS';
 /**
  * Reducer
  */
-const initialState = {
+export const initialState = {
   loading: false,
   error: null,
   isLoggedIn: false,
@@ -37,7 +37,7 @@ export const authentication = (state = initialState, action: any) => {
       return actionCreators.syncUser(state, action);
     }
     case LOGIN: {
-      return actionCreators.loginIn(state);
+      return actionCreators.login(state);
     }
     case LOGIN_SUCCESS: {
       return actionCreators.loginInSuccess(state);
@@ -75,7 +75,7 @@ export const actionCreators = {
       authToken: action.authToken,
     };
   },
-  loginIn: (state: any) => {
+  login: (state: any) => {
     return {
       ...state,
       isLoggedIn: false,
@@ -124,7 +124,7 @@ export const syncUser = (user: string | null, authToken: string | null) => ({
   authToken,
 });
 
-export const loginIn = (phoneNumber: string) => ({
+export const login = (phoneNumber: string) => ({
   type: LOGIN,
   phoneNumber,
 });
@@ -157,17 +157,13 @@ export const signOutFailure = (error: any) => ({
 });
 
 /**
- * Selectors
- */
-export const getUser = (state: {authentication: any}) => state.authentication;
-
-/**
  * Sagas
  */
 export function* syncUserSaga() {
   const channel = yield call(rsf.auth.channel);
 
   while (true) {
+    console.log(channel);
     const user = yield take(channel);
 
     const authToken = yield call(getUserIDToken, user);
@@ -196,7 +192,7 @@ export function* loginSaga(action: {phoneNumber: string}) {
   }
 }
 
-function* signOutSaga() {
+export function* signOutSaga() {
   try {
     yield call(rsf.auth.signOut);
 

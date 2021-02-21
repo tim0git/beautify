@@ -2,7 +2,7 @@ import {expectSaga, testSaga} from 'redux-saga-test-plan';
 import {
   onboarding,
   actionCreators,
-  SET_ONBOARDING_STATUS,
+  SET_ONBOARDING_SUCCESS,
   SET_ONBOARDING_ERROR,
   RESET_ONBOARDING_STATUS,
   SKIP_ONBOARDING,
@@ -30,17 +30,17 @@ describe('<Onboarding.state>', () => {
     beforeEach(() => {
       jest.restoreAllMocks();
     });
-    test('should call updateOnboardingStatus when it receives action.type SET_ONBOARDING_STATUS', () => {
+    test('should call updateOnboardingStatus when it receives action.type SET_ONBOARDING_SUCCESS', () => {
       const mockUpdateOnboardingStatus = jest.fn();
       jest.spyOn(actionCreators, 'updateOnboardingStatus').mockImplementationOnce(mockUpdateOnboardingStatus);
-      const mockAction = {type: SET_ONBOARDING_STATUS};
+      const mockAction = {type: SET_ONBOARDING_SUCCESS};
       onboarding(mockState, mockAction);
       expect(mockUpdateOnboardingStatus).toHaveBeenCalledTimes(1);
     });
     test('should call updateOnboardingStatus with state and action', () => {
       const mockUpdateOnboardingStatus = jest.fn();
       jest.spyOn(actionCreators, 'updateOnboardingStatus').mockImplementationOnce(mockUpdateOnboardingStatus);
-      const mockAction = {type: SET_ONBOARDING_STATUS};
+      const mockAction = {type: SET_ONBOARDING_SUCCESS};
       onboarding(mockState, mockAction);
       expect(mockUpdateOnboardingStatus).toHaveBeenCalledWith(mockState, mockAction);
     });
@@ -140,10 +140,10 @@ describe('<Onboarding.state>', () => {
 
   describe('<Dispatches>', () => {
     describe('<updateOnboardingStatus>', () => {
-      test('should dispatch SET_ONBOARDING_STATUS type', () => {
+      test('should dispatch SET_ONBOARDING_SUCCESS type', () => {
         const mockOnboardingStatus = 'MOCK_ONBOARDING_STATUS';
         const dispatch = updateOnboardingStatus(mockOnboardingStatus);
-        expect(dispatch).toHaveProperty('type', SET_ONBOARDING_STATUS);
+        expect(dispatch).toHaveProperty('type', SET_ONBOARDING_SUCCESS);
       });
       test('should dispatch onboardingStatus passed as argument', () => {
         const mockOnboardingStatus = 'MOCK_ONBOARDING_STATUS';
@@ -234,17 +234,17 @@ describe('<Onboarding.state>', () => {
         beforeEach(() => {
           jest.restoreAllMocks();
         });
-        test('should dispatch SET_ONBOARDING_STATUS and ONBOARDING_STATUS.incomplete', () => {
+        test('should dispatch SET_ONBOARDING_SUCCESS and ONBOARDING_STATUS.incomplete', () => {
           jest.spyOn(AsyncStorage, 'getData').mockReturnValueOnce(null);
           return expectSaga(getOnboarding)
-            .dispatch({type: SET_ONBOARDING_STATUS, onboardingStatus: ONBOARDING_STATUS.incomplete})
+            .put({type: 'SET_ONBOARDING_SUCCESS', onboardingStatus: ONBOARDING_STATUS.incomplete})
             .run();
         });
-        test('should dispatch SET_ONBOARDING_STATUS and ONBOARDING_STATUS returned from getData', () => {
+        test('should dispatch SET_ONBOARDING_SUCCESS and ONBOARDING_STATUS returned from getData', () => {
           const mockOnboardingStatus = 'MOCK_ONBOARDING_STATUS';
           jest.spyOn(AsyncStorage, 'getData').mockReturnValueOnce(mockOnboardingStatus);
           return expectSaga(getOnboarding)
-            .dispatch({type: SET_ONBOARDING_STATUS, onboardingStatus: mockOnboardingStatus})
+            .put({type: SET_ONBOARDING_SUCCESS, onboardingStatus: mockOnboardingStatus})
             .run();
         });
         test('should dispatch SET_ONBOARDING_ERROR and error returned from getData', () => {
@@ -300,12 +300,12 @@ describe('<Onboarding.state>', () => {
           jest.restoreAllMocks();
         });
         test('should dispatch RESET_ONBOARDING_STATUS type when clearAll AsyncStorage completes', () => {
-          return expectSaga(resetOnboarding).dispatch({type: RESET_ONBOARDING_STATUS}).run();
+          return expectSaga(resetOnboarding).put({type: RESET_ONBOARDING_STATUS}).run();
         });
         test('should dispatch SET_ONBOARDING_ERROR and error returned from clearAll', () => {
           const mockError = new Error('Async error');
           jest.spyOn(AsyncStorage, 'clearAll').mockRejectedValueOnce(mockError);
-          return expectSaga(resetOnboarding).dispatch({type: SET_ONBOARDING_ERROR, error: mockError}).run();
+          return expectSaga(resetOnboarding).put({type: SET_ONBOARDING_ERROR, error: mockError}).run();
         });
       });
       describe('<State>', () => {
@@ -341,9 +341,9 @@ describe('<Onboarding.state>', () => {
         beforeEach(() => {
           jest.restoreAllMocks();
         });
-        test('should dispatch SET_ONBOARDING_STATUS and ONBOARDING_STATUS.complete', () => {
+        test('should dispatch SET_ONBOARDING_SUCCESS and ONBOARDING_STATUS.complete', () => {
           return expectSaga(updateOnboarding)
-            .dispatch({type: SET_ONBOARDING_STATUS, onboardingStatus: ONBOARDING_STATUS.complete})
+            .put({type: SET_ONBOARDING_SUCCESS, onboardingStatus: ONBOARDING_STATUS.complete})
             .run();
         });
         test('should dispatch SET_ONBOARDING_ERROR and error returned from storeData', () => {
