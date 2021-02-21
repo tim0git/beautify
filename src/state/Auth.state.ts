@@ -163,7 +163,6 @@ export function* syncUserSaga() {
   const channel = yield call(rsf.auth.channel);
 
   while (true) {
-    console.log(channel);
     const user = yield take(channel);
 
     const authToken = yield call(getUserIDToken, user);
