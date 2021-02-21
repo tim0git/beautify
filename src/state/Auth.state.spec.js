@@ -1,5 +1,4 @@
 import {expectSaga, testSaga} from 'redux-saga-test-plan';
-import * as FirebaseHelpers from './Firebase.helpers';
 import rsf from './Redux/Redux-Saga-Firebase';
 import {
   initialState,
