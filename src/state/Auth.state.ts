@@ -23,7 +23,7 @@ export const SIGN_OUT_SUCCESS = 'SIGN_OUT_SUCCESS';
 /**
  * Reducer
  */
-const initialState = {
+export const initialState = {
   loading: false,
   error: null,
   isLoggedIn: false,
@@ -163,6 +163,7 @@ export function* syncUserSaga() {
   const channel = yield call(rsf.auth.channel);
 
   while (true) {
+    console.log(channel);
     const user = yield take(channel);
 
     const authToken = yield call(getUserIDToken, user);

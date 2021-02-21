@@ -1,6 +1,8 @@
 import {expectSaga, testSaga} from 'redux-saga-test-plan';
+import * as FirebaseHelpers from './Firebase.helpers';
 import rsf from './Redux/Redux-Saga-Firebase';
 import {
+  initialState,
   authentication,
   actionCreators,
   login,
@@ -89,7 +91,7 @@ describe('<Auth.state>', () => {
     });
   });
   describe('<Action Creators>', () => {
-    const initialState = {
+    const mockInitialState = {
       loading: false,
       error: null,
       isLoggedIn: false,
@@ -101,7 +103,7 @@ describe('<Auth.state>', () => {
     };
     describe('<default>', () => {
       test('Should return state ', () => {
-        const state = actionCreators.default(initialState);
+        const state = actionCreators.default(mockInitialState);
         expect(state).toHaveProperty('loading', false);
         expect(state).toHaveProperty('error', null);
         expect(state).toHaveProperty('isLoggedIn', false);
@@ -110,27 +112,27 @@ describe('<Auth.state>', () => {
     describe('<syncUser>', () => {
       test('should return loading false', () => {
         const mockAction = {user: {user: 'MOCK_USER'}};
-        const state = actionCreators.syncUser(initialState, mockAction);
+        const state = actionCreators.syncUser(mockInitialState, mockAction);
         expect(state).toHaveProperty('loading', false);
       });
       test('should return isLoggedIn boolean true if user object is defined in action', () => {
         const mockAction = {user: {user: 'MOCK_USER'}};
-        const state = actionCreators.syncUser(initialState, mockAction);
+        const state = actionCreators.syncUser(mockInitialState, mockAction);
         expect(state).toHaveProperty('isLoggedIn', true);
       });
       test('should return isLoggedIn boolean false if user object is undefined in action', () => {
         const mockAction = {user: {user: undefined}};
-        const state = actionCreators.syncUser(initialState, mockAction);
+        const state = actionCreators.syncUser(mockInitialState, mockAction);
         expect(state).toHaveProperty('isLoggedIn', false);
       });
       test('should return user from action', () => {
         const mockAction = {user: {user: 'MOCK_USER'}};
-        const state = actionCreators.syncUser(initialState, mockAction);
+        const state = actionCreators.syncUser(mockInitialState, mockAction);
         expect(state).toHaveProperty('user', mockAction.user);
       });
       test('should return authToken from action', () => {
         const mockAction = {user: {user: 'MOCK_USER'}, authToken: 'MOCK_AUTH_TOKEN'};
-        const state = actionCreators.syncUser(initialState, mockAction);
+        const state = actionCreators.syncUser(mockInitialState, mockAction);
         expect(state).toHaveProperty('authToken', mockAction.authToken);
       });
     });
@@ -170,9 +172,9 @@ describe('<Auth.state>', () => {
     describe('<signOutSuccess>', () => {
       test('should return initial state', () => {
         const state = actionCreators.signOutSuccess(subscribedState);
-        expect(state).toHaveProperty('loading', initialState.loading);
-        expect(state).toHaveProperty('error', initialState.error);
-        expect(state).toHaveProperty('isLoggedIn', initialState.isLoggedIn);
+        expect(state).toHaveProperty('loading', mockInitialState.loading);
+        expect(state).toHaveProperty('error', mockInitialState.error);
+        expect(state).toHaveProperty('isLoggedIn', mockInitialState.isLoggedIn);
       });
     });
     describe('<signOutFail>', () => {
@@ -181,7 +183,7 @@ describe('<Auth.state>', () => {
         const state = actionCreators.signOutFail(subscribedState, mockAction);
         expect(state).toHaveProperty('loading', false);
         expect(state).toHaveProperty('error', mockAction.error);
-        expect(state).toHaveProperty('isLoggedIn', initialState.isLoggedIn);
+        expect(state).toHaveProperty('isLoggedIn', mockInitialState.isLoggedIn);
       });
     });
   });
@@ -305,6 +307,75 @@ describe('<Auth.state>', () => {
             .put({type: 'REQUEST_CODE'})
             .dispatch({type: 'SUBMIT_CODE', verificationCode: mockVerificationCode})
             .put({type: 'LOGIN_FAIL', error: mockError.code})
+            .run();
+        });
+      });
+      describe('<State>', () => {
+        beforeEach(() => {
+          jest.restoreAllMocks();
+        });
+        test('should set isLoggedIn true', () => {
+          const mockAction = 'MOCK_PHONE_NUMBER';
+          const mockVerificationCode = 'MOCK_VERIFICATION_CODE';
+          const mockConfirm = jest.fn();
+          const mockSignInWithPhoneNumber = jest.fn();
+          mockSignInWithPhoneNumber.mockReturnValue({confirm: mockConfirm});
+          jest.spyOn(rsf.auth, 'signInWithPhoneNumber').mockImplementation(mockSignInWithPhoneNumber);
+          return expectSaga(loginSaga, mockAction)
+            .withReducer(authentication)
+            .dispatch({type: 'SUBMIT_CODE', verificationCode: mockVerificationCode})
+            .hasFinalState({loading: false, error: null, isLoggedIn: true, authToken: null, user: null})
+            .run();
+        });
+        test('should return state with error returned from signInWithPhoneNumber', () => {
+          const mockAction = 'MOCK_PHONE_NUMBER';
+          const mockVerificationCode = 'MOCK_VERIFICATION_CODE';
+          const mockError = {message: 'signInWithNumber error', code: 'auth/signInWithNumber'};
+          jest.spyOn(rsf.auth, 'signInWithPhoneNumber').mockRejectedValueOnce(mockError);
+          return expectSaga(loginSaga, mockAction)
+            .withReducer(authentication)
+            .dispatch({type: 'SUBMIT_CODE', verificationCode: mockVerificationCode})
+            .hasFinalState({loading: false, error: mockError.code, isLoggedIn: false, authToken: null, user: null})
+            .run();
+        });
+        test('should return state with error returned from confirmResult', () => {
+          const mockAction = 'MOCK_PHONE_NUMBER';
+          const mockVerificationCode = 'MOCK_VERIFICATION_CODE';
+          const mockError = {message: 'confirmationResult error', code: 'auth/confirmationResult'};
+          const mockSignInWithPhoneNumber = jest.fn();
+          const mockConfirm = jest.fn();
+          mockConfirm.mockRejectedValue(mockError);
+          mockSignInWithPhoneNumber.mockReturnValue({confirm: mockConfirm});
+          jest.spyOn(rsf.auth, 'signInWithPhoneNumber').mockImplementation(mockSignInWithPhoneNumber);
+          return expectSaga(loginSaga, mockAction)
+            .withReducer(authentication)
+            .dispatch({type: 'SUBMIT_CODE', verificationCode: mockVerificationCode})
+            .hasFinalState({loading: false, error: mockError.code, isLoggedIn: false, authToken: null, user: null})
+            .run();
+        });
+      });
+    });
+    describe('<SignOutSaga>', () => {
+      describe('<Dispatches>', () => {
+        test('should dispatch SIGN_OUT_SUCCESS when rsf.auth.signOut returns without error', () => {
+          return expectSaga(signOutSaga).put({type: 'SIGN_OUT_SUCCESS'}).run();
+        });
+        test('should dispatch SIGN_OUT_FAIL and error caught from rsf.auth.signOut', () => {
+          const mockError = {code: 'auth/signOut'};
+          jest.spyOn(rsf.auth, 'signOut').mockRejectedValueOnce(mockError);
+          return expectSaga(signOutSaga).put({type: 'SIGN_OUT_FAIL', error: mockError.code}).run();
+        });
+      });
+      describe('<State>', () => {
+        test('should return initialState when rsf.auth.signOut returns successfully', () => {
+          return expectSaga(signOutSaga).withReducer(authentication).hasFinalState(initialState).run();
+        });
+        test('should return state and set error when rsf.auth.signOut throws an error', () => {
+          const mockError = {code: 'auth/signOut'};
+          jest.spyOn(rsf.auth, 'signOut').mockRejectedValueOnce(mockError);
+          return expectSaga(signOutSaga)
+            .withReducer(authentication)
+            .hasFinalState({loading: false, error: 'auth/signOut', isLoggedIn: false, authToken: null, user: null})
             .run();
         });
       });
