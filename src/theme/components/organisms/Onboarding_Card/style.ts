@@ -13,4 +13,7 @@ export const style = {
     flex: 1,
     paddingTop: size.padding.lg,
   },
+  image: {
+    flex: 1,
+  },
 };
