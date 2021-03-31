@@ -76,7 +76,7 @@
     "@react-native-community/eslint-config": "^2.0.0",
     "@storybook/addon-actions": "^6.1.18",
     "@storybook/addon-knobs": "^6.1.18",
-    "@storybook/addon-links": "^6.1.18",
+    "@storybook/addon-links": "^6.2.1",
     "@storybook/addon-ondevice-actions": "^5.3.23",
     "@storybook/addon-ondevice-knobs": "^5.3.25",
     "@storybook/react-native": "^5.3.23",
