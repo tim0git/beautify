@@ -74,7 +74,7 @@
     "@babel/core": "^7.12.16",
     "@babel/runtime": "^7.12.18",
     "@react-native-community/eslint-config": "^2.0.0",
-    "@storybook/addon-actions": "^6.1.18",
+    "@storybook/addon-actions": "^6.3.0",
     "@storybook/addon-knobs": "^6.1.18",
     "@storybook/addon-links": "^6.1.18",
     "@storybook/addon-ondevice-actions": "^5.3.23",
